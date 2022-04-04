@@ -10,7 +10,7 @@
         android:id="@+id/register_head"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="87dp">
+        android:layout_marginTop="50dp">
 
         <TextView
             android:id="@+id/title_register"
@@ -35,16 +35,18 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/register_head"
         android:layout_centerVertical="true"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="21dp"
+
+        >
 
         <RelativeLayout
+            android:id="@+id/form_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:paddingBottom="180dp">
+            android:paddingBottom="10dp">
 
             <RelativeLayout
                 android:id="@+id/name_register"
@@ -66,6 +68,8 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_custom_right"
                         android:hint="Họ"
+                        android:inputType="text"
+                        android:singleLine="true"
                         android:padding="10dp" />
 
                     <EditText
@@ -75,6 +79,8 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_custom_left"
                         android:hint="Tên"
+                        android:inputType="text"
+                        android:singleLine="true"
                         android:padding="10dp" />
                 </LinearLayout>
             </RelativeLayout>
@@ -87,7 +93,11 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/name_register"
                 android:layout_centerHorizontal="true"
+                android:ems="10"
                 android:hint="Email/Tên đăng nhập"
+                android:imeOptions="actionGo"
+                android:inputType="text"
+                android:singleLine="true"
                 android:padding="10dp" />
 
             <RelativeLayout
@@ -108,6 +118,7 @@
                     android:hint="Mật khẩu"
                     android:inputType="textPassword"
                     android:padding="10dp"
+                    android:singleLine="true"
                     android:paddingRight="20dp"
 
                     />
@@ -149,6 +160,7 @@
                     android:hint="Xác nhận mật khẩu"
                     android:inputType="textPassword"
                     android:padding="10dp"
+                    android:singleLine="true"
                     android:paddingRight="20dp"
 
                     />
@@ -181,8 +193,9 @@
 
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="70dp"
+        android:layout_marginBottom="20dp"
         android:backgroundTint="@color/blue_btn"
+        android:gravity="center_vertical|center_horizontal"
         android:text="Đăng ký ngay"
         android:textColor="@color/white"
         app:cornerRadius="8dp" />

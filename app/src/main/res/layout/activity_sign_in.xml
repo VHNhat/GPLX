@@ -10,7 +10,7 @@
         android:id="@+id/register_head"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="87dp">
+        android:layout_marginTop="50dp">
 
         <TextView
             android:id="@+id/title_register"
@@ -38,6 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:hint="Email/Tên đăng nhập"
+            android:singleLine="true"
             android:padding="10dp" />
 
         <RelativeLayout
@@ -54,11 +55,10 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:ellipsize="start"
                 android:hint="Mật khẩu"
                 android:inputType="textPassword"
                 android:padding="10dp"
-
+                android:singleLine="true"
                 android:paddingRight="20dp"
 
                 />
@@ -89,8 +89,9 @@
             android:layout_marginBottom="40dp"
             android:backgroundTint="@color/blue_btn"
             android:text="Đăng nhập"
-            android:textSize="20dp"
             android:textColor="@color/white"
+            android:textSize="20dp"
+            android:gravity="center_vertical|center_horizontal"
             app:cornerRadius="100dp" />
 
         <TextView
@@ -101,8 +102,7 @@
             android:layout_below="@id/btn_login"
             android:layout_centerHorizontal="true"
             android:text="Quên mật khẩu"
-            android:textSize="24dp"
-            />
+            android:textSize="16dp" />
         <TextView
             android:layout_marginTop="45dp"
             android:id="@+id/or_by_method"
@@ -113,7 +113,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="10dp"
             android:text="Hoặc đăng nhập bằng"
-            android:textSize="15dp" />
+            android:textSize="13dp" />
         <RelativeLayout
             android:layout_below="@id/or_by_method"
             android:layout_width="match_parent"
@@ -153,13 +153,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Nếu chưa có tài khoản. Vui lòng"
-                        android:textSize="18dp"
+                        android:textSize="16dp"
                         android:padding="5dp"/>
                     <TextView
                         style="@style/TextViewLarge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="18dp"
+                        android:textSize="16dp"
                         android:text="Đăng Ký" />
                 </LinearLayout>
 

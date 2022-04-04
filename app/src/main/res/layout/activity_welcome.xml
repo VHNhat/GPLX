@@ -57,10 +57,14 @@
         android:layout_alignStart="@+id/btn_signup"
         android:layout_alignEnd="@+id/btn_signup"
         android:layout_alignParentTop="@+id/btn_signup"
+        android:layout_marginStart="-3dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="15dp"
         android:backgroundTint="@color/blue_btn"
+        android:gravity="center_vertical|center_horizontal"
         android:text="Bắt đầu ngay"
-        android:textColor="@color/white"
         android:textAllCaps="false"
+        android:textColor="@color/white"
         app:cornerRadius="8dp" />
 
     <Button
@@ -69,10 +73,11 @@
 
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
         android:text="Đăng ký tài khoản"
+        android:gravity="center_vertical|center_horizontal"
         android:textColor="@color/black"
-        app:cornerRadius="8dp"
-        android:layout_marginBottom="20dp"/>
+        app:cornerRadius="8dp" />
 
 
 </RelativeLayout>
