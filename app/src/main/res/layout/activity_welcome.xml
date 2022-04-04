@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".WelcomeActivity">
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerVertical="true"
+    android:layout_centerHorizontal="true"
+    >
+
+    <ImageView
+        android:id="@+id/icon_welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/icon_book"
+        />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@+id/icon_welcome"
+        >
+
+        <TextView
+            android:id="@+id/title_welcome"
+            style="@style/TextViewLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Ôn Thi GPLX" />
+
+        <TextView
+            android:id="@+id/description_welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title_welcome"
+            android:textStyle="bold"
+            android:text="An toàn-Nhanh-Tiện lợi" />
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
+
+    <Button
+
+
+        style="@style/ButtonLarge"
+        android:layout_above="@+id/btn_signup"
+        android:layout_alignStart="@+id/btn_signup"
+        android:layout_alignEnd="@+id/btn_signup"
+        android:layout_alignParentTop="@+id/btn_signup"
+        android:layout_marginStart="-3dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="15dp"
+        android:backgroundTint="@color/blue_btn"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="Bắt đầu ngay"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:cornerRadius="8dp" />
+
+    <Button
+        android:id="@+id/btn_signup"
+        style="@style/ButtonLarge"
+
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:text="Đăng ký tài khoản"
+        android:gravity="center_vertical|center_horizontal"
+        android:textColor="@color/black"
+        app:cornerRadius="8dp" />
+
+
+</RelativeLayout>
