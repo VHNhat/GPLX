@@ -38,8 +38,8 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:hint="Email/Tên đăng nhập"
-            android:singleLine="true"
-            android:padding="10dp" />
+            android:padding="10dp"
+            android:singleLine="true" />
 
         <RelativeLayout
             android:id="@+id/password_box"
