@@ -36,13 +36,57 @@ public class TestAPIActivity extends AppCompatActivity {
         et_description = findViewById(R.id.et_description_license);
         et_status = findViewById(R.id.et_status_license);
 
+        lv_licenseShow = findViewById(R.id.lv_licenses);
+
         final LicenseService licenseService = new LicenseService(TestAPIActivity.this);
 
+        GetAll(licenseService);
+
+        Add(licenseService);
+
+        Update(licenseService);
+    }
+
+    private void Update(LicenseService licenseService) {
+        btn_update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Toast.makeText(TestAPIActivity.this, "You clicked 'Update' button",Toast.LENGTH_LONG).show();
+                if(et_id.getText().toString().isEmpty()) Toast.makeText(TestAPIActivity.this, "Please enter id", Toast.LENGTH_LONG).show();
+                else if(et_name.getText().toString().isEmpty()) Toast.makeText(TestAPIActivity.this, "Please enter name", Toast.LENGTH_LONG).show();
+                else if(et_status.getText().toString().isEmpty()) Toast.makeText(TestAPIActivity.this, "Please enter status", Toast.LENGTH_LONG).show();
+                else if(et_description.getText().toString().isEmpty()) Toast.makeText(TestAPIActivity.this, "Please enter description", Toast.LENGTH_LONG).show();
+                else{
+                    Toast.makeText(TestAPIActivity.this, "Hooray", Toast.LENGTH_LONG).show();
+                    licenseService.Update(et_id.getText().toString(),et_name.getText().toString(),et_status.getText().toString(),et_description.getText().toString());
+                }
+            }
+        });
+    }
+
+    private void Add(LicenseService licenseService) {
+        btn_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Toast.makeText(TestAPIActivity.this, "You clicked 'Add' button", Toast.LENGTH_LONG).show();
+                if(!et_id.getText().toString().isEmpty()) Toast.makeText(TestAPIActivity.this, "Please dont enter id input", Toast.LENGTH_LONG).show();
+                else if(et_name.getText().toString().isEmpty()) Toast.makeText(TestAPIActivity.this, "Please enter name", Toast.LENGTH_LONG).show();
+                else if(et_status.getText().toString().isEmpty()) Toast.makeText(TestAPIActivity.this, "Please enter status", Toast.LENGTH_LONG).show();
+                else if(et_description.getText().toString().isEmpty()) Toast.makeText(TestAPIActivity.this, "Please enter description", Toast.LENGTH_LONG).show();
+                else{
+                    Toast.makeText(TestAPIActivity.this, "Hooray", Toast.LENGTH_LONG).show();
+                    licenseService.Add(et_name.getText().toString(),et_status.getText().toString(),et_description.getText().toString());
+                }
+            }
+        });
+    }
+
+    private void GetAll(LicenseService licenseService) {
         btn_getAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(TestAPIActivity.this, "You Clicked Get All", Toast.LENGTH_SHORT).show();
-                licenseService.GetAll(new LicenseService.GetALLLicense() {
+                Toast.makeText(TestAPIActivity.this, "You clicked 'Get All' button", Toast.LENGTH_SHORT).show();
+                licenseService.GetAll(new LicenseService.GetALLLicenseCallBack() {
                     @Override
                     public void onError(String message) {
                         Toast.makeText(TestAPIActivity.this, "Something wrong", Toast.LENGTH_SHORT).show();
@@ -50,7 +94,7 @@ public class TestAPIActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(List<License> licenses) {
-                        Toast.makeText(TestAPIActivity.this, licenses.toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(TestAPIActivity.this, "You made it!!!", Toast.LENGTH_SHORT).show();
                         ArrayAdapter arrayAdapter = new ArrayAdapter(TestAPIActivity.this, android.R.layout.simple_list_item_1, licenses);
                         lv_licenseShow.setAdapter(arrayAdapter);
                     }

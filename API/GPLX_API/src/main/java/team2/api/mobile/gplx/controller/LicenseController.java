@@ -37,7 +37,7 @@ public class LicenseController {
 //		return new ResponseEntity<>(newLicense, HttpStatus.OK);
 //	}
 	@PostMapping("api/license/add")
-	public ResponseEntity<Object> Post(@RequestBody License license) {
+	public ResponseEntity<Object> Post(License license) {
 		License newLicense = service.save(license);
 		if (newLicense == null)
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -45,7 +45,7 @@ public class LicenseController {
 	}
 
 	@PutMapping("api/license/edit/{id}")
-	public ResponseEntity<Object> Put(@PathVariable("id") String id, @RequestBody License license) {
+	public ResponseEntity<Object> Put(@PathVariable("id") String id, License license) {
 		License updatedLicense = service.update(license, id);
 		if (updatedLicense == null)
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
