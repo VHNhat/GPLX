@@ -37,5 +37,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(v);
 
     }
+    public  void TestAPI ( View view)
+    {
+        Intent v = new Intent(this,TestAPIActivity.class);
+        startActivity(v);
+
+    }
 
 }
