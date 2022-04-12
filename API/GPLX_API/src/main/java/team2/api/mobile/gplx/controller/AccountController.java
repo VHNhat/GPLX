@@ -10,42 +10,40 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import team2.api.mobile.gplx.dto.AddLicenseDto;
-import team2.api.mobile.gplx.models.License;
-import team2.api.mobile.gplx.service.LicenseService;
+import team2.api.mobile.gplx.models.Account;
+import team2.api.mobile.gplx.service.AccountService;
 
 @RestController
-public class LicenseController {
-
+public class AccountController {
+	
 	@Autowired
-	private LicenseService service;
-
-	@GetMapping("api/license")
+	private AccountService service;
+	
+	@GetMapping("api/account")
 	public ResponseEntity<Object> GetAll() {
-		List<License> licenses = service.findAll();
-		return new ResponseEntity<>(licenses, HttpStatus.OK);
+		List<Account> accounts = service.findAll();
+		return new ResponseEntity<>(accounts, HttpStatus.OK);
 	}
 
-	@PostMapping("api/license/add")
-	public ResponseEntity<Object> Post(License license) {
-		License newLicense = service.save(license);
-		if (newLicense == null)
+	@PostMapping("api/account/add")
+	public ResponseEntity<Object> Post(Account account) {
+		Account newAccount = service.save(account);
+		if (newAccount == null)
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		return new ResponseEntity<>(newLicense, HttpStatus.OK);
+		return new ResponseEntity<>(newAccount, HttpStatus.OK);
 	}
 
-	@PutMapping("api/license/edit/{id}")
-	public ResponseEntity<Object> Put(@PathVariable("id") String id, License license) {
-		License updatedLicense = service.update(license, id);
-		if (updatedLicense == null)
+	@PutMapping("api/account/edit/{id}")
+	public ResponseEntity<Object> Put(@PathVariable("id") String id, Account account) {
+		Account updatedAccount = service.update(account, id);
+		if (updatedAccount == null)
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		return new ResponseEntity<>(updatedLicense, HttpStatus.OK);
+		return new ResponseEntity<>(updatedAccount, HttpStatus.OK);
 	}
 
-	@DeleteMapping("api/license/delete/{id}")
+	@DeleteMapping("api/account/delete/{id}")
 	public ResponseEntity<Object> Delete(@PathVariable("id") String id){
 		try {
 		service.deleteById(id);
@@ -54,4 +52,5 @@ public class LicenseController {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	}
+
 }

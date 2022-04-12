@@ -37,6 +37,59 @@ public class LicenseService {
     public LicenseService(Context context) {
         this.context = context;
     }
+
+    public void Delete(String id) {
+        String requestMapping = "/license/delete/" + id;
+        String url = BASE_IP + requestMapping;
+
+        // creating a new variable for our request queue
+        RequestQueue queue = Volley.newRequestQueue(context);
+
+        // making a string request to update our data and
+        // passing method as PUT. to update our data.
+        StringRequest request = new StringRequest(Request.Method.DELETE, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                // on below line we are displaying a toast message as data updated.
+                Toast.makeText(context, "Data Deleted..", Toast.LENGTH_SHORT).show();
+                try {
+                    // on below line we are extracting data from our json object
+                    // and passing our response to our json object.
+                    JSONObject jsonObject = new JSONObject(response);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // displaying toast message on response failure.
+                Toast.makeText(context, "Fail to delete data..", Toast.LENGTH_SHORT).show();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+
+                // below line we are creating a map for storing
+                // our values in key and value pair.
+                Map<String, String> params = new HashMap<String, String>();
+
+                // on below line we are passing our key
+                // and value pair to our parameters.
+                params.put("id",id);
+
+                // at last we are
+                // returning our params.
+                return params;
+            }
+        };
+        // below line is to make
+        // a json object request.
+        queue.add(request);
+    }
+
     public interface GetALLLicenseCallBack {
         void onError(String message);
 

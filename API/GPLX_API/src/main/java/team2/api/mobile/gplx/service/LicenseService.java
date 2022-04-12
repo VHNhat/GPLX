@@ -5,6 +5,5 @@ import team2.api.mobile.gplx.models.License;
 
 public interface LicenseService extends GenericService<License, String> {
 
-//	License save(AddLicenseDto dto);
 	License update(License license, String id);
 }
