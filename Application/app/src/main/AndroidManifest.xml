@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="team2.mobileapp.gplx">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,6 +12,33 @@
         android:supportsRtl="true"
         android:theme="@style/Themes"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".SignalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ReviewWrongTestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".A1Activity"
+            android:exported="false" />
+        <activity
+            android:name=".TutorialActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginSuccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginFacebookActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ResetPasswordActivity"
+            android:exported="false" />
         <activity
             android:name=".TestAPIActivity"
             android:exported="false" />

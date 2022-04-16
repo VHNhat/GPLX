@@ -39,6 +39,31 @@
         <item name="android:layout_marginBottom">15dp</item>
         <item name="android:background">@drawable/button_radius_10</item>
     </style>
+    <style name="Button_forgot_pass" parent="android:Widget.TextView">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#2673D1</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:paddingLeft">23dp</item>
+        <item name="android:paddingRight">23dp</item>
+        <item name="android:paddingTop">13dp</item>
+        <item name="android:paddingBottom">13dp</item>
+        <item name="android:background">@drawable/button_radius_10</item>
+    </style>
+    <style name="face_login" parent="android:Widget.TextView">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#2673D1</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_width">244dp</item>
+        <item name="android:paddingTop">15dp</item>
+        <item name="android:paddingRight">64dp</item>
+        <item name="android:paddingBottom">15dp</item>
+        <item name="android:background">@drawable/button_radius_10</item>
+    </style>
     <style name="ButtonRouder" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerFamilyTopRight">cut</item>

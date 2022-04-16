@@ -4,58 +4,177 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-<LinearLayout
-    android:id="@+id/ly1"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    tools:context=".MainActivity"
     android:orientation="vertical">
-    <Button
+    <LinearLayout
+        android:id="@+id/ly1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
 
-        android:id="@+id/lazy"
+            android:id="@+id/lazy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="Lazy"
+            android:text="Lazy" />
+
+        <Button
+            android:id="@+id/register"
+            android:layout_width="108dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="Register"
+            android:text="Register" />
+
+        <Button
+            android:id="@+id/signin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="SignIn"
+            android:text="SignIn" />
+
+        <Button
+            android:id="@+id/welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="Welcome"
+            android:text="Welcome" />
+
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:onClick="Lazy"
-        android:text="Lazy" />
+        android:orientation="vertical"
+        >
+        <Button
+            android:id="@+id/btn_test_api"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="TestAPI"
 
-    <Button
-        android:id="@+id/register"
-        android:layout_width="108dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:onClick="Register"
-        android:text="Register" />
+            android:text="Test API" />
+        <Button
+            android:id="@+id/btn_forgotpass"
+            style="@style/Button_forgot_pass"
+            android:onClick="ForgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/sub_title"
+            android:text="@string/forgot_pass_tite"
+            android:textColor="#FFFF00"
+            android:textSize="20sp"></Button>
+        <Button
+            android:id="@+id/btn_success_login"
+            style="@style/Button_forgot_pass"
+            android:onClick="LoginSuccess"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_sucess"
+            android:backgroundTint="@color/sub_title"
+            android:textColor="#FFFF00"
+            android:textSize="20sp"
+            android:layout_below="@+id/btn_forgotpass">
+        </Button>
 
-    <Button
-        android:id="@+id/signin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:onClick="SignIn"
-        android:text="SignIn" />
+        <Button
+            android:id="@+id/btn_reset_pass"
+            style="@style/Button_forgot_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_success_login"
+            android:backgroundTint="@color/sub_title"
+            android:onClick="ResetPassword"
+            android:text="@string/set_new_pass"
+            android:textColor="#FFFF00"
+            android:textSize="20sp"></Button>
+        <Button
+            android:id="@+id/btn_tutorial"
+            style="@style/Button_forgot_pass"
+            android:onClick="Tutorial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Tutor_title"
+            android:backgroundTint="@color/sub_title"
+            android:textColor="#FFFF00"
+            android:textSize="20sp"
+            android:layout_below="@+id/btn_reset_pass">
+        </Button>
 
-    <Button
-        android:id="@+id/welcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:onClick="Welcome"
+        <Button
+            android:id="@+id/btn_signin_face"
+            style="@style/Button_forgot_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_tutorial"
+            android:backgroundTint="@color/sub_title"
+            android:onClick="SigninFacebook"
+            android:text="Sign_face"
+            android:textColor="#FFFF00"
+            android:textSize="20sp">
+        </Button>
+<!--        <Button-->
+<!--            android:id="@+id/signin_email"-->
+<!--            style="@style/Button_forgot_pass"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/signin_face"-->
+<!--            android:backgroundTint="@color/sub_title"-->
+<!--            android:onClick="sign_email"-->
+<!--            android:text="Sign_email"-->
+<!--            android:textColor="#FFFF00"-->
+<!--            android:textSize="20sp">-->
+<!--        </Button>-->
+        <Button
+            android:id="@+id/btn_home_activity"
+            style="@style/Button_forgot_pass"
+            android:onClick="Home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Home"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/blue_btn"
+            android:textSize="15sp">
 
-        android:text="Welcome" />
+        </Button>
+        <Button
+            android:id="@+id/btn_a1_activity"
+            style="@style/Button_forgot_pass"
+            android:onClick="A1Activity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="A1_Activity"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/blue_btn"
+            android:textSize="15sp">
 
-    <Button
-        android:id="@+id/btn_test_api"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:onClick="TestAPI"
+        </Button>
+        <Button
+            android:id="@+id/btn_signal_activity"
+            style="@style/Button_forgot_pass"
+            android:onClick="Signal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Signal"
+            android:backgroundTint="@color/blue_btn"
+            android:textColor="@color/white"
+            android:textSize="15sp">
 
-        android:text="Test API" />
+        </Button>
+        <Button
+            android:id="@+id/btn_review_wrong_answer"
+            style="@style/Button_forgot_pass"
+            android:onClick="ReviewWrongTest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Review"
+            android:backgroundTint="@color/blue_btn"
+            android:textColor="@color/white"
+            android:textSize="15sp">
 
-
-</LinearLayout>
-
-
-
+        </Button>
+    </LinearLayout>
 </LinearLayout>

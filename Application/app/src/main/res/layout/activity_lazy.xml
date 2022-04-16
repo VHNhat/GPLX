@@ -7,7 +7,7 @@
     tools:context=".LazyActivity">
 
     <ImageView
-        android:id="@+id/moto_img"
+        android:id="@+id/img_moto"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:adjustViewBounds="true"
@@ -16,9 +16,9 @@
 
     </ImageView>
     <TextView
-        android:id="@+id/title_lazy"
+        android:id="@+id/tv_title_lazy"
         android:text="Ôn Thi GPLX"
-        android:layout_below="@+id/moto_img"
+        android:layout_below="@+id/img_moto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -31,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/progressBar"
-        android:layout_below="@+id/title_lazy"
+        android:layout_below="@+id/tv_title_lazy"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true" />
 </RelativeLayout>

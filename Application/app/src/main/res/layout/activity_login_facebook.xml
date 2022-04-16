@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginFacebookActivity">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/sign_in_face"
+        android:layout_marginTop="71dp"
+        android:textSize="24sp"
+        android:textColor="@color/title">
+
+    </TextView>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="607dp"
+        android:layout_below="@id/tv_title"
+        android:layout_marginTop="23dp"
+        app:srcCompat="@drawable/facebook_login" >
+    </ImageView>
+
+    <Button
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="560dp"
+        android:backgroundTint="@color/blue_btn"
+        android:paddingLeft="67dp"
+        android:gravity="center"
+        android:text="@string/continue_button"
+        style="@style/face_login"
+        android:textSize="24sp"
+        android:textColor="@color/white">
+
+    </Button>
+
+</RelativeLayout>
+
+

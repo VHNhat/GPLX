@@ -9,4 +9,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#dadada</color>
     <color name="blue_btn">#2673D1</color>
+    <color name="title">#2673D1</color>
+    <color name="sub_title">#0F2D52</color>
+    <color name="red">#EB4C42</color>
+    <color name="light_white">#F4F7FA</color>
+    <color name="light_gray">#D3D3D3</color>
 </resources>

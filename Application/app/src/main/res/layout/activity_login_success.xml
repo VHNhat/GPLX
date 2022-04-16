@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginSuccessActivity">
+
+    <ImageView
+        android:id="@+id/img_View"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/successimage" />
+    <RelativeLayout
+        android:layout_below="@id/img_View"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="68dp">
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_sucess"
+            android:textSize="30sp"
+            android:textColor="@color/title">
+
+        </TextView>
+        <TextView
+            android:id="@+id/tv_sub_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="35dp"
+            android:text="@string/greating"
+            android:textAlignment="center"
+            android:textColor="@color/sub_title"
+            android:textSize="18sp"
+            android:textStyle="bold">
+
+        </TextView>
+    </RelativeLayout>
+    <Button
+        android:id="@+id/btn_login"
+        style="@style/Button_forgot_pass"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="57dp"
+        android:backgroundTint="@color/blue_btn"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/continue_button"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        >
+    </Button>
+
+
+</RelativeLayout>
