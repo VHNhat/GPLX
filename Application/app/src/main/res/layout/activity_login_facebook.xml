@@ -34,6 +34,7 @@
         android:backgroundTint="@color/blue_btn"
         android:paddingLeft="67dp"
         android:gravity="center"
+        android:clickable="true"
         android:text="@string/continue_button"
         style="@style/face_login"
         android:textSize="24sp"

@@ -62,7 +62,8 @@
                         android:gravity="center"
                         android:paddingHorizontal="1dp"
                         android:text=" "
-                        android:textSize="11sp" />
+                        android:textSize="11sp"
+                        tools:ignore="SpeakableTextPresentCheck" />
                 </RelativeLayout>
 
             </RelativeLayout>
@@ -102,7 +103,7 @@
         android:layout_below="@+id/tv_title"
         android:orientation="vertical"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="15dp"
         >
         <LinearLayout
             android:id="@+id/A1_A2"
@@ -189,7 +190,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="28sp">
+            android:layout_marginTop="15dp">
             <LinearLayout
                 android:id="@+id/B1"
                 android:layout_width="wrap_content"
@@ -262,8 +263,6 @@
 
 
         </LinearLayout>
-
-
 
 
     </LinearLayout>

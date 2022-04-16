@@ -64,7 +64,8 @@
                         android:gravity="center"
                         android:paddingHorizontal="1dp"
                         android:text=" "
-                        android:textSize="11sp" />
+                        android:textSize="11sp"
+                        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
                 </RelativeLayout>
 
             </RelativeLayout>
@@ -72,16 +73,17 @@
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
+
     <ImageButton
         android:id="@+id/ib_back"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:src="@drawable/back"
-        android:clickable="true"
-        android:background="@color/white"
         android:layout_below="@id/appbar"
         android:layout_marginTop="10dp"
-        />
+        android:background="@color/white"
+        android:clickable="true"
+        android:src="@drawable/back"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
     <ImageView
         android:id="@+id/img_View"
         android:layout_width="wrap_content"
@@ -100,38 +102,46 @@
             android:id="@+id/random_history"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+
             <ImageButton
                 android:id="@+id/ib_random_test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:clickable="true"
-                android:src="@drawable/randomtest" />
+                android:src="@drawable/randomtest"
+                tools:ignore="SpeakableTextPresentCheck" />
+
             <ImageButton
                 android:id="@+id/ib_history"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/history"
+                android:layout_marginLeft="44dp"
                 android:clickable="true"
-                android:layout_marginLeft="44dp"/>
+                android:src="@drawable/history"
+                tools:ignore="SpeakableTextPresentCheck" />
         </LinearLayout>
         <LinearLayout
             android:id="@+id/signal_review"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp">
+
             <ImageButton
                 android:id="@+id/ib_signal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:clickable="true"
-                android:src="@drawable/signal"/>
+                android:src="@drawable/signal"
+                tools:ignore="SpeakableTextPresentCheck" />
+
             <ImageButton
                 android:id="@+id/ib_review"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
                 android:clickable="true"
                 android:src="@drawable/review"
-                android:layout_marginLeft="40dp"/>
+                tools:ignore="SpeakableTextPresentCheck" />
         </LinearLayout>
 
 

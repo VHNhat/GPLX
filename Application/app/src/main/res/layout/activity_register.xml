@@ -160,8 +160,8 @@
                     android:hint="Xác nhận mật khẩu"
                     android:inputType="textPassword"
                     android:padding="10dp"
-                    android:singleLine="true"
                     android:paddingRight="20dp"
+                    android:singleLine="true"
 
                     />
 
