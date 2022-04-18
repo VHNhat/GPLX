@@ -122,7 +122,7 @@ public class LicenseService {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                getALLLicenseCallBack.onError(error.toString());
+                getALLLicenseCallBack.onError(error.getMessage());
             }
         });
 

@@ -45,7 +45,7 @@
         </TextView>
     </RelativeLayout>
     <Button
-        android:id="@+id/btn_login"
+        android:id="@+id/btn_send_email"
         style="@style/Button_forgot_pass"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"

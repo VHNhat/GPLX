@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".TutorialActivity">
     <ImageButton
-        android:id="@+id/btn_back"
+        android:id="@+id/btn_close"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"

@@ -8,6 +8,7 @@ import team2.api.mobile.gplx.dto.AddLicenseDto;
 import team2.api.mobile.gplx.models.License;
 import team2.api.mobile.gplx.models.Status;
 import team2.api.mobile.gplx.repository.LicenseRepository;
+import team2.api.mobile.gplx.service.interfaces.LicenseService;
 
 @Service
 public class LicenseServiceImpl extends GenericServiceImpl<License, String> implements LicenseService {

@@ -13,39 +13,37 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import team2.api.mobile.gplx.dto.AddLicenseDto;
-import team2.api.mobile.gplx.models.License;
-import team2.api.mobile.gplx.service.interfaces.LicenseService;
+import team2.api.mobile.gplx.models.Role;
+import team2.api.mobile.gplx.service.interfaces.RoleService;
 
 @RestController
-public class LicenseController {
-
+public class RoleController {
 	@Autowired
-	private LicenseService service;
-
-	@GetMapping("api/license")
+	private RoleService service;
+	
+	@GetMapping("api/role")
 	public ResponseEntity<Object> GetAll() {
-		List<License> licenses = service.findAll();
-		return new ResponseEntity<>(licenses, HttpStatus.OK);
+		List<Role> roles = service.findAll();
+		return new ResponseEntity<>(roles, HttpStatus.OK);
 	}
 
-	@PostMapping("api/license/add")
-	public ResponseEntity<Object> Post(License license) {
-		License newLicense = service.save(license);
-		if (newLicense == null)
+	@PostMapping("api/role/add")
+	public ResponseEntity<Object> Post(@RequestBody Role role) {
+		Role newRole = service.save(role);
+		if (newRole == null)
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		return new ResponseEntity<>(newLicense, HttpStatus.OK);
+		return new ResponseEntity<>(newRole, HttpStatus.OK);
 	}
 
-	@PutMapping("api/license/edit/{id}")
-	public ResponseEntity<Object> Put(@PathVariable("id") String id, License license) {
-		License updatedLicense = service.update(license, id);
-		if (updatedLicense == null)
+	@PutMapping("api/role/edit/{id}")
+	public ResponseEntity<Object> Put(@PathVariable("id") String id,@RequestBody Role role) {
+		Role udpatedRole = service.update(role, id);
+		if (udpatedRole == null)
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		return new ResponseEntity<>(updatedLicense, HttpStatus.OK);
+		return new ResponseEntity<>(udpatedRole, HttpStatus.OK);
 	}
 
-	@DeleteMapping("api/license/delete/{id}")
+	@DeleteMapping("api/role/delete/{id}")
 	public ResponseEntity<Object> Delete(@PathVariable("id") String id){
 		try {
 		service.deleteById(id);

@@ -32,12 +32,12 @@
         android:layout_marginTop="40dp">
 
         <EditText
-            android:id="@+id/et_user_name"
+            android:id="@+id/et_email"
             style="@style/EditTextRouder"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:hint="Email/Tên đăng nhập"
+            android:hint="Tên đăng nhập"
             android:padding="10dp"
             android:singleLine="true" />
 
@@ -45,7 +45,7 @@
             android:id="@+id/password_box"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/et_user_name"
+            android:layout_below="@+id/et_email"
             android:layout_centerInParent="true"
             android:layout_marginBottom="10dp">
 
@@ -82,7 +82,7 @@
         </RelativeLayout>
 
         <Button
-            android:id="@+id/btn_login"
+            android:id="@+id/btn_send_email"
             style="@style/ButtonSmall"
             android:layout_below="@+id/password_box"
             android:layout_centerHorizontal="true"
@@ -99,8 +99,9 @@
             style="@style/TextViewLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/btn_login"
+            android:layout_below="@id/btn_send_email"
             android:layout_centerHorizontal="true"
+            android:clickable="true"
             android:text="Quên mật khẩu"
             android:textSize="16dp" />
         <TextView
@@ -156,10 +157,12 @@
                         android:textSize="16dp"
                         android:padding="5dp"/>
                     <TextView
+                        android:id="@+id/tv_signup"
                         style="@style/TextViewLarge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="16dp"
+                        android:clickable="true"
                         android:text="Đăng Ký" />
                 </LinearLayout>
 

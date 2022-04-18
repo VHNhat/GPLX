@@ -2,21 +2,30 @@ package team2.api.mobile.gplx.models;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 import team2.api.mobile.gplx.commondata.model.AbstractEntity;
 
 @Data
 @Document
 public class Account extends AbstractEntity {
-
+	@JsonProperty("Username")
 	private String username;
+	@JsonProperty("Password")
 	private String password;
+	@JsonProperty("Email")
 	private String email;
-	private String name;
+	@JsonProperty("FirstName")
+	private String firstName;
+	@JsonProperty("LastName")
+	private String lastName;
+	@JsonProperty("Avatar")
 	private String avatar;
+	@JsonProperty("Status")
 	private AccountStatus status;
+	
+	private String roleId;
 	
 	public String getUsername() {
 		return username;
@@ -36,12 +45,7 @@ public class Account extends AbstractEntity {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
+	
 	public String getAvatar() {
 		return avatar;
 	}
