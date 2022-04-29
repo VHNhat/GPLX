@@ -47,4 +47,14 @@
     <string name="B2_des">Ô tô 9 chỗ</string>
     <string name="signal">Biển báo giao thông</string>
     <string name="review">Xem lại câu bị sai</string>
+    <string name="text_boarding">SHARE - INSPIRE - CONNECT</string>
+    <string name="text_get_started">GET STARTED</string>
+    <string name="text_forgot_pass">FORGOT PASSWORD</string>
+    <string name="text_login">LOG IN</string>
+    <string name="text_signup">SIGN UP</string>
+    <string name="text_notice_verify">A message with verification code was sent to your mobile phone</string>
+    <string name="text_send">SEND</string>
+    <string name="text_set_new_password">SET NEW PASSWORD</string>
+    <string name="text_verify">VERIFY</string>
+    <string name="text_verification">VERIFICATION</string>
 </resources>

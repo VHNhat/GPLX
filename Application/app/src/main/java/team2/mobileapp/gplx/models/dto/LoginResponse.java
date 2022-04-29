@@ -1,7 +1,5 @@
 package team2.mobileapp.gplx.models.dto;
 
-import androidx.annotation.NonNull;
-
 public class LoginResponse {
     private String id;
 

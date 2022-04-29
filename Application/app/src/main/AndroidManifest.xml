@@ -13,6 +13,39 @@
         android:theme="@style/Themes"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".TestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VerifyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SignupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SetNewPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SelectCategoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NavigationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BoardingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SplashActivity"
+            android:exported="false" />
+        <activity
             android:name=".SignalActivity"
             android:exported="false" />
         <activity

@@ -103,4 +103,54 @@ public class MainActivity extends AppCompatActivity {
         Intent signal=new Intent(this,SignalActivity.class);
         startActivity(signal);
     }
+    public  void Splash ( View view)
+    {
+        Intent v = new Intent(this,SplashActivity.class);
+        startActivity(v);
+    }
+    public  void Boarding ( View view)
+    {
+        Intent v = new Intent(this,BoardingActivity.class);
+        startActivity(v);
+    }
+    public  void Login ( View view)
+    {
+        Intent v = new Intent(this,LoginActivity.class);
+        startActivity(v);
+    }
+    public  void Signup ( View view)
+    {
+        Intent v = new Intent(this,SignupActivity.class);
+        startActivity(v);
+    }
+    public  void Verify ( View view)
+    {
+        Intent v = new Intent(this,VerifyActivity.class);
+        startActivity(v);
+    }
+    public  void SetNewPassword ( View view)
+    {
+        Intent v = new Intent(this,SetNewPasswordActivity.class);
+        startActivity(v);
+    }
+    public  void History ( View view)
+    {
+        Intent v = new Intent(this,HistoryActivity.class);
+        startActivity(v);
+    }
+    public  void SelectCategory ( View view)
+    {
+        Intent v = new Intent(this,SelectCategoryActivity.class);
+        startActivity(v);
+    }
+    public  void Test ( View view)
+    {
+        Intent v = new Intent(this,TestActivity.class);
+        startActivity(v);
+    }
+    public  void Profile ( View view)
+    {
+        Intent v = new Intent(this,EditProfileActivity.class);
+        startActivity(v);
+    }
 }
