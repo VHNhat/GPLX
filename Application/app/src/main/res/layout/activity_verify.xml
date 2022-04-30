@@ -47,7 +47,7 @@
 
         <TextView
             android:layout_marginTop="10dp"
-            android:id="@+id/text_notice_verify"
+            android:id="@+id/tv_notice_verify"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/title_verification"
@@ -62,10 +62,10 @@
 
         </TextView>
         <EditText
-            android:id="@+id/edit_password_confirm_signup"
+            android:id="@+id/et_verify_code"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_below="@id/text_notice_verify"
+            android:layout_below="@id/tv_notice_verify"
             android:layout_marginTop="30dp"
             android:background="@drawable/br_input"
             android:hint="Type verification code"
@@ -78,7 +78,7 @@
             style="@style/ButtonRouder"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_below="@+id/edit_password_confirm_signup"
+            android:layout_below="@+id/et_verify_code"
             android:layout_marginTop="30dp"
             android:background="@drawable/br_button2"
             android:text="@string/text_verify"

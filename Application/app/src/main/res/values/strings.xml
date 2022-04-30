@@ -57,4 +57,5 @@
     <string name="text_set_new_password">SET NEW PASSWORD</string>
     <string name="text_verify">VERIFY</string>
     <string name="text_verification">VERIFICATION</string>
+    <string name="text_accept">ACCEPT</string>
 </resources>

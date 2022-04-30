@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true">
         <TextView
-            android:id="@+id/text_app"
+            android:id="@+id/tv_app"
             style="@style/TextAppName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,10 +32,10 @@
         </TextView>
 
         <ImageView
-            android:id="@+id/image_first"
+            android:id="@+id/iv_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/text_app"
+            android:layout_below="@+id/tv_app"
             android:layout_centerHorizontal="true"
             android:scaleType="fitCenter"
             android:src="@drawable/image_splash">
@@ -43,10 +43,10 @@
         </ImageView>
 
         <TextView
-            android:id="@+id/text_boarding"
+            android:id="@+id/tv_boarding"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/image_first"
+            android:layout_below="@+id/iv_logo"
             android:layout_centerHorizontal="true"
             android:text="@string/text_boarding"
             android:textColor="@color/white"
@@ -57,7 +57,7 @@
             style="@style/ButtonRouder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/text_boarding"
+            android:layout_below="@+id/tv_boarding"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:background="@drawable/button_br"

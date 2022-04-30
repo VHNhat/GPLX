@@ -21,7 +21,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/title_activity"
+                    android:id="@+id/tv_title_activity"
                     style="@style/TitleActivityName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
             </RelativeLayout>
 
             <TextView
-                android:id="@+id/count"
+                android:id="@+id/tv_count"
                 style="@style/TitleActivityName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
     </RelativeLayout>
 
     <ListView
-        android:id="@+id/lvItems"
+        android:id="@+id/lv_items"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/header_activity"
