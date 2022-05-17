@@ -5,7 +5,6 @@ import java.util.Optional;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
-import team2.api.mobile.gplx.dto.SignupDto;
 import team2.api.mobile.gplx.models.Account;
 
 @Repository

@@ -1,23 +1,30 @@
 package team2.api.mobile.gplx.models;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import team2.api.mobile.gplx.commondata.model.AbstractEntity;
 
-@Data
+
 @Document
-public class Answer {
+@Getter
+@Setter
+public class Answer extends AbstractEntity {
 	
-	@Id
-	private String id;
 	private boolean result;
 	private int index;
-	public Answer(boolean result, int index) {
+	private String questionId;
+	public Answer(boolean result, int index, String questionId) {
 		super();
 		this.result = result;
 		this.index = index;
+		this.questionId = questionId;
 	}
+	public Answer() {
+		
+	}
+	
 
 	
 }

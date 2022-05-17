@@ -1,24 +1,37 @@
 package team2.api.mobile.gplx.models;
 
-import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-@Data
+import lombok.Getter;
+import lombok.Setter;
+import team2.api.mobile.gplx.commondata.model.AbstractEntity;
+
 @Document
-public class LicenseType {
+@Getter
+@Setter
+public class LicenseType extends AbstractEntity {
 	
-	@Id
-	private String id;
+	@Indexed(unique = true)
+	@JsonProperty("Name")
 	private String name;
+	
+	@JsonProperty("Status")
 	private Status status;
+	
+	@JsonProperty("Description")
 	private String description;
+	
 	public LicenseType(String name, Status status, String description) {
 		super();
 		this.name = name;
 		this.status = status;
 		this.description = description;
+	}
+	public LicenseType() {
+
 	}
 	
 	

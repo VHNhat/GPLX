@@ -1,16 +1,34 @@
 package team2.api.mobile.gplx.models;
 
-import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-@Data
+import lombok.Getter;
+import lombok.Setter;
+import team2.api.mobile.gplx.commondata.model.AbstractEntity;
+
 @Document
-public class TrafficSignType {
+@Getter
+@Setter
+public class TrafficSignType extends AbstractEntity {
 	
-	@Id
-	private String id;
+	@Indexed(unique = true)
+	@JsonProperty("Code")
+	private String code;
+	
+	@JsonProperty("Name")
 	private String name;
+
+	public TrafficSignType(String code, String name) {
+		super();
+		this.code = code;
+		this.name = name;
+	}
+
+	public TrafficSignType() {
+		
+	}
 
 }
