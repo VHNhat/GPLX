@@ -3,11 +3,12 @@ package team2.api.mobile.gplx.repository;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
-import team2.api.mobile.gplx.models.License;
+import team2.api.mobile.gplx.models.QuestionSet;
 
 @Repository
-public interface LicenseRepository extends MongoRepository<License, String> {
+public interface QuestionSetRepository extends MongoRepository<QuestionSet, String> {
 
-	License findByName(String string);
+	QuestionSet findByName(String name);
+
 
 }

@@ -42,6 +42,35 @@ public class TrafficSign extends AbstractEntity {
 	public TrafficSign() {
 		
 	}
-
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public String getPhoto() {
+		return photo;
+	}
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+	public String getTrafficSignType() {
+		return trafficSignType;
+	}
+	public void setTrafficSignType(String trafficSignType) {
+		this.trafficSignType = trafficSignType;
+	}
 	
 }

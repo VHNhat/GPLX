@@ -55,6 +55,12 @@ public class License extends AbstractEntity {
 	public License() {
 		
 	}
+	public String getLicenseTypeId() {
+		return LicenseTypeId;
+	}
+	public void setLicenseTypeId(String licenseTypeId) {
+		LicenseTypeId = licenseTypeId;
+	}
 	
 	
 }

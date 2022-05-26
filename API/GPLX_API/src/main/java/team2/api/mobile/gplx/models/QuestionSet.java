@@ -1,5 +1,6 @@
 package team2.api.mobile.gplx.models;
 
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -14,10 +15,11 @@ import team2.api.mobile.gplx.commondata.model.AbstractEntity;
 public class QuestionSet extends AbstractEntity {
 	
 	@JsonProperty("Name")
+	@Indexed(unique = true)
 	private String name;
 	
 	@JsonProperty("Status")
-	private Status status;
+	private boolean status;
 	
 	@JsonProperty("Quantity")
 	private int quantity;
@@ -28,7 +30,7 @@ public class QuestionSet extends AbstractEntity {
 	@JsonProperty("RightAns")
 	private int rightAns;
 	
-	public QuestionSet(String name, Status status, int quantity, int wrongAns, int rightAns) {
+	public QuestionSet(String name, boolean status, int quantity, int wrongAns, int rightAns) {
 		super();
 		this.name = name;
 		this.status = status;
@@ -39,5 +41,34 @@ public class QuestionSet extends AbstractEntity {
 	public QuestionSet() {
 		
 	}
-	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public boolean getStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	public int getWrongAns() {
+		return wrongAns;
+	}
+	public void setWrongAns(int wrongAns) {
+		this.wrongAns = wrongAns;
+	}
+	public int getRightAns() {
+		return rightAns;
+	}
+	public void setRightAns(int rightAns) {
+		this.rightAns = rightAns;
+	}
 }
