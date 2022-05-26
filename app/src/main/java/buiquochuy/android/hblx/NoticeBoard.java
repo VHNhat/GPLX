@@ -19,6 +19,7 @@ public class NoticeBoard extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.lvItems);
         NoticeBoardItem noticeBoard = new NoticeBoardItem();
         noticeBoard.setBoardName("Bien Bao");
+        noticeBoard.setBoardDescription("oker");
         for (int i = 0; i < 10; i++) {
             names.add(noticeBoard);
         }

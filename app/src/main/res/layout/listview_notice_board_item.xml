@@ -60,7 +60,8 @@
                     android:text="Biến báp giúp ta nhận biến có nguy hiểm gì đang ập đến hay là không"
                     android:textAppearance="?android:attr/textAppearanceListItemSmall"
                     android:textColor="@color/white"
-                    android:textSize="10dp" />
+                    android:textSize="10dp"
+                    />
             </RelativeLayout>
 
 
