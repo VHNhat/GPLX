@@ -1,24 +1,54 @@
 package team2.api.mobile.gplx.models;
 
-import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-@Data
+import lombok.Getter;
+import lombok.Setter;
+import team2.api.mobile.gplx.commondata.model.AbstractEntity;
+
 @Document
-public class QuestionType {
+@Getter
+@Setter
+public class QuestionType extends AbstractEntity {
 	
-	@Id
-	private String id;
+	@Indexed(unique = true)
+	@JsonProperty("Code")
+	private String code;
+	
+	@JsonProperty("Name")
 	private String name;
+	
+	@JsonProperty("Name")
 	private String description;
-	public QuestionType(String name, String description) {
+	
+	public QuestionType(String code, String name, String description) {
 		super();
+		this.code = code;
 		this.name = name;
 		this.description = description;
 	}
-	
-	
-
+	public QuestionType() {
+		
+	}
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 }

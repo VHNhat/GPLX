@@ -1,27 +1,39 @@
 package team2.api.mobile.gplx.models;
 
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import team2.api.mobile.gplx.commondata.model.AbstractEntity;
 
-@Data
 @Document
+@Getter
+@Setter
 public class Account extends AbstractEntity {
+	
+	@Indexed(unique = true)
 	@JsonProperty("Username")
 	private String username;
+	
 	@JsonProperty("Password")
 	private String password;
+	
+	@Indexed(unique = true)
 	@JsonProperty("Email")
 	private String email;
+	
 	@JsonProperty("FirstName")
 	private String firstName;
+	
 	@JsonProperty("LastName")
 	private String lastName;
+	
 	@JsonProperty("Avatar")
 	private String avatar;
+	
 	@JsonProperty("Status")
 	private AccountStatus status;
 	
@@ -58,7 +70,39 @@ public class Account extends AbstractEntity {
 	public void setStatus(AccountStatus status) {
 		this.status = status;
 	}
-	
+	public Account(String username, String password, String email, String firstName, String lastName, String avatar,
+			AccountStatus status, String roleId) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.avatar = avatar;
+		this.status = status;
+		this.roleId = roleId;
+	}
+	public Account() {
+		
+	}
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public String getRoleId() {
+		return roleId;
+	}
+	public void setRoleId(String roleId) {
+		this.roleId = roleId;
+	}
 	
 	
 }

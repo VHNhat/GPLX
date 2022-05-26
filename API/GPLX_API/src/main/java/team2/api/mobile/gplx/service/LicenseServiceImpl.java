@@ -4,9 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import team2.api.mobile.gplx.commondata.GenericServiceImpl;
-import team2.api.mobile.gplx.dto.AddLicenseDto;
 import team2.api.mobile.gplx.models.License;
-import team2.api.mobile.gplx.models.Status;
 import team2.api.mobile.gplx.repository.LicenseRepository;
 import team2.api.mobile.gplx.service.interfaces.LicenseService;
 
@@ -23,6 +21,7 @@ public class LicenseServiceImpl extends GenericServiceImpl<License, String> impl
 			updatedLicense.setName(license.getName());
 			updatedLicense.setDescription(license.getDescription());
 			updatedLicense.setStatus(license.getStatus());
+			updatedLicense.setLicenseTypeId(license.getLicenseTypeId());
 			return repo.save(updatedLicense);
 		} catch(Exception ex) {
 			System.out.println(ex.getMessage());

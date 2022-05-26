@@ -16,12 +16,12 @@ public class TutorialActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tutorial);
 
         btn_close = findViewById(R.id.btn_close);
-        Intent home = new Intent(this, HomeActivity.class);
+        Intent select = new Intent(this, SelectCategoryActivity.class);
 
         btn_close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(home);
+                startActivity(select);
             }
         });
 

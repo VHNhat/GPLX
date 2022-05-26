@@ -7,7 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.google.gson.Gson;
+//import com.google.gson.Gson;
 
 import team2.api.mobile.gplx.commondata.GenericServiceImpl;
 import team2.api.mobile.gplx.dto.DtoLogin;
@@ -15,7 +15,6 @@ import team2.api.mobile.gplx.dto.LoginResponse;
 import team2.api.mobile.gplx.dto.SignupDto;
 import team2.api.mobile.gplx.models.Account;
 import team2.api.mobile.gplx.models.AccountStatus;
-import team2.api.mobile.gplx.models.License;
 import team2.api.mobile.gplx.models.Role;
 import team2.api.mobile.gplx.repository.AccountRepository;
 import team2.api.mobile.gplx.repository.RoleRepository;
