@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TutorialActivity">
+
     <ImageButton
         android:id="@+id/btn_close"
         android:layout_width="50dp"
@@ -21,7 +22,7 @@
         android:clickable="true"
         android:src="@drawable/ic_close"
         app:tint="@color/black"
-        tools:ignore="SpeakableTextPresentCheck"/>
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/tv_tutorial"

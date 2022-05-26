@@ -27,16 +27,16 @@ public class LoginActivity extends AppCompatActivity {
         et_username = findViewById(R.id.et_username_login);
         et_password = findViewById(R.id.et_password_login);
         btn_login = findViewById(R.id.btn_login);
-        tv_forgot_pass = findViewById(R.id.tv_forgot_password);
+        tv_forgot_pass = findViewById(R.id.tv_forgot_pass);
         tv_signup = findViewById(R.id.tv_signup);
 
-        Intent loginSuccess = new Intent(this, LoginSuccessActivity.class);
+        Intent tutorial = new Intent(this, TutorialActivity.class);
         Intent forgotPass = new Intent(this, ForgotPasswordActivity.class);
         Intent signup = new Intent(this, SignupActivity.class);
 
         final AuthenService authenService = new AuthenService(this);
 
-        Login(authenService, loginSuccess);
+        Login(authenService, tutorial);
 
         ForgotPass(forgotPass);
 
@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
         et_password.setText("");
     }
 
-    private void Login(AuthenService authenService, Intent loginSuccess) {
+    private void Login(AuthenService authenService, Intent tutorial) {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,17 +79,18 @@ public class LoginActivity extends AppCompatActivity {
                 else if (et_password.getText().toString().isEmpty())
                     Toast.makeText(LoginActivity.this, "Please enter password", Toast.LENGTH_LONG).show();
                 else {
+                    System.out.println(et_username.getText().toString() + " " + et_password.getText().toString());
                     authenService.Login(et_username.getText().toString(), et_password.getText().toString(), new AuthenService.LoginCallBack() {
                         @Override
                         public void onError(String message) {
-                            Toast.makeText(LoginActivity.this, "Account invalid!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(LoginActivity.this, message, Toast.LENGTH_LONG).show();
                         }
 
                         @Override
                         public void onResponse(LoginResponse loginResponse) {
                             //Toast.makeText(SignInActivity.this, loginResponse.toString(), Toast.LENGTH_LONG).show();
                             Log.i("Login response",loginResponse.toString());
-                            startActivity(loginSuccess);
+                            startActivity(tutorial);
                         }
                     });
                 }

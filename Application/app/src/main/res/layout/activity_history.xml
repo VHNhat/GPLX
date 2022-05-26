@@ -6,52 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".HistoryActivity">
 
+
     <RelativeLayout
         android:id="@+id/header_activity"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:padding="20dp">
 
-        <LinearLayout
+
+        <ImageView
+            android:id="@+id/logo_bottom"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/logo"
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/tv_title_activity"
-                    style="@style/TitleActivityName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:text="Activity" />
-            </RelativeLayout>
-
-            <TextView
-                android:id="@+id/tv_count"
-                style="@style/TitleActivityName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:text="(03)"
-                android:textColor="@color/purple" />
-
-
-        </LinearLayout>
-
-
-        <Button
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_alignParentEnd="true"
-
-            android:background="@drawable/icon_setting" />
+            />
     </RelativeLayout>
 
     <ListView
-        android:id="@+id/lv_items"
+        android:id="@+id/lvItems"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/header_activity"
@@ -61,7 +37,7 @@
 
 
     </ListView>
+    <include android:id="@+id/layout" layout="@layout/activity_navigation" />
 
-    <include layout="@layout/activity_navigation" />
 
 </RelativeLayout>

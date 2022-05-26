@@ -1,226 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context=".MainActivity"
-    android:orientation="horizontal">
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
     <LinearLayout
-        android:id="@+id/ly1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical">
-        <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Splash"
+                android:onClick="Splash"
+                tools:layout_editor_absoluteX="44dp"
+                tools:layout_editor_absoluteY="81dp" />
 
-            android:id="@+id/lazy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="Lazy"
-            android:text="Lazy" />
+            <Button
+                android:id="@+id/button2"
+                android:layout_below="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="Boarding"
+                android:text="Boarding" />
+            <Button
+                android:id="@+id/button3"
+                android:layout_below="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="Login"
 
-        <Button
-            android:id="@+id/register"
-            android:layout_width="108dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:onClick="Register"
-            android:text="Register" />
+                android:text="Login" />
 
-        <Button
-            android:id="@+id/signin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="SignIn"
-            android:text="SignIn" />
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/button3"
+                android:onClick="SignUp"
 
-        <Button
-            android:id="@+id/welcome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="Welcome"
-            android:text="Welcome" />
+                android:text="Signup" />
+            <Button
+                android:id="@+id/button5"
+                android:layout_below="@+id/button4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="Verify"
 
-        <Button
-            android:id="@+id/btn_test_api"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="TestAPI"
+                android:text="Verify" />
+            <Button
+                android:id="@+id/button6"
+                android:layout_below="@+id/button5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="ForgotPass"
 
-            android:text="Test API" />
-        <Button
-            android:id="@+id/btn_forgotpass"
-            android:onClick="ForgotPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/forgot_pass_tite"></Button>
-        <Button
-            android:id="@+id/btn_success_login"
-            android:onClick="LoginSuccess"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/login_sucess"
-            android:layout_below="@+id/btn_forgotpass">
-        </Button>
+                android:text="ForgotPass" />
+            <Button
+                android:id="@+id/button7"
 
-        <Button
-            android:id="@+id/btn_reset_pass"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/btn_success_login"
-            android:onClick="ResetPassword"
-            android:text="@string/set_new_pass"></Button>
-        <Button
-            android:id="@+id/btn_tutorial"
-            android:onClick="Tutorial"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Tutor_title"
-            android:layout_below="@+id/btn_reset_pass">
-        </Button>
+                android:layout_below="@+id/button6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="SetNewPass"
 
-        <Button
-            android:id="@+id/btn_signin_face"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/btn_tutorial"
-            android:onClick="SigninFacebook"
-            android:text="Sign_face">
-        </Button>
-<!--        <Button-->
-<!--            android:id="@+id/signin_email"-->
-<!--            style="@style/Button_forgot_pass"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_below="@+id/signin_face"-->
-<!--            android:backgroundTint="@color/sub_title"-->
-<!--            android:onClick="sign_email"-->
-<!--            android:text="Sign_email"-->
-<!--            android:textColor="#FFFF00"-->
-<!--            android:textSize="20sp">-->
-<!--        </Button>-->
-        <Button
-            android:id="@+id/btn_home_activity"
-            android:onClick="Home"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Home">
+                android:text="SetNewPass" />
+            <Button
+                android:id="@+id/button8"
 
-        </Button>
-        <Button
-            android:id="@+id/btn_a1_activity"
-            android:onClick="A1Activity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="A1_Activity">
+                android:layout_below="@+id/button7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="History"
 
-        </Button>
-        <Button
-            android:id="@+id/btn_signal_activity"
-            android:onClick="Signal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Signal">
+                android:text="History" />
+            <Button
+                android:id="@+id/button9"
 
-        </Button>
-        <Button
-            android:id="@+id/btn_review_wrong_answer"
-            android:onClick="ReviewWrongTest"
+                android:layout_below="@+id/button8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="SelectCategory"
+                android:text="Select Category" />
+
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Review">
-        </Button>
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/button10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="Test"
+                android:text="Test" />
+            <Button
+                android:id="@+id/button11"
+
+                android:layout_below="@+id/button10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="Profile"
+                android:text="Profile" />
+            <Button
+                android:id="@+id/button12"
+
+                android:layout_below="@+id/button11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="A1_Test"
+                android:text="A1_Test" />
+            <Button
+                android:id="@+id/button13"
+
+                android:layout_below="@+id/button12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="Result"
+                android:text="Result" />
+            <Button
+                android:id="@+id/button14"
+
+                android:layout_below="@+id/button13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="NoticeBoard"
+                android:text="NoticeBoard" />
+        </RelativeLayout>
+
+
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical">
-        <Button
-            android:id="@+id/btn_splash"
-            android:onClick="Splash"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Splash">
-        </Button>
 
-        <Button
-            android:id="@+id/btn_boarding"
-            android:onClick="Boarding"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Boarding">
-        </Button>
-
-        <Button
-            android:id="@+id/btn_login"
-            android:onClick="Login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Login">
-        </Button>
-
-        <Button
-            android:id="@+id/btn_signup"
-            android:onClick="Signup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Signup">
-        </Button>
-        <Button
-            android:id="@+id/btn_verify"
-            android:onClick="Verify"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Verify">
-        </Button>
-
-        <Button
-            android:id="@+id/btn_forgot_pass"
-            android:onClick="ForgotPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Forgot Password">
-        </Button>
-        <Button
-            android:id="@+id/btn_set_new_pass"
-            android:onClick="SetNewPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Set new password">
-        </Button>
-        <Button
-            android:id="@+id/btn_history"
-            android:onClick="History"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="History">
-        </Button>
-        <Button
-            android:id="@+id/btn_select_category"
-            android:onClick="SelectCategory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Select category">
-        </Button>
-        <Button
-            android:id="@+id/btn_test"
-            android:onClick="Test"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Test">
-        </Button>
-        <Button
-            android:id="@+id/btn_profile"
-            android:onClick="Profile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Profile">
-        </Button>
-    </LinearLayout>
-</LinearLayout>
+</RelativeLayout>

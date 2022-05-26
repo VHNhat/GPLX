@@ -11,32 +11,32 @@ import android.widget.Toast;
 
 public class VerifyActivity extends AppCompatActivity {
 
-    EditText et_verify_code;
-    Button btn_verify;
+//    EditText et_verify_code;
+//    Button btn_verify;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verify);
 
-        et_verify_code = findViewById(R.id.et_verify_code);
-        btn_verify = findViewById(R.id.btn_verify);
-
-        Intent setNewPass = new Intent(this, SetNewPasswordActivity.class);
-
-        Verify(setNewPass);
+//        et_verify_code = findViewById(R.id.et_verify_code);
+//        btn_verify = findViewById(R.id.btn_verify);
+//
+//        Intent setNewPass = new Intent(this, SetNewPasswordActivity.class);
+//
+//        Verify(setNewPass);
     }
 
-    private void Verify(Intent setNewPass) {
-        btn_verify.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(et_verify_code.getText().toString().isEmpty())
-                    Toast.makeText(VerifyActivity.this, "Please enter verification code", Toast.LENGTH_LONG).show();
-                else{
-                    startActivity(setNewPass);
-                }
-            }
-        });
-    }
+//    private void Verify(Intent setNewPass) {
+//        btn_verify.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if(et_verify_code.getText().toString().isEmpty())
+//                    Toast.makeText(VerifyActivity.this, "Please enter verification code", Toast.LENGTH_LONG).show();
+//                else{
+//                    startActivity(setNewPass);
+//                }
+//            }
+//        });
+//    }
 }

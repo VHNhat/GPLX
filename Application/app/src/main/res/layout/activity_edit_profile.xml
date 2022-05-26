@@ -101,8 +101,8 @@
             android:layout_below="@id/tv_email_profile"
             android:layout_marginBottom="15dp"
             android:background="@drawable/br_input"
-            android:paddingLeft="30dp"
             android:hint="example@gmail.com"
+            android:paddingLeft="30dp"
             android:paddingRight="30dp" />
         <Button
             android:id="@+id/btn_signup"
