@@ -49,6 +49,8 @@ public class NoticeBoardService {
                         board.setBoardName(eachBoard.getString("Name"));
                         board.setBoardDescription(eachBoard.getString("Description"));
                         board.setType(eachBoard.getString("TrafficSignType"));
+                        board.setPhoto(eachBoard.getString("Photo"));
+                        Log.i("Board in Service", board.toString());
 
                         boards.add(board);
                     }

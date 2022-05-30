@@ -73,4 +73,16 @@ public class NoticeBoard {
     public void setPhoto(String photo) {
         this.photo = photo;
     }
+
+    @Override
+    public String toString() {
+        return "NoticeBoard{" +
+                "id='" + id + '\'' +
+                ", type='" + type + '\'' +
+                ", boardCode='" + boardCode + '\'' +
+                ", boardName='" + boardName + '\'' +
+                ", boardDescription='" + boardDescription + '\'' +
+                ", photo='" + photo + '\'' +
+                '}';
+    }
 }

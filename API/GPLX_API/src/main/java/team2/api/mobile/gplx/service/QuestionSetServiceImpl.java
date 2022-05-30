@@ -12,4 +12,20 @@ import team2.api.mobile.gplx.service.interfaces.QuestionSetService;
 public class QuestionSetServiceImpl extends GenericServiceImpl<QuestionSet, String> implements QuestionSetService {
 	@Autowired
 	private QuestionSetRepository repo;
+
+	@Override
+	public QuestionSet update(QuestionSet set, String id) {
+		try {
+			QuestionSet updatedSet = repo.findById(id).get();
+			updatedSet.setName(set.getName());
+			updatedSet.setQuantity(set.getQuantity());
+			updatedSet.setRightAns(set.getRightAns());
+			updatedSet.setWrongAns(set.getWrongAns());
+			updatedSet.setStatus(set.getStatus());
+			return repo.save(updatedSet);
+		} catch(Exception ex) {
+			System.out.println(ex.getMessage());
+			return null;
+		}
+	}
 }
