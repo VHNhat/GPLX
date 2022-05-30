@@ -1,6 +1,5 @@
 package team2.api.mobile.gplx.service;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,7 +29,7 @@ public class AnswerServiceImpl extends GenericServiceImpl<Answer, String> implem
 	}
 
 	@Override
-	public List<Answer> findByQuestionId(String id) {
+	public Answer findByQuestionId(String id) {
 		return repo.findByQuestionId(id);
 	}
 }

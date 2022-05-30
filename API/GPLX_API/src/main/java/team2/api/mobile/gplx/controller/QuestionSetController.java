@@ -46,9 +46,9 @@ public class QuestionSetController {
 			return new ResponseEntity<>(set, HttpStatus.BAD_REQUEST);
 		}
 		List<Question> questions = questService.findByQuestionSetId(id);
-		List<List<Answer>> answers = new ArrayList<>();
+		List<Answer> answers = new ArrayList<>();
 		for(Question item : questions) {
-			List<Answer> ans = ansService.findByQuestionId(item.getId());
+			Answer ans = ansService.findByQuestionId(item.getId());
 			answers.add(ans);
 		}
 		System.out.println(questionSet.toString());

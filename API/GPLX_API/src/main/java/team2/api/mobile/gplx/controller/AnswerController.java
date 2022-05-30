@@ -26,6 +26,12 @@ public class AnswerController {
 		List<Answer> answers = service.findAll();
 		return new ResponseEntity<>(answers, HttpStatus.OK);
 	}
+	
+	@GetMapping("api/answer/{questionId}")
+	public ResponseEntity<Object> GetByQuestionId(@PathVariable("questionId") String id) {
+		Answer answers = service.findByQuestionId(id);
+		return new ResponseEntity<>(answers, HttpStatus.OK);
+	}
 
 	@PostMapping("api/answer/add")
 	public ResponseEntity<Object> Post(@RequestBody Answer answer) {
