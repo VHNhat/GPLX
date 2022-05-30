@@ -1,4 +1,4 @@
-package team2.mobileapp.gplx;
+package team2.mobileapp.gplx.view;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -8,6 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.List;
+
+import team2.mobileapp.gplx.R;
 
 class HistoryItem {
 

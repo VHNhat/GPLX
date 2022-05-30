@@ -1,4 +1,4 @@
-package team2.mobileapp.gplx;
+package team2.mobileapp.gplx.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+
+import team2.mobileapp.gplx.R;
 
 public class ForgotPasswordActivity extends AppCompatActivity {
 

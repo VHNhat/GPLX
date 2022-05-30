@@ -1,4 +1,4 @@
-package team2.mobileapp.gplx;
+package team2.mobileapp.gplx.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +14,7 @@ import android.widget.Toast;
 import java.util.List;
 
 //import team2.mobileapp.gplx.callback.VolleyResponseListener;
+import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.models.License;
 import team2.mobileapp.gplx.service.LicenseService;
 

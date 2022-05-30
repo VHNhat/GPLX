@@ -1,4 +1,4 @@
-package team2.mobileapp.gplx;
+package team2.mobileapp.gplx.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+
+import team2.mobileapp.gplx.R;
 
 public class EditProfileActivity extends AppCompatActivity {
 //    BottomNavigationItemView btn_home, btn_menu, btn_noti, btn_profile;

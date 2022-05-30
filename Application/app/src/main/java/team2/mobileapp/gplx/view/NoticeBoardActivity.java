@@ -1,4 +1,4 @@
-package team2.mobileapp.gplx;
+package team2.mobileapp.gplx.view;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.List;
 
+import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.models.NoticeBoard;
 import team2.mobileapp.gplx.service.NoticeBoardService;
 

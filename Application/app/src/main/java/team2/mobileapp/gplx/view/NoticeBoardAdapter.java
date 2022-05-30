@@ -1,4 +1,4 @@
-package team2.mobileapp.gplx;
+package team2.mobileapp.gplx.view;
 
 import android.app.Activity;
 import android.content.Context;
@@ -15,6 +15,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.models.NoticeBoard;
 
 //class NoticeBoardItem {

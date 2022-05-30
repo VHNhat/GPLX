@@ -1,4 +1,4 @@
-package team2.mobileapp.gplx;
+package team2.mobileapp.gplx.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.models.dto.LoginResponse;
 import team2.mobileapp.gplx.service.AuthenService;
 
