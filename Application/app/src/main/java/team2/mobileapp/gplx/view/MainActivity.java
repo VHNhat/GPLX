@@ -71,4 +71,16 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,NoticeBoardActivity.class);
         startActivity(intent);
     }
+    public void ReviewTest(View view){
+        Intent intent = new Intent(this,ReviewTestActivity.class);
+        startActivity(intent);
+    }
+    public void GroupTest(View view){
+        Intent intent = new Intent(this,GroupTestActivity.class);
+        startActivity(intent);
+    }
+    public void Tutorial(View view){
+        Intent intent = new Intent(this,TutorialActivity.class);
+        startActivity(intent);
+    }
 }
