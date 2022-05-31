@@ -56,13 +56,13 @@
             android:layout_height="match_parent">
 
             <TextView
-                style="@style/TextTitle"
                 android:id="@+id/tv_title_board_details"
+                style="@style/TextTitle"
                 android:layout_centerHorizontal="true"
-                android:text="BIỂN CẤM A"
                 android:paddingBottom="10dp"
+                android:text="BIỂN CẤM A"
                 android:textAllCaps="true"
-                android:textColor="@color/red"/>
+                android:textColor="@color/red" />
             <ImageView
                 android:id="@+id/iv_image_board_details"
                 android:layout_below="@+id/tv_title_board_details"
