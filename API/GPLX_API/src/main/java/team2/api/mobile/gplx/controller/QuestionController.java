@@ -21,7 +21,7 @@ import team2.api.mobile.gplx.service.interfaces.QuestionService;
 public class QuestionController {
 	@Autowired
 	private QuestionService service;
-	
+
 	@GetMapping("api/question")
 	public ResponseEntity<Object> GetAll() {
 		List<Question> questions = service.findAll();
@@ -37,7 +37,7 @@ public class QuestionController {
 	}
 
 	@PutMapping("api/question/edit/{id}")
-	public ResponseEntity<Object> Put(@PathVariable("id") String id,@RequestBody Question question) {
+	public ResponseEntity<Object> Put(@PathVariable("id") String id, @RequestBody Question question) {
 		Question updatedQuestion = service.update(question, id);
 		if (updatedQuestion == null)
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -45,12 +45,18 @@ public class QuestionController {
 	}
 
 	@DeleteMapping("api/question/delete/{id}")
-	public ResponseEntity<Object> Delete(@PathVariable("id") String id){
+	public ResponseEntity<Object> Delete(@PathVariable("id") String id) {
 		try {
-		service.deleteById(id);
-		return new ResponseEntity<>(HttpStatus.OK);
-		} catch(Exception ex) {
+			service.deleteById(id);
+			return new ResponseEntity<>(HttpStatus.OK);
+		} catch (Exception ex) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
+	}
+
+	@GetMapping("api/question/{license}")
+	public ResponseEntity<Object> GetQuestionByLicense(@PathVariable("license") String license) {
+		List<Question> questions = service.findQuestionByLicense(license);
+		return new ResponseEntity<>(questions, HttpStatus.OK);
 	}
 }

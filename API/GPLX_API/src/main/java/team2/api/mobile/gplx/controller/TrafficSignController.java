@@ -21,10 +21,16 @@ public class TrafficSignController {
 
 	@Autowired
 	private TrafficSignService service;
-	
+
 	@GetMapping("api/trafficsign")
 	public ResponseEntity<Object> GetAll() {
 		List<TrafficSign> trafficSign = service.findAll();
+		return new ResponseEntity<>(trafficSign, HttpStatus.OK);
+	}
+
+	@GetMapping("api/trafficsign/{id}")
+	public ResponseEntity<Object> GetById(@PathVariable("id") String id) {
+		TrafficSign trafficSign = service.findTrafficSignById(id);
 		return new ResponseEntity<>(trafficSign, HttpStatus.OK);
 	}
 
@@ -37,7 +43,7 @@ public class TrafficSignController {
 	}
 
 	@PutMapping("api/trafficsign/edit/{id}")
-	public ResponseEntity<Object> Put(@PathVariable("id") String id,@RequestBody TrafficSign trafficSign) {
+	public ResponseEntity<Object> Put(@PathVariable("id") String id, @RequestBody TrafficSign trafficSign) {
 		TrafficSign updatedTrafficSign = service.update(trafficSign, id);
 		if (updatedTrafficSign == null)
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -45,11 +51,11 @@ public class TrafficSignController {
 	}
 
 	@DeleteMapping("api/trafficsign/delete/{id}")
-	public ResponseEntity<Object> Delete(@PathVariable("id") String id){
+	public ResponseEntity<Object> Delete(@PathVariable("id") String id) {
 		try {
-		service.deleteById(id);
-		return new ResponseEntity<>(HttpStatus.OK);
-		} catch(Exception ex) {
+			service.deleteById(id);
+			return new ResponseEntity<>(HttpStatus.OK);
+		} catch (Exception ex) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	}
