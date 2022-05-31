@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 
 import team2.mobileapp.gplx.R;
-
+import android.os.Bundle;
 public class SelectCategoryActivity extends AppCompatActivity {
 
 //    BottomNavigationItemView btn_home, btn_menu, btn_noti, btn_profile;

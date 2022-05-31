@@ -41,6 +41,10 @@
         <item name="cornerFamily">rounded</item>
         <item name="android:background">@drawable/avatar_radius</item>
     </style>
+    <style name="ImageRounder_10" parent="android:Widget.ImageWell">
+        <item name="cornerFamily">rounded</item>
+        <item name="android:background">@drawable/button_radius_10</item>
+    </style>
     <style name="TitleActivityName" parent="android:Widget.TextView">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">23dp</item>

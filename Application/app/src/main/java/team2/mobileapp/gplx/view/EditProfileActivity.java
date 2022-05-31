@@ -10,7 +10,7 @@ import android.widget.Button;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 
 import team2.mobileapp.gplx.R;
-
+import android.os.Bundle;
 public class EditProfileActivity extends AppCompatActivity {
 //    BottomNavigationItemView btn_home, btn_menu, btn_noti, btn_profile;
     @Override
