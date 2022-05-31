@@ -1,4 +1,4 @@
-package team2.mobileapp.gplx.service;
+package team2.mobileapp.gplx.Volley.service;
 
 import android.content.Context;
 import android.os.Build;
@@ -7,7 +7,6 @@ import android.util.Log;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 
 import org.json.JSONArray;
@@ -18,12 +17,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import team2.mobileapp.gplx.callback.MySingleton;
-import team2.mobileapp.gplx.model.Answer;
-import team2.mobileapp.gplx.model.Question;
-import team2.mobileapp.gplx.model.QuestionSet;
-import team2.mobileapp.gplx.model.dto.DtoQuestionSet;
-import team2.mobileapp.gplx.models.NoticeBoard;
+import team2.mobileapp.gplx.Volley.callback.MySingleton;
+import team2.mobileapp.gplx.Volley.model.Answer;
+import team2.mobileapp.gplx.Volley.model.Question;
+import team2.mobileapp.gplx.Volley.model.QuestionSet;
+import team2.mobileapp.gplx.Volley.model.dto.DtoQuestionSet;
 
 public class TestService {
     public static final String BASE_IP = "http://10.0.2.2:8080/api";

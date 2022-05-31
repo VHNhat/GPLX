@@ -1,4 +1,4 @@
-package team2.mobileapp.gplx.model;
+package team2.mobileapp.gplx.Volley.model;
 
 public class Account {
     private String username;

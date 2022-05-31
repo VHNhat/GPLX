@@ -1,4 +1,4 @@
-package team2.mobileapp.gplx.models.dto;
+package team2.mobileapp.gplx.Volley.model.dto;
 
 public class RegisterResponse {
     private String email;

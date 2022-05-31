@@ -1,6 +1,6 @@
-package team2.mobileapp.gplx.models;
+package team2.mobileapp.gplx.Retrofit.models;
 
-public class Account {
+class Account {
     private String username;
     private String password;
     private String email;

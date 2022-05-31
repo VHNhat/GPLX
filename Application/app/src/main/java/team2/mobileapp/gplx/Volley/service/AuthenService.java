@@ -1,4 +1,4 @@
-package team2.mobileapp.gplx.service;
+package team2.mobileapp.gplx.Volley.service;
 
 import android.content.Context;
 import android.util.Log;
@@ -17,10 +17,10 @@ import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 
-import team2.mobileapp.gplx.callback.MySingleton;
-import team2.mobileapp.gplx.models.Account;
-import team2.mobileapp.gplx.models.dto.LoginResponse;
-import team2.mobileapp.gplx.models.dto.RegisterResponse;
+import team2.mobileapp.gplx.Volley.callback.MySingleton;
+import team2.mobileapp.gplx.Volley.model.Account;
+import team2.mobileapp.gplx.Volley.model.dto.LoginResponse;
+import team2.mobileapp.gplx.Volley.model.dto.RegisterResponse;
 
 public class AuthenService {
     public static final String BASE_IP = "http://10.0.2.2:8080/api";

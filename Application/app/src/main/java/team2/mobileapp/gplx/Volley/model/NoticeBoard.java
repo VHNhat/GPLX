@@ -1,4 +1,4 @@
-package team2.mobileapp.gplx.models;
+package team2.mobileapp.gplx.Volley.model;
 
 public class NoticeBoard {
     private String id;

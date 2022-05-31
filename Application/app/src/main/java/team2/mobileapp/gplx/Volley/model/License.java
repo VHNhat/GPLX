@@ -1,6 +1,4 @@
-package team2.mobileapp.gplx.models;
-
-import androidx.annotation.NonNull;
+package team2.mobileapp.gplx.Volley.model;
 
 public class License {
     private String id;

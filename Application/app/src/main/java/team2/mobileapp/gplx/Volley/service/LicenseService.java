@@ -1,4 +1,4 @@
-package team2.mobileapp.gplx.service;
+package team2.mobileapp.gplx.Volley.service;
 
 import android.content.Context;
 import android.util.Log;
@@ -21,9 +21,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import team2.mobileapp.gplx.callback.MySingleton;
+import team2.mobileapp.gplx.Volley.callback.MySingleton;
 //import team2.mobileapp.gplx.callback.VolleyResponseListener;
-import team2.mobileapp.gplx.models.License;
+import team2.mobileapp.gplx.Volley.model.License;
 
 public class LicenseService {
     public static final String BASE_IP = "http://10.0.2.2:8080/api";

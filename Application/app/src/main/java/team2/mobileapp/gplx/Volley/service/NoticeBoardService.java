@@ -1,4 +1,4 @@
-package team2.mobileapp.gplx.service;
+package team2.mobileapp.gplx.Volley.service;
 
 import android.content.Context;
 import android.util.Log;
@@ -15,9 +15,9 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import team2.mobileapp.gplx.callback.MySingleton;
-import team2.mobileapp.gplx.models.License;
-import team2.mobileapp.gplx.models.NoticeBoard;
+import team2.mobileapp.gplx.Volley.callback.MySingleton;
+import team2.mobileapp.gplx.Volley.model.NoticeBoard;
+
 
 public class NoticeBoardService {
     public static final String BASE_IP = "http://10.0.2.2:8080/api";

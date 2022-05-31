@@ -1,8 +1,6 @@
 package team2.mobileapp.gplx.view;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,11 +11,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import team2.mobileapp.gplx.R;
-import team2.mobileapp.gplx.models.NoticeBoard;
-
+import team2.mobileapp.gplx.Volley.model.NoticeBoard;
 //class NoticeBoardItem {
 //
 //    private String boardCode;

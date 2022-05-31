@@ -12,8 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import team2.mobileapp.gplx.R;
-import team2.mobileapp.gplx.models.dto.LoginResponse;
-import team2.mobileapp.gplx.service.AuthenService;
+import team2.mobileapp.gplx.Volley.model.dto.LoginResponse;
+import team2.mobileapp.gplx.Volley.service.AuthenService;
 
 public class LoginActivity extends AppCompatActivity {
     EditText et_username, et_password;
