@@ -1,7 +1,10 @@
 package team2.mobileapp.gplx.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -11,18 +14,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 import team2.mobileapp.gplx.R;
+import team2.mobileapp.gplx.Retrofit.models.TrafficSign;
 import team2.mobileapp.gplx.Volley.model.NoticeBoard;
 import team2.mobileapp.gplx.Volley.service.NoticeBoardService;
+
 import android.os.Bundle;
+
 public class NoticeBoardActivity extends AppCompatActivity {
-    public NoticeBoardAdapter noticeBoardAdapter ;
-    private ArrayList<NoticeBoard> names = new ArrayList<>();;
+    private NoticeBoardAdapter noticeBoardAdapter;
+    private ArrayList<NoticeBoard> names = new ArrayList<>();
     ListView listView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notice_board);
         listView = findViewById(R.id.lvItems);
+
 //        NoticeBoardItem noticeBoard = new NoticeBoardItem();
 //        noticeBoard.setBoardCode("Bien Bao");
 //        noticeBoard.setBoardName("Bien Bao");
@@ -39,8 +47,21 @@ public class NoticeBoardActivity extends AppCompatActivity {
         final NoticeBoardService noticeBoardService = new NoticeBoardService(this);
 
         ShowBoard(noticeBoardService);
-
+        try {
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    NoticeBoard item = (NoticeBoard) listView.getItemAtPosition(position);
+                    Intent intent = new Intent(NoticeBoardActivity.this, DetailsNoticeBoard.class);
+                    intent.putExtra("ID", item.getId());
+                    startActivity(intent);
+                }
+            });
+        } catch (Exception ex) {
+            Log.d("Error: ", ex.getMessage());
+        }
     }
+
     private void ShowBoard(NoticeBoardService noticeBoardService) {
         noticeBoardService.GetAll(new NoticeBoardService.GetALLBoardCallBack() {
             @Override
@@ -62,11 +83,10 @@ public class NoticeBoardActivity extends AppCompatActivity {
                     Log.i("NoticeBoard", noticeBoard.toString());
                     names.add(noticeBoard);
                 }
-                noticeBoardAdapter = new NoticeBoardAdapter(NoticeBoardActivity.this,1,names);
+                noticeBoardAdapter = new NoticeBoardAdapter(NoticeBoardActivity.this, 1, names);
 
                 listView.setAdapter(noticeBoardAdapter);
             }
-
         });
     }
 }
