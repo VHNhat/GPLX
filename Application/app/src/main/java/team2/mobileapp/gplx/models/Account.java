@@ -1,4 +1,4 @@
-package team2.mobileapp.gplx.models;
+package team2.mobileapp.gplx.model;
 
 public class Account {
     private String username;
@@ -63,5 +63,18 @@ public class Account {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", avatar='" + avatar + '\'' +
+                ", status='" + status + '\'' +
+                '}';
     }
 }

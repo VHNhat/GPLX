@@ -4,32 +4,21 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
-
-import com.android.volley.AuthFailureError;
-import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
-import team2.mobileapp.gplx.SignInActivity;
 import team2.mobileapp.gplx.callback.MySingleton;
 import team2.mobileapp.gplx.models.Account;
-import team2.mobileapp.gplx.models.License;
 import team2.mobileapp.gplx.models.dto.LoginResponse;
 import team2.mobileapp.gplx.models.dto.RegisterResponse;
 
@@ -178,6 +167,7 @@ public class AuthenService {
             String requestMapping = "/account/login";
             String url = BASE_IP + requestMapping;
             JSONObject jsonBody = new JSONObject();
+            System.out.println(username + " " + password);
             jsonBody.put("Username", username);
             jsonBody.put("Password", password);
             final String mRequestBody = jsonBody.toString();
@@ -248,6 +238,8 @@ public class AuthenService {
             String requestMapping = "/account/signup";
             String url = BASE_IP + requestMapping;
             JSONObject jsonBody = new JSONObject();
+            System.out.println(account.toString());
+
             jsonBody.put("Firstname", account.getFirstName());
             jsonBody.put("Lastname", account.getLastName());
             jsonBody.put("Email", account.getEmail());

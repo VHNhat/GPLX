@@ -71,4 +71,8 @@ public class QuestionSet extends AbstractEntity {
 	public void setRightAns(int rightAns) {
 		this.rightAns = rightAns;
 	}
+<<<<<<< HEAD
+=======
+	
+>>>>>>> 401aea24846de59229efd20b967a0148542fda56
 }

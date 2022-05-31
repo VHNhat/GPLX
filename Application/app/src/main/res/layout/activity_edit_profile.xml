@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SelectCategoryActivity">
+    tools:context=".view.EditProfileActivity">
 
     <RelativeLayout
         android:id="@+id/header"
@@ -101,18 +101,17 @@
             android:layout_below="@id/tv_email_profile"
             android:layout_marginBottom="15dp"
             android:background="@drawable/br_input"
-            android:paddingLeft="30dp"
             android:hint="example@gmail.com"
+            android:paddingLeft="30dp"
             android:paddingRight="30dp" />
         <Button
             android:id="@+id/btn_signup"
             style="@style/ButtonRouder"
             android:background="@drawable/br_button2"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:layout_below="@+id/et_email_profile"
             android:layout_width="match_parent"
             android:text="Save Changes"
-
             android:textSize="17dp"
             android:layout_height="50dp"/>
 

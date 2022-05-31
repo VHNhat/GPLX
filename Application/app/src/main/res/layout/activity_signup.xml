@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SplashActivity">
+    tools:context=".view.SignupActivity">
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -13,30 +13,52 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="200sp"
             android:adjustViewBounds="false"
             android:cropToPadding="false"
-            android:scaleType="centerCrop"
-            android:src="@drawable/br_login">
+            android:scaleType="centerInside"
+            android:src="@drawable/br_car2">
 
         </ImageView>
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+
+            />
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/input_form"
         style="@style/radiusTopRightLeft"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/layout_br"
-        android:layout_marginTop="-200px"
+        android:layout_marginTop="-50px"
+        android:backgroundTint="@color/gray_milk"
         android:paddingLeft="30dp"
-        android:paddingTop="50dp"
         android:paddingRight="30dp"
-        android:paddingBottom="50dp">
+        android:paddingBottom="20dp">
+
+        <TextView
+            android:id="@+id/title_form"
+            style="@style/TextTitle"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:padding="10dp"
+            android:text="SIGN UP">
+
+        </TextView>
 
         <RelativeLayout
             android:id="@+id/name_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/title_form"
             android:layout_centerHorizontal="true">
 
             <LinearLayout
@@ -50,15 +72,18 @@
                 <EditText
                     android:id="@+id/et_first_name_signup"
                     style="@style/EditTextRouder"
+
                     android:layout_width="0dp"
                     android:layout_height="50dp"
+                    android:layout_marginRight="15dp"
                     android:layout_weight="1"
-                    android:background="@drawable/br_input"
+                    android:background="@drawable/button_radius"
+                    android:backgroundTint="@color/white"
                     android:hint="First Name"
                     android:inputType="text"
-                    android:singleLine="true"
                     android:paddingLeft="30dp"
-                    android:paddingRight="30dp"  />
+                    android:paddingRight="30dp"
+                    android:singleLine="true" />
 
                 <EditText
                     android:id="@+id/et_last_name_signup"
@@ -66,7 +91,8 @@
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_weight="1"
-                    android:background="@drawable/br_input"
+                    android:background="@drawable/button_radius"
+                    android:backgroundTint="@color/white"
                     android:hint="Last Name"
                     android:inputType="text"
                     android:singleLine="true"
@@ -79,11 +105,12 @@
             android:id="@+id/et_email_signup"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_below="@+id/name_register"
-            android:background="@drawable/br_input"
+            android:layout_below="@id/name_register"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_radius"
+            android:backgroundTint="@color/white"
             android:hint="Email"
             android:inputType="text"
-            android:layout_marginTop="10dp"
             android:paddingLeft="30dp"
             android:paddingRight="30dp" />
 
@@ -92,71 +119,79 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_below="@id/et_email_signup"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/br_input"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_radius"
+            android:backgroundTint="@color/white"
             android:hint="Username"
+            android:inputType="text"
             android:paddingLeft="30dp"
             android:paddingRight="30dp" />
+
 
         <EditText
             android:id="@+id/et_password_signup"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_below="@id/et_username_signup"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/br_input"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_radius"
+            android:backgroundTint="@color/white"
             android:hint="Password"
             android:inputType="textPassword"
             android:paddingLeft="30dp"
             android:paddingRight="30dp" />
+
         <EditText
             android:id="@+id/et_password_confirm_signup"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_below="@id/et_password_signup"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/br_input"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_radius"
+            android:backgroundTint="@color/white"
             android:hint="Confirm Password"
             android:inputType="textPassword"
             android:paddingLeft="30dp"
             android:paddingRight="30dp" />
+
         <Button
             android:id="@+id/btn_signup"
             style="@style/ButtonRouder"
-            android:background="@drawable/br_button2"
-            android:layout_marginTop="10dp"
-            android:layout_below="@+id/et_password_confirm_signup"
             android:layout_width="match_parent"
+            android:layout_height="50dp"
+
+            android:layout_below="@+id/et_password_confirm_signup"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/br_button2"
             android:text="@string/text_signup"
-            android:textSize="17dp"
-            android:layout_height="50dp"/>
+            android:textAlignment="center"
+            android:textSize="17dp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:layout_below="@+id/btn_signup"
             android:layout_centerHorizontal="true"
-            >
+            android:layout_marginTop="10dp">
 
             <TextView
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                android:text="Already have account?"/>
+                android:textColor="@color/gray"
+                android:text="Already have account?" />
 
             <TextView
                 android:id="@+id/tv_login"
                 android:layout_width="wrap_content"
+                android:clickable="true"
+                android:textStyle="bold"
                 android:layout_height="wrap_content"
-                android:textColor="@color/purple"
                 android:layout_marginLeft="5dp"
                 android:text="@string/text_login"
-                android:clickable="true"/>
+                android:textColor="@color/green_main" />
 
         </LinearLayout>
-
 
     </RelativeLayout>
 

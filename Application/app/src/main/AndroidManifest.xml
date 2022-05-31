@@ -10,85 +10,67 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Themes"
+        android:theme="@style/Theme.Design.Light.NoActionBar"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".TestActivity"
+            android:name=".view.ReviewTestActivity"
             android:exported="false" />
         <activity
-            android:name=".VerifyActivity"
+            android:name=".view.GroupTestActivity"
             android:exported="false" />
         <activity
-            android:name=".SignupActivity"
+            android:name=".view.NoticeBoardActivity"
             android:exported="false" />
         <activity
-            android:name=".SetNewPasswordActivity"
+            android:name=".view.ResultActivity"
             android:exported="false" />
         <activity
-            android:name=".HistoryActivity"
+            android:name=".view.A1_TestActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".view.TestActivity"
             android:exported="false" />
         <activity
-            android:name=".SelectCategoryActivity"
+            android:name=".view.VerifyActivity"
             android:exported="false" />
         <activity
-            android:name=".NavigationActivity"
+            android:name=".view.SignupActivity"
             android:exported="false" />
         <activity
-            android:name=".EditProfileActivity"
+            android:name=".view.SetNewPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".BoardingActivity"
+            android:name=".view.HistoryActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".view.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".SignalActivity"
+            android:name=".view.SelectCategoryActivity"
             android:exported="false" />
         <activity
-            android:name=".ReviewWrongTestActivity"
+            android:name=".view.NavigationActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".view.EditProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".A1Activity"
+            android:name=".view.BoardingActivity"
             android:exported="false" />
         <activity
-            android:name=".TutorialActivity"
+            android:name=".view.SplashActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginSuccessActivity"
+            android:name=".view.TutorialActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginFacebookActivity"
+            android:name=".view.ForgotPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".ForgotPasswordActivity"
+            android:name=".view.TestAPIActivity"
             android:exported="false" />
         <activity
-            android:name=".ResetPasswordActivity"
-            android:exported="false" />
-        <activity
-            android:name=".TestAPIActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SignInActivity"
-            android:exported="false" />
-        <activity
-            android:name=".RegisterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".WelcomeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LazyActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

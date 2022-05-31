@@ -58,6 +58,9 @@ public class Answer extends AbstractEntity {
 	public void setQuestionId(String questionId) {
 		this.questionId = questionId;
 	}
+<<<<<<< HEAD
 			
 	
+=======
+>>>>>>> 401aea24846de59229efd20b967a0148542fda56
 }

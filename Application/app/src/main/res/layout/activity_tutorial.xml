@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TutorialActivity">
+    tools:context=".view.TutorialActivity">
+
     <ImageButton
         android:id="@+id/btn_close"
         android:layout_width="50dp"
@@ -21,18 +22,20 @@
         android:clickable="true"
         android:src="@drawable/ic_close"
         app:tint="@color/black"
-        tools:ignore="SpeakableTextPresentCheck"/>
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/tv_tutorial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Tutor_title"
-        android:textColor="@color/title"
-        android:textSize="25sp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="27dp">
-    </TextView>
+        android:layout_marginTop="27dp"
+        android:text="@string/Tutor_title"
+
+        android:textColor="@color/green_main"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        android:textSize="25sp"></TextView>
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/ScrollView01"

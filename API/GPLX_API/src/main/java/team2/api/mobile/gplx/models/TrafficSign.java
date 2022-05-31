@@ -28,7 +28,7 @@ public class TrafficSign extends AbstractEntity {
 	@JsonProperty("Photo")
 	private String photo;
 	
-	@JsonPropertyOrder("TrafficSignType")
+	@JsonProperty("TrafficSignType")
 	private String trafficSignType;
 	
 	public TrafficSign(String code, String name, String description, String photo, String trafficSignType) {
