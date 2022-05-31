@@ -29,7 +29,7 @@ public class TrafficSignController {
                     message = response.code() == 200 ? " Successfully" : " Error";
                     TrafficSign trafficSign = response.body();
                     trafficSignCallbackListener.onFetchProgress(trafficSign);
-                    Log.d("", "onResponse: " + trafficSign.getName());
+
                 } catch (Exception e) {
                     Log.d("Error:", e.getMessage());
                 }
@@ -37,7 +37,7 @@ public class TrafficSignController {
             }
             @Override
             public void onFailure(Call<TrafficSign> call, Throwable t) {
-
+                Log.d("FAIL", "onResponse: CHro " );
             }
         });
     }

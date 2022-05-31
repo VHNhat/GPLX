@@ -2,22 +2,22 @@ package team2.mobileapp.gplx.Retrofit.models;
 
 public class TrafficSign {
     private String id;
-    private String code;
-    private String name;
-    private String description;
-    private String photo;
-    private String trafficSignType;
+    private String Code;
+    private String Name;
+    private String Description;
+    private String Photo;
+    private String TrafficSignType;
 
     public TrafficSign() {
     }
 
     public TrafficSign(String id, String code, String name, String description, String photo, String trafficSignType) {
         this.id = id;
-        this.code = code;
-        this.name = name;
-        this.description = description;
-        this.photo = photo;
-        this.trafficSignType = trafficSignType;
+        this.Code = code;
+        this.Name = name;
+        this.Description = description;
+        this.Photo = photo;
+        this.TrafficSignType = trafficSignType;
     }
 
     public String getId() {
@@ -29,54 +29,54 @@ public class TrafficSign {
     }
 
     public String getCode() {
-        return code;
+        return Code;
     }
 
     public void setCode(String code) {
-        this.code = code;
+        this.Code = code;
     }
 
     public String getName() {
-        return name;
+        return Name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.Name = name;
     }
 
     public String getDescription() {
-        return description;
+        return Description;
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.Description = description;
     }
 
     public String getPhoto() {
-        return photo;
+        return Photo;
     }
 
     public void setPhoto(String photo) {
-        this.photo = photo;
+        this.Photo = photo;
     }
 
     public String getTrafficSignType() {
-        return trafficSignType;
+        return TrafficSignType;
     }
 
     public void setTrafficSignType(String trafficSignType) {
-        this.trafficSignType = trafficSignType;
+        this.TrafficSignType = trafficSignType;
     }
 
     @Override
     public String toString() {
         return "TrafficSign{" +
                 "id='" + id + '\'' +
-                ", code='" + code + '\'' +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", photo='" + photo + '\'' +
-                ", trafficSignType='" + trafficSignType + '\'' +
+                ", code='" + Code + '\'' +
+                ", name='" + Name + '\'' +
+                ", description='" + Description + '\'' +
+                ", photo='" + Photo + '\'' +
+                ", trafficSignType='" + TrafficSignType + '\'' +
                 '}';
     }
 }

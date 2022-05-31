@@ -31,21 +31,7 @@ public class NoticeBoardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_notice_board);
         listView = findViewById(R.id.lvItems);
 
-//        NoticeBoardItem noticeBoard = new NoticeBoardItem();
-//        noticeBoard.setBoardCode("Bien Bao");
-//        noticeBoard.setBoardName("Bien Bao");
-//        noticeBoard.setBoardDescription("Bien Bao");
-//        noticeBoard.setBoardPhoto("i408.png");
-//        for (int i = 0; i < 10; i++) {
-//            names.add(noticeBoard);
-//        }
-//
-//        noticeBoardAdapter = new NoticeBoardAdapter(NoticeBoardActivity.this, 1,names );
-//
-//        listView.setAdapter(noticeBoardAdapter);
-
         final NoticeBoardService noticeBoardService = new NoticeBoardService(this);
-
         ShowBoard(noticeBoardService);
         try {
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
