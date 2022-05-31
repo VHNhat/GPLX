@@ -108,11 +108,10 @@
             android:id="@+id/btn_signup"
             style="@style/ButtonRouder"
             android:background="@drawable/br_button2"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:layout_below="@+id/et_email_profile"
             android:layout_width="match_parent"
             android:text="Save Changes"
-
             android:textSize="17dp"
             android:layout_height="50dp"/>
 

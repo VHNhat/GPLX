@@ -44,11 +44,10 @@
             android:id="@+id/determinateBar"
             style="@android:style/Widget.ProgressBar.Horizontal"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="10dp"
             android:layout_below="@+id/number_question"
             android:allowClickWhenDisabled="true"
             android:progress="100"
-
             app:trackCornerRadius="20dp" />
 
     </RelativeLayout>
@@ -59,62 +58,154 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/progress_bar"
-        android:minHeight="1in"
         android:padding="20dp"
         android:text="Câu 10. Bạn đã biết đi xe chưa?">
 
     </TextView>
 
-    <RelativeLayout
+    <ImageView
+        android:id="@+id/iv_question"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/tv_question"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp">
+        android:scaleType="fitCenter"
+        android:src="@drawable/avatar" />
 
-        <RadioGroup
+    <ScrollView
+        android:id="@+id/group_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="120dp"
+        android:layout_below="@+id/iv_question">
+
+        <RelativeLayout
+
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/rd_answer1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:text="Answer 1a aaaa a â a â a  â a â â a  aaaaaaaaaa a a â a a a a a" />
+
+
+                <RadioButton
+                    android:id="@+id/rd_answer2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:text="Answer 1" />
+
+
+                <RadioButton
+                    android:id="@+id/rd_answer3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:text="Answer 1" />
+
+
+                <RadioButton
+                    android:id="@+id/rd_answer4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:text="Answer 1" />
+
+
+                <RadioButton
+                    android:id="@+id/rd_answer5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:text="Answer 1a aaaa a â a â a  â a â â a  aaaaaaaaaa a a â a a a a a" />
+
+
+                <RadioButton
+                    android:id="@+id/rd_answer6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:text="Answer 1" />
+                <RadioButton
+                    android:id="@+id/rd_answer7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:text="Answer 1" />
+
+
+                <RadioButton
+                    android:id="@+id/rd_answer8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:text="Answer 1a aaaa a â a â a  â a â â a  aaaaaaaaaa a a â a a a a a" />
+
+
+                <RadioButton
+                    android:id="@+id/rd_answer9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:text="Answer 1" />
+
+
+            </RadioGroup>
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:padding="10dp"
             android:layout_height="wrap_content">
 
-            <RadioButton
-                android:id="@+id/rd_answer1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:text="Answer 1a aaaa a â a â a  â a â â a  aaaaaaaaaa a a â a a a a a">
+            <Button
+                android:id="@+id/btn_prev"
+                style="@style/ButtonRouder"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:layout_below="@+id/et_password_confirm_signup"
 
-            </RadioButton>
+                android:text="Câu trước"
+                android:textAlignment="center"
+                android:textSize="14dp" />
+            <View
+                android:layout_width="10dp"
+                android:layout_height="match_parent"/>
 
-            <RadioButton
-                android:id="@+id/rd_answer2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:text="Answer 1">
+            <Button
+                android:layout_width="0dp"
+                android:id="@+id/btn_next"
+                style="@style/ButtonRouder"
+                android:layout_weight="1"
+                android:layout_height="50dp"
+                android:layout_below="@+id/et_password_confirm_signup"
+                android:text="Câu sau"
+                android:textAlignment="center"
+                android:textSize="14dp" />
+        </LinearLayout>
 
-            </RadioButton>
-
-            <RadioButton
-                android:id="@+id/rd_answer3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:text="Answer 1">
-
-            </RadioButton>
-
-            <RadioButton
-                android:id="@+id/rd_answer4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:text="Answer 1">
-
-            </RadioButton>
-        </RadioGroup>
 
     </RelativeLayout>
 
-
-    <include layout="@layout/activity_navigation" />
 </RelativeLayout>
