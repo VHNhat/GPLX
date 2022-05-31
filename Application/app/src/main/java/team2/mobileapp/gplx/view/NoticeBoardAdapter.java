@@ -1,8 +1,6 @@
 package team2.mobileapp.gplx.view;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,74 +11,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import team2.mobileapp.gplx.R;
-import team2.mobileapp.gplx.models.NoticeBoard;
-
-//class NoticeBoardItem {
-//
-//    private String boardCode;
-//    private String boardName;
-//    private String boardDescription;
-//    private String boardPhoto;
-//    public NoticeBoardItem( String boardName) {
-//        this.boardName = boardName;
-//    }
-//    public NoticeBoardItem() {
-//        this.boardCode="No code";
-//        this.boardName="No name";
-//        this.boardDescription="No description";
-//        this.boardPhoto="";
-//    }
-//    public NoticeBoardItem(String boardCode, String boardName, String boardDescription, String boardPhoto) {
-//        this.boardCode=boardCode;
-//        this.boardName=boardName;
-//        this.boardDescription=boardDescription;
-//        this.boardPhoto=boardPhoto;
-//    }
-//    public void setBoardName(String boardName) {
-//        this.boardName = boardName;
-//    }
-//
-//    public String getBoardName() {
-//        return boardName;
-//    }
-//
-//    public String getBoardDescription() {
-//        return boardDescription;
-//    }
-//
-//    public void setBoardDescription(String boardDescription) {
-//        this.boardDescription = boardDescription;
-//    }
-//
-//    public String getBoardCode() {
-//        return boardCode;
-//    }
-//
-//    public void setBoardCode(String boardCode) {
-//        this.boardCode = boardCode;
-//    }
-//
-//    public String getBoardPhoto() {
-//        return boardPhoto;
-//    }
-//
-//    public void setBoardPhoto(String boardPhoto) {
-//        this.boardPhoto = boardPhoto;
-//    }
-//
-//    @Override
-//    public String toString() {
-//        return "NoticeBoardItem{" +
-//                "boardCode='" + boardCode + '\'' +
-//                ", boardName='" + boardName + '\'' +
-//                ", boardDescription='" + boardDescription + '\'' +
-//                ", boardPhoto='" + boardPhoto + '\'' +
-//                '}';
-//    }
-//}
+import team2.mobileapp.gplx.Volley.model.NoticeBoard;
+import android.os.Bundle;
 
 public  class NoticeBoardAdapter extends ArrayAdapter<NoticeBoard> {
 

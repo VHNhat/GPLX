@@ -1,24 +1,15 @@
 package team2.api.mobile.gplx.service;
 
-<<<<<<< HEAD
-=======
 import org.springframework.beans.factory.annotation.Autowired;
->>>>>>> 401aea24846de59229efd20b967a0148542fda56
 import org.springframework.stereotype.Service;
 
 import team2.api.mobile.gplx.commondata.GenericServiceImpl;
 import team2.api.mobile.gplx.models.QuestionSet;
-<<<<<<< HEAD
-=======
 import team2.api.mobile.gplx.repository.QuestionSetRepository;
->>>>>>> 401aea24846de59229efd20b967a0148542fda56
 import team2.api.mobile.gplx.service.interfaces.QuestionSetService;
 
 @Service
 public class QuestionSetServiceImpl extends GenericServiceImpl<QuestionSet, String> implements QuestionSetService {
-<<<<<<< HEAD
-
-=======
 	@Autowired
 	private QuestionSetRepository repo;
 
@@ -37,5 +28,4 @@ public class QuestionSetServiceImpl extends GenericServiceImpl<QuestionSet, Stri
 			return null;
 		}
 	}
->>>>>>> 401aea24846de59229efd20b967a0148542fda56
 }

@@ -149,17 +149,35 @@
                 android:layout_height="wrap_content"
                 android:onClick="GroupTest"
                 android:text="Group Test" />
+
             <Button
                 android:id="@+id/button17"
 
-                android:layout_below="@+id/button16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/button16"
                 android:onClick="Tutorial"
                 android:text="Tutorial" />
+            <Button
+                android:id="@+id/button18"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/button17"
+                android:onClick="DetailsNoticeBoard"
+                android:text="DetailsNoticeBoard" />
         </RelativeLayout>
 
-
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <Button
+        android:id="@+id/button19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="AllQuestion"
+        android:text="AllQuestion" />
+</RelativeLayout>
     </LinearLayout>
 
 </RelativeLayout>

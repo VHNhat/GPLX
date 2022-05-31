@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import team2.mobileapp.gplx.R;
-
+import android.os.Bundle;
 public class SplashActivity extends AppCompatActivity {
 
     Button btn_start;

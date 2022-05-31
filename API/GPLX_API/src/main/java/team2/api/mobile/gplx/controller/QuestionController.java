@@ -1,12 +1,5 @@
 package team2.api.mobile.gplx.controller;
 
-<<<<<<< HEAD
-import org.springframework.web.bind.annotation.RestController;
-
-@RestController
-public class QuestionController {
-	
-=======
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,5 +53,4 @@ public class QuestionController {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	}
->>>>>>> 401aea24846de59229efd20b967a0148542fda56
 }

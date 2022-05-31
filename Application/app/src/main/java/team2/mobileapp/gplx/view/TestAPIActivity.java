@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,9 +14,9 @@ import java.util.List;
 
 //import team2.mobileapp.gplx.callback.VolleyResponseListener;
 import team2.mobileapp.gplx.R;
-import team2.mobileapp.gplx.models.License;
-import team2.mobileapp.gplx.service.LicenseService;
-
+import team2.mobileapp.gplx.Volley.model.License;
+import team2.mobileapp.gplx.Volley.service.LicenseService;
+import android.os.Bundle;
 public class TestAPIActivity extends AppCompatActivity {
 
     private Button btn_getAll, btn_add, btn_update, btn_delete;

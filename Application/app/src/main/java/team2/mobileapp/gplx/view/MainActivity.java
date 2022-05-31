@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import team2.mobileapp.gplx.R;
-
+import android.os.Bundle;
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -81,6 +81,14 @@ public class MainActivity extends AppCompatActivity {
     }
     public void Tutorial(View view){
         Intent intent = new Intent(this,TutorialActivity.class);
+        startActivity(intent);
+    }
+    public void DetailsNoticeBoard(View view){
+        Intent intent = new Intent(this,DetailsNoticeBoard.class);
+        startActivity(intent);
+    }
+    public void AllQuestion(View view){
+        Intent intent = new Intent(this,QuestionViewListActivity.class);
         startActivity(intent);
     }
 }

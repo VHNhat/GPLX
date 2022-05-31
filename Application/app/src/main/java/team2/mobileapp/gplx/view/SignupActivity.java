@@ -10,11 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import team2.mobileapp.gplx.Volley.model.Account;
 import team2.mobileapp.gplx.R;
-import team2.mobileapp.gplx.models.Account;
-import team2.mobileapp.gplx.models.dto.RegisterResponse;
-import team2.mobileapp.gplx.service.AuthenService;
+import team2.mobileapp.gplx.Volley.model.dto.RegisterResponse;
+import team2.mobileapp.gplx.Volley.service.AuthenService;
 
 public class SignupActivity extends AppCompatActivity {
 

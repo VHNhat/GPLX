@@ -103,10 +103,6 @@ public class Account extends AbstractEntity {
 	public void setRoleId(String roleId) {
 		this.roleId = roleId;
 	}
-<<<<<<< HEAD
-	
-=======
->>>>>>> 401aea24846de59229efd20b967a0148542fda56
 	
 	
 }

@@ -30,7 +30,7 @@ class HistoryItem {
     }
 }
 
-public  class HistoryAdapter extends ArrayAdapter<HistoryItem> {
+  class HistoryAdapter extends ArrayAdapter<HistoryItem> {
 
     private Activity context;
     public HistoryAdapter(Activity context, int layoutID, List<HistoryItem>

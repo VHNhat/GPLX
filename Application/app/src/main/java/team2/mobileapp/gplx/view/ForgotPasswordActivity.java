@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 import team2.mobileapp.gplx.R;
-
+import android.os.Bundle;
 public class ForgotPasswordActivity extends AppCompatActivity {
 
 //    Button btn_send_email;

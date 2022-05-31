@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import team2.mobileapp.gplx.R;
-import team2.mobileapp.gplx.models.NoticeBoard;
-import team2.mobileapp.gplx.service.NoticeBoardService;
-
+import team2.mobileapp.gplx.Volley.model.NoticeBoard;
+import team2.mobileapp.gplx.Volley.service.NoticeBoardService;
+import android.os.Bundle;
 public class NoticeBoardActivity extends AppCompatActivity {
     public NoticeBoardAdapter noticeBoardAdapter ;
     private ArrayList<NoticeBoard> names = new ArrayList<>();;
@@ -62,7 +62,7 @@ public class NoticeBoardActivity extends AppCompatActivity {
                     Log.i("NoticeBoard", noticeBoard.toString());
                     names.add(noticeBoard);
                 }
-                noticeBoardAdapter = new NoticeBoardAdapter(NoticeBoardActivity.this,1,names );
+                noticeBoardAdapter = new NoticeBoardAdapter(NoticeBoardActivity.this,1,names);
 
                 listView.setAdapter(noticeBoardAdapter);
             }

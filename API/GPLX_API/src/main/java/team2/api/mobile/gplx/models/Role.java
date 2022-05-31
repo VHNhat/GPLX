@@ -41,8 +41,4 @@ public class Role extends AbstractEntity {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-<<<<<<< HEAD
-	
-=======
->>>>>>> 401aea24846de59229efd20b967a0148542fda56
 }
