@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import team2.api.mobile.gplx.models.TrafficSign;
 import team2.api.mobile.gplx.models.TrafficSignType;
 import team2.api.mobile.gplx.service.interfaces.TrafficSignTypeService;
 
@@ -25,6 +26,12 @@ public class TrafficSignTypeController {
 	@GetMapping("api/trafficsigntype")
 	public ResponseEntity<Object> GetAll() {
 		List<TrafficSignType> trafficSignType = service.findAll();
+		return new ResponseEntity<>(trafficSignType, HttpStatus.OK);
+	}
+	
+	@GetMapping("api/trafficsigntype/{id}")
+	public ResponseEntity<Object> GetById(@PathVariable("id") String id) {
+		TrafficSignType trafficSignType = service.findTrafficSignTypeById(id);
 		return new ResponseEntity<>(trafficSignType, HttpStatus.OK);
 	}
 
