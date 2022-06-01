@@ -68,8 +68,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_question"
-        android:scaleType="fitCenter"
-        android:src="@drawable/avatar" />
+        android:scaleType="fitCenter"/>
 
     <ScrollView
         android:id="@+id/group_answer"
@@ -128,37 +127,6 @@
                     android:layout_height="wrap_content"
                     android:padding="15dp"
                     android:text="Answer 1a aaaa a â a â a  â a â â a  aaaaaaaaaa a a â a a a a a" />
-
-
-                <RadioButton
-                    android:id="@+id/rd_answer6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="15dp"
-                    android:text="Answer 1" />
-                <RadioButton
-                    android:id="@+id/rd_answer7"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="15dp"
-                    android:text="Answer 1" />
-
-
-                <RadioButton
-                    android:id="@+id/rd_answer8"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="15dp"
-                    android:text="Answer 1a aaaa a â a â a  â a â â a  aaaaaaaaaa a a â a a a a a" />
-
-
-                <RadioButton
-                    android:id="@+id/rd_answer9"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="15dp"
-                    android:text="Answer 1" />
-
 
             </RadioGroup>
 
