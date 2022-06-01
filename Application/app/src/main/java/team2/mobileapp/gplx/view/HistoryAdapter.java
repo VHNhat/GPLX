@@ -11,26 +11,7 @@ import java.util.List;
 
 import team2.mobileapp.gplx.R;
 
-class HistoryItem {
-
-    private String CategoryName;
-    public HistoryItem( String CategoryName) {
-        this.CategoryName = CategoryName;
-
-    }
-    public HistoryItem() {
-        this.CategoryName="No name";
-    }
-
-    public String getCategoryName() {
-        return this.CategoryName;
-    }
-    public void setCategoryName(String fullName) {
-        this.CategoryName = fullName;
-    }
-}
-
-  class HistoryAdapter extends ArrayAdapter<HistoryItem> {
+class HistoryAdapter extends ArrayAdapter<HistoryItem> {
 
     private Activity context;
     public HistoryAdapter(Activity context, int layoutID, List<HistoryItem>

@@ -14,11 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import team2.mobileapp.gplx.R;
-import team2.mobileapp.gplx.Retrofit.models.TrafficSign;
 import team2.mobileapp.gplx.Volley.model.NoticeBoard;
 import team2.mobileapp.gplx.Volley.service.NoticeBoardService;
-
-import android.os.Bundle;
 
 public class NoticeBoardActivity extends AppCompatActivity {
     private NoticeBoardAdapter noticeBoardAdapter;
