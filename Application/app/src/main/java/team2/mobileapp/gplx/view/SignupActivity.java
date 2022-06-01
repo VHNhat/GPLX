@@ -49,6 +49,9 @@ public class SignupActivity extends AppCompatActivity {
         tv_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //clear all stack and add activity new task
+                login.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
                 startActivity(login);
             }
         });

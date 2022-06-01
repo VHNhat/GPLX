@@ -13,7 +13,7 @@ import team2.mobileapp.gplx.Retrofit.callbacks.TrafficSignCallBackListener;
 import team2.mobileapp.gplx.Retrofit.controllers.TrafficSignController;
 import team2.mobileapp.gplx.Volley.model.TrafficSign;
 
-public class DetailsNoticeBoard extends AppCompatActivity implements TrafficSignCallBackListener {
+public class DetailsNoticeBoardActivity extends AppCompatActivity implements TrafficSignCallBackListener {
     private TrafficSignController trafficSignController;
     private TextView tvTitle,tvDescription;
     private ImageView ivPhoto;
@@ -27,7 +27,6 @@ public class DetailsNoticeBoard extends AppCompatActivity implements TrafficSign
         ivPhoto = (ImageView) findViewById(R.id.iv_image_board_details);
         trafficSignController = new TrafficSignController(this);
         String Id = getIntent().getStringExtra("ID");
-        Toast.makeText(DetailsNoticeBoard.this, Id, Toast.LENGTH_SHORT).show();
         trafficSignController.startFetching(Id);
 
     }

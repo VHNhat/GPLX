@@ -48,6 +48,9 @@ public class LoginActivity extends AppCompatActivity {
         tv_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //clear all stack and add activity new task
+                signup.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
                 startActivity(signup);
             }
         });
@@ -57,6 +60,7 @@ public class LoginActivity extends AppCompatActivity {
         tv_forgot_pass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 startActivity(forgotPass);
             }
         });
@@ -91,6 +95,9 @@ public class LoginActivity extends AppCompatActivity {
                         public void onResponse(LoginResponse loginResponse) {
                             //Toast.makeText(SignInActivity.this, loginResponse.toString(), Toast.LENGTH_LONG).show();
                             Log.i("Login response",loginResponse.toString());
+
+                            //clear all stack and add activity new task
+                            tutorial.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(tutorial);
                         }
                     });

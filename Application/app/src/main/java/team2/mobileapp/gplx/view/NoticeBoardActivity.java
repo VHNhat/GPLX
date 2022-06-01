@@ -35,7 +35,7 @@ public class NoticeBoardActivity extends AppCompatActivity {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     NoticeBoard item = (NoticeBoard) listView.getItemAtPosition(position);
-                    Intent intent = new Intent(NoticeBoardActivity.this, DetailsNoticeBoard.class);
+                    Intent intent = new Intent(NoticeBoardActivity.this, DetailsNoticeBoardActivity.class);
                     intent.putExtra("ID", item.getId());
                     startActivity(intent);
                 }
