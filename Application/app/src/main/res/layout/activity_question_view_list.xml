@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
-    tools:context=".view.ReviewTestActivity">
+    tools:context=".view.ReviewTestActivity"
+   >
 
 
     <RelativeLayout
@@ -46,6 +47,7 @@
     </RelativeLayout>
 
     <ListView
+        android:layout_marginBottom="100dp"
         android:id="@+id/lvAllQuestion"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

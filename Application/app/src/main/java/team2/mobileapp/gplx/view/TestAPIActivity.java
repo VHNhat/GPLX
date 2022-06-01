@@ -16,7 +16,7 @@ import java.util.List;
 import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Volley.model.License;
 import team2.mobileapp.gplx.Volley.service.LicenseService;
-import android.os.Bundle;
+
 public class TestAPIActivity extends AppCompatActivity {
 
     private Button btn_getAll, btn_add, btn_update, btn_delete;

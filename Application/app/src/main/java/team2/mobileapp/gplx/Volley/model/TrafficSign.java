@@ -1,4 +1,4 @@
-package team2.mobileapp.gplx.Retrofit.models;
+package team2.mobileapp.gplx.Volley.model;
 
 public class TrafficSign {
     private String id;

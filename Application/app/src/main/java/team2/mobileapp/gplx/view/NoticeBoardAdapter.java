@@ -14,7 +14,6 @@ import java.util.ArrayList;
 
 import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Volley.model.NoticeBoard;
-import android.os.Bundle;
 
 public  class NoticeBoardAdapter extends ArrayAdapter<NoticeBoard> {
 

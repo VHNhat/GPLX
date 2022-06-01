@@ -10,12 +10,11 @@ import java.util.ArrayList;
 
 import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Retrofit.callbacks.TestCallBackListener;
-import team2.mobileapp.gplx.Retrofit.controllers.TestController;
-import team2.mobileapp.gplx.Retrofit.models.Test;
-import team2.mobileapp.gplx.view.QuestionListViewAdapter;
+import team2.mobileapp.gplx.Retrofit.controllers.QuestionDetailsController;
+import team2.mobileapp.gplx.Retrofit.dto.QuestionDetails;
 
 public class QuestionViewListActivity extends AppCompatActivity implements TestCallBackListener {
-    private TestController testController;
+    private QuestionDetailsController questionDetailsController;
     public QuestionListViewAdapter questionListViewAdapter ;
     ListView listView;
     @Override
@@ -23,14 +22,15 @@ public class QuestionViewListActivity extends AppCompatActivity implements TestC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_view_list);
         listView = (ListView) findViewById(R.id.lvAllQuestion);
-        testController= new TestController(this);
-        testController.startFetching("a1");
+        questionDetailsController = new QuestionDetailsController(this);
+        questionDetailsController.startFetching("a1");
     }
 
     @Override
-    public void onFetchProgress(ArrayList<Test> trafficSigns) {
+    public void onFetchProgress(ArrayList<QuestionDetails> trafficSigns) {
         if(!trafficSigns.isEmpty())
         {
+
             questionListViewAdapter= new QuestionListViewAdapter(QuestionViewListActivity.this,R.layout.question_view_list_item,trafficSigns);
             listView.setAdapter(questionListViewAdapter);
         }

@@ -1,15 +1,13 @@
 package team2.mobileapp.gplx.Retrofit.controllers;
 
 import android.util.Log;
-import android.widget.Toast;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import team2.mobileapp.gplx.Retrofit.api.RestAPIManager;
 import team2.mobileapp.gplx.Retrofit.callbacks.TrafficSignCallBackListener;
-import team2.mobileapp.gplx.Retrofit.models.TrafficSign;
-import team2.mobileapp.gplx.view.DetailsNoticeBoard;
+import team2.mobileapp.gplx.Volley.model.TrafficSign;
 
 public class TrafficSignController {
     private TrafficSignCallBackListener trafficSignCallbackListener;
