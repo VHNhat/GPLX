@@ -1,5 +1,6 @@
 package team2.api.mobile.gplx.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,8 +62,13 @@ public class QuestionController {
 
 	@GetMapping("api/question/{license}")
 	public ResponseEntity<Object> GetQuestionByLicense(@PathVariable("license") String license) {
+		List<DtoQuestionDetail> questionDetailList = new ArrayList<DtoQuestionDetail>();
 		List<Question> questions = questionService.findQuestionByLicense(license);
-		return new ResponseEntity<>(questions, HttpStatus.OK);
+		for(Question question : questions) {
+			Answer answer = answerService.findByQuestionId(question.getId());
+			questionDetailList.add(new DtoQuestionDetail(question, answer));
+		}
+		return new ResponseEntity<>(questionDetailList, HttpStatus.OK);
 	}
 	
 	@GetMapping("api/question/details/{id}")
