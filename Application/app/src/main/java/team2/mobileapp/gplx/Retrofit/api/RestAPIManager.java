@@ -7,6 +7,7 @@ import team2.mobileapp.gplx.Retrofit.models.TrafficSign;
 
 public class RestAPIManager {
     private TrafficSignAPI trafficSignAPI;
+    private TestAPI testAPI;
     public static final String BASE_URL = "http://10.0.2.2:8080/api/";
 
     public TrafficSignAPI getTrafficSignApi()
@@ -20,6 +21,18 @@ public class RestAPIManager {
                     .create(TrafficSignAPI.class);
         }
         return trafficSignAPI;
+    }
+    public TestAPI getTestApi()
+    {
+        if(testAPI == null)
+        {
+            testAPI = new Retrofit.Builder()
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .baseUrl(BASE_URL)
+                    .build()
+                    .create(TestAPI.class);
+        }
+        return testAPI;
     }
 }
 

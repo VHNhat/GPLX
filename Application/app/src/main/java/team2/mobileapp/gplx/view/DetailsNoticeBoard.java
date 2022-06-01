@@ -31,7 +31,6 @@ public class DetailsNoticeBoard extends AppCompatActivity implements TrafficSign
         trafficSignController = new TrafficSignController(this);
         String Id = getIntent().getStringExtra("ID");
         Toast.makeText(DetailsNoticeBoard.this, Id, Toast.LENGTH_SHORT).show();
-
         trafficSignController.startFetching(Id);
 
     }

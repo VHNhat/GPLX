@@ -33,11 +33,11 @@ public class TrafficSignController {
                 } catch (Exception e) {
                     Log.d("Error:", e.getMessage());
                 }
-                trafficSignCallbackListener.onFetchComplete("DONE");
+                trafficSignCallbackListener.onFetchComplete(message);
             }
             @Override
             public void onFailure(Call<TrafficSign> call, Throwable t) {
-                Log.d("FAIL", "onResponse: CHro " );
+                Log.d("FAIL", "onResponse: True " );
             }
         });
     }

@@ -11,7 +11,7 @@ import retrofit2.http.Query;
 import team2.mobileapp.gplx.Retrofit.models.TrafficSign;
 
 public interface TrafficSignAPI {
-        @GET("trafficsign")
+    @GET("trafficsign")
     Call<List<TrafficSign>> getTrafficSigns();
     @GET("trafficsign/{id}")
      Call<TrafficSign> getTrafficSign(@Path("id") String id);

@@ -13,20 +13,21 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import team2.mobileapp.gplx.R;
+import team2.mobileapp.gplx.Retrofit.models.Test;
 import team2.mobileapp.gplx.Volley.model.NoticeBoard;
 import team2.mobileapp.gplx.Volley.model.QuestionViewList;
 
 import android.os.Bundle;
 
-class QuestionListViewAdapter extends ArrayAdapter<QuestionViewList> {
+class QuestionListViewAdapter extends ArrayAdapter<Test> {
     Context context;
 
     // new
-    ArrayList<QuestionViewList> arrayList;
+    ArrayList<Test> arrayList;
     int layoutResource;
 
     //
-    public QuestionListViewAdapter(Context context, int resource, ArrayList<QuestionViewList>
+    public QuestionListViewAdapter(Context context, int resource, ArrayList<Test>
             objects) {
         super(context, resource, objects);
         this.context = context;

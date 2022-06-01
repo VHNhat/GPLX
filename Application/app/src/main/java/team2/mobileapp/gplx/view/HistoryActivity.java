@@ -2,18 +2,15 @@ package team2.mobileapp.gplx.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ListView;
-
-import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import team2.mobileapp.gplx.R;
+import team2.mobileapp.gplx.view.HistoryAdapter;
+import team2.mobileapp.gplx.view.HistoryItem;
 
 public class HistoryActivity extends AppCompatActivity {
     public HistoryAdapter historyAdapter ;
