@@ -13,24 +13,29 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import team2.api.mobile.gplx.dto.DtoQuestionDetail;
+import team2.api.mobile.gplx.models.Answer;
 import team2.api.mobile.gplx.models.Question;
 import team2.api.mobile.gplx.models.QuestionSet;
+import team2.api.mobile.gplx.service.interfaces.AnswerService;
 import team2.api.mobile.gplx.service.interfaces.QuestionService;
 
 @RestController
 public class QuestionController {
 	@Autowired
-	private QuestionService service;
+	private QuestionService questionService;
+	@Autowired
+	private AnswerService answerService;
 
 	@GetMapping("api/question")
 	public ResponseEntity<Object> GetAll() {
-		List<Question> questions = service.findAll();
+		List<Question> questions = questionService.findAll();
 		return new ResponseEntity<>(questions, HttpStatus.OK);
 	}
 
 	@PostMapping("api/question/add")
 	public ResponseEntity<Object> Post(@RequestBody Question question) {
-		Question newQuestion = service.save(question);
+		Question newQuestion = questionService.save(question);
 		if (newQuestion == null)
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		return new ResponseEntity<>(newQuestion, HttpStatus.OK);
@@ -38,7 +43,7 @@ public class QuestionController {
 
 	@PutMapping("api/question/edit/{id}")
 	public ResponseEntity<Object> Put(@PathVariable("id") String id, @RequestBody Question question) {
-		Question updatedQuestion = service.update(question, id);
+		Question updatedQuestion = questionService.update(question, id);
 		if (updatedQuestion == null)
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		return new ResponseEntity<>(updatedQuestion, HttpStatus.OK);
@@ -47,7 +52,7 @@ public class QuestionController {
 	@DeleteMapping("api/question/delete/{id}")
 	public ResponseEntity<Object> Delete(@PathVariable("id") String id) {
 		try {
-			service.deleteById(id);
+			questionService.deleteById(id);
 			return new ResponseEntity<>(HttpStatus.OK);
 		} catch (Exception ex) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -56,7 +61,19 @@ public class QuestionController {
 
 	@GetMapping("api/question/{license}")
 	public ResponseEntity<Object> GetQuestionByLicense(@PathVariable("license") String license) {
-		List<Question> questions = service.findQuestionByLicense(license);
+		List<Question> questions = questionService.findQuestionByLicense(license);
 		return new ResponseEntity<>(questions, HttpStatus.OK);
+	}
+	
+	@GetMapping("api/question/details/{id}")
+	public ResponseEntity<Object> GetQuestionDetails(@PathVariable("id") String id) {
+		try {
+			Question question = questionService.findById(id).get();
+			Answer answer = answerService.findByQuestionId(id);
+			DtoQuestionDetail questionDetail = new DtoQuestionDetail(question, answer);
+			return new ResponseEntity<>(questionDetail, HttpStatus.OK);
+		} catch (Exception ex) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
 	}
 }
