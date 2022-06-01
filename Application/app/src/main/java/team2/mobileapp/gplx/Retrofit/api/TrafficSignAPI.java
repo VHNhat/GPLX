@@ -5,7 +5,7 @@ import java.util.List;
 import retrofit2.http.GET;
 
 import retrofit2.http.Path;
-import team2.mobileapp.gplx.model.TrafficSign;
+import team2.mobileapp.gplx.Volley.model.TrafficSign;
 
 public interface TrafficSignAPI {
     @GET("trafficsign")

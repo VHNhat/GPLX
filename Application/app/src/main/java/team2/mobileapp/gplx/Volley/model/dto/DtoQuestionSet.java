@@ -1,12 +1,12 @@
 
-package team2.mobileapp.gplx.model.dto;
+package team2.mobileapp.gplx.Volley.model.dto;
 
 import java.util.List;
 import java.util.Optional;
 
-import team2.mobileapp.gplx.model.Answer;
-import team2.mobileapp.gplx.model.Question;
-import team2.mobileapp.gplx.model.QuestionSet;
+import team2.mobileapp.gplx.Volley.model.Answer;
+import team2.mobileapp.gplx.Volley.model.Question;
+import team2.mobileapp.gplx.Volley.model.QuestionSet;
 
 public class DtoQuestionSet {
     private Optional<QuestionSet> questionSet;

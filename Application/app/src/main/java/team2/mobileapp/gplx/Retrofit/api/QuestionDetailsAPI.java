@@ -9,6 +9,6 @@ import retrofit2.http.Path;
 import team2.mobileapp.gplx.Retrofit.dto.QuestionDetails;
 
 public interface QuestionDetailsAPI {
-    @GET("question/details/{license}")
+    @GET("question/{license}")
     Call<ArrayList<QuestionDetails>> getTestLicense(@Path("license") String license);
 }

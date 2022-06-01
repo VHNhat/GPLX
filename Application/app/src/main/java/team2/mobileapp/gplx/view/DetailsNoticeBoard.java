@@ -11,7 +11,7 @@ import android.widget.Toast;
 import  team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Retrofit.callbacks.TrafficSignCallBackListener;
 import team2.mobileapp.gplx.Retrofit.controllers.TrafficSignController;
-import team2.mobileapp.gplx.model.TrafficSign;
+import team2.mobileapp.gplx.Volley.model.TrafficSign;
 
 public class DetailsNoticeBoard extends AppCompatActivity implements TrafficSignCallBackListener {
     private TrafficSignController trafficSignController;

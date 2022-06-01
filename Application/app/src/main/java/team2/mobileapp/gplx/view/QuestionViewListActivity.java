@@ -30,6 +30,7 @@ public class QuestionViewListActivity extends AppCompatActivity implements TestC
     public void onFetchProgress(ArrayList<QuestionDetails> trafficSigns) {
         if(!trafficSigns.isEmpty())
         {
+
             questionListViewAdapter= new QuestionListViewAdapter(QuestionViewListActivity.this,R.layout.question_view_list_item,trafficSigns);
             listView.setAdapter(questionListViewAdapter);
         }

@@ -1,61 +1,34 @@
 package team2.mobileapp.gplx.Retrofit.dto;
 
+
+import team2.mobileapp.gplx.Retrofit.models.Answer;
+import team2.mobileapp.gplx.Retrofit.models.Question;
+
 public class QuestionDetails {
+   private Question question;
+   private Answer answer;
 
-    private String Name;
-    private boolean Status;
-    private int Quantity;
-    private int WrongAns;
-    private int RightAns;
-
-    public String getName() {
-        return Name;
+    public Question getQuestion() {
+        return question;
     }
 
-    public void setName(String name) {
-        Name = name;
+    public void setQuestion(Question question) {
+        this.question = question;
     }
 
-    public boolean isStatus() {
-        return Status;
+    public Answer getAnswer() {
+        return answer;
     }
 
-    public void setStatus(boolean status) {
-        Status = status;
-    }
-
-    public int getQuantity() {
-        return Quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        Quantity = quantity;
-    }
-
-    public int getWrongAns() {
-        return WrongAns;
-    }
-
-    public void setWrongAns(int wrongAns) {
-        WrongAns = wrongAns;
-    }
-
-    public int getRightAns() {
-        return RightAns;
-    }
-
-    public void setRightAns(int rightAns) {
-        RightAns = rightAns;
+    public void setAnswer(Answer answer) {
+        this.answer = answer;
     }
 
     @Override
     public String toString() {
-        return "Test{" +
-                "Name='" + Name + '\'' +
-                ", Status=" + Status +
-                ", Quantity=" + Quantity +
-                ", WrongAns=" + WrongAns +
-                ", RightAns=" + RightAns +
+        return "QuestionDetails{" +
+                "question=" + question +
+                ", answer=" + answer +
                 '}';
     }
 }

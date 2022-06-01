@@ -14,7 +14,7 @@ import java.util.List;
 
 //import team2.mobileapp.gplx.callback.VolleyResponseListener;
 import team2.mobileapp.gplx.R;
-import team2.mobileapp.gplx.model.License;
+import team2.mobileapp.gplx.Volley.model.License;
 import team2.mobileapp.gplx.Volley.service.LicenseService;
 
 public class TestAPIActivity extends AppCompatActivity {

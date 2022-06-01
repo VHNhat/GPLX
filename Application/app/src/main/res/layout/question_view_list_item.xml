@@ -23,18 +23,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingBottom="10dp"
-            android:text="Câu hỏi thứ 10 bán đang làm cái con gì vây hả"
+            android:text="Câu hỏi thứ "
+            android:textAlignment="textStart"
             android:textColor="@color/white" />
 
         <ImageView
             android:id="@+id/iv_board"
-            style="@style/ImageRounder_10"
-            android:layout_width="170dp"
-            android:layout_height="170dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/tv_question_item_listview"
             android:layout_centerHorizontal="true"
-            android:padding="10dp"
-            android:src="@drawable/bienbao"></ImageView>
+           ></ImageView>
 
 
         <RelativeLayout
@@ -45,26 +44,39 @@
             android:paddingTop="20dp"
             android:paddingBottom="20dp">
 
+            <TextView
+                android:id="@+id/tv_list_answer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                android:lineHeight="27dp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_board_code"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Đáp án"
+                android:layout_below="@+id/tv_list_answer"
+                android:text="Đáp án:"
                 android:textAppearance="?android:attr/textAppearanceListItemSmall"
                 android:textColor="@color/white"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tv_board_name"
+                android:id="@+id/tv_result_item_listview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_board_code"
-                android:text="Biến báp giúp ta nhận biến có nguy hiểm gì đang ập đến hay là không"
+                android:text=""
+                android:layout_marginTop="10dp"
                 android:textAppearance="?android:attr/textAppearanceListItemSmall"
-                android:textColor="@color/white"
-                android:textSize="15dp" />
+                android:textColor="@color/yellow"
+                android:textSize="16dp"
+                android:textStyle="bold" />
         </RelativeLayout>
 
 

@@ -23,7 +23,7 @@ import java.util.Map;
 
 import team2.mobileapp.gplx.Volley.callback.MySingleton;
 //import team2.mobileapp.gplx.callback.VolleyResponseListener;
-import team2.mobileapp.gplx.model.License;
+import team2.mobileapp.gplx.Volley.model.License;
 
 public class LicenseService {
     public static final String BASE_IP = "http://10.0.2.2:8080/api";

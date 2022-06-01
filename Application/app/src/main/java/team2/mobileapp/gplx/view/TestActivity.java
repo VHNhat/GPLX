@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import team2.mobileapp.gplx.R;
-import team2.mobileapp.gplx.model.dto.DtoQuestionSet;
+import team2.mobileapp.gplx.Volley.model.dto.DtoQuestionSet;
 import team2.mobileapp.gplx.Volley.service.TestService;
 
 public class TestActivity extends AppCompatActivity {

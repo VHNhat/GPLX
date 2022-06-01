@@ -28,7 +28,6 @@ public class QuestionDetailsController {
                 try {
                     message = response.code() == 200 ? " Successfully" : " Error";
                     ArrayList<QuestionDetails> questionDetails = response.body();
-                    Log.d("ALLTEST", questionDetails.get(0).toString());
                     testCallBackListener.onFetchProgress(questionDetails);
 
                 } catch (Exception e) {
@@ -39,7 +38,7 @@ public class QuestionDetailsController {
 
             @Override
             public void onFailure(Call<ArrayList<QuestionDetails>> call, Throwable t) {
-                Log.d("FAILALL", "onResponse: True ");
+                Log.d("FAIl", "onResponse: True ");
             }
         });
     }

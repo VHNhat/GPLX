@@ -7,7 +7,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import team2.mobileapp.gplx.Retrofit.api.RestAPIManager;
 import team2.mobileapp.gplx.Retrofit.callbacks.TrafficSignCallBackListener;
-import team2.mobileapp.gplx.model.TrafficSign;
+import team2.mobileapp.gplx.Volley.model.TrafficSign;
 
 public class TrafficSignController {
     private TrafficSignCallBackListener trafficSignCallbackListener;

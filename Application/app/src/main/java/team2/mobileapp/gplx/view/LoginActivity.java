@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import team2.mobileapp.gplx.R;
-import team2.mobileapp.gplx.model.dto.LoginResponse;
+import team2.mobileapp.gplx.Volley.model.dto.LoginResponse;
 import team2.mobileapp.gplx.Volley.service.AuthenService;
 
 public class LoginActivity extends AppCompatActivity {
