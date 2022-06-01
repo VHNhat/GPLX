@@ -9,8 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import team2.mobileapp.gplx.R;
-import team2.mobileapp.gplx.view.HistoryAdapter;
-import team2.mobileapp.gplx.view.HistoryItem;
+
 
 public class HistoryActivity extends AppCompatActivity {
     public HistoryAdapter historyAdapter ;

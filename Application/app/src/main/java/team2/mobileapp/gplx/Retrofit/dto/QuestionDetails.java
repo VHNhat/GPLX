@@ -1,6 +1,6 @@
-package team2.mobileapp.gplx.Retrofit.models;
+package team2.mobileapp.gplx.Retrofit.dto;
 
-public class Test {
+public class QuestionDetails {
 
     private String Name;
     private boolean Status;

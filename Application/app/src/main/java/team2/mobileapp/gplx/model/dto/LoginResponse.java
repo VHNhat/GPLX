@@ -1,4 +1,4 @@
-package team2.mobileapp.gplx.Volley.model.dto;
+package team2.mobileapp.gplx.model.dto;
 
 public class LoginResponse {
     private String id;

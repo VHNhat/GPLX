@@ -10,9 +10,9 @@ import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.os.Bundle;
+
 import team2.mobileapp.gplx.R;
-import team2.mobileapp.gplx.Volley.model.dto.DtoQuestionSet;
+import team2.mobileapp.gplx.model.dto.DtoQuestionSet;
 import team2.mobileapp.gplx.Volley.service.TestService;
 
 public class TestActivity extends AppCompatActivity {

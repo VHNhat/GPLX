@@ -4,17 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.List;
-
 import  team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Retrofit.callbacks.TrafficSignCallBackListener;
 import team2.mobileapp.gplx.Retrofit.controllers.TrafficSignController;
-import team2.mobileapp.gplx.Retrofit.models.TrafficSign;
+import team2.mobileapp.gplx.model.TrafficSign;
 
 public class DetailsNoticeBoard extends AppCompatActivity implements TrafficSignCallBackListener {
     private TrafficSignController trafficSignController;

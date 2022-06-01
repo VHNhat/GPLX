@@ -13,8 +13,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import team2.mobileapp.gplx.R;
-import team2.mobileapp.gplx.Volley.model.NoticeBoard;
-import android.os.Bundle;
+import team2.mobileapp.gplx.model.NoticeBoard;
 
 public  class NoticeBoardAdapter extends ArrayAdapter<NoticeBoard> {
 

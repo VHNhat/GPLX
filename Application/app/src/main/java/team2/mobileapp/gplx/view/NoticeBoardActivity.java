@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import team2.mobileapp.gplx.R;
-import team2.mobileapp.gplx.Volley.model.NoticeBoard;
+import team2.mobileapp.gplx.model.NoticeBoard;
 import team2.mobileapp.gplx.Volley.service.NoticeBoardService;
 
 public class NoticeBoardActivity extends AppCompatActivity {

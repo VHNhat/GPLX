@@ -1,4 +1,4 @@
-package team2.mobileapp.gplx.Volley.model;
+package team2.mobileapp.gplx.model;
 
 public class License {
     private String id;
