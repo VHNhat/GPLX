@@ -56,54 +56,56 @@ public class DataSeeding implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		answerRepo.deleteAll();
-		questionSetRepo.deleteAll();
-		questionTypeRepo.deleteAll();
-		questionRepo.deleteAll();
-		LoadRole();
-		LoadAccount();
-		LoadLicenseType();
-		LoadLicense();
-		LoadTrafficSignType();
-		LoadTrafficSign();
-		LoadQuestionSet();
-		LoadQuestionType();
-		LoadQuestionA1();
-		LoadQuestionA2();
-		LoadQuestionB1();
-		LoadQuestionB2();
-		LoadAnswerA1();
-		LoadAnswerA2();
-		LoadAnswerB1();
-		LoadAnswerB2();
+		// Khi nào cần seed data thì mở comments ra mà seed, không thì comment lại.
+//		licenseTypeRepo.deleteAll();
+//		licenseRepo.deleteAll();
+//		roleRepo.deleteAll();
+//		accountRepo.deleteAll();
+//		trafficSignTypeRepo.deleteAll();
+//		trafficSignRepo.deleteAll();
+//		questionTypeRepo.deleteAll();
+//		questionRepo.deleteAll();
+//		questionSetRepo.deleteAll();
+//		answerRepo.deleteAll();
+//		LoadRole();
+//		LoadAccount();
+//		LoadLicenseType();
+//		LoadLicense();
+//		LoadTrafficSignType();
+//		LoadTrafficSign();
+//		LoadQuestionSet();
+//		LoadQuestionType();
+//		LoadQuestionA1();
+//		LoadQuestionA2();
+//		LoadQuestionB1();
+//		LoadQuestionB2();
+//		LoadAnswerA1();
+//		LoadAnswerA2();
+//		LoadAnswerB1();
+//		LoadAnswerB2();
 	}
 
 	private void LoadRole() {
-		if (roleRepo.count() == 0) {
-			Role admin = new Role("Admin", "Administrator");
-			roleRepo.save(admin);
-			Role user = new Role("User", "User");
-			roleRepo.save(user);
-		}
-
+		Role admin = new Role("Admin", "Administrator");
+		roleRepo.save(admin);
+		Role user = new Role("User", "User");
+		roleRepo.save(user);
 	}
 
 	private void LoadAccount() {
-		if (accountRepo.count() == 0) {
-			Role admin = roleRepo.findByRoleName("Admin");
-			Role user = roleRepo.findByRoleName("User");
-			Account account1 = new Account("admin", "admin123", "admin@gmail.com", "Nhật", "Võ", "",
-					AccountStatus.ACTIVE, admin.getId());
-			accountRepo.save(account1);
-			Account account2 = new Account("user", "user123", "user@gmail.com", "Nhật", "Võ", "", AccountStatus.ACTIVE,
-					user.getId());
-			accountRepo.save(account2);
-		}
+
+		Role admin = roleRepo.findByRoleName("Admin");
+		Role user = roleRepo.findByRoleName("User");
+		Account account1 = new Account("admin", "admin123", "admin@gmail.com", "Nhật", "Võ", "", AccountStatus.ACTIVE,
+				admin.getId());
+		accountRepo.save(account1);
+		Account account2 = new Account("user", "user123", "user@gmail.com", "Nhật", "Võ", "", AccountStatus.ACTIVE,
+				user.getId());
+		accountRepo.save(account2);
 
 	}
 
 	private void LoadLicenseType() {
-		licenseTypeRepo.deleteAll();
 		LicenseType xe2Banh = new LicenseType("Xe mô tô", Status.ACTIVE, "Bằng lái xe mô tô");
 		licenseTypeRepo.save(xe2Banh);
 		LicenseType xe4Banh = new LicenseType("Xe ô tô", Status.ACTIVE, "Bằng lái xe ô tô");
@@ -112,7 +114,6 @@ public class DataSeeding implements CommandLineRunner {
 	}
 
 	private void LoadLicense() {
-		licenseRepo.deleteAll();
 		LicenseType xe2Banh = licenseTypeRepo.findByName("Xe mô tô");
 		License a1 = new License("A1", Status.ACTIVE, "Bằng lái xe A1", xe2Banh.getId());
 		licenseRepo.save(a1);
@@ -127,7 +128,6 @@ public class DataSeeding implements CommandLineRunner {
 	}
 
 	private void LoadTrafficSignType() {
-		trafficSignTypeRepo.deleteAll();
 		TrafficSignType prohibitionSign = new TrafficSignType("C", "Biển báo cấm");
 		trafficSignTypeRepo.save(prohibitionSign);
 		TrafficSignType dangerSign = new TrafficSignType("NH", "Biển báo nguy hiểm");
@@ -144,7 +144,6 @@ public class DataSeeding implements CommandLineRunner {
 	}
 
 	private void LoadTrafficSign() {
-		trafficSignRepo.deleteAll();
 		String probihitionSignId = trafficSignTypeRepo.findByCode("C").getId();
 		String dangerSignId = trafficSignTypeRepo.findByCode("NH").getId();
 		String commandSignId = trafficSignTypeRepo.findByCode("HL").getId();
@@ -934,7 +933,6 @@ public class DataSeeding implements CommandLineRunner {
 	}
 
 	private void LoadQuestionSet() {
-		questionSetRepo.deleteAll();
 		for (int c = 1; c <= 8; c++) {
 			QuestionSet set = new QuestionSet("Đề " + c + " - A1", false, 25, 0, 0);
 			questionSetRepo.save(set);
@@ -954,7 +952,6 @@ public class DataSeeding implements CommandLineRunner {
 	}
 
 	private void LoadQuestionType() {
-		questionTypeRepo.deleteAll();
 		QuestionType conceptsAndRules = new QuestionType("KN", "Khái niệm và quy tắc giao thông",
 				"Khái niệm và quy tắc giao thông");
 		questionTypeRepo.save(conceptsAndRules);
@@ -3653,7 +3650,7 @@ public class DataSeeding implements CommandLineRunner {
 				true, "a2_450.jpg", a2.getId(), set18.getId(), sh.getId());
 		questionRepo.save(questionA2_450);
 	}
-	
+
 	private void LoadQuestionB1() {
 		License b1 = licenseRepo.findByName("B1");
 
@@ -3685,7 +3682,7 @@ public class DataSeeding implements CommandLineRunner {
 		QuestionSet set18 = questionSetRepo.findByName("Đề 18 - B1");
 		QuestionSet set19 = questionSetRepo.findByName("Đề 19 - B1");
 		QuestionSet set20 = questionSetRepo.findByName("Đề 20 - B1");
-		
+
 		Question questionb1_1 = new Question(1,
 				"Phần của đường bộ đươc sử dụng cho các phương tiện giao thông qua lại là gì?", true, "", b1.getId(),
 				set1.getId(), kn.getId());
@@ -6418,7 +6415,7 @@ public class DataSeeding implements CommandLineRunner {
 				true, "b1_600.jpg", b1.getId(), set20.getId(), sh.getId());
 		questionRepo.save(questionb1_600);
 	}
-	
+
 	private void LoadQuestionB2() {
 		License b2 = licenseRepo.findByName("B2");
 
@@ -7939,7 +7936,7 @@ public class DataSeeding implements CommandLineRunner {
 				"Khi điều khiển xe mô tô tay ga xuống đường dốc dài, độ dốc cao, người lái xe cần thực hiện các thao tác nào dưới đây để đảm bảo an toàn?",
 				true, "", b2.getId(), set10.getId(), kt.getId());
 		questionRepo.save(questionb2_214);
-		
+
 		Question questionb2_231 = new Question(14,
 				"Để giảm tốc độ khi ô tô xuống đường dốc dài, người lái xe phải thực hiện các thao tác nào để đảm bảo an toàn?",
 				true, "", b2.getId(), set10.getId(), kt.getId());
@@ -9157,7 +9154,7 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_595);
 
 	}
-	
+
 	private void LoadAnswerA1() {
 		List<Question> questionList = questionRepo.findAll();
 		ArrayList<String> idList = new ArrayList<String>();
@@ -9165,8 +9162,14 @@ public class DataSeeding implements CommandLineRunner {
 		for (Question q : questionList) {
 			idList.add(q.getId());
 		}
+<<<<<<< HEAD
 		
 		String[] a1_answers_1_set1 = {"Bị nghiêm cấm", "Không bị nghiêm cấm", "Không bị nghiêm cấm, nếu có chất ma túy ở mức nhẹ, có thể điều khiển phương tiện tham gia giao thông."};
+=======
+
+		String[] a1_answers_1_set1 = { "Bị nghiêm cấm", "Không bị nghiêm cấm",
+				"Không bị nghiêm cấm, nếu có chất ma túy ở mức nhẹ, có thể điều khiển phương tiện tham gia giao thông." };
+>>>>>>> 5dbd0d75ac0211391c6b73391abad7a584931f74
 		Answer a1_answer_1_set1 = new Answer(a1_answers_1_set1, 0, idList.get(0));
 		answerRepo.save(a1_answer_1_set1);
 
@@ -11323,7 +11326,7 @@ public class DataSeeding implements CommandLineRunner {
 				"Xe cứu thương, xe con, xe cứu hỏa." };
 		Answer a2_answer_21_set11 = new Answer(a2_answers_21_set11, 1, idList.get(470));
 		answerRepo.save(a2_answer_21_set11);
-		
+
 		String[] a2_answers_22_set11 = { "Hướng 1 và 2.", "Hướng 3.", "Hướng 1 và 4.", "Hướng 2 và 3." };
 		Answer a2_answer_22_set11 = new Answer(a2_answers_22_set11, 1, idList.get(471));
 		answerRepo.save(a2_answer_22_set11);
@@ -13895,7 +13898,7 @@ public class DataSeeding implements CommandLineRunner {
 		String[] b1_answers_20_set11 = { "Biển 1.", "Biển 2.", "Biển 3." };
 		Answer b1_answer_20_set11 = new Answer(b1_answers_20_set11, 0, idList.get(969));
 		answerRepo.save(b1_answer_20_set11);
-		
+
 		String[] b1_answers_21_set11 = { "Biển 1", "Biển 2", "Biển 3" };
 		Answer b1_answer_21_set11 = new Answer(b1_answers_21_set11, 1, idList.get(970));
 		answerRepo.save(b1_answer_21_set11);
@@ -16975,7 +16978,7 @@ public class DataSeeding implements CommandLineRunner {
 				"Được phép tùy từng hoàn cảnh, điều kiện cụ thể." };
 		Answer b2_answer_7_set10 = new Answer(b2_answers_7_set10, 1, idList.get(1571));
 		answerRepo.save(b2_answer_7_set10);
-		
+
 		String[] b2_answers_8_set10 = {
 				"Ô tô chở người trên 30 chỗ (trừ ô tô buýt), ô tô tải có trọng tải trên 3.500 kg.",
 				"Xe ô tô con, xe ô tô chở người đến 30 chỗ (trừ ô tô buýt), ô tô tải có trọng lượng đến 3.500 kg",
@@ -18391,5 +18394,5 @@ public class DataSeeding implements CommandLineRunner {
 		answerRepo.save(b2_answer_35_set17);
 
 	}
-	
+
 }

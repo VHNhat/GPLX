@@ -3,15 +3,26 @@ package team2.mobileapp.gplx.view;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+<<<<<<< HEAD
+=======
+import java.util.ArrayList;
+
+>>>>>>> 5dbd0d75ac0211391c6b73391abad7a584931f74
 import team2.mobileapp.gplx.R;
+import team2.mobileapp.gplx.Volley.model.CheckRadioButton;
 import team2.mobileapp.gplx.Volley.model.dto.DtoQuestionSet;
 import team2.mobileapp.gplx.Volley.service.TestService;
 
@@ -19,7 +30,12 @@ public class TestActivity extends AppCompatActivity {
 
     TextView tv_positionQuestion, tv_totalQuestion, tv_question;
     SeekBar determinateBar;
-    RadioButton rd_answer1, rd_answer2, rd_answer3, rd_answer4;
+    RadioButton rd_answer1, rd_answer2, rd_answer3, rd_answer4, rd_answer5;
+    Button btn_next, btn_prev;
+    ImageView iv_question;
+    RadioGroup rg_answer;
+    final int[] i = {0};
+    final ArrayList<CheckRadioButton> checkList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +45,96 @@ public class TestActivity extends AppCompatActivity {
         InitialVariables();
 
         final TestService testService = new TestService(TestActivity.this);
-        String questionSetId = "62958b6355f289692d18e2c0";
+
+        // Đang hardcode để test
+        String questionSetId = "62965678b6e03f1f146bfd72";
+
         ShowTest(testService, questionSetId);
+
+
 
     }
 
-    public void ShowTest(TestService testService, String questionSetId){
+    // Khi chọn câu trả lời thì nó sẽ lưu lại vào checkList
+    private void CheckedRadioButton(DtoQuestionSet dto, int index) {
+        rg_answer.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId)
+            {
+                int radioButtonID = rg_answer.getCheckedRadioButtonId();
+                View radioButton = rg_answer.findViewById(radioButtonID);
+                int idx = rg_answer.indexOfChild(radioButton);
+                RadioButton checkedRadioButton = null;
+                String answerValue = "";
+                if((Integer) checkedId != -1){
+                    checkedRadioButton = (RadioButton) findViewById(checkedId);
+                    answerValue = checkedRadioButton.getText().toString();
+                }
+
+                // check hết checkList nếu xuất questionId trong checkList nghĩa là câu này đc trả lời rồi
+                boolean flag = false;
+                for(int j = 0; j < checkList.size(); j++){
+                    if(checkList.get(j).getQuestionId().equals(dto.getQuestList().get(index).getId())){
+                        Log.i("CheckList I", String.valueOf(index));
+                        flag = true;
+                        break;
+                    }
+                }
+                if(!flag){
+                    if(checkedRadioButton != null && answerValue != "" && index == i[0]) {
+                        Log.i("Added", "Đã add câu " + (index+1));
+                        AddtoCheckList(idx, answerValue, dto, index);
+                    }
+                }
+                else {
+                    if(checkedRadioButton != null && answerValue != "") {
+                        UpdateCheckList(idx, dto, index);
+                    }
+                }
+
+            }
+        });
+    }
+
+    private void UpdateCheckList(int idx, DtoQuestionSet dto, int i) {
+        for(int j = 0; j < checkList.size(); j++) {
+            if(checkList.get(j).getQuestionId().equals(dto.getQuestList().get(i).getId())){
+                checkList.get(j).setAnswerIndex(idx);
+            }
+        }
+    }
+
+    private void UpdateHistory(String questionId) {
+        try {
+            boolean flag = true;
+            for (CheckRadioButton item : checkList) {
+                Log.i("item", item.toString());
+                if (item.getQuestionId().equals(questionId)) {
+                    flag = false;
+                    RadioButton radioButton = (RadioButton) rg_answer.getChildAt(item.getAnswerIndex());
+                    radioButton.setChecked(true);
+                }
+            }
+            if (flag) {
+                ResetRadioButton();
+            }
+        } catch(Exception ex){
+            Log.i("Error", ""+ex.getMessage());
+        }
+    }
+
+    private void AddtoCheckList(int idx, String answerValue, DtoQuestionSet dto, int i) {
+        CheckRadioButton checkRadioButton = new CheckRadioButton();
+        checkRadioButton.setQuestionId(dto.getQuestList().get(i).getId());
+        checkRadioButton.setQuestionIndex(i);
+        checkRadioButton.setAnswerId(dto.getAnsList().get(i).getId());
+        checkRadioButton.setAnswerValue(answerValue);
+        checkRadioButton.setAnswerIndex(idx);
+        checkList.add(checkRadioButton);
+    }
+
+    public void ShowTest(TestService testService, String questionSetId) {
         testService.GetByQuestionSet(questionSetId, new TestService.GetByQuestionSetCallBack() {
             @Override
             public void onError(String message) {
@@ -45,20 +145,134 @@ public class TestActivity extends AppCompatActivity {
             @Override
             public void onResponse(DtoQuestionSet dto) {
                 Toast.makeText(TestActivity.this, "OK Babe", Toast.LENGTH_LONG);
-                Log.i("DTO",dto.getQuestionSet().get().getName());
-                tv_totalQuestion.setText(""+dto.getQuestionSet().get().getQuantity());
-                tv_positionQuestion.setText(""+dto.getQuestList().get(0).getIndex());
-                determinateBar.setProgress(dto.getQuestionSet().get().getQuantity()/dto.getQuestList().get(0).getIndex());
-                tv_question.setText(dto.getQuestList().get(0).getQuery());
-                rd_answer1.setText(dto.getAnsList().get(0).getAnswerList()[0]);
-                rd_answer2.setText(dto.getAnsList().get(0).getAnswerList()[1]);
-                rd_answer3.setText(dto.getAnsList().get(0).getAnswerList()[2]);
+                int totalQuestion = dto.getQuestList().size();
+                tv_totalQuestion.setText("" + dto.getQuestionSet().get().getQuantity());
+
+
+                UpdateQuestion(dto, totalQuestion, i[0]);
+                CheckedRadioButton(dto, i[0]);
+
+                // khi bấm next
+                btn_next.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        i[0]++;
+                        // trường hợp câu cuối, bấm chấm điểm
+                        if(i[0] == totalQuestion){
+                            Intent intent = new Intent(TestActivity.this, ResultActivity.class);
+                            intent.putExtra("History", checkList);
+                            TestActivity.this.finish();
+                            startActivity(intent);
+                        }
+                        // Trường hợp đang thi
+                        else {
+                            Log.i("Dto next", dto.getQuestList().get(i[0]).getId());
+                            // Update lại câu hỏi
+                            UpdateQuestion(dto, totalQuestion, i[0]);
+                            CheckedRadioButton(dto, i[0]);
+
+                        }
+                    }
+                });
+                // Khi bấm prev
+                btn_prev.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        i[0]--;
+                        // Update lại câu hỏi
+                        UpdateQuestion(dto, totalQuestion, i[0]);
+                        CheckedRadioButton(dto, i[0]);
+                    }
+                });
 
             }
         });
     }
 
-    public void InitialVariables(){
+    // Hàm hiển thị câu hỏi và câu trả lời
+    private void UpdateQuestion(DtoQuestionSet dto, int totalQuestion, int i) {
+        Log.i("dtoQuestionId", dto.getQuestList().get(i).getId());
+        UpdateHistory(dto.getQuestList().get(i).getId());
+        // Trường hợp câu 1
+        if(i == 0){
+            btn_prev.setVisibility(View.INVISIBLE);
+        }
+        // Trường hợp câu cuối
+        else if(i == totalQuestion-1){
+            btn_next.setText("Chấm điểm");
+        }
+        else{
+            btn_next.setVisibility(View.VISIBLE);
+            btn_prev.setVisibility(View.VISIBLE);
+        }
+        String photo = dto.getQuestList().get(i).getPhoto();
+        // Khi nào có hình thì mở ra
+//        if(!photo.isEmpty()){
+//            String uri = photo.substring(0, photo.length() - 4);
+//            int imageResource = getResources().getIdentifier(uri, "drawable", getPackageName());
+//            Drawable res = getResources().getDrawable(imageResource);
+//            iv_question.setImageDrawable(res);
+//        }
+        int index = dto.getQuestList().get(i).getIndex();
+        String[] ansList = dto.getAnsList().get(i).getAnswerList();
+        int numberOfAns = ansList.length;
+        determinateBar.setProgress(index * 100 / totalQuestion);
+        tv_positionQuestion.setText("" + dto.getQuestList().get(i).getIndex());
+        tv_question.setText(dto.getQuestList().get(i).getQuery());
+
+        switch (numberOfAns) {
+            case 2:
+                rd_answer1.setText(ansList[0]);
+                rd_answer2.setText(ansList[1]);
+                rd_answer1.setVisibility(View.VISIBLE);
+                rd_answer2.setVisibility(View.VISIBLE);
+                rd_answer3.setVisibility(View.INVISIBLE);
+                rd_answer4.setVisibility(View.INVISIBLE);
+                rd_answer5.setVisibility(View.INVISIBLE);
+                break;
+            case 3:
+                rd_answer1.setText(ansList[0]);
+                rd_answer2.setText(ansList[1]);
+                rd_answer3.setText(ansList[2]);
+                rd_answer1.setVisibility(View.VISIBLE);
+                rd_answer2.setVisibility(View.VISIBLE);
+                rd_answer3.setVisibility(View.VISIBLE);
+                rd_answer4.setVisibility(View.INVISIBLE);
+                rd_answer5.setVisibility(View.INVISIBLE);
+                break;
+            case 4:
+                rd_answer1.setText(ansList[0]);
+                rd_answer2.setText(ansList[1]);
+                rd_answer3.setText(ansList[2]);
+                rd_answer4.setText(ansList[3]);
+                rd_answer1.setVisibility(View.VISIBLE);
+                rd_answer2.setVisibility(View.VISIBLE);
+                rd_answer3.setVisibility(View.VISIBLE);
+                rd_answer4.setVisibility(View.VISIBLE);
+                rd_answer5.setVisibility(View.INVISIBLE);
+                break;
+            case 5:
+                rd_answer1.setText(ansList[0]);
+                rd_answer2.setText(ansList[1]);
+                rd_answer3.setText(ansList[2]);
+                rd_answer4.setText(ansList[3]);
+                rd_answer5.setText(ansList[4]);
+                rd_answer1.setVisibility(View.VISIBLE);
+                rd_answer2.setVisibility(View.VISIBLE);
+                rd_answer3.setVisibility(View.VISIBLE);
+                rd_answer4.setVisibility(View.VISIBLE);
+                rd_answer5.setVisibility(View.VISIBLE);
+            default:
+                break;
+        }
+    }
+
+    private void ResetRadioButton() {
+        rg_answer = findViewById(R.id.rg_answer);
+        rg_answer.clearCheck();
+    }
+
+    public void InitialVariables() {
         tv_positionQuestion = findViewById(R.id.tv_positionQuestion);
         tv_totalQuestion = findViewById(R.id.tv_totalQuestion);
         tv_question = findViewById(R.id.tv_question);
@@ -67,5 +281,10 @@ public class TestActivity extends AppCompatActivity {
         rd_answer2 = findViewById(R.id.rd_answer2);
         rd_answer3 = findViewById(R.id.rd_answer3);
         rd_answer4 = findViewById(R.id.rd_answer4);
+        rd_answer5 = findViewById(R.id.rd_answer5);
+        btn_next = findViewById(R.id.btn_next);
+        btn_prev = findViewById(R.id.btn_prev);
+        iv_question = findViewById(R.id.iv_question);
+        rg_answer = findViewById(R.id.rg_answer);
     }
 }
