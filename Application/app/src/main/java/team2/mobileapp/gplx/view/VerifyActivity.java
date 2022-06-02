@@ -10,12 +10,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import team2.mobileapp.gplx.R;
+import team2.mobileapp.gplx.Retrofit.api.SMSAPI;
 
 public class VerifyActivity extends AppCompatActivity {
 
-//    EditText et_verify_code;
-//    Button btn_verify;
-
+    EditText et_verify_code;
+    Button btn_verify_code;
+    SMSAPI sms = new SMSAPI();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
