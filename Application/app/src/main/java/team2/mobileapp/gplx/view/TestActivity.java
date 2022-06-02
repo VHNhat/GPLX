@@ -15,12 +15,7 @@ import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
-<<<<<<< HEAD
-=======
 import java.util.ArrayList;
-
->>>>>>> 5dbd0d75ac0211391c6b73391abad7a584931f74
 import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Volley.model.CheckRadioButton;
 import team2.mobileapp.gplx.Volley.model.dto.DtoQuestionSet;
@@ -47,7 +42,7 @@ public class TestActivity extends AppCompatActivity {
         final TestService testService = new TestService(TestActivity.this);
 
         // Đang hardcode để test
-        String questionSetId = "62965678b6e03f1f146bfd72";
+        String questionSetId = "6298fae043c268635a2c86b8";
 
         ShowTest(testService, questionSetId);
 
@@ -83,7 +78,6 @@ public class TestActivity extends AppCompatActivity {
                 }
                 if(!flag){
                     if(checkedRadioButton != null && answerValue != "" && index == i[0]) {
-                        Log.i("Added", "Đã add câu " + (index+1));
                         AddtoCheckList(idx, answerValue, dto, index);
                     }
                 }
@@ -144,10 +138,9 @@ public class TestActivity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onResponse(DtoQuestionSet dto) {
-                Toast.makeText(TestActivity.this, "OK Babe", Toast.LENGTH_LONG);
+
                 int totalQuestion = dto.getQuestList().size();
                 tv_totalQuestion.setText("" + dto.getQuestionSet().get().getQuantity());
-
 
                 UpdateQuestion(dto, totalQuestion, i[0]);
                 CheckedRadioButton(dto, i[0]);
@@ -166,7 +159,6 @@ public class TestActivity extends AppCompatActivity {
                         }
                         // Trường hợp đang thi
                         else {
-                            Log.i("Dto next", dto.getQuestList().get(i[0]).getId());
                             // Update lại câu hỏi
                             UpdateQuestion(dto, totalQuestion, i[0]);
                             CheckedRadioButton(dto, i[0]);
@@ -191,7 +183,6 @@ public class TestActivity extends AppCompatActivity {
 
     // Hàm hiển thị câu hỏi và câu trả lời
     private void UpdateQuestion(DtoQuestionSet dto, int totalQuestion, int i) {
-        Log.i("dtoQuestionId", dto.getQuestList().get(i).getId());
         UpdateHistory(dto.getQuestList().get(i).getId());
         // Trường hợp câu 1
         if(i == 0){

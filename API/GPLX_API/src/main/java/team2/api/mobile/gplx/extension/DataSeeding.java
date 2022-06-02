@@ -9162,14 +9162,8 @@ public class DataSeeding implements CommandLineRunner {
 		for (Question q : questionList) {
 			idList.add(q.getId());
 		}
-<<<<<<< HEAD
-		
 		String[] a1_answers_1_set1 = {"Bị nghiêm cấm", "Không bị nghiêm cấm", "Không bị nghiêm cấm, nếu có chất ma túy ở mức nhẹ, có thể điều khiển phương tiện tham gia giao thông."};
-=======
 
-		String[] a1_answers_1_set1 = { "Bị nghiêm cấm", "Không bị nghiêm cấm",
-				"Không bị nghiêm cấm, nếu có chất ma túy ở mức nhẹ, có thể điều khiển phương tiện tham gia giao thông." };
->>>>>>> 5dbd0d75ac0211391c6b73391abad7a584931f74
 		Answer a1_answer_1_set1 = new Answer(a1_answers_1_set1, 0, idList.get(0));
 		answerRepo.save(a1_answer_1_set1);
 
