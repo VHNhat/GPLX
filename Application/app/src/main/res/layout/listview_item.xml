@@ -30,9 +30,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Hạng A1"
-
-                android:textColor="@color/white"
-                android:textAppearance="?android:attr/textAppearanceListItemSmall" />
+                android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/tv_description"
@@ -48,6 +47,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -60,28 +60,30 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="23"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
                     android:textAppearance="?android:attr/textAppearanceListItemSmall"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
                 <TextView
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="/"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
                     android:textAppearance="?android:attr/textAppearanceListItemSmall"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/tv_history_total"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="23"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
                     android:textAppearance="?android:attr/textAppearanceListItemSmall"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
 

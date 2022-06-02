@@ -21,8 +21,8 @@ public class QuestionDetailsController {
         restApiManager = new RestAPIManager();
     }
 
-    public void startFetching(String license) {
-        restApiManager.getTestApi().getTestLicense(license).enqueue(new Callback<ArrayList<QuestionDetails>>() {
+    public void startFetching(String api) {
+        restApiManager.getTestApi().getTestLicense(api).enqueue(new Callback<ArrayList<QuestionDetails>>() {
             @Override
             public void onResponse(Call<ArrayList<QuestionDetails>> call, Response<ArrayList<QuestionDetails>> response) {
                 try {

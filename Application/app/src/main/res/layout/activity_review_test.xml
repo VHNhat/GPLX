@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
-    tools:context=".view.ReviewTestActivity">
+    tools:context=".view.ReviewTestActivity"
+    android:duplicateParentState="true" >
 
 
     <RelativeLayout
@@ -28,7 +29,6 @@
         <TextView
             android:id="@+id/tv_title_board"
             style="@style/TextTitle"
-
             android:layout_below="@+id/logo_top_board"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
@@ -53,27 +53,30 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="200dp">
+
             <RelativeLayout
                 android:id="@+id/all_question"
+
                 style="@style/AroundButton"
-                android:layout_margin="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
-                android:padding="30dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
                 android:background="@drawable/button_radius_10"
                 android:backgroundTint="@color/green_main"
-                >
+                android:padding="30dp">
 
                 <TextView
-                    android:textSize="23dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/white"
-                    android:textAlignment="center"
                     android:id="@+id/title_all_question"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Toàn bộ câu hỏi">
+                    android:text="Toàn bộ câu hỏi"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="23dp"
+                    android:textStyle="bold">
 
                 </TextView>
 
@@ -91,7 +94,7 @@
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/concept"
-
+                android:clickable="true"
                 android:layout_below="@+id/all_question"
                 style="@style/AroundButton"
                 android:layout_margin="15dp"
@@ -127,6 +130,7 @@
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/culture"
+                android:clickable="true"
                 android:layout_below="@+id/concept"
                 style="@style/AroundButton"
                 android:layout_margin="15dp"
@@ -163,6 +167,7 @@
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/figure"
+                android:clickable="true"
                 android:layout_below="@+id/culture"
                 style="@style/AroundButton"
                 android:layout_margin="15dp"
