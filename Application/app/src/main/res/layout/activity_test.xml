@@ -86,6 +86,7 @@
 
 
             <RadioGroup
+                android:id="@+id/rg_answer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -152,7 +153,6 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
-                android:layout_below="@+id/et_password_confirm_signup"
 
                 android:text="Câu trước"
                 android:textAlignment="center"
@@ -167,7 +167,6 @@
                 style="@style/ButtonRouder"
                 android:layout_weight="1"
                 android:layout_height="50dp"
-                android:layout_below="@+id/et_password_confirm_signup"
                 android:text="Câu sau"
                 android:textAlignment="center"
                 android:textSize="14dp" />
