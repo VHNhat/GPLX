@@ -11,26 +11,24 @@
     <RelativeLayout
         android:id="@+id/header_activity"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
-        android:padding="20dp">
+        android:layout_height="90dp"
+        android:padding="10dp">
 
 
-        <ImageView
-            android:id="@+id/logo_top_board"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/logo"
+<!--        <ImageView-->
+<!--            android:id="@+id/logo_top_board"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentTop="true"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:src="@drawable/logo"-->
 
-            />
+<!--            />-->
 
         <TextView
             android:id="@+id/tv_title_board"
             style="@style/TextTitle"
-
-            android:layout_below="@+id/logo_top_board"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:background="@drawable/button_radius"
@@ -47,13 +45,14 @@
     </RelativeLayout>
 
     <ListView
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="70dp"
         android:id="@+id/lvAllQuestion"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/header_activity"
         android:divider="@null"
         android:scrollbars="none"
+        android:orientation="horizontal"
         tools:listitem="@layout/question_view_list_item"></ListView>
 
     <include

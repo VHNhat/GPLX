@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.http.OPTIONS;
 import team2.mobileapp.gplx.Retrofit.api.RestAPIManager;
 import team2.mobileapp.gplx.Retrofit.callbacks.TestCallBackListener;
 import team2.mobileapp.gplx.Retrofit.dto.QuestionDetails;
@@ -21,8 +22,9 @@ public class QuestionDetailsController {
         restApiManager = new RestAPIManager();
     }
 
-    public void startFetching(String api) {
-        restApiManager.getTestApi().getTestLicense(api).enqueue(new Callback<ArrayList<QuestionDetails>>() {
+    public void startFetching(String license,String type) {
+
+        restApiManager.getTestApi().getTestLicense(license,type).enqueue(new Callback<ArrayList<QuestionDetails>>() {
             @Override
             public void onResponse(Call<ArrayList<QuestionDetails>> call, Response<ArrayList<QuestionDetails>> response) {
                 try {

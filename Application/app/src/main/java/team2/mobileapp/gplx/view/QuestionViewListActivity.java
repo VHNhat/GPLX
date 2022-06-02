@@ -1,6 +1,8 @@
 package team2.mobileapp.gplx.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -29,13 +31,12 @@ public class QuestionViewListActivity extends AppCompatActivity implements TestC
 
         listView = (ListView) findViewById(R.id.lvAllQuestion);
         tvTitleBoard = (TextView) findViewById(R.id.tv_title_board);
-
         String title = getIntent().getExtras().getString("TITLE_QUESTION_LIST");
-        String api = getIntent().getExtras().getString("API_QUESTION_LIST");
-
+        String license = getIntent().getExtras().getString("LICENSE_QUESTION_LIST");
+        String type = getIntent().getExtras().getString("TYPE_QUESTION_LIST");
         tvTitleBoard.setText(title.toUpperCase());
         questionDetailsController = new QuestionDetailsController(this);
-        questionDetailsController.startFetching(api);
+        questionDetailsController.startFetching(license,type);
     }
 
     @Override

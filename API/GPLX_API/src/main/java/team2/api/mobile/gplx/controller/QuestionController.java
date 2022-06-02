@@ -65,7 +65,7 @@ public class QuestionController {
 		}
 	}
 
-	@GetMapping("api/question/{license}")
+	@GetMapping("api/question/{license}/all")
 	public ResponseEntity<Object> GetQuestionByLicense(@PathVariable("license") String license) {
 		List<DtoQuestionDetail> questionDetailList = new ArrayList<DtoQuestionDetail>();
 		List<Question> questions = questionService.findQuestionByLicense(license);

@@ -1,5 +1,6 @@
 package team2.mobileapp.gplx.view;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -28,26 +29,28 @@ public class ReviewTestActivity extends AppCompatActivity {
         Culture = findViewById(R.id.culture);
         Figure = findViewById(R.id.figure);
 
-        String allQuestionAPI="a1";
-        String ConceptAPI="a2";
-        String CultureAPI="b1";
-        String FigureAPI="b2";
+        String license="a1";
+        String ConceptAPI="bb";
+        String CultureAPI="vh";
+        String FigureAPI="sh";
 
-        setOnclickType(allQuestion,allQuestionAPI);
-        setOnclickType(Concept,ConceptAPI);
-        setOnclickType(Culture,CultureAPI);
-        setOnclickType(Figure,FigureAPI);
+
+        setOnclickType(allQuestion,license,"all");
+        setOnclickType(Concept,license,ConceptAPI);
+        setOnclickType(Culture,license,CultureAPI);
+        setOnclickType(Figure,license,FigureAPI);
 
     }
-    public void setOnclickType(RelativeLayout type,String api){
-        type.setOnClickListener( new View.OnClickListener() {
+    public void setOnclickType(RelativeLayout layouts, String license, @Nullable String type){
+        layouts.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ReviewTestActivity.this,QuestionViewListActivity.class);
-                TextView textview = (TextView) type.getChildAt(0);
+                TextView textview = (TextView) layouts.getChildAt(0);
                 String text = textview.getText().toString();
                 intent.putExtra("TITLE_QUESTION_LIST",text);
-                intent.putExtra("API_QUESTION_LIST",api);
+                intent.putExtra("LICENSE_QUESTION_LIST",license);
+                intent.putExtra("TYPE_QUESTION_LIST",type);
                 startActivity(intent);
             }
         });
