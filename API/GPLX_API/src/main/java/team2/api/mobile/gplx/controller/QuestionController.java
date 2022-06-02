@@ -18,15 +18,20 @@ import team2.api.mobile.gplx.dto.DtoQuestionDetail;
 import team2.api.mobile.gplx.models.Answer;
 import team2.api.mobile.gplx.models.Question;
 import team2.api.mobile.gplx.models.QuestionSet;
+import team2.api.mobile.gplx.models.QuestionType;
 import team2.api.mobile.gplx.service.interfaces.AnswerService;
 import team2.api.mobile.gplx.service.interfaces.QuestionService;
+import team2.api.mobile.gplx.service.interfaces.QuestionTypeService;
 
 @RestController
 public class QuestionController {
 	@Autowired
 	private QuestionService questionService;
 	@Autowired
+	private QuestionTypeService questionTypeService;
+	@Autowired
 	private AnswerService answerService;
+	
 
 	@GetMapping("api/question")
 	public ResponseEntity<Object> GetAll() {
@@ -79,6 +84,25 @@ public class QuestionController {
 			DtoQuestionDetail questionDetail = new DtoQuestionDetail(question, answer);
 			return new ResponseEntity<>(questionDetail, HttpStatus.OK);
 		} catch (Exception ex) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	@GetMapping("api/question/{license}/{type}")
+	public ResponseEntity<Object> GetQuestionByLicenseByType(@PathVariable("license") String license, @PathVariable("type") String type) {
+		try {
+			List<DtoQuestionDetail> questionDetailList = new ArrayList<DtoQuestionDetail>();
+			List<Question> questions = questionService.findQuestionByLicense(license);
+			String typeCode = questionTypeService.findByCode(type).getId();
+			
+			for(Question question: questions) {
+				if(question.getQuestionTypeId().toString().equals(typeCode)) { 
+					Answer answer = answerService.findByQuestionId(question.getId());
+					questionDetailList.add(new DtoQuestionDetail(question, answer));
+				}
+			}
+			return new ResponseEntity<Object>(questionDetailList, HttpStatus.OK);
+		} catch(Exception ex) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	}
