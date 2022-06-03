@@ -49,6 +49,7 @@ public class TestActivity extends AppCompatActivity {
     GridLayout layoutQuestionBar;
     FloatingActionButton myFab;
     int totalQuestion=0;
+    final int[] historyID = {-1};
     final int[] i = {0};
     final ArrayList<CheckRadioButton> checkList = new ArrayList<>();
 
@@ -92,9 +93,11 @@ public class TestActivity extends AppCompatActivity {
                 int idx = rg_answer.indexOfChild(radioButton);
                 RadioButton checkedRadioButton = null;
                 String answerValue = "";
-                if((Integer) checkedId != -1){
-                    checkedRadioButton = (RadioButton) findViewById(checkedId);
+                checkedRadioButton = (RadioButton) findViewById(checkedId);
+                if((Integer) checkedId != -1 && historyID[0]!=checkedId){
+
                     answerValue = checkedRadioButton.getText().toString();
+
                 }
 
                 // check hết checkList nếu xuất questionId trong checkList nghĩa là câu này đc trả lời rồi
@@ -106,11 +109,14 @@ public class TestActivity extends AppCompatActivity {
                         break;
                     }
                 }
+
+
                 if(!flag){
+
                     if(checkedRadioButton != null && answerValue != "" && index == i[0]) {
-                        AddtoCheckList(idx, answerValue, dto, index);
                         TextView textview= (TextView)layoutQuestionBar.getChildAt(index);
                         textview.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.yellow)));
+                        AddtoCheckList(idx, answerValue, dto, index);
                     }
                 }
                 else {
@@ -124,8 +130,6 @@ public class TestActivity extends AppCompatActivity {
     }
 
     private void UpdateCheckList(int idx, DtoQuestionSet dto, int i) {
-        TextView textview= (TextView)layoutQuestionBar.getChildAt(idx);
-        textview.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.yellow)));
         for(int j = 0; j < checkList.size(); j++) {
             if(checkList.get(j).getQuestionId().equals(dto.getQuestList().get(i).getId())){
                 checkList.get(j).setAnswerIndex(idx);
@@ -146,6 +150,7 @@ public class TestActivity extends AppCompatActivity {
                 }
 
             }
+
             if (flag ) {
                 ResetRadioButton();
             }
@@ -156,8 +161,6 @@ public class TestActivity extends AppCompatActivity {
     }
 
     private void AddtoCheckList(int idx, String answerValue, DtoQuestionSet dto, int i) {
-        TextView textview= (TextView)layoutQuestionBar.getChildAt(idx);
-        textview.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.yellow)));
         CheckRadioButton checkRadioButton = new CheckRadioButton();
         checkRadioButton.setQuestionId(dto.getQuestList().get(i).getId());
         checkRadioButton.setQuestionIndex(i);
@@ -236,7 +239,6 @@ public class TestActivity extends AppCompatActivity {
 
     // Hàm hiển thị câu hỏi và câu trả lời
     private void UpdateQuestion(DtoQuestionSet dto, int totalQuestion, int i) {
-
         UpdateHistory(dto.getQuestList().get(i).getId());
         // Trường hợp câu 1
         if(i == 0){
@@ -313,7 +315,6 @@ public class TestActivity extends AppCompatActivity {
     }
 
     private void ResetRadioButton() {
-        rg_answer = findViewById(R.id.rg_answer);
         rg_answer.clearCheck();
     }
 
