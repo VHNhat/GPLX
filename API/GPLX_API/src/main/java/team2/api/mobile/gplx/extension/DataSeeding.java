@@ -57,32 +57,32 @@ public class DataSeeding implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		// Khi nào cần seed data thì mở comments ra mà seed, không thì comment lại.
-//		licenseTypeRepo.deleteAll();
-//		licenseRepo.deleteAll();
-//		roleRepo.deleteAll();
-//		accountRepo.deleteAll();
-//		trafficSignTypeRepo.deleteAll();
-//		trafficSignRepo.deleteAll();
-//		questionTypeRepo.deleteAll();
-//		questionRepo.deleteAll();
-//		questionSetRepo.deleteAll();
-//		answerRepo.deleteAll();
-//		LoadRole();
-//		LoadAccount();
-//		LoadLicenseType();
-//		LoadLicense();
-//		LoadTrafficSignType();
-//		LoadTrafficSign();
-//		LoadQuestionSet();
-//		LoadQuestionType();
-//		LoadQuestionA1();
-//		LoadQuestionA2();
-//		LoadQuestionB1();
-//		LoadQuestionB2();
-//		LoadAnswerA1();
-//		LoadAnswerA2();
-//		LoadAnswerB1();
-//		LoadAnswerB2();
+		licenseTypeRepo.deleteAll();
+		licenseRepo.deleteAll();
+		roleRepo.deleteAll();
+		accountRepo.deleteAll();
+		trafficSignTypeRepo.deleteAll();
+		trafficSignRepo.deleteAll();
+		questionTypeRepo.deleteAll();
+		questionRepo.deleteAll();
+		questionSetRepo.deleteAll();
+		answerRepo.deleteAll();
+		LoadRole();
+		LoadAccount();
+		LoadLicenseType();
+		LoadLicense();
+		LoadTrafficSignType();
+		LoadTrafficSign();
+		LoadQuestionSet();
+		LoadQuestionType();
+		LoadQuestionA1();
+		LoadQuestionA2();
+		LoadQuestionB1();
+		LoadQuestionB2();
+		LoadAnswerA1();
+		LoadAnswerA2();
+		LoadAnswerB1();
+		LoadAnswerB2();
 	}
 
 	private void LoadRole() {
@@ -18387,7 +18387,7 @@ public class DataSeeding implements CommandLineRunner {
 		answerRepo.save(b2_answer_34_set17);
 
 		String[] b2_answers_35_set17 = { "Vượt về phía bên phải để đi tiếp",
-				"Giảm tốc độ chờ xe đầu kéo rẽ phải, rồi tiếp tục đi", "Vượt về phía bên trái để đi tiếp" };
+				"Giảm tốc độ chờ xe đầu kéo rẽ phải, rồi tiếp tục đi", "Vượt về phía bên trái để đi tiếp " };
 		Answer b2_answer_35_set17 = new Answer(b2_answers_35_set17, 1, idList.get(1844));
 		answerRepo.save(b2_answer_35_set17);
 

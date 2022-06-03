@@ -333,6 +333,8 @@ public class TestActivity extends AppCompatActivity {
         btn_prev = findViewById(R.id.btn_prev);
         iv_question = findViewById(R.id.iv_question);
         rg_answer = findViewById(R.id.rg_answer);
+        layoutQuestionBar= findViewById(R.id.layout_question_bar);
+        mDrawerLayout=findViewById(R.id.drawer_test);
     }
 
 }
