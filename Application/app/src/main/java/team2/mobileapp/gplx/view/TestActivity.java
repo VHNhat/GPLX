@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
@@ -24,7 +25,7 @@ import team2.mobileapp.gplx.Volley.service.TestService;
 public class TestActivity extends AppCompatActivity {
 
     TextView tv_positionQuestion, tv_totalQuestion, tv_question;
-    SeekBar determinateBar;
+    ProgressBar determinateBar;
     RadioButton rd_answer1, rd_answer2, rd_answer3, rd_answer4, rd_answer5;
     Button btn_next, btn_prev;
     ImageView iv_question;
@@ -103,7 +104,6 @@ public class TestActivity extends AppCompatActivity {
         try {
             boolean flag = true;
             for (CheckRadioButton item : checkList) {
-                Log.i("item", item.toString());
                 if (item.getQuestionId().equals(questionId)) {
                     flag = false;
                     RadioButton radioButton = (RadioButton) rg_answer.getChildAt(item.getAnswerIndex());

@@ -40,15 +40,18 @@
                 android:text="50" />
         </LinearLayout>
 
-        <SeekBar
+        <ProgressBar
             android:id="@+id/determinateBar"
-            style="@android:style/Widget.ProgressBar.Horizontal"
+            style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
-            android:layout_height="10dp"
+            android:layout_height="wrap_content"
+            android:indeterminate="false"
+            android:max="100"
             android:layout_below="@+id/number_question"
-            android:allowClickWhenDisabled="true"
-            android:progress="100"
-            app:trackCornerRadius="20dp" />
+            android:maxHeight="10dip"
+            android:minHeight="10dip"
+            android:progress="50"
+            android:progressDrawable="@drawable/progress_custom" />
 
     </RelativeLayout>
 
@@ -95,7 +98,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="15dp"
-                    android:text="Answer 1a aaaa a â a â a  â a â â a  aaaaaaaaaa a a â a a a a a" />
+                    android:textSize="15dp"
+                    android:text="Answer" />
 
 
                 <RadioButton
@@ -103,7 +107,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="15dp"
-                    android:text="Answer 1" />
+                    android:textSize="15dp"
+                    android:text="Answer " />
 
 
                 <RadioButton
@@ -111,7 +116,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="15dp"
-                    android:text="Answer 1" />
+                    android:textSize="15dp"
+                    android:text="Answer " />
 
 
                 <RadioButton
@@ -119,7 +125,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="15dp"
-                    android:text="Answer 1" />
+                    android:textSize="15dp"
+                    android:text="Answer " />
 
 
                 <RadioButton
@@ -127,7 +134,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="15dp"
-                    android:text="Answer 1a aaaa a â a â a  â a â â a  aaaaaaaaaa a a â a a a a a" />
+                    android:textSize="15dp"
+                    android:text="Answer" />
 
             </RadioGroup>
 
