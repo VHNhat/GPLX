@@ -7,6 +7,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Build;
@@ -31,6 +35,8 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
+
+import team2.mobileapp.gplx.Animation.AnimationProgressBar;
 import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Volley.model.CheckRadioButton;
 import team2.mobileapp.gplx.Volley.model.dto.DtoQuestionSet;
@@ -38,20 +44,22 @@ import team2.mobileapp.gplx.Volley.service.TestService;
 
 public class TestActivity extends AppCompatActivity {
 
-    TextView tv_positionQuestion, tv_totalQuestion, tv_question;
-    ProgressBar determinateBar;
-    RadioButton rd_answer1, rd_answer2, rd_answer3, rd_answer4, rd_answer5;
-    Button btn_next, btn_prev;
-    ImageView iv_question;
-    RadioGroup rg_answer;
+    private TextView tv_positionQuestion, tv_totalQuestion, tv_question;
+    private ProgressBar determinateBar;
+    private ObjectAnimator progressAnimator;
+    private RadioButton rd_answer1, rd_answer2, rd_answer3, rd_answer4, rd_answer5;
+    private Button btn_next, btn_prev;
+    private ImageView iv_question;
+    private RadioGroup rg_answer;
     boolean mSlideState;
-    DrawerLayout mDrawerLayout;
-    GridLayout layoutQuestionBar;
-    FloatingActionButton myFab;
-    int totalQuestion=0;
-    final int[] historyID = {-1};
-    final int[] i = {0};
-    final ArrayList<CheckRadioButton> checkList = new ArrayList<>();
+    private DrawerLayout mDrawerLayout;
+    private GridLayout layoutQuestionBar;
+    private FloatingActionButton myFab;
+    private int totalQuestion=0;
+    private final int[] historyID = {-1};
+    private final int [] historyProgressBarValue = {0};
+    private final int[] i = {0};
+    private final ArrayList<CheckRadioButton> checkList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,12 +83,32 @@ public class TestActivity extends AppCompatActivity {
                 else mDrawerLayout.closeDrawer(GravityCompat.END);
             }
         });
-
+        historyProgressBarValue[0]=determinateBar.getProgress();
 
 
 
     }
+    private void ProgressAnimation(int end){
 
+        ValueAnimator animator = ValueAnimator.ofInt(historyProgressBarValue[0], end);
+
+        animator.setDuration(200);
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation){
+                determinateBar.setProgress((Integer) animation.getAnimatedValue());
+            }
+        });
+        animator.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
+                // start your activity here
+            }
+        });
+        animator.start();
+        historyProgressBarValue[0]=end;
+    }
     // Khi chọn câu trả lời thì nó sẽ lưu lại vào checkList
     private void CheckedRadioButton(DtoQuestionSet dto, int index) {
         rg_answer.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -264,7 +292,8 @@ public class TestActivity extends AppCompatActivity {
         int index = dto.getQuestList().get(i).getIndex();
         String[] ansList = dto.getAnsList().get(i).getAnswerList();
         int numberOfAns = ansList.length;
-        determinateBar.setProgress(index * 100 / totalQuestion);
+        ProgressAnimation(index * 100 / totalQuestion);
+//        determinateBar.setProgress();
         tv_positionQuestion.setText("" + dto.getQuestList().get(i).getIndex());
         tv_question.setText(dto.getQuestList().get(i).getQuery());
 
