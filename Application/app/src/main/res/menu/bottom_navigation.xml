@@ -3,20 +3,20 @@
         android:id="@+id/page_home"
         android:enabled="true"
         android:icon="@drawable/home"
-        android:title=""
+        android:title="HOME"
         />
     <item
         android:id="@+id/page_nofication"
         android:enabled="true"
         android:icon="@drawable/category"
-        android:title=""
+        android:title="CATEGORY"
         />
 
     <item
         android:id="@+id/page_nofication1"
         android:enabled="true"
         android:icon="@drawable/notice"
-        android:title=""
+        android:title="NOTICE"
         />
 
 
@@ -24,5 +24,5 @@
         android:id="@+id/page_profile"
         android:enabled="true"
         android:icon="@drawable/profile"
-        android:title=""/>
+        android:title="PROFILE"/>
 </menu>
