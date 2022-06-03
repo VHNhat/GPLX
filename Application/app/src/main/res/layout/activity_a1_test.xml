@@ -36,23 +36,23 @@
 
     </TextView>
 
-    <TextView
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/text_choice_category"
-        android:layout_centerHorizontal="true"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/button_radius_10"
-        android:backgroundTint="@color/green_main"
-        android:paddingLeft="30dp"
-        android:paddingTop="10dp"
-        android:paddingRight="30dp"
-        android:text="@string/list_guide_line"
-        android:textColor="@color/white">
+<!--    <TextView-->
+<!--        android:id="@+id/guideline"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/text_choice_category"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginEnd="20dp"-->
+<!--        android:layout_marginBottom="20dp"-->
+<!--        android:background="@drawable/button_radius_10"-->
+<!--        android:backgroundTint="@color/green_main"-->
+<!--        android:paddingLeft="30dp"-->
+<!--        android:paddingTop="10dp"-->
+<!--        android:paddingRight="30dp"-->
+<!--        android:text="@string/list_guide_line"-->
+<!--        android:textColor="@color/white">-->
 
-    </TextView>
+<!--    </TextView>-->
 
     <ScrollView
         android:id="@+id/scroll_category"
@@ -71,15 +71,16 @@
 
 
             <RelativeLayout
-                android:id="@+id/btn_a1"
+                android:id="@+id/btn_radom"
                 style="@style/AroundButton"
                 android:layout_height="140dp"
                 android:background="@drawable/button_radius_10"
                 android:backgroundTint="@color/green_main">
-             <ImageView
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:src="@drawable/file_dock_fill"></ImageView>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/file_dock_fill"></ImageView>
         ư
 
                 <TextView
@@ -97,10 +98,10 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/btn_a2"
+                android:id="@+id/btn_set"
                 style="@style/AroundButton"
                 android:layout_height="140dp"
-                android:layout_toEndOf="@+id/btn_a1"
+                android:layout_toEndOf="@+id/btn_radom"
                 android:background="@drawable/button_radius_10"
                 android:backgroundTint="@color/green_main">
 
@@ -125,10 +126,10 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/btn_b1"
+                android:id="@+id/btn_board"
                 style="@style/AroundButton"
                 android:layout_height="140dp"
-                android:layout_below="@+id/btn_a1"
+                android:layout_below="@+id/btn_radom"
                 android:background="@drawable/button_radius_10"
                 android:backgroundTint="@color/green_main">
 
@@ -154,11 +155,11 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/btn_b2"
+                android:id="@+id/btn_review_question"
                 style="@style/AroundButton"
                 android:layout_height="140dp"
-                android:layout_alignTop="@+id/btn_b1"
-                android:layout_toEndOf="@id/btn_b1"
+                android:layout_alignTop="@+id/btn_board"
+                android:layout_toEndOf="@id/btn_board"
 
                 android:background="@drawable/button_radius_10"
                 android:backgroundTint="@color/green_main">

@@ -42,7 +42,8 @@ public class TestActivity extends AppCompatActivity {
         final TestService testService = new TestService(TestActivity.this);
 
         // Đang hardcode để test
-        String questionSetId = "6298fae043c268635a2c86b8";
+        String questionSetId = getIntent().getStringExtra("QuestionSetId");
+        Log.i("QuestionSetId", questionSetId);
 
         ShowTest(testService, questionSetId);
 
@@ -138,7 +139,7 @@ public class TestActivity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onResponse(DtoQuestionSet dto) {
-
+                Log.i("DTO", dto.toString());
                 int totalQuestion = dto.getQuestList().size();
                 tv_totalQuestion.setText("" + dto.getQuestionSet().get().getQuantity());
 
@@ -152,6 +153,7 @@ public class TestActivity extends AppCompatActivity {
                         i[0]++;
                         // trường hợp câu cuối, bấm chấm điểm
                         if(i[0] == totalQuestion){
+                            Log.i("CheckList size", String.valueOf(checkList.size()));
                             Intent intent = new Intent(TestActivity.this, ResultActivity.class);
                             intent.putExtra("History", checkList);
                             TestActivity.this.finish();

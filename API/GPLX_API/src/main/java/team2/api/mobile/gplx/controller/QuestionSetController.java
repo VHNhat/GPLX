@@ -61,6 +61,12 @@ public class QuestionSetController {
 		return new ResponseEntity<>(set, HttpStatus.OK);
 	}
 	
+	@GetMapping("api/questionset/license/{id}")
+	public ResponseEntity<Object> GetByLicenseId(@PathVariable("id") String id) {
+		List<QuestionSet> set = service.findByLicenseId(id);
+		return new ResponseEntity<>(set, HttpStatus.OK);
+	}
+	
 	@PostMapping("api/questionset/add")
 	public ResponseEntity<Object> Post(@RequestBody QuestionSet set) {
 		QuestionSet newSet = service.save(set);

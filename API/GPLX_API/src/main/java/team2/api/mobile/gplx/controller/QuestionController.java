@@ -76,6 +76,12 @@ public class QuestionController {
 		return new ResponseEntity<>(questionDetailList, HttpStatus.OK);
 	}
 	
+	@GetMapping("api/question/license/{id}")
+	public ResponseEntity<Object> GetQuestionByLicenseId(@PathVariable("id") String id) {
+		List<Question> questions = questionService.findQuestionByLicenseId(id);
+		return new ResponseEntity<>(questions, HttpStatus.OK);
+	}
+	
 	@GetMapping("api/question/details/{id}")
 	public ResponseEntity<Object> GetQuestionDetails(@PathVariable("id") String id) {
 		try {

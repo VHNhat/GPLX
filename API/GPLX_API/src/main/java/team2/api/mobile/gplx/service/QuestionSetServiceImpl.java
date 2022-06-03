@@ -1,5 +1,7 @@
 package team2.api.mobile.gplx.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,5 +29,10 @@ public class QuestionSetServiceImpl extends GenericServiceImpl<QuestionSet, Stri
 			System.out.println(ex.getMessage());
 			return null;
 		}
+	}
+
+	@Override
+	public List<QuestionSet> findByLicenseId(String id) {
+		return repo.findByLicenseId(id);
 	}
 }

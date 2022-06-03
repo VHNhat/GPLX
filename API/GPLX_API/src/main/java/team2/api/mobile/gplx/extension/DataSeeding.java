@@ -933,20 +933,24 @@ public class DataSeeding implements CommandLineRunner {
 	}
 
 	private void LoadQuestionSet() {
+		License a1 = licenseRepo.findByName("A1");
+		License a2 = licenseRepo.findByName("A2");
+		License b1 = licenseRepo.findByName("B1");
+		License b2 = licenseRepo.findByName("B2");
 		for (int c = 1; c <= 8; c++) {
-			QuestionSet set = new QuestionSet("Đề " + c + " - A1", false, 25, 0, 0);
+			QuestionSet set = new QuestionSet("Đề " + c + " - A1", false, 25, 0, 0, a1.getId());
 			questionSetRepo.save(set);
 		}
 		for (int c = 1; c <= 18; c++) {
-			QuestionSet set = new QuestionSet("Đề " + c + " - A2", false, 25, 0, 0);
+			QuestionSet set = new QuestionSet("Đề " + c + " - A2", false, 25, 0, 0, a2.getId());
 			questionSetRepo.save(set);
 		}
 		for (int c = 1; c <= 20; c++) {
-			QuestionSet set = new QuestionSet("Đề " + c + " - B1", false, 30, 0, 0);
+			QuestionSet set = new QuestionSet("Đề " + c + " - B1", false, 30, 0, 0, b1.getId());
 			questionSetRepo.save(set);
 		}
 		for (int c = 1; c <= 17; c++) {
-			QuestionSet set = new QuestionSet("Đề " + c + " - B2", false, 35, 0, 0);
+			QuestionSet set = new QuestionSet("Đề " + c + " - B2", false, 35, 0, 0, b2.getId());
 			questionSetRepo.save(set);
 		}
 	}

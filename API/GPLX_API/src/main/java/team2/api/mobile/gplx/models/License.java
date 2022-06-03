@@ -25,7 +25,7 @@ public class License extends AbstractEntity {
 	private String description;
 	
 	@JsonProperty("LicenseTypeId")
-	private String LicenseTypeId;
+	private String licenseTypeId;
 	
 	public String getName() {
 		return name;
@@ -50,16 +50,16 @@ public class License extends AbstractEntity {
 		this.name = name;
 		this.status = status;
 		this.description = description;
-		LicenseTypeId = licenseTypeId;
+		this.licenseTypeId = licenseTypeId;
 	}
 	public License() {
 		
 	}
 	public String getLicenseTypeId() {
-		return LicenseTypeId;
+		return licenseTypeId;
 	}
 	public void setLicenseTypeId(String licenseTypeId) {
-		LicenseTypeId = licenseTypeId;
+		this.licenseTypeId = licenseTypeId;
 	}
 	
 	

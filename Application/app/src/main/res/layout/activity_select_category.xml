@@ -53,8 +53,8 @@
             <RelativeLayout
                 android:id="@+id/btn_a1"
                 style="@style/AroundButton"
-                android:clickable="true"
-                android:background="@drawable/moto">
+                android:background="@drawable/moto"
+                android:clickable="true">
 
                 <TextView
                     android:id="@+id/title_a1"

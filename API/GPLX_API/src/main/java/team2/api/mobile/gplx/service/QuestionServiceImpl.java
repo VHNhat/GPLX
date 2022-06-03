@@ -47,4 +47,9 @@ public class QuestionServiceImpl extends GenericServiceImpl<Question, String> im
 		License license = licenseRepo.findByName(licenseName.toUpperCase());
 		return repo.findByLicenseId(license.getId());
 	}
+
+	@Override
+	public List<Question> findQuestionByLicenseId(String id) {
+		return repo.findByLicenseId(id);
+	}
 }
