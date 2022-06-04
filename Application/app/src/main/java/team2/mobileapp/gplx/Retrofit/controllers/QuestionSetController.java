@@ -10,6 +10,7 @@ import retrofit2.Response;
 import team2.mobileapp.gplx.Retrofit.api.RestAPIManager;
 import team2.mobileapp.gplx.Retrofit.callbacks.QuestionSetCallBackListener;
 import team2.mobileapp.gplx.Retrofit.models.QuestionSet;
+import team2.mobileapp.gplx.Retrofit.models.QuestionSize;
 
 public class QuestionSetController {
     private QuestionSetCallBackListener questionSetCallBackListener;
@@ -41,4 +42,25 @@ public class QuestionSetController {
             }
         });
     }
+    public void GetquestionSize(String license) {
+        restAPIManager.getQuestionSetAPI().GetNumQuestion(license).enqueue(new Callback<QuestionSize>() {
+            @Override
+            public void onResponse(Call<QuestionSize> call, Response<QuestionSize> response) {
+                try {
+                    message = response.code() == 200 ? "Successfully" : "Error";
+                    QuestionSize sets = response.body();
+                    questionSetCallBackListener.onFetchProgressQuestionSize(sets);
+                } catch (Exception ex){
+                    Log.d("Error", ex.getMessage());
+                }
+                questionSetCallBackListener.onFetchComplete(message);
+            }
+
+            @Override
+            public void onFailure(Call<QuestionSize> call, Throwable t) {
+                Log.d("FAIL", "Failed");
+            }
+        });
+    }
+
 }

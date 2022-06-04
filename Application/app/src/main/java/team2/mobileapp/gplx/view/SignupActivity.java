@@ -121,7 +121,7 @@ public class SignupActivity extends AppCompatActivity {
                                     public void run() {
                                         startActivity(login);
                                     }
-                                }, 2000);
+                                }, 3000);
                             }
                         }
                     });

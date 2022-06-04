@@ -10,6 +10,7 @@ import team2.mobileapp.gplx.Retrofit.callbacks.QuestionSetCallBackListener;
 import team2.mobileapp.gplx.Retrofit.controllers.QuestionSetController;
 import team2.mobileapp.gplx.Retrofit.models.License;
 import team2.mobileapp.gplx.Retrofit.models.QuestionSet;
+import team2.mobileapp.gplx.Retrofit.models.QuestionSize;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -116,6 +117,11 @@ public class GroupTestActivity extends AppCompatActivity implements QuestionSetC
         Log.d("Sets", sets.toString());
         Log.d("SetSize", String.valueOf(sets.size()));
         ShowSet(sets);
+
+    }
+
+    @Override
+    public void onFetchProgressQuestionSize(QuestionSize questionSize) {
 
     }
 

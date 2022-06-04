@@ -81,6 +81,7 @@
                 </TextView>
 
                 <TextView
+                    android:id="@+id/tv_num_all_question"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/title_all_question"
@@ -118,6 +119,7 @@
                 </TextView>
                 <TextView
                     android:textSize="15dp"
+                    android:id="@+id/num_concept"
                     android:textColor="@color/white"
                     android:textAlignment="center"
                     android:layout_below="@+id/title_concept"
@@ -154,7 +156,7 @@
                 </TextView>
                 <TextView
                     android:textSize="15dp"
-
+                    android:id="@+id/num_culture"
                     android:textColor="@color/white"
                     android:textAlignment="center"
                     android:layout_below="@+id/title_culture"
@@ -191,6 +193,7 @@
                 </TextView>
                 <TextView
                     android:textSize="15dp"
+                    android:id="@+id/num_figure"
                     android:textColor="@color/white"
                     android:textAlignment="center"
                     android:layout_below="@+id/title_figure"

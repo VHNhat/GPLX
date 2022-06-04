@@ -7,21 +7,34 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import team2.mobileapp.gplx.R;
+import team2.mobileapp.gplx.Retrofit.callbacks.QuestionSetCallBackListener;
+import team2.mobileapp.gplx.Retrofit.controllers.QuestionSetController;
+import team2.mobileapp.gplx.Retrofit.models.QuestionSet;
+import team2.mobileapp.gplx.Retrofit.models.QuestionSize;
 
 import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class ReviewTestActivity extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class ReviewTestActivity extends AppCompatActivity implements QuestionSetCallBackListener {
     private  RelativeLayout allQuestion;
     private  RelativeLayout Concept;
     private  RelativeLayout Culture;
     private  RelativeLayout Figure;
+    private QuestionSetController questionSetController;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_review_test);
+        String license="a1";
+        String ConceptAPI="bb";
+        String CultureAPI="vh";
+        String FigureAPI="sh";
+        questionSetController = new QuestionSetController(this);
+        questionSetController.GetquestionSize(license);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
         allQuestion = findViewById(R.id.all_question);
@@ -29,10 +42,6 @@ public class ReviewTestActivity extends AppCompatActivity {
         Culture = findViewById(R.id.culture);
         Figure = findViewById(R.id.figure);
 
-        String license="a1";
-        String ConceptAPI="bb";
-        String CultureAPI="vh";
-        String FigureAPI="sh";
 
 
         setOnclickType(allQuestion,license,"all");
@@ -54,5 +63,20 @@ public class ReviewTestActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onFetchProgress(ArrayList<QuestionSet> questionSets) {
+
+    }
+
+    @Override
+    public void onFetchProgressQuestionSize(QuestionSize questionSize) {
+
+    }
+
+    @Override
+    public void onFetchComplete(String message) {
+
     }
 }
