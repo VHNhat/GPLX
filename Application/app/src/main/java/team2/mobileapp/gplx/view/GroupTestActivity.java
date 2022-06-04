@@ -38,7 +38,7 @@ public class GroupTestActivity extends AppCompatActivity implements QuestionSetC
 
         questionSetController = new QuestionSetController(this);
         questionSetController.startFetching(license.getId());
-
+        SetOnClickType();
     }
 
     private void InitialVariable() {
