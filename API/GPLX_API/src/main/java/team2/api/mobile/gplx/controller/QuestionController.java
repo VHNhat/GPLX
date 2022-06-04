@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javassist.compiler.ast.Pair;
+import team2.api.mobile.gplx.dto.DtoQuestionCountByType;
 import team2.api.mobile.gplx.dto.DtoQuestionDetail;
 import team2.api.mobile.gplx.models.Answer;
 import team2.api.mobile.gplx.models.Question;
@@ -121,7 +122,7 @@ public class QuestionController {
 		try {
 			List<QuestionType> questionTypes = questionTypeService.findAll();
 			List<Question> questions = questionService.findQuestionByLicense(license);
-			List<AbstractMap.SimpleEntry<String,Integer>> questionSizes = new ArrayList<AbstractMap.SimpleEntry<String,Integer>>();
+			List<DtoQuestionCountByType> dtoQuestionCountByTypes = new ArrayList<DtoQuestionCountByType>();
 		    for (QuestionType  questionType: questionTypes) {
 		    	int num=0;
 		    	for (Question question : questions) {
@@ -129,13 +130,16 @@ public class QuestionController {
 						num++;
 					}
 				}
-		    	AbstractMap.SimpleEntry<String,Integer> questionSize = new SimpleEntry(questionType.getCode(),num);
-		    	questionSizes.add(questionSize);
+		    	DtoQuestionCountByType dtoQuestionCountByType = new DtoQuestionCountByType();
+		    	dtoQuestionCountByType.setName(questionType.getName());
+		    	dtoQuestionCountByType.setNum(num);
+		    	dtoQuestionCountByType.setType(questionType.getCode());
+		    	dtoQuestionCountByTypes.add(dtoQuestionCountByType);
 			}
 	     		    
 			
 
-		return new ResponseEntity<Object>(questionSizes, HttpStatus.OK);
+		return new ResponseEntity<Object>(dtoQuestionCountByTypes, HttpStatus.OK);
 		} catch(Exception ex) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}

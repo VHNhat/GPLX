@@ -10,15 +10,13 @@ import team2.mobileapp.gplx.Retrofit.callbacks.QuestionSetCallBackListener;
 import team2.mobileapp.gplx.Retrofit.controllers.QuestionSetController;
 import team2.mobileapp.gplx.Retrofit.models.License;
 import team2.mobileapp.gplx.Retrofit.models.QuestionSet;
-import team2.mobileapp.gplx.Retrofit.models.QuestionSize;
+import team2.mobileapp.gplx.Retrofit.models.QuestionCountByType;
 
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.security.acl.Group;
 import java.util.ArrayList;
 
 public class GroupTestActivity extends AppCompatActivity implements QuestionSetCallBackListener {
@@ -121,7 +119,7 @@ public class GroupTestActivity extends AppCompatActivity implements QuestionSetC
     }
 
     @Override
-    public void onFetchProgressQuestionSize(QuestionSize questionSize) {
+    public void onFetchProgressQuestionSize(ArrayList<QuestionCountByType> questionCountByType) {
 
     }
 

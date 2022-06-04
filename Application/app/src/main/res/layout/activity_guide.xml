@@ -57,6 +57,7 @@
                 android:max="100"
                 android:maxHeight="10dip"
                 android:minHeight="10dip"
+                android:progress="10"
                 android:animationResolution = "1000"
                 android:progressDrawable="@drawable/progress_custom" />
 

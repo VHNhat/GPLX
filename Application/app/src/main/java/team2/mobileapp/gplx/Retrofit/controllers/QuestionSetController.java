@@ -10,7 +10,7 @@ import retrofit2.Response;
 import team2.mobileapp.gplx.Retrofit.api.RestAPIManager;
 import team2.mobileapp.gplx.Retrofit.callbacks.QuestionSetCallBackListener;
 import team2.mobileapp.gplx.Retrofit.models.QuestionSet;
-import team2.mobileapp.gplx.Retrofit.models.QuestionSize;
+import team2.mobileapp.gplx.Retrofit.models.QuestionCountByType;
 
 public class QuestionSetController {
     private QuestionSetCallBackListener questionSetCallBackListener;
@@ -43,12 +43,12 @@ public class QuestionSetController {
         });
     }
     public void GetquestionSize(String license) {
-        restAPIManager.getQuestionSetAPI().GetNumQuestion(license).enqueue(new Callback<QuestionSize>() {
+        restAPIManager.getQuestionSetAPI().GetNumQuestion(license).enqueue(new Callback<ArrayList<QuestionCountByType>>() {
             @Override
-            public void onResponse(Call<QuestionSize> call, Response<QuestionSize> response) {
+            public void onResponse(Call<ArrayList<QuestionCountByType>> call, Response<ArrayList<QuestionCountByType>> response) {
                 try {
                     message = response.code() == 200 ? "Successfully" : "Error";
-                    QuestionSize sets = response.body();
+                    ArrayList<QuestionCountByType> sets = response.body();
                     questionSetCallBackListener.onFetchProgressQuestionSize(sets);
                 } catch (Exception ex){
                     Log.d("Error", ex.getMessage());
@@ -57,10 +57,11 @@ public class QuestionSetController {
             }
 
             @Override
-            public void onFailure(Call<QuestionSize> call, Throwable t) {
+            public void onFailure(Call<ArrayList<QuestionCountByType>> call, Throwable t) {
                 Log.d("FAIL", "Failed");
             }
         });
     }
+
 
 }
