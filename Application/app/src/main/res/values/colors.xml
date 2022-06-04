@@ -15,4 +15,8 @@
     <color name="yellow">#FCAB4C</color>
     <color name="red">#CA2C2C</color>
     <color name="title">#2673D1</color>
+    <color name="title_guide">#2673D1</color>
+    <color name="background_guide">#C9515151</color>
+    <color name="description_guide">#414141</color>
+    <color name="line_guide">#2673D1</color>
 </resources>
