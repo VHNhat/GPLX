@@ -13,6 +13,7 @@ import team2.mobileapp.gplx.Retrofit.callbacks.QuestionSetCallBackListener;
 import team2.mobileapp.gplx.Retrofit.controllers.QuestionSetController;
 import team2.mobileapp.gplx.Retrofit.models.QuestionSet;
 import team2.mobileapp.gplx.Retrofit.models.QuestionCountByType;
+import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
 
 import android.util.Log;
 import android.view.ContextThemeWrapper;
@@ -43,7 +44,7 @@ public class ReviewTestActivity extends AppCompatActivity implements QuestionSet
         setContentView(R.layout.activity_review_test);
 //        listTypeQuestion = findViewById(R.id.list_type_question);
         groupTest = findViewById(R.id.lv_group_test);
-        String license="a1";
+        String license=VariableGlobal.typeCode;
         questionSetController = new QuestionSetController(this);
         questionSetController.GetquestionSize(license);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
@@ -57,7 +58,7 @@ public class ReviewTestActivity extends AppCompatActivity implements QuestionSet
                 Log.d("groupTestItemID", groupTestItem.getType());
                 Intent intent = new Intent(ReviewTestActivity.this,QuestionViewListActivity.class);
                 intent.putExtra("TITLE_QUESTION_LIST",groupTestItem.getName());
-                intent.putExtra("LICENSE_QUESTION_LIST","A1");
+                intent.putExtra("LICENSE_QUESTION_LIST",   VariableGlobal.typeCode);
                 intent.putExtra("TYPE_QUESTION_LIST",groupTestItem.getType());
                 startActivity(intent);
             }

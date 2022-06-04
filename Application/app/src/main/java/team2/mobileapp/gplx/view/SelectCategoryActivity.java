@@ -15,6 +15,7 @@ import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Retrofit.callbacks.LicenseCallBackListener;
 import team2.mobileapp.gplx.Retrofit.controllers.LicenseController;
 import team2.mobileapp.gplx.Retrofit.models.License;
+import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
 
 import android.os.Bundle;
 import android.widget.Toast;
@@ -57,6 +58,7 @@ public class SelectCategoryActivity extends AppCompatActivity implements License
                 public void onClick(View view) {
                     Intent intent = new Intent(SelectCategoryActivity.this, A1_TestActivity.class);
                     intent.putExtra("License", licenses.get(0));
+                    VariableGlobal.typeCode="A1";
                     startActivity(intent);
                 }
             });
@@ -66,6 +68,7 @@ public class SelectCategoryActivity extends AppCompatActivity implements License
                 public void onClick(View view) {
                     Intent intent = new Intent(SelectCategoryActivity.this, A1_TestActivity.class);
                     intent.putExtra("License", licenses.get(1));
+                    VariableGlobal.typeCode="A2";
                     startActivity(intent);
                 }
             });
@@ -75,6 +78,7 @@ public class SelectCategoryActivity extends AppCompatActivity implements License
                 public void onClick(View view) {
                     Intent intent = new Intent(SelectCategoryActivity.this, A1_TestActivity.class);
                     intent.putExtra("License", licenses.get(2));
+                    VariableGlobal.typeCode="B1";
                     startActivity(intent);
                 }
             });
@@ -84,6 +88,7 @@ public class SelectCategoryActivity extends AppCompatActivity implements License
                 public void onClick(View view) {
                     Intent intent = new Intent(SelectCategoryActivity.this, A1_TestActivity.class);
                     intent.putExtra("License", licenses.get(3));
+                    VariableGlobal.typeCode="B2";
                     startActivity(intent);
                 }
             });
