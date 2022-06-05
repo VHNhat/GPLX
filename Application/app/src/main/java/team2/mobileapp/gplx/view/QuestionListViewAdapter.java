@@ -48,7 +48,7 @@ class QuestionListViewAdapter extends ArrayAdapter<QuestionDetails> {
         int lenList=arrayList.get(position).getAnswer().getAnswerName().length;
         for (int i = 0; i < lenList; i++) {
            String item=arrayList.get(position).getAnswer().getAnswerByIndex(i);
-            listAnswer+=(i+1)+". "+item+"\n";
+            listAnswer+=(i+1)+" - "+item+"\n";
         }
 
 

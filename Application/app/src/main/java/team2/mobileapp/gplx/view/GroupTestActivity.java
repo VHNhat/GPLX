@@ -8,6 +8,7 @@ import android.os.Bundle;
 import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Retrofit.callbacks.QuestionSetCallBackListener;
 import team2.mobileapp.gplx.Retrofit.controllers.QuestionSetController;
+import team2.mobileapp.gplx.Retrofit.dto.GroupTestItem;
 import team2.mobileapp.gplx.Retrofit.models.License;
 import team2.mobileapp.gplx.Retrofit.models.QuestionSet;
 import team2.mobileapp.gplx.Retrofit.models.QuestionCountByType;
@@ -16,8 +17,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,9 +25,11 @@ public class GroupTestActivity extends AppCompatActivity implements QuestionSetC
     QuestionSetController questionSetController;
     ArrayList<QuestionSet> sets;
     License license;
-    ListView vlGroupExam;
+    ListView lvGroupExam;
     private GroupTestAdapter groupTestAdapter;
-    private List<GroupTestItem> listGroupTests = new ArrayList<>();;
+    private List<GroupTestItem> listGroupTests = new ArrayList<>();
+    ;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_test);
@@ -42,7 +43,7 @@ public class GroupTestActivity extends AppCompatActivity implements QuestionSetC
     }
 
     private void InitialVariable() {
-        vlGroupExam = findViewById(R.id.lv_exam_group);
+        lvGroupExam = findViewById(R.id.lv_exam_group);
     }
 
     @Override
@@ -51,7 +52,6 @@ public class GroupTestActivity extends AppCompatActivity implements QuestionSetC
         Log.d("Sets", sets.toString());
         Log.d("SetSize", String.valueOf(sets.size()));
         ShowSet(sets);
-
     }
 
     @Override
@@ -60,10 +60,10 @@ public class GroupTestActivity extends AppCompatActivity implements QuestionSetC
     }
 
     private void SetOnClickType() {
-        vlGroupExam.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lvGroupExam.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                GroupTestItem groupTestItem= (GroupTestItem) adapterView.getItemAtPosition(i);
+                GroupTestItem groupTestItem = (GroupTestItem) adapterView.getItemAtPosition(i);
                 Intent intent = new Intent(GroupTestActivity.this, TestActivity.class);
                 intent.putExtra("QuestionSetId", groupTestItem.getId());
                 startActivity(intent);
@@ -73,22 +73,21 @@ public class GroupTestActivity extends AppCompatActivity implements QuestionSetC
     }
 
     private void ShowSet(ArrayList<QuestionSet> sets) {
-
         for (QuestionSet set : sets) {
-            if(set.getQuantity()>0)
-            {
+            if (set.getQuantity() > 0) {
                 GroupTestItem groupTestItem = new GroupTestItem();
-                groupTestItem.setName(set.getName());
+                groupTestItem.setName(set.getName().split("-")[0].trim());
                 groupTestItem.setType(set.getLicenseId());
                 groupTestItem.setNum(set.getQuantity());
                 groupTestItem.setId(set.getId());
                 listGroupTests.add(groupTestItem);
             }
         }
-        groupTestAdapter = new GroupTestAdapter(this, 1,listGroupTests );
-        vlGroupExam.setAdapter(groupTestAdapter);
+        groupTestAdapter = new GroupTestAdapter(this, 1, listGroupTests);
+        lvGroupExam.setAdapter(groupTestAdapter);
 
     }
+
     @Override
     public void onFetchComplete(String message) {
 

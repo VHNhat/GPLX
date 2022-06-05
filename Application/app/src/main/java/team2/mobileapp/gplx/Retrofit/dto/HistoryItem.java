@@ -1,6 +1,6 @@
-package team2.mobileapp.gplx.view;
+package team2.mobileapp.gplx.Retrofit.dto;
 
-class HistoryItem {
+public class HistoryItem {
 
     private String CategoryName;
 

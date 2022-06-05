@@ -13,23 +13,9 @@
         android:layout_height="140dp"
         android:padding="20dp">
 
-
-        <ImageView
-            android:id="@+id/logo_top_board"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/logo"
-
-            />
-
         <TextView
             android:id="@+id/tv_title_set"
             style="@style/TextTitle"
-
-            android:layout_below="@+id/logo_top_board"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:background="@drawable/button_radius"
@@ -46,12 +32,12 @@
     </RelativeLayout>
 
     <ListView
+        android:id="@+id/lv_exam_group"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/lv_exam_group"
         android:layout_below="@+id/header_activity"
-        android:layout_marginBottom="120dp"
-        tools:listitem="@layout/listview_group_test_item"/>
+        android:layout_marginBottom="60dp"
+        tools:listitem="@layout/listview_group_test_item" />
 
     <include
         android:id="@+id/layout"
