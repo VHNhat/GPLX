@@ -1,42 +1,78 @@
 package team2.api.mobile.gplx.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import team2.api.mobile.gplx.dto.DtoTrafficSignCountByType;
 import team2.api.mobile.gplx.models.TrafficSign;
+import team2.api.mobile.gplx.models.TrafficSignType;
 import team2.api.mobile.gplx.service.interfaces.TrafficSignService;
+import team2.api.mobile.gplx.service.interfaces.TrafficSignTypeService;
 
 @RestController
 public class TrafficSignController {
 
 	@Autowired
-	private TrafficSignService service;
+	private TrafficSignService trafficSignService;
+	@Autowired
+	private TrafficSignTypeService trafficSignTypeService;
 
 	@GetMapping("api/trafficsign")
 	public ResponseEntity<Object> GetAll() {
-		List<TrafficSign> trafficSign = service.findAll();
+		List<TrafficSign> trafficSign = trafficSignService.findAll();
 		return new ResponseEntity<>(trafficSign, HttpStatus.OK);
+	}
+
+	@GetMapping("api/trafficsign/type/{type}")
+	public ResponseEntity<Object> GetByType(@PathVariable("type") String type) {
+		try {
+			TrafficSignType traffiSignType = trafficSignTypeService.findByCode(type.toUpperCase());
+
+			List<TrafficSign> trafficSigns = trafficSignService
+					.findByTrafficSignType(traffiSignType.getId().toString());
+			return new ResponseEntity<>(trafficSigns, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	@GetMapping("api/trafficsign/types")
+	public ResponseEntity<Object> GetTrafficSignType() {
+		try {
+			List<DtoTrafficSignCountByType> list = new ArrayList<>();
+			List<TrafficSignType> traffiSignTypes = trafficSignTypeService.findAll();
+
+			for (TrafficSignType type : traffiSignTypes) {
+				List<TrafficSign> trafficSigns = trafficSignService
+						.findByTrafficSignType(type.getId().toString());
+				
+				DtoTrafficSignCountByType count = new DtoTrafficSignCountByType();
+				count.setId(type.getId().toString());
+				count.setCode(type.getCode().toString());
+				count.setQuantity(trafficSigns.size());
+				list.add(count);
+			}
+			
+			return new ResponseEntity<>(list, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
 	}
 
 	@GetMapping("api/trafficsign/{id}")
 	public ResponseEntity<Object> GetById(@PathVariable("id") String id) {
-		TrafficSign trafficSign = service.findTrafficSignById(id);
+		TrafficSign trafficSign = trafficSignService.findTrafficSignById(id);
 		return new ResponseEntity<>(trafficSign, HttpStatus.OK);
 	}
 
 	@PostMapping("api/trafficsign/add")
 	public ResponseEntity<Object> Post(@RequestBody TrafficSign trafficSign) {
-		TrafficSign newTrafficSign = service.save(trafficSign);
+		TrafficSign newTrafficSign = trafficSignService.save(trafficSign);
 		if (newTrafficSign == null)
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		return new ResponseEntity<>(newTrafficSign, HttpStatus.OK);
@@ -44,7 +80,7 @@ public class TrafficSignController {
 
 	@PutMapping("api/trafficsign/edit/{id}")
 	public ResponseEntity<Object> Put(@PathVariable("id") String id, @RequestBody TrafficSign trafficSign) {
-		TrafficSign updatedTrafficSign = service.update(trafficSign, id);
+		TrafficSign updatedTrafficSign = trafficSignService.update(trafficSign, id);
 		if (updatedTrafficSign == null)
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		return new ResponseEntity<>(updatedTrafficSign, HttpStatus.OK);
@@ -53,7 +89,7 @@ public class TrafficSignController {
 	@DeleteMapping("api/trafficsign/delete/{id}")
 	public ResponseEntity<Object> Delete(@PathVariable("id") String id) {
 		try {
-			service.deleteById(id);
+			trafficSignService.deleteById(id);
 			return new ResponseEntity<>(HttpStatus.OK);
 		} catch (Exception ex) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
