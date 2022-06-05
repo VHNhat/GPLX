@@ -10,7 +10,7 @@
 
     <include
         android:id="@+id/header_activity"
-        layout="@layout/header_app" />
+        layout="@layout/header_activity_app" />
         <ListView
             android:divider="@android:color/transparent"
             android:id="@+id/lv_group_test"

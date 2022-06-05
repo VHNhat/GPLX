@@ -19,13 +19,10 @@ import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Retrofit.dto.QuestionDetails;
 
 class QuestionListViewAdapter extends ArrayAdapter<QuestionDetails> {
-    Context context;
-
-    // new
-    ArrayList<QuestionDetails> arrayList;
+    private Context context;
+    private ArrayList<QuestionDetails> arrayList;
     int layoutResource;
 
-    //
     public QuestionListViewAdapter(Context context, int resource, ArrayList<QuestionDetails>
             objects) {
         super(context, resource, objects);
