@@ -77,16 +77,15 @@
         android:textColor="@color/black"
         android:textSize="23dp" />
     <ListView
-        android:id="@+id/lvItems"
+        android:id="@+id/lv_group_boarding_sign"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/title_layouts_item"
         android:divider="@null"
         android:scrollbars="none"
-        tools:listitem="@layout/listview_group_boarding_item">
+        tools:listitem="@layout/listview_group_boarding_item"/>
 
 
-    </ListView>
 
     <include layout="@layout/activity_navigation" android:id="@+id/bottom_bar" />
 

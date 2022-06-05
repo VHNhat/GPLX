@@ -1,11 +1,11 @@
 package team2.mobileapp.gplx.view;
-
+import android.os.Bundle;
 class GroupBoardingItem {
     private String id;
     private String name;
     private String type;
-    private Integer num;
-
+    private Integer quantity;
+    private String Image;
     public String getId() {
         return id;
     }
@@ -30,12 +30,12 @@ class GroupBoardingItem {
         this.type = type;
     }
 
-    public Integer getNum() {
-        return num;
+    public Integer getQuantity() {
+        return quantity;
     }
 
-    public void setNum(Integer num) {
-        this.num = num;
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 
     public String getImage() {
@@ -46,6 +46,6 @@ class GroupBoardingItem {
         Image = image;
     }
 
-    private String Image;
+
 
 }
