@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.A1_TestActivity">
+    tools:context="team2.mobileapp.gplx.view.A1_TestActivity">
 
 
     <ImageView
@@ -73,7 +73,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:paddingBottom="10dp"
-                    android:text="Đề ngẫu nhiên"
+                    android:text="Hưỡng dẫn "
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textStyle="bold">

@@ -31,7 +31,7 @@ public class A1_TestActivity extends AppCompatActivity {
         btnRandom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(A1_TestActivity.this, GroupTestActivity.class);
+                Intent intent = new Intent(A1_TestActivity.this, GuideActivity.class);
                 intent.putExtra("License", license);
                 intent.putExtra("TITLE", "Hướng dẫn");
                 startActivity(intent);

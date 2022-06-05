@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.VideoView;
 
 import pl.droidsonroids.gif.GifImageView;
 import team2.mobileapp.gplx.Volley.model.Account;

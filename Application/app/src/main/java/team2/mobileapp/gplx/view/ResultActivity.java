@@ -7,8 +7,6 @@ import android.os.Bundle;
 import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Volley.model.CheckRadioButton;
 
-import android.os.Bundle;
-
 import java.util.ArrayList;
 
 public class ResultActivity extends AppCompatActivity {

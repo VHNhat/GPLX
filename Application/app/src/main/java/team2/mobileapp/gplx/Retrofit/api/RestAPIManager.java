@@ -23,6 +23,7 @@ public class RestAPIManager {
         return questionSetAPI;
     }
 
+
     public LicenseAPI getLicenseAPI() {
         if (licenseAPI == null) {
             licenseAPI = new Retrofit.Builder()
