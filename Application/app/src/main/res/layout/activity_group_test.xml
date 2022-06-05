@@ -9,16 +9,47 @@
 
     <include
         android:id="@+id/header_activity"
+<<<<<<< HEAD
         layout="@layout/header_activity_app" />
 
     <ListView
         android:divider="@android:color/transparent"
+=======
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/tv_title_set"
+            style="@style/TextTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_radius"
+            android:backgroundTint="@color/green_main"
+            android:paddingLeft="30dp"
+            android:paddingTop="10dp"
+            android:paddingRight="30dp"
+            android:paddingBottom="10dp"
+            android:text="CHỌN BỘ ĐỀ"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+
+            />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/lv_exam_group"
+>>>>>>> b35b60da1e9c2267833ece50e13898cfe6b7a3fa
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/lv_exam_group"
         android:layout_below="@+id/header_activity"
+<<<<<<< HEAD
         android:layout_marginBottom="65dp"
         tools:listitem="@layout/listview_group_test_item"/>
+=======
+        android:layout_marginBottom="60dp"
+        tools:listitem="@layout/listview_group_test_item" />
+>>>>>>> b35b60da1e9c2267833ece50e13898cfe6b7a3fa
 
     <include
         android:id="@+id/layout"

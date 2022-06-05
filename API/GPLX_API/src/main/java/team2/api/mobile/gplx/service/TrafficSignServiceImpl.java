@@ -31,7 +31,7 @@ public class TrafficSignServiceImpl extends GenericServiceImpl<TrafficSign, Stri
 	}
 
 	@Override
-	public TrafficSign findTrafficSignById(String id) {
+	public TrafficSign findByTrafficSignTypeId(String id) {
 		try {
 			TrafficSign object = repo.findById(id).get();
 			return object;
