@@ -30,13 +30,14 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Volley.model.CheckRadioButton;
 import team2.mobileapp.gplx.Volley.model.dto.DtoQuestionSet;
 import team2.mobileapp.gplx.Volley.service.TestService;
 
-public class TestActivity extends AppCompatActivity {
+public class TestActivity extends AppCompatActivity implements Serializable {
 
     TextView tv_positionQuestion, tv_totalQuestion, tv_question;
     ProgressBar determinateBar;
@@ -62,7 +63,6 @@ public class TestActivity extends AppCompatActivity {
 
         final TestService testService = new TestService(TestActivity.this);
 
-        // Đang hardcode để test
         String questionSetId = getIntent().getStringExtra("QuestionSetId");
         Log.i("QuestionSetId", questionSetId);
 
@@ -182,7 +182,7 @@ public class TestActivity extends AppCompatActivity {
             public void onResponse(DtoQuestionSet dto) {
 
                 totalQuestion = dto.getQuestList().size();
-                tv_totalQuestion.setText("" + dto.getQuestionSet().get().getQuantity());
+                tv_totalQuestion.setText("" + dto.getQuestionSet().getQuantity());
 
                 UpdateQuestion(dto, totalQuestion, i[0]);
                 CheckedRadioButton(dto, i[0]);
@@ -210,8 +210,10 @@ public class TestActivity extends AppCompatActivity {
                         if(i[0] == totalQuestion){
                             Log.i("CheckList size", String.valueOf(checkList.size()));
                             Intent intent = new Intent(TestActivity.this, ResultActivity.class);
+                            intent.putExtra("Dto", dto);
                             intent.putExtra("History", checkList);
-                            TestActivity.this.finish();
+
+//                            TestActivity.this.finish();
                             startActivity(intent);
                         }
                         // Trường hợp đang thi
@@ -333,6 +335,8 @@ public class TestActivity extends AppCompatActivity {
         btn_prev = findViewById(R.id.btn_prev);
         iv_question = findViewById(R.id.iv_question);
         rg_answer = findViewById(R.id.rg_answer);
+        layoutQuestionBar= findViewById(R.id.layout_question_bar);
+        mDrawerLayout=findViewById(R.id.drawer_test);
     }
 
 }
