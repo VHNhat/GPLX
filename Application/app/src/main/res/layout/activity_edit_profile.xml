@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="team2.mobileapp.gplx.view.EditProfileActivity">
+    tools:context="team2.mobileapp.gplx.view.EditProfileActivity"
+    android:id="@+id/check_out_focus">
 
     <RelativeLayout
         android:id="@+id/header"
@@ -58,6 +59,8 @@
             android:layout_marginBottom="15dp"
             android:background="@drawable/br_input"
             android:hint="Nguyễn Văn A"
+
+            android:maxLines="1"
             android:inputType="text"
             android:paddingLeft="30dp"
             android:paddingRight="30dp" />
@@ -80,6 +83,8 @@
             android:layout_marginBottom="15dp"
             android:background="@drawable/br_input"
             android:enabled="true"
+            android:maxLines="1"
+            android:inputType="text"
             android:hint="user"
             android:paddingLeft="30dp"
             android:paddingRight="30dp" />
@@ -102,6 +107,8 @@
             android:layout_marginBottom="15dp"
             android:background="@drawable/br_input"
             android:enabled="false"
+            android:inputType="text"
+            android:maxLines="1"
             android:hint="example@gmail.com"
             android:paddingLeft="30dp"
             android:paddingRight="30dp" />
@@ -118,5 +125,5 @@
             android:textSize="17dp"
             android:textAllCaps="false"/>
     </RelativeLayout>
-    <include layout="@layout/activity_navigation" />
+    <include layout="@layout/activity_navigation" android:id="@+id/bottom_bar" />
 </RelativeLayout>

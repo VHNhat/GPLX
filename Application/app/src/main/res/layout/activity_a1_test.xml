@@ -65,7 +65,7 @@
                     android:layout_height="wrap_content"
                     android:paddingTop="10dp"
                     android:src="@drawable/file_dock_fill"></ImageView>
-                ư
+
 
                 <TextView
                     android:id="@+id/tv_description_a1"
@@ -175,5 +175,5 @@
     </ScrollView>
 
 
-    <include layout="@layout/activity_navigation" />
+    <include layout="@layout/activity_navigation" android:id="@+id/bottom_bar" />
 </RelativeLayout>

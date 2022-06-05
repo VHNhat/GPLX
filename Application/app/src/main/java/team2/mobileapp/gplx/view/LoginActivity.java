@@ -2,12 +2,15 @@ package team2.mobileapp.gplx.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText etUsername, etPassword;
     Button btnLogin;
     TextView tvForgotPass, tvSignup;
+    RelativeLayout checkOutFocusLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,11 +30,7 @@ public class LoginActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
         setContentView(R.layout.activity_login);
 
-        etUsername = findViewById(R.id.et_username_login);
-        etPassword = findViewById(R.id.et_password_login);
-        btnLogin = findViewById(R.id.btn_login);
-        tvForgotPass = findViewById(R.id.tv_forgot_pass);
-        tvSignup = findViewById(R.id.tv_signup);
+        InitialVariable();
 
         Intent tutorial = new Intent(this, TutorialActivity.class);
         Intent forgotPass = new Intent(this, ForgotPasswordActivity.class);
@@ -43,7 +43,21 @@ public class LoginActivity extends AppCompatActivity {
         ForgotPass(forgotPass);
 
         Signup(signup);
+        checkOutFocusLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                hideKeyboard();
+            }
+        });
+    }
 
+    private void InitialVariable() {
+        etUsername = findViewById(R.id.et_username_login);
+        etPassword = findViewById(R.id.et_password_login);
+        btnLogin = findViewById(R.id.btn_login);
+        tvForgotPass = findViewById(R.id.tv_forgot_pass);
+        tvSignup = findViewById(R.id.tv_signup);
+        checkOutFocusLogin = findViewById(R.id.check_out_focus_login);
     }
 
     private void Signup(Intent signup) {
@@ -56,6 +70,15 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(signup);
             }
         });
+    }
+
+    public void hideKeyboard() {
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+
     }
 
     private void ForgotPass(Intent forgotPass) {

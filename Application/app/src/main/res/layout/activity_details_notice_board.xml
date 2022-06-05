@@ -96,9 +96,7 @@
 
     </ScrollView>
 
-    <include
-        android:id="@+id/layout"
-        layout="@layout/activity_navigation" />
+    <include layout="@layout/activity_navigation" android:id="@+id/bottom_bar" />
 
 
 </RelativeLayout>

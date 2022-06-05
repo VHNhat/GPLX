@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Retrofit.models.License;
+import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
 
 
 public class A1_TestActivity extends AppCompatActivity {
@@ -25,6 +26,7 @@ public class A1_TestActivity extends AppCompatActivity {
 
         InitialVariable();
 
+        VariableGlobal.SetNavigationBar(A1_TestActivity.this);
         License license = (License) getIntent().getSerializableExtra("License");
         tvLicense.setText("Hạng " + license.getName());
         overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);

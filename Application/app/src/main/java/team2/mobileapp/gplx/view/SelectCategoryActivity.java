@@ -27,7 +27,7 @@ public class SelectCategoryActivity extends AppCompatActivity implements License
         super.onCreate(savedInstanceState);
         overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
         setContentView(R.layout.activity_select_category);
-
+        VariableGlobal.SetNavigationBar(this);
         InitialVariable();
 
         licenseController = new LicenseController(this);

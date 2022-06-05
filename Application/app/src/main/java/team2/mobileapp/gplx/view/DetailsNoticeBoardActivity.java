@@ -10,6 +10,7 @@ import android.widget.TextView;
 import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Retrofit.callbacks.TrafficSignCallBackListener;
 import team2.mobileapp.gplx.Retrofit.controllers.TrafficSignController;
+import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
 import team2.mobileapp.gplx.Volley.model.TrafficSign;
 
 public class DetailsNoticeBoardActivity extends AppCompatActivity implements TrafficSignCallBackListener {
@@ -24,7 +25,7 @@ public class DetailsNoticeBoardActivity extends AppCompatActivity implements Tra
         overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
 
         setContentView(R.layout.activity_details_notice_board);
-
+        VariableGlobal.SetNavigationBar(this);
         tvTitle = (TextView) findViewById(R.id.tv_title_board_details);
         tvDescription = (TextView) findViewById(R.id.tv_description_board_details);
         ivPhoto = (ImageView) findViewById(R.id.iv_image_board_details);

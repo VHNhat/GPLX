@@ -36,7 +36,7 @@ public class ReviewTestActivity extends AppCompatActivity implements QuestionSet
         String title= getIntent().getStringExtra("TITLE");
         titleActivity = findViewById(R.id.tv_title_activity_app);
         groupTest = findViewById(R.id.lv_group_test);
-
+        VariableGlobal.SetNavigationBar(this);
 
         titleActivity.setText(title);
 

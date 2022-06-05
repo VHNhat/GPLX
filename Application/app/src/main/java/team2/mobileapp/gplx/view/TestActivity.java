@@ -30,6 +30,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 
 import team2.mobileapp.gplx.R;
+import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
 import team2.mobileapp.gplx.Volley.model.CheckRadioButton;
 import team2.mobileapp.gplx.Volley.model.dto.DtoQuestionSet;
 import team2.mobileapp.gplx.Volley.service.TestService;
@@ -58,7 +59,6 @@ public class TestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
         setContentView(R.layout.activity_test);
-
         InitialVariables();
 
         final TestService testService = new TestService(TestActivity.this);

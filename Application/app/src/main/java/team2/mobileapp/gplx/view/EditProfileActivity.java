@@ -1,10 +1,14 @@
 package team2.mobileapp.gplx.view;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +17,7 @@ import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Retrofit.callbacks.AccountCallbackListener;
 import team2.mobileapp.gplx.Retrofit.controllers.AccountController;
 import team2.mobileapp.gplx.Retrofit.models.Account;
+import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
 
 public class EditProfileActivity extends AppCompatActivity implements AccountCallbackListener {
 
@@ -20,10 +25,10 @@ public class EditProfileActivity extends AppCompatActivity implements AccountCal
     private EditText etUsername;
     private EditText etEmail;
     private Button btnSave;
-
+    private RelativeLayout checkOutFocus;
     private Account accountView;
     private AccountController accountController;
-
+    private InputMethodManager inputMethodManager;
     private boolean isUpdated = false;
 
     @Override
@@ -32,10 +37,11 @@ public class EditProfileActivity extends AppCompatActivity implements AccountCal
         overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
 
         setContentView(R.layout.activity_edit_profile);
-
+        VariableGlobal.SetNavigationBar(this);
         InitialVariables();
+
         try {
-            accountController.startFetching("629c1f72fd4add256bdb9997");
+            accountController.startFetching("629c5dfdad53582e881d0eab");
             btnSave.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -51,6 +57,22 @@ public class EditProfileActivity extends AppCompatActivity implements AccountCal
         } catch (Exception e) {
             Log.d("Error", e.getMessage());
         }
+
+        checkOutFocus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                hideKeyboard();
+            }
+        });
+    }
+
+    public void hideKeyboard() {
+        View view = this.getCurrentFocus();
+        if(view  !=null){
+            InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+
     }
 
     private void InitialVariables() {
@@ -59,6 +81,7 @@ public class EditProfileActivity extends AppCompatActivity implements AccountCal
         etUsername = (EditText) findViewById(R.id.et_username);
         etEmail = (EditText) findViewById(R.id.et_email_profile);
         btnSave = (Button) findViewById(R.id.btn_save);
+        checkOutFocus= findViewById(R.id.check_out_focus);
     }
 
     @Override
@@ -75,4 +98,5 @@ public class EditProfileActivity extends AppCompatActivity implements AccountCal
     public void onFetchComplete(String message) {
         Toast.makeText(EditProfileActivity.this, message, Toast.LENGTH_SHORT).show();
     }
+
 }

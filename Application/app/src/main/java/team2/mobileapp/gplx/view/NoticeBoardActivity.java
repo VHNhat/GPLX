@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import team2.mobileapp.gplx.R;
+import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
 import team2.mobileapp.gplx.Volley.model.NoticeBoard;
 import team2.mobileapp.gplx.Volley.service.NoticeBoardService;
 
@@ -33,7 +34,7 @@ public class NoticeBoardActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
         setContentView(R.layout.activity_notice_board);
         String title = getIntent().getStringExtra("TITLE");
-
+        VariableGlobal.SetNavigationBar(this);
         listView = findViewById(R.id.lvItems);
         titleActivity = findViewById(R.id.tv_title_activity_app);
         titleBoard= findViewById(R.id.title_layouts);

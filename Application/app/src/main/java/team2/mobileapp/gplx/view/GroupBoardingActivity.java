@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import team2.mobileapp.gplx.R;
+import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
 
 public class GroupBoardingActivity extends AppCompatActivity {
   TextView titleBoard;
@@ -16,6 +17,7 @@ public class GroupBoardingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_group_boarding_sign);
         titleBoard= findViewById(R.id.tv_title_activity_app);
         titleBoard.setText("Các loại biến báo");
+        VariableGlobal.SetNavigationBar(this);
     }
 
     @Override

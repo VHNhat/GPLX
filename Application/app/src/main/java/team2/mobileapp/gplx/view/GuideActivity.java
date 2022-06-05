@@ -18,6 +18,7 @@ import com.wooplr.spotlight.SpotlightConfig;
 
 import team2.mobileapp.gplx.Animation.SpotlightSequence;
 import team2.mobileapp.gplx.R;
+import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
 
 public class GuideActivity extends AppCompatActivity {
     private TextView Question, QuestionButton1, QuestionButton2;
@@ -37,6 +38,7 @@ public class GuideActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
         setContentView(R.layout.activity_guide);
         InitialVariable();
+
         spotlightSequence = new SpotlightSequence(GuideActivity.this, config);
         ShowIntro(progressBar, "Vị trí câu hỏi", "Hiển thị vị trí câu hỏi mà bạn đang làm bài", "1");
         ShowIntro(Question, "Phần câu hỏi", "Hãy đọc kỹ câu hỏi và đưa ra câu trả lời đúng nhất nhé ", "2");

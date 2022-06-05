@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import team2.mobileapp.gplx.R;
+import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
 import team2.mobileapp.gplx.Volley.model.CheckRadioButton;
 
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ public class ResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
         setContentView(R.layout.activity_result);
-
+        VariableGlobal.SetNavigationBar(this);
 //        if (savedInstanceState == null) {
 //            Bundle extras = getIntent().getExtras();
 //            if(extras == null) {

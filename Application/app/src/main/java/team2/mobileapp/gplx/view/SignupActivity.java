@@ -2,6 +2,7 @@ package team2.mobileapp.gplx.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,8 +10,10 @@ import android.os.Handler;
 import android.os.Vibrator;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +29,7 @@ public class SignupActivity extends AppCompatActivity {
     Button btnSignup;
     TextView textLogin;
     GifImageView gifDone;
+    RelativeLayout checkOutFocusSignup;
     private int position = 0;
 
     @Override
@@ -40,6 +44,12 @@ public class SignupActivity extends AppCompatActivity {
 
         Signup(authenService, login);
         Login(login);
+        checkOutFocusSignup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                hideKeyboard();
+            }
+        });
     }
 
     private void Login(Intent login) {
@@ -53,7 +63,14 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
     }
+    public void hideKeyboard() {
+        View view = this.getCurrentFocus();
+        if(view  !=null){
+            InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
 
+    }
     private void InitialVariable() {
         firstName = findViewById(R.id.et_first_name_signup);
         lastName = findViewById(R.id.et_last_name_signup);
@@ -65,6 +82,7 @@ public class SignupActivity extends AppCompatActivity {
         btnSignup = findViewById(R.id.btn_signup);
         textLogin = findViewById(R.id.tv_login);
         gifDone = findViewById(R.id.gif_done);
+        checkOutFocusSignup = findViewById(R.id.check_out_focus_signup);
     }
 
     private void Signup(AuthenService authenService, Intent login) {
