@@ -7,14 +7,15 @@
     >
 
     <RelativeLayout
+
         style="@style/ImageRounder_10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
+        android:backgroundTint="@color/green_main"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:backgroundTint="@color/green_main"
         android:padding="20dp">
 
         <TextView
@@ -22,18 +23,19 @@
             style="@style/TextDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingBottom="10dp"
+            android:background="@drawable/button_radius_10"
+            android:padding="10dp"
             android:text="Câu hỏi thứ "
             android:textAlignment="textStart"
-            android:textColor="@color/white" />
+            android:textColor="#232323"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/iv_board"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_question_item_listview"
-            android:layout_centerHorizontal="true"
-           ></ImageView>
+            android:layout_centerHorizontal="true"></ImageView>
 
 
         <RelativeLayout
@@ -48,11 +50,11 @@
                 android:id="@+id/tv_list_answer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:lineHeight="27dp"
                 android:text=""
                 android:textAppearance="?android:attr/textAppearanceListItemSmall"
                 android:textColor="@color/white"
                 android:textSize="16dp"
-                android:lineHeight="27dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -62,7 +64,7 @@
                 android:layout_below="@+id/tv_list_answer"
                 android:text="Đáp án:"
                 android:textAppearance="?android:attr/textAppearanceListItemSmall"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
@@ -71,16 +73,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_board_code"
-                android:text=""
                 android:layout_marginTop="10dp"
+                android:background="@drawable/button_radius_10"
+                android:padding="10dp"
+                android:text=""
                 android:textAppearance="?android:attr/textAppearanceListItemSmall"
-                android:textColor="@color/yellow"
+                android:textColor="#FF5607"
                 android:textSize="16dp"
                 android:textStyle="bold" />
         </RelativeLayout>
-
-
     </RelativeLayout>
-
-
 </RelativeLayout>
