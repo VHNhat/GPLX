@@ -28,7 +28,7 @@ public class QuestionViewListActivity extends AppCompatActivity implements TestC
 
 
         listView = (ListView) findViewById(R.id.lvAllQuestion);
-        tvTitleBoard = (TextView) findViewById(R.id.tv_title_activity_app);
+        tvTitleBoard = (TextView) findViewById(R.id.title_layouts);
         String title = getIntent().getExtras().getString("TITLE_QUESTION_LIST");
         String license = getIntent().getExtras().getString("LICENSE_QUESTION_LIST");
         String type = getIntent().getExtras().getString("TYPE_QUESTION_LIST");

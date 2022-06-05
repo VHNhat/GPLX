@@ -2,6 +2,8 @@ package team2.mobileapp.gplx.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,8 +13,16 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
+import java.nio.charset.CharacterCodingException;
+import java.nio.charset.Charset;
+import java.nio.charset.CharsetEncoder;
+import java.nio.charset.CodingErrorAction;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Volley.model.NoticeBoard;
@@ -20,9 +30,10 @@ import team2.mobileapp.gplx.Volley.service.NoticeBoardService;
 
 public class NoticeBoardActivity extends AppCompatActivity {
     private NoticeBoardAdapter noticeBoardAdapter;
-    private ArrayList<NoticeBoard> names = new ArrayList<>();
+    private ArrayList<NoticeBoard> listNoticeBoard = new ArrayList<>();
     private ListView listView;
-    private TextView titleActivity;
+    private TextView titleActivity,titleBoard;
+    private TextView etSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +44,11 @@ public class NoticeBoardActivity extends AppCompatActivity {
 
         listView = findViewById(R.id.lvItems);
         titleActivity = findViewById(R.id.tv_title_activity_app);
-
+        titleBoard= findViewById(R.id.title_layouts);
+        etSearch = findViewById(R.id.et_search);
         titleActivity.setText(title);
-
+        titleBoard.setText("Biển chỉ dẫn");
+        SearchListener();
 
         final NoticeBoardService noticeBoardService = new NoticeBoardService(this);
         ShowBoard(noticeBoardService);
@@ -54,6 +67,41 @@ public class NoticeBoardActivity extends AppCompatActivity {
         }
     }
 
+    private void SearchListener() {
+        etSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(charSequence.toString().isEmpty()) {
+                    noticeBoardAdapter = new NoticeBoardAdapter(NoticeBoardActivity.this, 1, listNoticeBoard);
+                }
+                else {
+                    ArrayList<NoticeBoard> listNoticeBoardNew = new ArrayList<>();
+                    for (NoticeBoard item : listNoticeBoard) {
+                        String compare =item.getBoardCode()+" "+item.getBoardDescription();
+                        if (decompose(compare).toLowerCase().contains(decompose(charSequence.toString()).toLowerCase())) {
+                            listNoticeBoardNew.add(item);
+                        }
+                    }
+                    noticeBoardAdapter = new NoticeBoardAdapter(NoticeBoardActivity.this, 1, listNoticeBoardNew);
+                }
+                listView.setAdapter(noticeBoardAdapter);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+    }
+    public static String decompose(String s) {
+        return java.text.Normalizer.normalize(s, java.text.Normalizer.Form.NFD).replaceAll("\\p{InCombiningDiacriticalMarks}+","");
+    }
     private void ShowBoard(NoticeBoardService noticeBoardService) {
         noticeBoardService.GetAll(new NoticeBoardService.GetALLBoardCallBack() {
             @Override
@@ -73,9 +121,9 @@ public class NoticeBoardActivity extends AppCompatActivity {
                     noticeBoard.setBoardDescription(boards.get(i).getBoardDescription());
                     noticeBoard.setPhoto(boards.get(i).getPhoto());
                     Log.i("NoticeBoard", noticeBoard.toString());
-                    names.add(noticeBoard);
+                    listNoticeBoard.add(noticeBoard);
                 }
-                noticeBoardAdapter = new NoticeBoardAdapter(NoticeBoardActivity.this, 1, names);
+                noticeBoardAdapter = new NoticeBoardAdapter(NoticeBoardActivity.this, 1, listNoticeBoard);
 
                 listView.setAdapter(noticeBoardAdapter);
             }

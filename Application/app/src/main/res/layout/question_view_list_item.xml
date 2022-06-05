@@ -7,10 +7,12 @@
     >
 
     <RelativeLayout
+
         style="@style/ImageRounder_10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
+
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
@@ -22,8 +24,9 @@
             style="@style/TextDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingBottom="10dp"
+            android:padding="10dp"
             android:text="Câu hỏi thứ "
+            android:background="@drawable/button_radius_10"
             android:textStyle="bold"
             android:textAlignment="textStart"
             android:textColor="#232323" />
