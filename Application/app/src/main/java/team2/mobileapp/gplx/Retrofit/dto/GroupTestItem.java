@@ -1,6 +1,6 @@
-package team2.mobileapp.gplx.view;
+package team2.mobileapp.gplx.Retrofit.dto;
 
-class GroupTestItem {
+public class GroupTestItem {
     private String id;
     private String name;
     private String type;

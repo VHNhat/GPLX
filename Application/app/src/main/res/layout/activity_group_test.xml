@@ -12,10 +12,10 @@
         layout="@layout/header_activity_app" />
 
     <ListView
+        android:id="@+id/lv_exam_group"
         android:divider="@android:color/transparent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/lv_exam_group"
         android:layout_below="@+id/header_activity"
         android:layout_marginBottom="65dp"
         tools:listitem="@layout/listview_group_test_item"/>
