@@ -29,7 +29,7 @@
             <TextView
                 android:id="@+id/tv_title_group_test"
                 style="@style/PersonName"
-                android:layout_width="wrap_content"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:text="Tiêu đề"
                 android:textAppearance="?android:attr/textAppearanceListItemSmall"
@@ -40,7 +40,6 @@
                 android:id="@+id/tv_num_group_test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:layout_below="@+id/tv_title_group_test"
                 android:text="Tổng số câu"
                 android:textAppearance="?android:attr/textAppearanceListItemSmall"
@@ -54,7 +53,7 @@
             android:layout_height="100dp"
             android:layout_alignParentEnd="true"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/w243c" />
+            android:src="@drawable/p102" />
 
     </RelativeLayout>
 

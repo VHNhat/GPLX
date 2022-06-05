@@ -41,7 +41,7 @@ public class TrafficSignController {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	}
-	
+
 	@GetMapping("api/trafficsign/types")
 	public ResponseEntity<Object> GetTrafficSignType() {
 		try {
@@ -49,16 +49,16 @@ public class TrafficSignController {
 			List<TrafficSignType> traffiSignTypes = trafficSignTypeService.findAll();
 
 			for (TrafficSignType type : traffiSignTypes) {
-				List<TrafficSign> trafficSigns = trafficSignService
-						.findByTrafficSignType(type.getId().toString());
-				
+				List<TrafficSign> trafficSigns = trafficSignService.findByTrafficSignType(type.getId().toString());
+
 				DtoTrafficSignCountByType count = new DtoTrafficSignCountByType();
 				count.setId(type.getId().toString());
 				count.setCode(type.getCode().toString());
+				count.setName(type.getName().toString());
 				count.setQuantity(trafficSigns.size());
 				list.add(count);
 			}
-			
+
 			return new ResponseEntity<>(list, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -97,4 +97,6 @@ public class TrafficSignController {
 		}
 	}
 
+
 }
+

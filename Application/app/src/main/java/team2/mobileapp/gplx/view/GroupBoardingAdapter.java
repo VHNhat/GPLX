@@ -11,7 +11,7 @@ import java.util.List;
 
 import team2.mobileapp.gplx.R;
 
-class GroupBoardingAdapter extends ArrayAdapter<GroupBoardingItem> {
+public class GroupBoardingAdapter extends ArrayAdapter<GroupBoardingItem> {
 
     private Activity context;
     public GroupBoardingAdapter(Activity context, int layoutID, List<GroupBoardingItem>
@@ -23,14 +23,14 @@ class GroupBoardingAdapter extends ArrayAdapter<GroupBoardingItem> {
     public View getView(final int position, View convertView, ViewGroup parent) {
 
         convertView =
-                LayoutInflater.from(context).inflate(R.layout.listview_history_item, null,
+                LayoutInflater.from(context).inflate(R.layout.listview_group_boarding_item, null,
                         false);
 
         GroupBoardingItem groupBoardingItem = getItem(position);
-        TextView tvFullName = (TextView)
-                convertView.findViewById(R.id.tv_person_name);
-        tvFullName.setText(groupBoardingItem.getName());
-// Get item
+        TextView tvName = (TextView)convertView.findViewById(R.id.tv_title_group_test);
+        TextView tvQuantity = (TextView) convertView.findViewById(R.id.tv_num_group_test);
+        tvName.setText(groupBoardingItem.getName());
+        tvQuantity.setText("Gồm "+groupBoardingItem.getQuantity().toString()+" câu");
         return convertView;
     }
 }
