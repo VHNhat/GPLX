@@ -13,35 +13,36 @@ import team2.mobileapp.gplx.Retrofit.models.QuestionSet;
 import team2.mobileapp.gplx.Retrofit.models.QuestionCountByType;
 import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ReviewTestActivity extends AppCompatActivity implements QuestionSetCallBackListener {
-    private  RelativeLayout allQuestion;
-    private  RelativeLayout Concept;
-    private  RelativeLayout Culture;
-    private  RelativeLayout Figure;
     private QuestionSetController questionSetController;
-    private RelativeLayout listTypeQuestion;
     private ListView groupTest;
+    private TextView titleActivity;
     private GroupTestAdapter groupTestAdapter;
     private List<GroupTestItem> listGroupTests = new ArrayList<>();;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
         setContentView(R.layout.activity_review_test);
-//        listTypeQuestion = findViewById(R.id.list_type_question);
-        groupTest = findViewById(R.id.lv_group_test);
         String license=VariableGlobal.typeCode;
+        String title= getIntent().getStringExtra("TITLE");
+        titleActivity = findViewById(R.id.tv_title_activity_app);
+        groupTest = findViewById(R.id.lv_group_test);
+
+
+        titleActivity.setText(title);
+
         questionSetController = new QuestionSetController(this);
         questionSetController.GetquestionSize(license);
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
         setOnclickType();
     }
     public void setOnclickType(){
@@ -49,7 +50,6 @@ public class ReviewTestActivity extends AppCompatActivity implements QuestionSet
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 GroupTestItem groupTestItem= (GroupTestItem) adapterView.getItemAtPosition(i);
-                Log.d("groupTestItemID", groupTestItem.getType());
                 Intent intent = new Intent(ReviewTestActivity.this,QuestionViewListActivity.class);
                 intent.putExtra("TITLE_QUESTION_LIST",groupTestItem.getName());
                 intent.putExtra("LICENSE_QUESTION_LIST",   VariableGlobal.typeCode);
@@ -89,6 +89,40 @@ public class ReviewTestActivity extends AppCompatActivity implements QuestionSet
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
+    }
 
+    @Override
+    public boolean moveTaskToBack(boolean nonRoot) {
+        overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
+        return super.moveTaskToBack(nonRoot);
+
+    }  @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+    }
 
 }

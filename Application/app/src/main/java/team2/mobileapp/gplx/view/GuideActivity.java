@@ -1,30 +1,20 @@
 package team2.mobileapp.gplx.view;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.wooplr.spotlight.SpotlightConfig;
-import com.wooplr.spotlight.SpotlightView;
-import com.wooplr.spotlight.utils.SpotlightListener;
-
-import java.util.LinkedList;
-import java.util.Queue;
 
 import team2.mobileapp.gplx.Animation.SpotlightSequence;
 import team2.mobileapp.gplx.R;
@@ -44,6 +34,7 @@ public class GuideActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
         setContentView(R.layout.activity_guide);
         InitialVariable();
         spotlightSequence = new SpotlightSequence(GuideActivity.this, config);
@@ -111,4 +102,41 @@ public class GuideActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
+    }
+
+    @Override
+    public boolean moveTaskToBack(boolean nonRoot) {
+        overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
+        return super.moveTaskToBack(nonRoot);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+    }
 }

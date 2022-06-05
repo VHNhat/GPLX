@@ -2,10 +2,13 @@ package team2.mobileapp.gplx.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,14 +22,25 @@ import team2.mobileapp.gplx.Volley.service.NoticeBoardService;
 
 public class NoticeBoardActivity extends AppCompatActivity {
     private NoticeBoardAdapter noticeBoardAdapter;
-    private ArrayList<NoticeBoard> names = new ArrayList<>();
-    ListView listView;
+    private ArrayList<NoticeBoard> listNoticeBoard = new ArrayList<>();
+    private ListView listView;
+    private TextView titleActivity,titleBoard;
+    private TextView etSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
         setContentView(R.layout.activity_notice_board);
+        String title = getIntent().getStringExtra("TITLE");
+
         listView = findViewById(R.id.lvItems);
+        titleActivity = findViewById(R.id.tv_title_activity_app);
+        titleBoard= findViewById(R.id.title_layouts);
+        etSearch = findViewById(R.id.et_search);
+        titleActivity.setText(title);
+        titleBoard.setText("Biển chỉ dẫn");
+        SearchListener();
 
         final NoticeBoardService noticeBoardService = new NoticeBoardService(this);
         ShowBoard(noticeBoardService);
@@ -45,6 +59,41 @@ public class NoticeBoardActivity extends AppCompatActivity {
         }
     }
 
+    private void SearchListener() {
+        etSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(charSequence.toString().isEmpty()) {
+                    noticeBoardAdapter = new NoticeBoardAdapter(NoticeBoardActivity.this, 1, listNoticeBoard);
+                }
+                else {
+                    ArrayList<NoticeBoard> listNoticeBoardNew = new ArrayList<>();
+                    for (NoticeBoard item : listNoticeBoard) {
+                        String compare =item.getBoardCode()+" "+item.getBoardDescription();
+                        if (decompose(compare).toLowerCase().contains(decompose(charSequence.toString()).toLowerCase())) {
+                            listNoticeBoardNew.add(item);
+                        }
+                    }
+                    noticeBoardAdapter = new NoticeBoardAdapter(NoticeBoardActivity.this, 1, listNoticeBoardNew);
+                }
+                listView.setAdapter(noticeBoardAdapter);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+    }
+    public static String decompose(String s) {
+        return java.text.Normalizer.normalize(s, java.text.Normalizer.Form.NFD).replaceAll("\\p{InCombiningDiacriticalMarks}+","");
+    }
     private void ShowBoard(NoticeBoardService noticeBoardService) {
         noticeBoardService.GetAll(new NoticeBoardService.GetALLBoardCallBack() {
             @Override
@@ -64,12 +113,50 @@ public class NoticeBoardActivity extends AppCompatActivity {
                     noticeBoard.setBoardDescription(boards.get(i).getBoardDescription());
                     noticeBoard.setPhoto(boards.get(i).getPhoto());
                     Log.i("NoticeBoard", noticeBoard.toString());
-                    names.add(noticeBoard);
+                    listNoticeBoard.add(noticeBoard);
                 }
-                noticeBoardAdapter = new NoticeBoardAdapter(NoticeBoardActivity.this, 1, names);
+                noticeBoardAdapter = new NoticeBoardAdapter(NoticeBoardActivity.this, 1, listNoticeBoard);
 
                 listView.setAdapter(noticeBoardAdapter);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
+    }
+
+    @Override
+    public boolean moveTaskToBack(boolean nonRoot) {
+        overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
+        return super.moveTaskToBack(nonRoot);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
     }
 }

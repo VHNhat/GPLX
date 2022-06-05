@@ -17,24 +17,33 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class GroupTestActivity extends AppCompatActivity implements QuestionSetCallBackListener {
-    QuestionSetController questionSetController;
-    ArrayList<QuestionSet> sets;
-    License license;
-    ListView lvGroupExam;
+    private QuestionSetController questionSetController;
+    private ArrayList<QuestionSet> sets;
+    private License license;
+    private ListView lvGroupExam;
+    private TextView titleActivity;
     private GroupTestAdapter groupTestAdapter;
     private List<GroupTestItem> listGroupTests = new ArrayList<>();
     ;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
         setContentView(R.layout.activity_group_test);
 
         license = (License) getIntent().getSerializableExtra("License");
+        String title = getIntent().getStringExtra("TITLE");
+
+        titleActivity = findViewById(R.id.tv_title_activity_app);
+
+        titleActivity.setText(title);
+
         InitialVariable();
 
         questionSetController = new QuestionSetController(this);
@@ -91,5 +100,43 @@ public class GroupTestActivity extends AppCompatActivity implements QuestionSetC
     @Override
     public void onFetchComplete(String message) {
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
+    }
+
+    @Override
+    public boolean moveTaskToBack(boolean nonRoot) {
+        overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
+        return super.moveTaskToBack(nonRoot);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
     }
 }

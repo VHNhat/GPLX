@@ -1,8 +1,6 @@
 package team2.mobileapp.gplx.view;
 
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -17,7 +15,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridLayout;
@@ -25,18 +22,13 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
-import team2.mobileapp.gplx.Animation.AnimationProgressBar;
 import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Volley.model.CheckRadioButton;
 import team2.mobileapp.gplx.Volley.model.dto.DtoQuestionSet;
@@ -44,13 +36,13 @@ import team2.mobileapp.gplx.Volley.service.TestService;
 
 public class TestActivity extends AppCompatActivity {
 
-    private TextView tv_positionQuestion, tv_totalQuestion, tv_question;
+    private TextView tvPositionQuestion, tvTotalQuestion, tvQuestion;
     private ProgressBar determinateBar;
     private ObjectAnimator progressAnimator;
-    private RadioButton rd_answer1, rd_answer2, rd_answer3, rd_answer4, rd_answer5;
-    private Button btn_next, btn_prev;
-    private ImageView iv_question;
-    private RadioGroup rg_answer;
+    private RadioButton rdAnswer1, rdAnswer2, rdAnswer3, rdAnswer4, rdAnswer5;
+    private Button btnNext, btnPrev;
+    private ImageView ivQuestion;
+    private RadioGroup rgAnswer;
     boolean mSlideState;
     private DrawerLayout mDrawerLayout;
     private GridLayout layoutQuestionBar;
@@ -64,6 +56,7 @@ public class TestActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
         setContentView(R.layout.activity_test);
 
         InitialVariables();
@@ -111,14 +104,14 @@ public class TestActivity extends AppCompatActivity {
     }
     // Khi chọn câu trả lời thì nó sẽ lưu lại vào checkList
     private void CheckedRadioButton(DtoQuestionSet dto, int index) {
-        rg_answer.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        rgAnswer.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId)
             {
-                int radioButtonID = rg_answer.getCheckedRadioButtonId();
-                View radioButton = rg_answer.findViewById(radioButtonID);
-                int idx = rg_answer.indexOfChild(radioButton);
+                int radioButtonID = rgAnswer.getCheckedRadioButtonId();
+                View radioButton = rgAnswer.findViewById(radioButtonID);
+                int idx = rgAnswer.indexOfChild(radioButton);
                 RadioButton checkedRadioButton = null;
                 String answerValue = "";
                 checkedRadioButton = (RadioButton) findViewById(checkedId);
@@ -171,7 +164,7 @@ public class TestActivity extends AppCompatActivity {
             for (CheckRadioButton item : checkList) {
                 if (item.getQuestionId().equals(questionId)) {
                     flag = false;
-                    RadioButton radioButton = (RadioButton) rg_answer.getChildAt(item.getAnswerIndex());
+                    RadioButton radioButton = (RadioButton) rgAnswer.getChildAt(item.getAnswerIndex());
                     radioButton.setChecked(true);
 
                     break;
@@ -210,7 +203,7 @@ public class TestActivity extends AppCompatActivity {
             public void onResponse(DtoQuestionSet dto) {
 
                 totalQuestion = dto.getQuestList().size();
-                tv_totalQuestion.setText("" + dto.getQuestionSet().get().getQuantity());
+                tvTotalQuestion.setText("" + dto.getQuestionSet().get().getQuantity());
 
                 UpdateQuestion(dto, totalQuestion, i[0]);
                 CheckedRadioButton(dto, i[0]);
@@ -230,7 +223,7 @@ public class TestActivity extends AppCompatActivity {
                     layoutQuestionBar.addView(question);
                 }
                 // khi bấm next
-                btn_next.setOnClickListener(new View.OnClickListener() {
+                btnNext.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         i[0]++;
@@ -251,7 +244,7 @@ public class TestActivity extends AppCompatActivity {
                     }
                 });
                 // Khi bấm prev
-                btn_prev.setOnClickListener(new View.OnClickListener() {
+                btnPrev.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         i[0]--;
@@ -271,15 +264,15 @@ public class TestActivity extends AppCompatActivity {
         UpdateHistory(dto.getQuestList().get(i).getId());
         // Trường hợp câu 1
         if(i == 0){
-            btn_prev.setVisibility(View.INVISIBLE);
+            btnPrev.setVisibility(View.INVISIBLE);
         }
         // Trường hợp câu cuối
         else if(i == totalQuestion-1){
-            btn_next.setText("Chấm điểm");
+            btnNext.setText("Chấm điểm");
         }
         else{
-            btn_next.setVisibility(View.VISIBLE);
-            btn_prev.setVisibility(View.VISIBLE);
+            btnNext.setVisibility(View.VISIBLE);
+            btnPrev.setVisibility(View.VISIBLE);
         }
         String photo = dto.getQuestList().get(i).getPhoto();
         // Khi nào có hình thì mở ra
@@ -294,76 +287,87 @@ public class TestActivity extends AppCompatActivity {
         int numberOfAns = ansList.length;
         ProgressAnimation(index * 100 / totalQuestion);
 //        determinateBar.setProgress();
-        tv_positionQuestion.setText("" + dto.getQuestList().get(i).getIndex());
-        tv_question.setText(dto.getQuestList().get(i).getQuery());
+        tvPositionQuestion.setText("" + dto.getQuestList().get(i).getIndex());
+        tvQuestion.setText(dto.getQuestList().get(i).getQuery());
 
         switch (numberOfAns) {
             case 2:
-                rd_answer1.setText(ansList[0]);
-                rd_answer2.setText(ansList[1]);
-                rd_answer1.setVisibility(View.VISIBLE);
-                rd_answer2.setVisibility(View.VISIBLE);
-                rd_answer3.setVisibility(View.INVISIBLE);
-                rd_answer4.setVisibility(View.INVISIBLE);
-                rd_answer5.setVisibility(View.INVISIBLE);
+                rdAnswer1.setText(ansList[0]);
+                rdAnswer2.setText(ansList[1]);
+                rdAnswer1.setVisibility(View.VISIBLE);
+                rdAnswer2.setVisibility(View.VISIBLE);
+                rdAnswer3.setVisibility(View.INVISIBLE);
+                rdAnswer4.setVisibility(View.INVISIBLE);
+                rdAnswer5.setVisibility(View.INVISIBLE);
                 break;
             case 3:
-                rd_answer1.setText(ansList[0]);
-                rd_answer2.setText(ansList[1]);
-                rd_answer3.setText(ansList[2]);
-                rd_answer1.setVisibility(View.VISIBLE);
-                rd_answer2.setVisibility(View.VISIBLE);
-                rd_answer3.setVisibility(View.VISIBLE);
-                rd_answer4.setVisibility(View.INVISIBLE);
-                rd_answer5.setVisibility(View.INVISIBLE);
+                rdAnswer1.setText(ansList[0]);
+                rdAnswer2.setText(ansList[1]);
+                rdAnswer3.setText(ansList[2]);
+                rdAnswer1.setVisibility(View.VISIBLE);
+                rdAnswer2.setVisibility(View.VISIBLE);
+                rdAnswer3.setVisibility(View.VISIBLE);
+                rdAnswer4.setVisibility(View.INVISIBLE);
+                rdAnswer5.setVisibility(View.INVISIBLE);
                 break;
             case 4:
-                rd_answer1.setText(ansList[0]);
-                rd_answer2.setText(ansList[1]);
-                rd_answer3.setText(ansList[2]);
-                rd_answer4.setText(ansList[3]);
-                rd_answer1.setVisibility(View.VISIBLE);
-                rd_answer2.setVisibility(View.VISIBLE);
-                rd_answer3.setVisibility(View.VISIBLE);
-                rd_answer4.setVisibility(View.VISIBLE);
-                rd_answer5.setVisibility(View.INVISIBLE);
+                rdAnswer1.setText(ansList[0]);
+                rdAnswer2.setText(ansList[1]);
+                rdAnswer3.setText(ansList[2]);
+                rdAnswer4.setText(ansList[3]);
+                rdAnswer1.setVisibility(View.VISIBLE);
+                rdAnswer2.setVisibility(View.VISIBLE);
+                rdAnswer3.setVisibility(View.VISIBLE);
+                rdAnswer4.setVisibility(View.VISIBLE);
+                rdAnswer5.setVisibility(View.INVISIBLE);
                 break;
             case 5:
-                rd_answer1.setText(ansList[0]);
-                rd_answer2.setText(ansList[1]);
-                rd_answer3.setText(ansList[2]);
-                rd_answer4.setText(ansList[3]);
-                rd_answer5.setText(ansList[4]);
-                rd_answer1.setVisibility(View.VISIBLE);
-                rd_answer2.setVisibility(View.VISIBLE);
-                rd_answer3.setVisibility(View.VISIBLE);
-                rd_answer4.setVisibility(View.VISIBLE);
-                rd_answer5.setVisibility(View.VISIBLE);
+                rdAnswer1.setText(ansList[0]);
+                rdAnswer2.setText(ansList[1]);
+                rdAnswer3.setText(ansList[2]);
+                rdAnswer4.setText(ansList[3]);
+                rdAnswer5.setText(ansList[4]);
+                rdAnswer1.setVisibility(View.VISIBLE);
+                rdAnswer2.setVisibility(View.VISIBLE);
+                rdAnswer3.setVisibility(View.VISIBLE);
+                rdAnswer4.setVisibility(View.VISIBLE);
+                rdAnswer5.setVisibility(View.VISIBLE);
             default:
                 break;
         }
     }
 
     private void ResetRadioButton() {
-        rg_answer.clearCheck();
+        rgAnswer.clearCheck();
     }
 
     public void InitialVariables() {
-        tv_positionQuestion = findViewById(R.id.tv_positionQuestion);
-        tv_totalQuestion = findViewById(R.id.tv_totalQuestion);
-        tv_question = findViewById(R.id.tv_question);
+        tvPositionQuestion = findViewById(R.id.tv_positionQuestion);
+        tvTotalQuestion = findViewById(R.id.tv_totalQuestion);
+        tvQuestion = findViewById(R.id.tv_question);
         determinateBar = findViewById(R.id.determinateBar);
-        rd_answer1 = findViewById(R.id.rd_answer1);
-        rd_answer2 = findViewById(R.id.rd_answer2);
-        rd_answer3 = findViewById(R.id.rd_answer3);
-        rd_answer4 = findViewById(R.id.rd_answer4);
-        rd_answer5 = findViewById(R.id.rd_answer5);
-        btn_next = findViewById(R.id.btn_next);
-        btn_prev = findViewById(R.id.btn_prev);
-        iv_question = findViewById(R.id.iv_question);
-        rg_answer = findViewById(R.id.rg_answer);
+        rdAnswer1 = findViewById(R.id.rd_answer1);
+        rdAnswer2 = findViewById(R.id.rd_answer2);
+        rdAnswer3 = findViewById(R.id.rd_answer3);
+        rdAnswer4 = findViewById(R.id.rd_answer4);
+        rdAnswer5 = findViewById(R.id.rd_answer5);
+        btnNext = findViewById(R.id.btn_next);
+        btnPrev = findViewById(R.id.btn_prev);
+        ivQuestion = findViewById(R.id.iv_question);
+        rgAnswer = findViewById(R.id.rg_answer);
         layoutQuestionBar= findViewById(R.id.layout_question_bar);
         mDrawerLayout=findViewById(R.id.drawer_test);
     }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
+    }
 
+    @Override
+    public boolean moveTaskToBack(boolean nonRoot) {
+        overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
+        return super.moveTaskToBack(nonRoot);
+
+    }
 }

@@ -32,8 +32,8 @@ class GroupTestAdapter extends ArrayAdapter<GroupTestItem> {
                 convertView.findViewById(R.id.tv_title_group_test);
         TextView tvNum = (TextView)
                 convertView.findViewById(R.id.tv_num_group_test);
-        tvNum.setText(groupTestItem.getNum() + " câu");
-        tvTitle.setText(groupTestItem.getName());
+        tvNum.setText("Gồm "+groupTestItem.getNum()+" câu");
+        tvTitle.setText(groupTestItem.getName().split("-")[0]);
 // Get item
         return convertView;
     }

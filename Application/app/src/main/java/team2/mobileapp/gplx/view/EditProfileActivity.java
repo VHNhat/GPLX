@@ -29,6 +29,8 @@ public class EditProfileActivity extends AppCompatActivity implements AccountCal
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
+
         setContentView(R.layout.activity_edit_profile);
 
         InitialVariables();
