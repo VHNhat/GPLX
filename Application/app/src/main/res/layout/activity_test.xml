@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".view.TestActivity">
+    tools:context="team2.mobileapp.gplx.view.TestActivity">
 
 
     <RelativeLayout
@@ -215,19 +215,37 @@
         android:visibility="gone"
         app:headerLayout="@layout/layout_header_show_test_progress"
         >
-        <GridLayout
-            android:id="@+id/layout_question_bar"
-            android:columnCount="4"
-            android:rowCount="7"
-            android:layout_marginTop="120dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:columnOrderPreserved="true"
-            android:padding="10dp"
-            android:useDefaultMargins="true"
-            android:rowOrderPreserved="false">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-        </GridLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="10"
+        >
+    <GridLayout
+
+        android:id="@+id/layout_question_bar"
+        android:columnCount="4"
+        android:rowCount="7"
+        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnOrderPreserved="true"
+        android:padding="10dp"
+        android:useDefaultMargins="true"
+        android:rowOrderPreserved="false">
+
+    </GridLayout>
+    </LinearLayout>
+</ScrollView>
+
+
+
+
+
     </com.google.android.material.navigation.NavigationView>>
 
 </androidx.drawerlayout.widget.DrawerLayout>
