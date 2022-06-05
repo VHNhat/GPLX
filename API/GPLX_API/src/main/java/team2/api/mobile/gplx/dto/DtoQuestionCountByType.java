@@ -1,13 +1,8 @@
 package team2.api.mobile.gplx.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 public class DtoQuestionCountByType {
-	@JsonProperty("name")
 	private String name;
-	@JsonProperty("type")
 	private String type;
-	@JsonProperty("num")
     private int num;
 	public String getName() {
 		return name;
@@ -27,6 +22,11 @@ public class DtoQuestionCountByType {
 	public void setNum(int num) {
 		this.num = num;
 	}
+
+
+    
+
+	
 
      
 }

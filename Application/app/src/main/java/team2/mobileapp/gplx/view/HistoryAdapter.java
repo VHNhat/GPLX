@@ -10,7 +10,6 @@ import android.widget.TextView;
 import java.util.List;
 
 import team2.mobileapp.gplx.R;
-import team2.mobileapp.gplx.Retrofit.dto.HistoryItem;
 
 class HistoryAdapter extends ArrayAdapter<HistoryItem> {
 

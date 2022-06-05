@@ -9,11 +9,11 @@ public class RestAPIManager {
     private TrafficSignAPI trafficSignAPI;
     private QuestionDetailsAPI questionDetailsAPI;
     private LicenseAPI licenseAPI;
-    private AccountAPI accountAPI;
     public static final String BASE_URL = "http://10.0.2.2:8080/api/";
 
     public QuestionSetAPI getQuestionSetAPI() {
-        if (questionSetAPI == null) {
+        if(questionSetAPI == null)
+        {
             questionSetAPI = new Retrofit.Builder()
                     .addConverterFactory(GsonConverterFactory.create())
                     .baseUrl(BASE_URL)
@@ -23,8 +23,9 @@ public class RestAPIManager {
         return questionSetAPI;
     }
 
-    public LicenseAPI getLicenseAPI() {
-        if (licenseAPI == null) {
+    public LicenseAPI getLicenseAPI(){
+        if(licenseAPI == null)
+        {
             licenseAPI = new Retrofit.Builder()
                     .addConverterFactory(GsonConverterFactory.create())
                     .baseUrl(BASE_URL)
@@ -34,8 +35,10 @@ public class RestAPIManager {
         return licenseAPI;
     }
 
-    public TrafficSignAPI getTrafficSignApi() {
-        if (trafficSignAPI == null) {
+    public TrafficSignAPI getTrafficSignApi()
+    {
+        if(trafficSignAPI == null)
+        {
             trafficSignAPI = new Retrofit.Builder()
                     .addConverterFactory(GsonConverterFactory.create())
                     .baseUrl(BASE_URL)
@@ -44,9 +47,10 @@ public class RestAPIManager {
         }
         return trafficSignAPI;
     }
-
-    public QuestionDetailsAPI getTestApi() {
-        if (questionDetailsAPI == null) {
+    public QuestionDetailsAPI getTestApi()
+    {
+        if(questionDetailsAPI == null)
+        {
             questionDetailsAPI = new Retrofit.Builder()
                     .addConverterFactory(GsonConverterFactory.create())
                     .baseUrl(BASE_URL)
@@ -54,17 +58,6 @@ public class RestAPIManager {
                     .create(QuestionDetailsAPI.class);
         }
         return questionDetailsAPI;
-    }
-
-    public AccountAPI getAccountAPI() {
-        if (accountAPI == null) {
-            accountAPI = new Retrofit.Builder()
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .baseUrl(BASE_URL)
-                    .build()
-                    .create(AccountAPI.class);
-        }
-        return accountAPI;
     }
 }
 

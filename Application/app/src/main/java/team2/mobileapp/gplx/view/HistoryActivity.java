@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import team2.mobileapp.gplx.R;
-import team2.mobileapp.gplx.Retrofit.dto.HistoryItem;
 
 
 public class HistoryActivity extends AppCompatActivity {

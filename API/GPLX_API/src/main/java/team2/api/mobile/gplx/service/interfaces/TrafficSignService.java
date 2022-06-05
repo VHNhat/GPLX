@@ -4,7 +4,7 @@ import team2.api.mobile.gplx.commondata.GenericService;
 import team2.api.mobile.gplx.models.TrafficSign;
 
 public interface TrafficSignService extends GenericService<TrafficSign, String> {
-	TrafficSign findByTrafficSignTypeId(String id);
+	TrafficSign findTrafficSignById(String id);
 	TrafficSign update(TrafficSign trafficSign, String id);
-   
+
 }

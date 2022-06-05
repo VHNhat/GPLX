@@ -10,7 +10,6 @@ import android.widget.TextView;
 import java.util.List;
 
 import team2.mobileapp.gplx.R;
-import team2.mobileapp.gplx.Retrofit.dto.GroupTestItem;
 
 class GroupTestAdapter extends ArrayAdapter<GroupTestItem> {
 
@@ -32,13 +31,8 @@ class GroupTestAdapter extends ArrayAdapter<GroupTestItem> {
                 convertView.findViewById(R.id.tv_title_group_test);
         TextView tvNum = (TextView)
                 convertView.findViewById(R.id.tv_num_group_test);
-<<<<<<< HEAD
         tvNum.setText("Gồm "+groupTestItem.getNum()+" câu");
         tvTitle.setText(groupTestItem.getName().split("-")[0]);
-=======
-        tvNum.setText(groupTestItem.getNum() + " câu");
-        tvTitle.setText(groupTestItem.getName());
->>>>>>> b35b60da1e9c2267833ece50e13898cfe6b7a3fa
 // Get item
         return convertView;
     }

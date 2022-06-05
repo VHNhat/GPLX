@@ -1,8 +1,6 @@
 package team2.api.mobile.gplx.controller;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,18 +13,15 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import team2.api.mobile.gplx.models.TrafficSign;
-import team2.api.mobile.gplx.models.TrafficSignType;
 import team2.api.mobile.gplx.service.interfaces.TrafficSignService;
-import team2.api.mobile.gplx.service.interfaces.TrafficSignTypeService;
 
 @RestController
 public class TrafficSignController {
 
 	@Autowired
 	private TrafficSignService service;
-	private TrafficSignTypeService serviceType;
+
 	@GetMapping("api/trafficsign")
 	public ResponseEntity<Object> GetAll() {
 		List<TrafficSign> trafficSign = service.findAll();
@@ -35,7 +30,7 @@ public class TrafficSignController {
 
 	@GetMapping("api/trafficsign/{id}")
 	public ResponseEntity<Object> GetById(@PathVariable("id") String id) {
-		TrafficSign trafficSign = service.findByTrafficSignTypeId(id);
+		TrafficSign trafficSign = service.findTrafficSignById(id);
 		return new ResponseEntity<>(trafficSign, HttpStatus.OK);
 	}
 
@@ -64,5 +59,4 @@ public class TrafficSignController {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	}
-
 }

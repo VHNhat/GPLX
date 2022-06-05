@@ -8,23 +8,14 @@ import android.os.Bundle;
 import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Retrofit.callbacks.QuestionSetCallBackListener;
 import team2.mobileapp.gplx.Retrofit.controllers.QuestionSetController;
-import team2.mobileapp.gplx.Retrofit.dto.GroupTestItem;
 import team2.mobileapp.gplx.Retrofit.models.QuestionSet;
 import team2.mobileapp.gplx.Retrofit.models.QuestionCountByType;
 import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
 
-<<<<<<< HEAD
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-=======
-import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.RelativeLayout;
->>>>>>> b35b60da1e9c2267833ece50e13898cfe6b7a3fa
 
 import java.util.ArrayList;
 import java.util.List;
