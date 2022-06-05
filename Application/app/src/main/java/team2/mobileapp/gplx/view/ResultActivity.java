@@ -2,17 +2,24 @@ package team2.mobileapp.gplx.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
 import team2.mobileapp.gplx.R;
+import team2.mobileapp.gplx.Retrofit.callbacks.LicenseByIdCallBackListener;
+import team2.mobileapp.gplx.Retrofit.controllers.LicenseController;
+import team2.mobileapp.gplx.Retrofit.models.License;
 import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
+import team2.mobileapp.gplx.Volley.model.Answer;
 import team2.mobileapp.gplx.Volley.model.CheckRadioButton;
 import team2.mobileapp.gplx.Volley.model.Question;
 import team2.mobileapp.gplx.Volley.model.dto.DtoQuestionSet;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -29,6 +36,7 @@ public class ResultActivity extends AppCompatActivity implements LicenseByIdCall
     ImageView iv_result;
     TextView tv_result_show, tv_true_percent, tv_false_percent;
     RelativeLayout result_layout, correct, incorrect;
+    Button btn_view_again, btn_result_next;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,32 +44,34 @@ public class ResultActivity extends AppCompatActivity implements LicenseByIdCall
         setContentView(R.layout.activity_result);
 
         InitialVariable();
-        VariableGlobal.SetNavigationBar(this);
-//        if (savedInstanceState == null) {
-//            Bundle extras = getIntent().getExtras();
-//            if(extras == null) {
-//                checkList = null;
-//            } else {
-//                checkList = extras.getParcelable("History");
-//            }
-//        } else {
-//            checkList = (ArrayList<CheckRadioButton>) getIntent().getSerializableExtra("History");
-//        }
+//        VariableGlobal.SetNavigationBar(ResultActivity.this);
+
         checkList = (ArrayList<CheckRadioButton>) getIntent().getSerializableExtra("History");
         dto = (DtoQuestionSet) getIntent().getSerializableExtra("Dto");
-        Log.i("Dto",dto.toString());
-        Log.i("CheckList",checkList.toString());
         UpdateScore(dto, checkList);
 
         String licenseId = dto.getQuestionSet().getLicenseId();
         licenseController = new LicenseController(this);
         licenseController.startFetchingLicenseById(licenseId);
 
+        btn_view_again.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Intent intent = new Intent(ResultActivity.this, )
+                finish();
+            }
+        });
+        btn_result_next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ResultActivity.this, A1_TestActivity.class);
+                intent.putExtra("License", license);
+                startActivity(intent);
+            }
+        });
     }
 
     private void ShowLayout() {
-        Log.i("right ans",String.valueOf(rightAns));
-        Log.i("wrong ans",String.valueOf(wrongAns));
         int total = rightAns + wrongAns;
         final float scale = getResources().getDisplayMetrics().density;
         tv_true_percent.setText((rightAns*100/total) + "%");
@@ -126,6 +136,8 @@ public class ResultActivity extends AppCompatActivity implements LicenseByIdCall
         tv_false_percent = findViewById(R.id.tv_false_percent);
         correct = findViewById(R.id.value_correct);
         incorrect = findViewById(R.id.value_incorrect);
+        btn_view_again = findViewById(R.id.btn_view_again);
+        btn_result_next = findViewById(R.id.btn_result_next);
     }
 
     private void UpdateScore(DtoQuestionSet dto, ArrayList<CheckRadioButton> checkList) {

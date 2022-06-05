@@ -8,6 +8,7 @@ import android.view.View;
 import java.util.ArrayList;
 
 import team2.mobileapp.gplx.R;
+import team2.mobileapp.gplx.Retrofit.models.License;
 import team2.mobileapp.gplx.view.EditProfileActivity;
 import team2.mobileapp.gplx.view.HistoryActivity;
 import team2.mobileapp.gplx.view.ReviewTestActivity;
@@ -15,6 +16,7 @@ import team2.mobileapp.gplx.view.SelectCategoryActivity;
 
 public class VariableGlobal  {
     public static String typeCode ="A1";
+    public static License license = new License();
     public static ArrayList<String> listMarkGlobal = new ArrayList<>();
     public static void SetNavigationBar(Activity activity){
         View bottom_bar_container = activity.findViewById(R.id.bottom_bar);
