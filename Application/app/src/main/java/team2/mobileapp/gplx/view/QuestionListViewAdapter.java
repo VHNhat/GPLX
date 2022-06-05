@@ -45,14 +45,14 @@ class QuestionListViewAdapter extends ArrayAdapter<QuestionDetails> {
         int lenList=arrayList.get(position).getAnswer().getAnswerName().length;
         for (int i = 0; i < lenList; i++) {
            String item=arrayList.get(position).getAnswer().getAnswerByIndex(i);
-            listAnswer+=(i+1)+". "+item+"\n";
+            listAnswer+=(i+1)+" - "+item+"\n\n";
         }
 
 
         int positionResult = arrayList.get(position).getAnswer().getResult();
         tvListAnswer.setText(listAnswer);
         tvQuestion.setText("Câu "+(index+1)+". "+arrayList.get(position).getQuestion().getQuery());
-        tvResult.setText(arrayList.get(position).getAnswer().getAnswerByIndex(positionResult));
+        tvResult.setText(arrayList.get(position).getAnswer().getResult()+1+" - "+arrayList.get(position).getAnswer().getAnswerByIndex(positionResult));
         if (!arrayList.get(position).getQuestion().getPhoto().isEmpty()) {
             try {
                 String uri = arrayList.get(position).getQuestion().getPhoto().substring(0, arrayList.get(position).getQuestion().getPhoto().length() - 4);

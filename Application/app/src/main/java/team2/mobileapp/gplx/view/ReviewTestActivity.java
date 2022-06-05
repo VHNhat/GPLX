@@ -70,7 +70,7 @@ public class ReviewTestActivity extends AppCompatActivity implements QuestionSet
             if(questionCountByType.getNum()>0)
             {
                 GroupTestItem groupTestItem = new GroupTestItem();
-                groupTestItem.setName(questionCountByType.getName().split("-")[0]);
+                groupTestItem.setName(questionCountByType.getName());
                 groupTestItem.setType(questionCountByType.getType());
                 groupTestItem.setNum(questionCountByType.getNum());
                 groupTestItem.setId(questionCountByType.getType()+questionCountByType.getNum());
