@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Retrofit.models.License;
-import team2.mobileapp.gplx.view.BoardingActivity;
 import team2.mobileapp.gplx.view.EditProfileActivity;
 import team2.mobileapp.gplx.view.GroupBoardingActivity;
 import team2.mobileapp.gplx.view.HistoryActivity;

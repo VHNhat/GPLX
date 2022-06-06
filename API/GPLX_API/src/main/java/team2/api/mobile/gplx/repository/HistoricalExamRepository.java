@@ -10,4 +10,5 @@ import team2.api.mobile.gplx.models.HistoricalExam;
 @Repository
 public interface HistoricalExamRepository extends MongoRepository<HistoricalExam, String> {
 	List<HistoricalExam> findByUserId(String userid);
+
 }

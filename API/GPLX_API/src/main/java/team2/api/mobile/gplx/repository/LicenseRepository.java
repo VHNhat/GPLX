@@ -9,3 +9,4 @@ import team2.api.mobile.gplx.models.License;
 public interface LicenseRepository extends MongoRepository<License, String> {
 	License findByName(String name);
 }
+
