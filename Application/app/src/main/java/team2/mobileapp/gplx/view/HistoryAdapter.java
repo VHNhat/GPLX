@@ -41,8 +41,6 @@ public class HistoryAdapter extends ArrayAdapter<HistoricalExam> {
         tvDate.setText(historyItem.getDate());
         tvCorrect.setText(String.valueOf(historyItem.getCorrect()));
         tvTotal.setText(String.valueOf(historyItem.getTotal()));
-
-// Get item
         return convertView;
     }
 }

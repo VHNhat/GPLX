@@ -8,3 +8,4 @@ import team2.api.mobile.gplx.models.HistoricalExam;
 public interface HistoricalExcemService extends GenericService<HistoricalExam, String> {
 	List<HistoricalExam> findByUserId(String userid);
 }
+

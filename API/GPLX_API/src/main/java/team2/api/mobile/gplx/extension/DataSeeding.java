@@ -64,7 +64,7 @@ public class DataSeeding implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		historicalExamRepo.deleteAll();
+//		historicalExamRepo.deleteAll();
 //		licenseTypeRepo.deleteAll();
 //		licenseRepo.deleteAll();
 //		roleRepo.deleteAll();
@@ -95,7 +95,7 @@ public class DataSeeding implements CommandLineRunner {
 	}
 
 	private void LoadHistoricalExam() {
-		Account account = accountRepo.findById("629c1f72fd4add256bdb9997").get();
+		Account account = accountRepo.findById("629e1a55e6954349648603ee").get();
 		QuestionSet setA1_1 = questionSetRepo.findByName("Đề 1 - A1");
 		String[] setAndLicense = setA1_1.getName().split(" - ");
  		String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());

@@ -81,7 +81,6 @@ public class HistoryActivity extends AppCompatActivity implements HistoricalExam
     public void onFetchProgress(ArrayList<HistoricalExam> histories) {
         if (!histories.isEmpty()) {
             historyAdapter = new HistoryAdapter(HistoryActivity.this, 1, histories);
-
             listView.setAdapter(historyAdapter);
         }
     }

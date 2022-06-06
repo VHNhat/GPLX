@@ -7,12 +7,10 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.widget.Toast;
 
 import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Retrofit.callbacks.TokenCallbackListener;
 import team2.mobileapp.gplx.Retrofit.controllers.TokenFireBaseController;
-import team2.mobileapp.gplx.Retrofit.controllers.TrafficSignController;
 import team2.mobileapp.gplx.Retrofit.dto.TokenFireBase;
 import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
 
