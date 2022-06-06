@@ -56,7 +56,7 @@ public class NoticeBoardAdapter extends ArrayAdapter<NoticeBoard> {
         Log.i("Name", arrayList.get(position).getBoardName());
         Log.i("Description", arrayList.get(position).getBoardDescription());
         Log.i("Photo", arrayList.get(position).getPhoto().substring(0, arrayList.get(position).getPhoto().length() - 4));
-        String uri = VariableGlobal.PHOTO1 + "BB" + VariableGlobal.PHOTO2 + arrayList.get(position).getPhoto() + VariableGlobal.PHOTO3;
+        String uri = VariableGlobal.PHOTO1 + "BB" + VariableGlobal.PHOTO2 + arrayList.get(position).getPhoto() + VariableGlobal.PHOTO3+VariableGlobal.Token;
         Picasso.get()
                 .load(uri)
                 .placeholder(com.wooplr.spotlight.R.drawable.ic_spotlight_arc)

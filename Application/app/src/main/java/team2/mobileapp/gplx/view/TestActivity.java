@@ -1,5 +1,11 @@
 package team2.mobileapp.gplx.view;
 
+import androidx.annotation.LongDef;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
@@ -20,11 +26,6 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.squareup.picasso.Picasso;
@@ -208,11 +209,10 @@ public class TestActivity extends AppCompatActivity implements Serializable {
                     tvResult.setTextColor(ColorStateList.valueOf(getResources().getColor(R.color.red)));
                 }
             }
-        } catch (Exception e) {
-            Log.d("Error", "TRUE");
+        }catch (Exception e){
+            Log.d("Error","TRUE");
         }
     }
-
 
     private void AddtoCheckList(int idx, String answerValue, DtoQuestionSet dto, int i) {
         CheckRadioButton checkRadioButton = new CheckRadioButton();
@@ -305,8 +305,8 @@ public class TestActivity extends AppCompatActivity implements Serializable {
 
     // Hàm hiển thị câu hỏi và câu trả lời
     private void UpdateQuestion(DtoQuestionSet dto, int totalQuestion, int i) {
-        if (isCompleted) {
-            ViewResult(dto, i);
+        if(isCompleted){
+            ViewResult(dto,i);
         }
         UpdateHistory();
         // Trường hợp câu 1

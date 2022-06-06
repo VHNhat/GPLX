@@ -21,8 +21,8 @@ public class VariableGlobal  {
     public static License license = new License();
     public static String PHOTO1="https://firebasestorage.googleapis.com/v0/b/upload-image-9b971.appspot.com/o/";
     public static String PHOTO2="%2F";
-    public static String PHOTO3="?alt=media&token=5644a078-cc3e-4917-9577-76ed61c15168";
-
+    public static String PHOTO3="?alt=media&token=";
+    public static String Token="";
     public static ArrayList<String> listMarkGlobal = new ArrayList<>();
     public static void SetNavigationBar(Activity activity){
         View bottom_bar_container = activity.findViewById(R.id.bottom_bar);

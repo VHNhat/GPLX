@@ -10,6 +10,7 @@ public class RestAPIManager {
     private QuestionDetailsAPI questionDetailsAPI;
     private LicenseAPI licenseAPI;
     private AccountAPI accountAPI;
+    private TokenImageAPI tokenImageAPI;
     public static final String BASE_URL = "http://10.0.2.2:8080/api/";
 
     public QuestionSetAPI getQuestionSetAPI() {
@@ -56,7 +57,16 @@ public class RestAPIManager {
         }
         return questionDetailsAPI;
     }
-
+    public TokenImageAPI getTokenApi() {
+        if (tokenImageAPI == null) {
+            tokenImageAPI = new Retrofit.Builder()
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .baseUrl(BASE_URL)
+                    .build()
+                    .create(TokenImageAPI.class);
+        }
+        return tokenImageAPI;
+    }
     public AccountAPI getAccountAPI() {
         if (accountAPI == null) {
             accountAPI = new Retrofit.Builder()
