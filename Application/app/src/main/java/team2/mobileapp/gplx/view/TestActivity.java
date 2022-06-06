@@ -1,5 +1,14 @@
 package team2.mobileapp.gplx.view;
 
+<<<<<<< HEAD
+=======
+import androidx.annotation.LongDef;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
+>>>>>>> 607d91a4910a600b9b8b8dabd948578df903153f
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
@@ -20,11 +29,6 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.squareup.picasso.Picasso;
@@ -185,6 +189,9 @@ public class TestActivity extends AppCompatActivity implements Serializable {
         } catch (Exception ex) {
             Log.i("Error", "" + ex.getMessage());
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 607d91a4910a600b9b8b8dabd948578df903153f
         }
     }
 
@@ -212,6 +219,7 @@ public class TestActivity extends AppCompatActivity implements Serializable {
         }catch (Exception e){
             Log.d("Error","TRUE");
         }
+<<<<<<< HEAD
         }
 
 =======
@@ -246,6 +254,10 @@ public class TestActivity extends AppCompatActivity implements Serializable {
 
 >>>>>>> c410d4b67f5d42fea52c6cee2b54b97d53338e60
 
+=======
+    }
+
+>>>>>>> 607d91a4910a600b9b8b8dabd948578df903153f
     private void AddtoCheckList(int idx, String answerValue, DtoQuestionSet dto, int i) {
         CheckRadioButton checkRadioButton = new CheckRadioButton();
         checkRadioButton.setQuestionId(dto.getQuestList().get(i).getId());
@@ -338,12 +350,17 @@ public class TestActivity extends AppCompatActivity implements Serializable {
     // Hàm hiển thị câu hỏi và câu trả lời
     private void UpdateQuestion(DtoQuestionSet dto, int totalQuestion, int i) {
 <<<<<<< HEAD
+<<<<<<< HEAD
         if(isCompleted){
             ViewResult(dto,i);
 =======
         if (isCompleted) {
             ViewResult(dto, i);
 >>>>>>> c410d4b67f5d42fea52c6cee2b54b97d53338e60
+=======
+        if(isCompleted){
+            ViewResult(dto,i);
+>>>>>>> 607d91a4910a600b9b8b8dabd948578df903153f
         }
         UpdateHistory();
         // Trường hợp câu 1
@@ -364,14 +381,20 @@ public class TestActivity extends AppCompatActivity implements Serializable {
         String photo = dto.getQuestList().get(i).getPhoto();
         // Khi nào có hình thì mở ra
 <<<<<<< HEAD
+<<<<<<< HEAD
         if(!photo.isEmpty()){
             String uri=VariableGlobal.PHOTO1+VariableGlobal.typeCode+VariableGlobal.PHOTO2+photo+VariableGlobal.PHOTO3+VariableGlobal.Token;
 =======
+=======
+>>>>>>> 607d91a4910a600b9b8b8dabd948578df903153f
         if (photo.length() >= 5) {
             ivQuestion.setVisibility(View.VISIBLE);
             Log.d("URL1", photo);
             String uri = VariableGlobal.PHOTO1 + VariableGlobal.typeCode + VariableGlobal.PHOTO2 + photo + VariableGlobal.PHOTO3;
+<<<<<<< HEAD
 >>>>>>> c410d4b67f5d42fea52c6cee2b54b97d53338e60
+=======
+>>>>>>> 607d91a4910a600b9b8b8dabd948578df903153f
             Picasso.get()
                     .load(uri)
                     .placeholder(com.wooplr.spotlight.R.drawable.ic_spotlight_arc)
@@ -379,11 +402,16 @@ public class TestActivity extends AppCompatActivity implements Serializable {
                     .fit()
                     .into(ivQuestion);
 <<<<<<< HEAD
+<<<<<<< HEAD
         }
 =======
         } else
             ivQuestion.setVisibility(View.GONE);
 >>>>>>> c410d4b67f5d42fea52c6cee2b54b97d53338e60
+=======
+        } else
+            ivQuestion.setVisibility(View.GONE);
+>>>>>>> 607d91a4910a600b9b8b8dabd948578df903153f
         int index = dto.getQuestList().get(i).getIndex();
         String[] ansList = dto.getAnsList().get(i).getAnswerList();
         int numberOfAns = ansList.length;
@@ -480,16 +508,6 @@ public class TestActivity extends AppCompatActivity implements Serializable {
     protected void onStart() {
         super.onStart();
         if (isCompleted) {
-            i[0] = 0;
-            UpdateQuestion(dtoQuestionSet, totalQuestion, i[0]);
-            CheckedRadioButton(dtoQuestionSet, i[0]);
-        }
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if(isCompleted) {
             i[0] = 0;
             UpdateQuestion(dtoQuestionSet, totalQuestion, i[0]);
             CheckedRadioButton(dtoQuestionSet, i[0]);
