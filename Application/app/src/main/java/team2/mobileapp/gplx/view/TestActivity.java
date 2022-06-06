@@ -328,8 +328,7 @@ public class TestActivity extends AppCompatActivity implements Serializable {
         String photo = dto.getQuestList().get(i).getPhoto();
         // Khi nào có hình thì mở ra
         if(!photo.isEmpty()){
-            Log.d("URL1", photo);
-            String uri=VariableGlobal.PHOTO1+VariableGlobal.typeCode+VariableGlobal.PHOTO2+photo+VariableGlobal.PHOTO3;
+            String uri=VariableGlobal.PHOTO1+VariableGlobal.typeCode+VariableGlobal.PHOTO2+photo+VariableGlobal.PHOTO3+VariableGlobal.Token;
             Picasso.get()
                     .load(uri)
                     .placeholder(com.wooplr.spotlight.R.drawable.ic_spotlight_arc)
