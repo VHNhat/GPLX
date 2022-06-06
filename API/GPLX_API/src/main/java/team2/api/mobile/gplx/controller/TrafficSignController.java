@@ -41,6 +41,16 @@ public class TrafficSignController {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	}
+	
+	@GetMapping("api/trafficsign/type/{type}/{id}")
+	public ResponseEntity<Object> GetByType(@PathVariable("type") String type, @PathVariable("id") String id) {
+		try {
+			TrafficSign trafficSign = trafficSignService.findById(id).get();
+			return new ResponseEntity<>(trafficSign, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+	}
 
 	@GetMapping("api/trafficsign/types")
 	public ResponseEntity<Object> GetTrafficSignType() {
@@ -99,4 +109,3 @@ public class TrafficSignController {
 
 
 }
-
