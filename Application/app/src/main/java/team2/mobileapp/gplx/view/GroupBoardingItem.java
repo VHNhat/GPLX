@@ -1,5 +1,5 @@
 package team2.mobileapp.gplx.view;
-import android.os.Bundle;
+
 class GroupBoardingItem {
     private String id;
     private String name;

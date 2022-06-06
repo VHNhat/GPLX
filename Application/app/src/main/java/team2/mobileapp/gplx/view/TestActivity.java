@@ -26,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -276,12 +277,20 @@ public class TestActivity extends AppCompatActivity {
         }
         String photo = dto.getQuestList().get(i).getPhoto();
         // Khi nào có hình thì mở ra
-//        if(!photo.isEmpty()){
-//            String uri = photo.substring(0, photo.length() - 4);
-//            int imageResource = getResources().getIdentifier(uri, "drawable", getPackageName());
-//            Drawable res = getResources().getDrawable(imageResource);
-//            iv_question.setImageDrawable(res);
-//        }
+        if(!photo.isEmpty()){
+            try {
+                String uri =VariableGlobal.PHOTOURL1+VariableGlobal.typeCode+VariableGlobal.PHOTOURL2+photo.substring(0, photo.length() - 4)+VariableGlobal.PHOTOURL3;
+                Picasso.get()
+                        .load(uri)
+                        .placeholder(com.wooplr.spotlight.R.drawable.ic_spotlight_arc)
+                        .error(com.wooplr.spotlight.R.drawable.ic_spotlight_arc)
+                        .fit()
+                        .into(ivQuestion);
+            }catch (Exception e){
+
+            }
+
+        }
         int index = dto.getQuestList().get(i).getIndex();
         String[] ansList = dto.getAnsList().get(i).getAnswerList();
         int numberOfAns = ansList.length;

@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import team2.mobileapp.gplx.R;
-import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
 
 public class BoardingActivity extends AppCompatActivity {
 

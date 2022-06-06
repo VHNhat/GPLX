@@ -3,7 +3,6 @@ package team2.mobileapp.gplx.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -16,7 +15,6 @@ import java.util.List;
 import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Retrofit.callbacks.TrafficSignCallBackListener;
 import team2.mobileapp.gplx.Retrofit.controllers.TrafficSignController;
-import team2.mobileapp.gplx.Retrofit.dto.GroupTestItem;
 import team2.mobileapp.gplx.Retrofit.dto.TrafficSignTypes;
 import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
 import team2.mobileapp.gplx.Volley.model.TrafficSign;
