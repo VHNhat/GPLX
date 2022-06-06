@@ -97,7 +97,7 @@
             android:layout_marginTop="15dp"
             android:clickable="true"
             android:text="@string/text_forgot_pass"
-            android:textColor="@color/gray"
+            android:textColor="@color/green_main"
             android:textStyle="bold" />
 
 

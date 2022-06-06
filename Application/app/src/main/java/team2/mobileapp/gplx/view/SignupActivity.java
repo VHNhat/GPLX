@@ -90,7 +90,7 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
+                hideKeyboard();
                 if (firstName.getText().toString().isEmpty())
                     Toast.makeText(SignupActivity.this, "Please enter your first name", Toast.LENGTH_LONG).show();
                 else if (lastName.getText().toString().isEmpty())

@@ -1,7 +1,6 @@
 package team2.mobileapp.gplx.view;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -41,7 +40,7 @@ public class EditProfileActivity extends AppCompatActivity implements AccountCal
         InitialVariables();
 
         try {
-            accountController.startFetching("629c5dfdad53582e881d0eab");
+            accountController.startFetching(VariableGlobal.idUser);
             btnSave.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -96,7 +95,7 @@ public class EditProfileActivity extends AppCompatActivity implements AccountCal
 
     @Override
     public void onFetchComplete(String message) {
-        Toast.makeText(EditProfileActivity.this, message, Toast.LENGTH_SHORT).show();
+        Log.d("message",  message);
     }
 
 }
