@@ -23,8 +23,11 @@ public class HistoricalExam extends AbstractEntity {
 	@JsonProperty("userid")
 	private String userId;
 
-	@JsonProperty("setid")
-	private String setId;
+	@JsonProperty("license")
+	private String license;
+	
+	@JsonProperty("setname")
+	private String setName;
 	
 	@JsonProperty("date")
 	private String examDate;
@@ -39,10 +42,12 @@ public class HistoricalExam extends AbstractEntity {
 		super();
 	}
 
-	public HistoricalExam(String userId, String setId, String examDate, int correctNumber, int total) {
+	public HistoricalExam(String userId, String license, String setName, String examDate, int correctNumber,
+			int total) {
 		super();
 		this.userId = userId;
-		this.setId = setId;
+		this.license = license;
+		this.setName = setName;
 		this.examDate = examDate;
 		this.correctNumber = correctNumber;
 		this.total = total;
@@ -56,12 +61,20 @@ public class HistoricalExam extends AbstractEntity {
 		this.userId = userId;
 	}
 
-	public String getSetId() {
-		return setId;
+	public String getLicense() {
+		return license;
 	}
 
-	public void setSetId(String setId) {
-		this.setId = setId;
+	public void setLicense(String license) {
+		this.license = license;
+	}
+
+	public String getSetName() {
+		return setName;
+	}
+
+	public void setSetName(String setName) {
+		this.setName = setName;
 	}
 
 	public String getExamDate() {
