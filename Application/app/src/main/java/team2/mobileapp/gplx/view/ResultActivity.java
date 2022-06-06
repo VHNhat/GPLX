@@ -10,13 +10,11 @@ import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Retrofit.callbacks.LicenseByIdCallBackListener;
 import team2.mobileapp.gplx.Retrofit.controllers.LicenseController;
 import team2.mobileapp.gplx.Retrofit.models.License;
-import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
 import team2.mobileapp.gplx.Volley.model.Answer;
 import team2.mobileapp.gplx.Volley.model.CheckRadioButton;
 import team2.mobileapp.gplx.Volley.model.Question;
 import team2.mobileapp.gplx.Volley.model.dto.DtoQuestionSet;
 
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;

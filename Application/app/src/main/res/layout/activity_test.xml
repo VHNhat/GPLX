@@ -74,11 +74,14 @@
         </TextView>
 
         <ImageView
+
             android:id="@+id/iv_question"
-            android:layout_width="match_parent"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_question"
-            android:scaleType="fitCenter" />
+            android:scaleType="fitXY"
+
+            android:layout_centerHorizontal="true"/>
 
         <ScrollView
             android:id="@+id/group_answer"

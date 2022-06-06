@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import team2.mobileapp.gplx.R;
+import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
 import team2.mobileapp.gplx.Volley.model.dto.LoginResponse;
 import team2.mobileapp.gplx.Volley.service.AuthenService;
 
@@ -65,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //clear all stack and add activity new task
-                signup.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
 
                 startActivity(signup);
             }
@@ -100,6 +101,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                hideKeyboard();
                 Log.d("Username", etUsername.getText().toString());
                 Log.d("Pass", etPassword.getText().toString());
                 if (etUsername.getText().toString().isEmpty() && etPassword.getText().toString().isEmpty())
@@ -120,7 +122,7 @@ public class LoginActivity extends AppCompatActivity {
                         public void onResponse(LoginResponse loginResponse) {
                             //Toast.makeText(SignInActivity.this, loginResponse.toString(), Toast.LENGTH_LONG).show();
                             Log.i("Login response", loginResponse.toString());
-
+                            VariableGlobal.idUser=loginResponse.getId();
                             //clear all stack and add activity new task
                             tutorial.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(tutorial);

@@ -18,7 +18,6 @@ import com.wooplr.spotlight.SpotlightConfig;
 
 import team2.mobileapp.gplx.Animation.SpotlightSequence;
 import team2.mobileapp.gplx.R;
-import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
 
 public class GuideActivity extends AppCompatActivity {
     private TextView Question, QuestionButton1, QuestionButton2;

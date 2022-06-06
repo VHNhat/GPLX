@@ -49,11 +49,13 @@
         </RelativeLayout>
 
         <ImageView
+            android:id="@+id/iv_image_type_board"
             android:layout_width="120dp"
             android:layout_height="100dp"
             android:layout_alignParentEnd="true"
+            android:background="@drawable/button_radius_10"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/p102" />
+            android:src="@drawable/i412c" />
 
     </RelativeLayout>
 

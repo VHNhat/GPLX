@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/header_activity"
-        android:layout_margin="20dp"
+        android:layout_margin="10dp"
         android:text="Tất cả"
         android:textColor="@color/black"
         android:textSize="23dp" />
@@ -36,6 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:padding="10dp"
+
 
             >
 
@@ -77,6 +78,7 @@
         android:textColor="@color/black"
         android:textSize="23dp" />
     <ListView
+        android:paddingBottom="60dp"
         android:id="@+id/lv_group_boarding_sign"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

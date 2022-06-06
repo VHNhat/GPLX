@@ -2,11 +2,12 @@ package team2.mobileapp.gplx.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,7 +17,6 @@ import java.util.List;
 import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Retrofit.callbacks.TrafficSignCallBackListener;
 import team2.mobileapp.gplx.Retrofit.controllers.TrafficSignController;
-import team2.mobileapp.gplx.Retrofit.dto.GroupTestItem;
 import team2.mobileapp.gplx.Retrofit.dto.TrafficSignTypes;
 import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
 import team2.mobileapp.gplx.Volley.model.TrafficSign;
@@ -26,6 +26,7 @@ public class GroupBoardingActivity extends AppCompatActivity implements TrafficS
     TrafficSignController trafficSignController;
     TextView quantityOfAll;
     ListView lvItemsTrafficSign;
+    RelativeLayout allNoticeBoard;
     GroupBoardingAdapter groupBoardingAdapter;
 
     @Override
@@ -34,24 +35,43 @@ public class GroupBoardingActivity extends AppCompatActivity implements TrafficS
         setContentView(R.layout.activity_group_boarding_sign);
         overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
 
-        titleBoard = findViewById(R.id.tv_title_activity_app);
-        quantityOfAll = findViewById(R.id.tv_num_group_test);
-        lvItemsTrafficSign = findViewById(R.id.lv_group_boarding_sign);
-
+        InitialVariable();
         trafficSignController = new TrafficSignController(this);
         trafficSignController.getTrafficSignTypes();
         titleBoard.setText("Các loại biến báo");
         VariableGlobal.SetNavigationBar(this);
+        setOnlickTrafficType();
     }
-private void setOnlickTrafficType(){
-    lvItemsTrafficSign.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-        @Override
-        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-            GroupBoardingItem groupBoardingItem = (GroupBoardingItem) adapterView.getItemAtPosition(i);
-            Toast.makeText(GroupBoardingActivity.this, groupBoardingItem.getId(), Toast.LENGTH_SHORT).show();
-        }
-    });
-}
+
+    private void InitialVariable() {
+        titleBoard = findViewById(R.id.tv_title_activity_app);
+        quantityOfAll = findViewById(R.id.tv_num_group_test);
+        lvItemsTrafficSign = findViewById(R.id.lv_group_boarding_sign);
+        allNoticeBoard = findViewById(R.id.layout_all_traffic);
+    }
+
+    private void setOnlickTrafficType() {
+        allNoticeBoard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(GroupBoardingActivity.this, NoticeBoardActivity.class);
+                intent.putExtra("TYPE_BOARD", "all");
+                intent.putExtra("TITLE", "Tất cả");
+                startActivity(intent);
+            }
+        });
+        lvItemsTrafficSign.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                GroupBoardingItem groupBoardingItem = (GroupBoardingItem) adapterView.getItemAtPosition(i);
+                Intent intent = new Intent(GroupBoardingActivity.this, NoticeBoardActivity.class);
+                intent.putExtra("TYPE_BOARD", groupBoardingItem.getType());
+                intent.putExtra("TITLE", groupBoardingItem.getName());
+                startActivity(intent);
+            }
+        });
+    }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();

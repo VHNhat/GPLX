@@ -15,4 +15,6 @@ public interface TrafficSignAPI {
     Call<TrafficSign> getTrafficSign(@Path("id") String id);
     @GET("trafficsign/types")
     Call<List<TrafficSignTypes>> getTrafficSignTypes();
+    @GET("trafficsign/type/{type}")
+    Call<List<TrafficSign>> getTrafficSignByType();
 }

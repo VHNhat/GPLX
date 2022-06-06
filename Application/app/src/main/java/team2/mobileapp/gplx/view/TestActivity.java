@@ -1,5 +1,6 @@
 package team2.mobileapp.gplx.view;
 
+import androidx.annotation.LongDef;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -11,7 +12,6 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,6 +28,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.squareup.picasso.Picasso;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -196,18 +197,23 @@ public class TestActivity extends AppCompatActivity implements Serializable {
     }
 
     private void ViewResult(DtoQuestionSet dto, int i) {
-        List<Answer> ansList = dto.getAnsList();
-        tvResult.setText(ansList.get(i).getAnswerList()[ansList.get(i).getResult()]);
-        // Check đúng sai
-        for (CheckRadioButton item : checkList) {
-            if (item.getQuestionId().equals(questionId) && item.getAnswerIndex() == ansList.get(i).getResult()) {
-                tvResult.setTextColor(ColorStateList.valueOf(getResources().getColor(R.color.green_main)));
-                break;
-            } else {
-                tvResult.setTextColor(ColorStateList.valueOf(getResources().getColor(R.color.red)));
+        try {
+            List<Answer> ansList = dto.getAnsList();
+            tvResult.setText(ansList.get(i).getAnswerList()[ansList.get(i).getResult()]);
+            // Check đúng sai
+            for (CheckRadioButton item : checkList) {
+                if (item.getQuestionId().equals(questionId) && item.getAnswerIndex() == ansList.get(i).getResult()) {
+                    tvResult.setTextColor(ColorStateList.valueOf(getResources().getColor(R.color.green_main)));
+                    break;
+                } else {
+                    tvResult.setTextColor(ColorStateList.valueOf(getResources().getColor(R.color.red)));
+                }
             }
+        }catch (Exception e){
+            Log.d("Error","TRUE");
         }
-    }
+        }
+
 
     private void AddtoCheckList(int idx, String answerValue, DtoQuestionSet dto, int i) {
         CheckRadioButton checkRadioButton = new CheckRadioButton();
@@ -321,12 +327,16 @@ public class TestActivity extends AppCompatActivity implements Serializable {
         }
         String photo = dto.getQuestList().get(i).getPhoto();
         // Khi nào có hình thì mở ra
-//        if(!photo.isEmpty()){
-//            String uri = photo.substring(0, photo.length() - 4);
-//            int imageResource = getResources().getIdentifier(uri, "drawable", getPackageName());
-//            Drawable res = getResources().getDrawable(imageResource);
-//            iv_question.setImageDrawable(res);
-//        }
+        if(!photo.isEmpty()){
+            Log.d("URL1", photo);
+            String uri=VariableGlobal.PHOTO1+VariableGlobal.typeCode+VariableGlobal.PHOTO2+photo+VariableGlobal.PHOTO3;
+            Picasso.get()
+                    .load(uri)
+                    .placeholder(com.wooplr.spotlight.R.drawable.ic_spotlight_arc)
+                    .error(com.wooplr.spotlight.R.drawable.ic_spotlight_arc)
+                    .fit()
+                    .into(ivQuestion);
+        }
         int index = dto.getQuestList().get(i).getIndex();
         String[] ansList = dto.getAnsList().get(i).getAnswerList();
         int numberOfAns = ansList.length;
