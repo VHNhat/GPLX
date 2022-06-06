@@ -79,21 +79,10 @@
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_question"
-<<<<<<< HEAD
-<<<<<<< HEAD
             android:scaleType="fitXY"
-
+             android:visibility="gone"
             android:layout_centerHorizontal="true"/>
-=======
-            android:layout_centerHorizontal="true"
-            android:scaleType="fitXY"
-            android:visibility="gone" />
->>>>>>> c410d4b67f5d42fea52c6cee2b54b97d53338e60
-=======
-            android:layout_centerHorizontal="true"
-            android:scaleType="fitXY"
-            android:visibility="gone" />
->>>>>>> 607d91a4910a600b9b8b8dabd948578df903153f
+
 
         <ScrollView
             android:id="@+id/group_answer"
