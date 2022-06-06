@@ -12,7 +12,6 @@ public class RestAPIManager {
     private AccountAPI accountAPI;
     public static final String BASE_URL = "http://10.0.2.2:8080/api/";
 
-
     public QuestionSetAPI getQuestionSetAPI() {
         if (questionSetAPI == null) {
             questionSetAPI = new Retrofit.Builder()

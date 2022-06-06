@@ -9576,7 +9576,7 @@ public class DataSeeding implements CommandLineRunner {
 
 		String[] a1_answers_18_set1 = { "Tốc độ tối đa cho phép về ban đêm cho các phương tiện là 70 km/h.",
 				"Tốc độ tối thiểu cho phép về ban đêm cho các phương tiện là 70 km/h." };
-		Answer a1_answer_18_set1 = new Answer(a1_answers_18_set1, 3, idList.get(17));
+		Answer a1_answer_18_set1 = new Answer(a1_answers_18_set1, 0, idList.get(17));
 		answerRepo.save(a1_answer_18_set1);
 
 		String[] a1_answers_19_set1 = { "Biển 1", "Biển 2", "Biển 3", "Cả ba biển." };
