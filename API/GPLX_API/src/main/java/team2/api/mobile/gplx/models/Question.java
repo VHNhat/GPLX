@@ -31,7 +31,7 @@ public class Question extends AbstractEntity {
 	@JsonProperty("QuestionSetId")
 	private String questionSetId;
 	
-	@JsonProperty("QuestionId")
+	@JsonProperty("QuestionTypeId")
 	private String questionTypeId;
 	
 	public Question(int index, String query, boolean isTop50, String photo, String licenseId,String questionSetId, String questionTypeId) {

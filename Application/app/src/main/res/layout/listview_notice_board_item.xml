@@ -14,7 +14,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/br_textnotice"
+        android:background="@drawable/button_radius_10"
         android:padding="10dp">
 
         <RelativeLayout
@@ -26,9 +26,11 @@
 
             <ImageView
                 android:id="@+id/iv_board"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/bienbao"></ImageView>
+                android:background="@drawable/button_radius_10"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="false"
+                android:src="@drawable/i412c" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -38,10 +40,8 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
                 android:paddingTop="20dp"
                 android:paddingBottom="20dp">
-
 
                 <TextView
                     android:id="@+id/tv_board_code"
@@ -61,7 +61,8 @@
                     android:text="Biến báp giúp ta nhận biến có nguy hiểm gì đang ập đến hay là không"
                     android:textAppearance="?android:attr/textAppearanceListItemSmall"
                     android:textColor="@color/white"
-                    android:textSize="10dp" />
+                    android:textStyle="normal"
+                    android:textSize="14dp" />
             </RelativeLayout>
 
 

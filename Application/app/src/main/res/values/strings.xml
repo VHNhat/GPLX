@@ -2,27 +2,26 @@
 <resources>
     <string name="app_name">GPLX</string>
     <string name="text_boarding">SHARE - INSPIRE - CONNECT</string>
-    <string name="text_get_started">GET STARTED</string>
-    <string name="text_forgot_pass">FORGOT PASSWORD</string>
+    <string name="text_get_started">BẮT ĐẦU</string>
+    <string name="text_forgot_pass">QUÊN MẬT KHẨU</string>
 
-    <string name="text_signup">SIGN UP</string>
-    <string name="text_login">LOG IN</string>
-    <string name="text_verification">VERIFICATION</string>
-    <string name="text_type_your_email">TYPE YOUR EMAIL</string>
-    <string name="text_set_new_password">SET NEW PASSWORD</string>
-    <string name="text_verify">VERIFY</string>
-    <string name="text_send">SEND</string>
-    <string name="text_notice_verify">A message with verification code was sent to your mobile phone</string>
+    <string name="text_signup">ĐĂNG KÝ</string>
+    <string name="text_login">ĐĂNG NHẬP</string>
+    <string name="text_verification">XÁC THỰC</string>
+    <string name="text_type_your_email">NHẬP EMAIL </string>
+    <string name="text_set_new_password">XÁC NHẬN MẬT KHẨU MỚI</string>
+    <string name="text_verify">XÁC THỰC</string>
+    <string name="text_send">GỬI</string>
     <string name="list_guide_line">
-         <h2>HƯỠNG DẪN THI</h2>\n
-         <li>SỐ LƯỢNG CÂU HỎI: 25 CÂU</li>\n
-          <li>YÊU CẦU LÀM ĐÚNG: 21/25 CÂU</li>\n
-             <li>THỜI GIAN:19 PHÚT</li>\n
+        <h2>HƯỚNG DẪN THI</h2>\n
+        <li>SỐ LƯỢNG CÂU HỎI: 25 CÂU</li>\n
+        <li>YÊU CẦU LÀM ĐÚNG: 21/25 CÂU</li>\n
+        <li>THỜI GIAN:19 PHÚT</li>\n
     </string>
 
     <string name="Tutor_title">Hướng dẫn</string>
     <string name="A1_Title">THI THỬ BẰNG LÁI XE MÁY A1</string>
-    <string name="A1_tutor">Cấu trúc bộ đề thi sát hạch giấy phép lái xe hạng A1 sẽ bao gồm 25 câu hỏi, mỗi câu hỏi chỉ có duy nhất 1 đáp trả lời đúng. Khác hẳn với bộ đề thi luật cũ là 2 đáp án. Mỗi đề thi chúng tôi sẽ bố trí từ 2 - 4 câu hỏi điểm liệt để học viên có thể làm quen và ghi nhớ, tránh việc làm sai câu hỏi liệt.\n Số lượng câu hỏi: 25 Câu.\n Yêu cầu làm đúng 21/25 Câu.\n Thời gian: 19 Phút. </string>
+    <string name="A1_tutor">Cấu trúc bộ đề thi sát hạch giấy phép lái xe hạng A1 sẽ bao gồm 25 câu hỏi, mỗi câu hỏi chỉ có duy nhất 1 đáp trả lời đúng. Khác hẳn với bộ đề thi luật cũ là 2 đáp án. Mỗi đề thi chúng tôi sẽ bố trí từ 2 - 4 câu hỏi điểm liệt để học viên có thể làm quen và ghi nhớ, tránh việc làm sai câu hỏi liệt.\nSố lượng câu hỏi: 25 Câu.\nYêu cầu làm đúng 21/25 Câu.\nThời gian: 19 Phút. </string>
     <string name="A2_Title">THI THỬ BẰNG LÁI XE MÁY A2</string>
 
     <string name="A2_tutor">Cấu trúc bộ đề luyện thi sát hạch A2 luật mới áp dụng chính thức từ 01/08/2020 sẽ bao gồm 25 câu hỏi, mỗi câu hỏi có duy nhất 1 đáp trả lời đúng. Mỗi đề thi A2 bố trí từ 2 - 4 câu hỏi điểm liệt để học viên có thể làm quen và ghi nhớ, tránh việc làm sai câu hỏi liệt. Trong kỳ thi thật cấu trúc đề thi sẽ được sắp xếp theo dạng ngẫu nhiên, yêu cầu học viên phải học - hiểu để vượt qua các câu hỏi, tránh tình trạng học tủ hay học vẹt.\n Số lượng câu hỏi: 25 Câu.\n Yêu cầu làm đúng: 23/25 Câu.\n Thời gian: 19 Phút.</string>
