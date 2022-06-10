@@ -48,7 +48,7 @@
             android:layout_height="50dp"
             android:layout_below="@+id/title_verification"
             android:layout_marginTop="30dp"
-            android:background="@drawable/br_input"
+            android:background="@drawable/Field"
             android:hint="Nhập mã code"
             android:inputType="textPassword"
             android:paddingLeft="30dp"
@@ -70,11 +70,12 @@
         <Button
             android:id="@+id/btn_verify"
             style="@style/ButtonRouder"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/no_give_code"
             android:layout_marginTop="20dp"
-            android:background="@drawable/br_button2"
+            android:background="@drawable/button"
+            android:layout_centerHorizontal="true"
             android:text="@string/text_verify"
             android:textSize="17dp" />
 

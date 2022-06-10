@@ -77,8 +77,7 @@
                         android:layout_height="50dp"
                         android:layout_below="@id/tv_first_name"
                         android:layout_marginBottom="15dp"
-                        android:background="@drawable/input_radius"
-                        android:backgroundTint="#E6F3F3F3"
+                        android:background="@drawable/Field"
                         android:inputType="text"
                         android:maxLines="1"
                         android:paddingLeft="30dp"
@@ -102,18 +101,17 @@
                         android:textStyle="bold" />
 
                     <EditText
-                        android:layout_marginLeft="10dp"
                         android:id="@+id/et_last_name"
                         android:layout_width="1in"
                         android:layout_height="50dp"
                         android:layout_below="@id/tv_last_name"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginBottom="15dp"
-                        android:background="@drawable/input_radius"
+                        android:background="@drawable/Field"
                         android:inputType="text"
                         android:maxLines="1"
-                        android:backgroundTint="#E6F3F3F3"
                         android:paddingLeft="30dp"
-                        android:paddingRight="30dp"/>
+                        android:paddingRight="30dp" />
                 </RelativeLayout>
 
             </LinearLayout>
@@ -136,10 +134,9 @@
             android:layout_height="50dp"
             android:layout_below="@id/tv_username"
             android:layout_marginBottom="15dp"
-            android:background="@drawable/input_radius"
+            android:background="@drawable/Field"
             android:enabled="true"
             android:hint="user"
-            android:backgroundTint="#E6F3F3F3"
             android:inputType="text"
             android:maxLines="1"
             android:paddingLeft="30dp"
@@ -162,9 +159,8 @@
             android:layout_height="50dp"
             android:layout_below="@id/tv_email_profile"
             android:layout_marginBottom="15dp"
-            android:background="@drawable/input_radius"
+            android:background="@drawable/Field"
             android:enabled="false"
-            android:backgroundTint="#E6F3F3F3"
             android:hint="example@gmail.com"
             android:inputType="text"
             android:maxLines="1"
@@ -174,11 +170,12 @@
         <Button
             android:id="@+id/btn_save"
             style="@style/ButtonRouder"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:layout_below="@+id/et_email_profile"
             android:layout_marginTop="20dp"
-            android:background="@drawable/br_button2"
+            android:background="@drawable/button_background"
             android:text="Cập nhật"
             android:textAllCaps="false"
             android:textSize="17dp" />
