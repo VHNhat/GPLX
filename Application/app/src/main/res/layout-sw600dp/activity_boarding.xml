@@ -7,7 +7,7 @@
     tools:context="team2.mobileapp.gplx.view.SplashActivity">
 
     <ImageView
-
+        android:id="@+id/background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:adjustViewBounds="true"
@@ -19,33 +19,35 @@
 
     </ImageView>
 
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/logo"></ImageView>
+
     <ImageView
         android:id="@+id/splash"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="700dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="403dp"
         android:src="@drawable/image_splash">
 
     </ImageView>
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/logo"
-        android:layout_alignParentTop="true"
-        android:layout_above="@id/splash"
-        android:layout_centerHorizontal="true"
-        >
-    </ImageView>
 
     <TextView
-        android:layout_marginTop="20dp"
         android:id="@+id/tv_boarding"
         style="@style/TextTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/splash"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="117dp"
         android:text="XIN CHÀO"
-        android:textColor="@color/gray"></TextView>
+        android:textColor="@color/gray"
+        android:textSize="50dp"></TextView>
 </RelativeLayout>

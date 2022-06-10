@@ -9,16 +9,16 @@
 
     <include
         android:id="@+id/header_activity"
-        layout="@layout/header_activity_app" />
+        layout="@layout/header_activity_app_tablet" />
 
     <ListView
         android:id="@+id/lv_exam_group"
-        android:divider="@android:color/transparent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/header_activity"
         android:layout_marginBottom="65dp"
-        tools:listitem="@layout/listview_group_test_item_tablet"/>
+        android:divider="@android:color/transparent"
+        tools:listitem="@layout/listview_group_test_item_tablet" />
 
     <include
         android:id="@+id/bottom_bar"

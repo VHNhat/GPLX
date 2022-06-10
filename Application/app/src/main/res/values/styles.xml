@@ -46,6 +46,16 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
+    <style name="TextTitletablet" parent="android:Widget.TextView">
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">0.3in</item>
+        <item name="android:layout_marginTop">25dp</item>
+        <item name="android:layout_marginBottom">25dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
     <style name="TextDescription" parent="android:Widget.TextView">
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/black</item>
@@ -85,6 +95,21 @@
         <item name="android:layout_height">wrap_content</item>
 
     </style>
+    <style name="ButtonRoudertablet" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">30dp</item>
+        <item name="android:background">@drawable/button_radius</item>
+        <item name="android:textColor">#ffff</item>
+        <item name="android:backgroundTint">@color/green_main</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingLeft">100dp</item>
+        <item name="android:paddingRight">100dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+
+    </style>
+
+
     <style name="radiusTopRightLeft" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="android:background">@drawable/radius</item>

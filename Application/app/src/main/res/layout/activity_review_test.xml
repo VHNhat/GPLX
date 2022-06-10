@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="65dp"
-            tools:listitem="@layout/listview_group_test_item"/>
+            tools:listitem="@layout/listview_group_test_item_tablet"/>
 
     <include layout="@layout/activity_navigation" android:id="@+id/bottom_bar" />
 

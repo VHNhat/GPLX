@@ -24,7 +24,7 @@ class GroupTestAdapter extends ArrayAdapter<GroupTestItem> {
     public View getView(final int position, View convertView, ViewGroup parent) {
 
         convertView =
-                LayoutInflater.from(context).inflate(R.layout.listview_group_test_item, null,
+                LayoutInflater.from(context).inflate(R.layout.listview_group_test_item_tablet, null,
                         false);
 
         GroupTestItem groupTestItem = getItem(position);

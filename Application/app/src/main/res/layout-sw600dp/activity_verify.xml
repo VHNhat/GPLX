@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/body_verify"
+    tools:context="team2.mobileapp.gplx.view.VerifyActivity">
+
+    <RelativeLayout
+        android:id="@+id/layout_br"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="700dp"
+            android:adjustViewBounds="false"
+            android:cropToPadding="false"
+            android:scaleType="fitXY"
+            android:src="@drawable/br_car2" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        style="@style/radiusTopRightLeft"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layout_br"
+        android:layout_marginTop="-100px"
+        android:backgroundTint="@color/gray_milk"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:paddingBottom="20dp">
+
+        <TextView
+            android:id="@+id/title_verification"
+            style="@style/TextTitletablet"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:padding="30dp"
+            android:text="@string/text_verification"
+
+            />
+
+        <EditText
+            android:id="@+id/et_verify_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title_verification"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/br_input"
+            android:hint="Nhập mã code"
+            android:inputType="textPassword"
+            android:padding="30dp"
+            android:textSize="0.24in" />
+
+        <TextView
+            android:id="@+id/no_give_code"
+            style="@style/TextDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_verify_code"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:padding="30dp"
+            android:text="CHƯA NHẬN ĐƯỢC MÃ CODE"
+            android:textColor="@color/green_main"
+            android:textSize="0.24in" />
+
+        <Button
+            android:id="@+id/btn_verify"
+            style="@style/ButtonRoudertablet"
+            android:layout_width="574dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/no_give_code"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/br_button2"
+            android:padding="30dp"
+            android:text="@string/text_verify"
+            android:textSize="0.24in" />
+
+        <ImageView
+            android:id="@+id/logo_bottom"
+            android:layout_width="197dp"
+            android:layout_height="86dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/logo"
+
+            />
+    </RelativeLayout>
+
+</RelativeLayout>
