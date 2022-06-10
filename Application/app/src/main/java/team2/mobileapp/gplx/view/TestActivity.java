@@ -186,31 +186,31 @@ public class TestActivity extends AppCompatActivity implements Serializable {
         }
     }
 
-    private void SetDisableRadioButton() {
-        int count = rgAnswer.getChildCount();
-        for (int i = 0; i < count; i++) {
-            rgAnswer.getChildAt(i).setEnabled(false);
-        }
-        result_layout.setVisibility(View.VISIBLE);
-    }
-
-    private void ViewResult(DtoQuestionSet dto, int i) {
-        try {
-            List<Answer> ansList = dto.getAnsList();
-            tvResult.setText(ansList.get(i).getAnswerList()[ansList.get(i).getResult()]);
-            // Check đúng sai
-            for (CheckRadioButton item : checkList) {
-                if (item.getQuestionId().equals(questionId) && item.getAnswerIndex() == ansList.get(i).getResult()) {
-                    tvResult.setTextColor(ColorStateList.valueOf(getResources().getColor(R.color.green_main)));
-                    break;
-                } else {
-                    tvResult.setTextColor(ColorStateList.valueOf(getResources().getColor(R.color.red)));
-                }
-            }
-        } catch (Exception e) {
-            Log.d("Error", "TRUE");
-        }
-    }
+//    private void SetDisableRadioButton() {
+//        int count = rgAnswer.getChildCount();
+//        for (int i = 0; i < count; i++) {
+//            rgAnswer.getChildAt(i).setEnabled(false);
+//        }
+//        result_layout.setVisibility(View.VISIBLE);
+//    }
+//
+//    private void ViewResult(DtoQuestionSet dto, int i) {
+//        try {
+//            List<Answer> ansList = dto.getAnsList();
+//            tvResult.setText(ansList.get(i).getAnswerList()[ansList.get(i).getResult()]);
+//            // Check đúng sai
+//            for (CheckRadioButton item : checkList) {
+//                if (item.getQuestionId().equals(questionId) && item.getAnswerIndex() == ansList.get(i).getResult()) {
+//                    tvResult.setTextColor(ColorStateList.valueOf(getResources().getColor(R.color.green_main)));
+//                    break;
+//                } else {
+//                    tvResult.setTextColor(ColorStateList.valueOf(getResources().getColor(R.color.red)));
+//                }
+//            }
+//        } catch (Exception e) {
+//            Log.d("Error", "TRUE");
+//        }
+//    }
 
     private void SetDisableRadioButton() {
         int count = rgAnswer.getChildCount();
@@ -460,16 +460,6 @@ public class TestActivity extends AppCompatActivity implements Serializable {
     protected void onStart() {
         super.onStart();
         if (isCompleted) {
-            i[0] = 0;
-            UpdateQuestion(dtoQuestionSet, totalQuestion, i[0]);
-            CheckedRadioButton(dtoQuestionSet, i[0]);
-        }
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if(isCompleted) {
             i[0] = 0;
             UpdateQuestion(dtoQuestionSet, totalQuestion, i[0]);
             CheckedRadioButton(dtoQuestionSet, i[0]);

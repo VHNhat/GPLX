@@ -13,6 +13,7 @@ import com.google.android.material.navigation.NavigationBarView;
 import java.util.ArrayList;
 
 import team2.mobileapp.gplx.R;
+import team2.mobileapp.gplx.Retrofit.dto.VerificationCode;
 import team2.mobileapp.gplx.Retrofit.models.License;
 import team2.mobileapp.gplx.view.EditProfileActivity;
 import team2.mobileapp.gplx.view.GroupBoardingActivity;
@@ -29,6 +30,7 @@ public class VariableGlobal  {
     public static String Token="";
     public static int IdNavigation=1000010;
     public static ArrayList<String> listMarkGlobal = new ArrayList<>();
+    public static VerificationCode verificationCode;
     public static void SetNavigationBar(Activity activity){
         View bottom_bar_container = activity.findViewById(R.id.bottom_bar);
         NavigationBarView navigationBarView = bottom_bar_container.findViewById(R.id.bottomBar);

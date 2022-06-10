@@ -1,68 +1,90 @@
 package team2.mobileapp.gplx.Volley.model;
 
 public class Account {
-    private String username;
-    private String password;
-    private String email;
-    private String fullname;
-    private String avatar;
-    private String status;
+    private String id;
+    private String Username;
+    private String Password;
+    private String Email;
+    private String FullName;
+    private String Avatar;
+    private String Status;
+    private String roleId;
+
+    public Account() {
+    }
+
+    public Account(String id, String username, String password, String email, String fullName, String avatar, String status, String roleId) {
+        this.id = id;
+        Username = username;
+        Password = password;
+        Email = email;
+        FullName = fullName;
+        Avatar = avatar;
+        Status = status;
+        this.roleId = roleId;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getUsername() {
-        return username;
+        return Username;
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        Username = username;
     }
 
     public String getPassword() {
-        return password;
+        return Password;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        Password = password;
     }
 
     public String getEmail() {
-        return email;
+        return Email;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        Email = email;
     }
 
-    public String getFullname() {
-        return fullname;
+    public String getFullName() {
+        return FullName;
     }
 
-    public void setFullname(String fullname) { this.fullname = fullname; }
+    public void setFullName(String fullName) {
+        FullName = fullName;
+    }
 
     public String getAvatar() {
-        return avatar;
+        return Avatar;
     }
 
     public void setAvatar(String avatar) {
-        this.avatar = avatar;
+        Avatar = avatar;
     }
 
     public String getStatus() {
-        return status;
+        return Status;
     }
 
     public void setStatus(String status) {
-        this.status = status;
+        Status = status;
     }
 
-    @Override
-    public String toString() {
-        return "Account{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", fullname='" + fullname + '\'' +
-                ", avatar='" + avatar + '\'' +
-                ", status='" + status + '\'' +
-                '}';
+    public String getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(String roleId) {
+        this.roleId = roleId;
     }
 }

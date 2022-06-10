@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 //import com.google.gson.Gson;
 
 import team2.api.mobile.gplx.commondata.GenericServiceImpl;
+import team2.api.mobile.gplx.dto.ChangePassword;
 import team2.api.mobile.gplx.dto.DtoLogin;
 import team2.api.mobile.gplx.dto.LoginResponse;
 import team2.api.mobile.gplx.dto.SignupDto;
@@ -97,6 +98,23 @@ public class AccountServiceImpl extends GenericServiceImpl<Account, String> impl
 				System.out.println(ex.getMessage());
 				return null;
 			}
+		}
+	}
+
+	@Override
+	public Account findByEmail(String email) {
+		return repo.findByEmail(email);
+	}
+
+	@Override
+	public Account changePass(String email, ChangePassword pass) {
+		try {
+			Account acc = repo.findByEmail(email);
+			acc.setPassword(pass.getNewPassword());
+			return repo.save(acc);
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+			return null;
 		}
 	}
 

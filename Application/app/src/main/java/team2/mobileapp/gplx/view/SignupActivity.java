@@ -106,7 +106,7 @@ public class SignupActivity extends AppCompatActivity {
                     Toast.makeText(SignupActivity.this, "Hãy xác nhận lại mật khẩu", Toast.LENGTH_LONG).show();
                 else {
                     Account account = new Account();
-                    account.setFullname(fullName.getText().toString());
+                    account.setFullName(fullName.getText().toString());
                     account.setEmail(Email.getText().toString());
                     account.setUsername(userName.getText().toString());
                     account.setPassword(Password.getText().toString());
