@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -72,7 +71,6 @@ public class SignupActivity extends AppCompatActivity {
 
     }
     private void InitialVariable() {
-        firstName = findViewById(R.id.et_first_name_signup);
         lastName = findViewById(R.id.et_last_name_signup);
         Email = findViewById(R.id.et_email_signup);
         userName = findViewById(R.id.et_username_signup);
@@ -91,9 +89,7 @@ public class SignupActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 hideKeyboard();
-                if (firstName.getText().toString().isEmpty())
-                    Toast.makeText(SignupActivity.this, "Hãy nhập Họ", Toast.LENGTH_LONG).show();
-                else if (lastName.getText().toString().isEmpty())
+                if (lastName.getText().toString().isEmpty())
                     Toast.makeText(SignupActivity.this, "Hãy nhập Tên", Toast.LENGTH_LONG).show();
                 else if (Email.getText().toString().isEmpty())
                     Toast.makeText(SignupActivity.this, "Hãy nhập Email", Toast.LENGTH_LONG).show();
@@ -107,7 +103,6 @@ public class SignupActivity extends AppCompatActivity {
                     Toast.makeText(SignupActivity.this, "Hãy xác nhận lại mật khẩu", Toast.LENGTH_LONG).show();
                 else {
                     Account account = new Account();
-                    account.setFirstName(firstName.getText().toString());
                     account.setLastName(lastName.getText().toString());
                     account.setEmail(Email.getText().toString());
                     account.setUsername(userName.getText().toString());
