@@ -4,65 +4,133 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.RelativeLayout;
 
-import com.google.android.material.bottomnavigation.BottomNavigationItemView;
-
 import team2.mobileapp.gplx.R;
+import team2.mobileapp.gplx.Retrofit.callbacks.LicenseCallBackListener;
+import team2.mobileapp.gplx.Retrofit.controllers.LicenseController;
+import team2.mobileapp.gplx.Retrofit.models.License;
+import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
 
-public class SelectCategoryActivity extends AppCompatActivity {
+import java.util.ArrayList;
 
-//    BottomNavigationItemView btn_home, btn_menu, btn_noti, btn_profile;
-    RelativeLayout btn_a1;
+public class SelectCategoryActivity extends AppCompatActivity implements LicenseCallBackListener {
+
+    LicenseController licenseController;
+    RelativeLayout btnA1, btnA2, btnB1, btnB2;
+    ArrayList<License> licenses;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
         setContentView(R.layout.activity_select_category);
+        VariableGlobal.SetNavigationBar(this);
+        InitialVariable();
 
-        btn_a1 = findViewById(R.id.btn_a1);
-//        btn_home = findViewById(R.id.page_home);
-//        btn_menu = findViewById(R.id.page_menu);
-//        btn_noti = findViewById(R.id.page_nofication);
-//        btn_profile = findViewById(R.id.page_profile);
-//
-//        btn_home.setSelected(true);
-//
-//        Intent menu = new Intent(this, SelectCategoryActivity.class);
-//        Intent notification = new Intent(this, HistoryActivity.class);
-//        Intent profile = new Intent(this, EditProfileActivity.class);
-//
-//        Notification(notification);
-//        Menu(menu);
-//        Profile(profile);
+        licenseController = new LicenseController(this);
+        licenseController.startFetching();
+
+
 
     }
 
-//    private void Profile(Intent profile) {
-//        btn_profile.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(profile);
-//            }
-//        });
-//    }
-//
-//    private void Menu(Intent menu) {
-//        btn_menu.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(menu);
-//            }
-//        });
-//    }
-//
-//    private void Notification(Intent notification) {
-//        btn_noti.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(notification);
-//            }
-//        });
-//    }
+    private void InitialVariable() {
+        btnA1 = findViewById(R.id.btn_a1);
+        btnA2 = findViewById(R.id.btn_a2);
+        btnB1 = findViewById(R.id.btn_b1);
+        btnB2 = findViewById(R.id.btn_b2);
+    }
+
+    @Override
+    public void onFetchProgress(ArrayList<License> licenses) {
+        if(!licenses.isEmpty()){
+            this.licenses = licenses;
+            btnA1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(SelectCategoryActivity.this, A1_TestActivity.class);
+                    intent.putExtra("License", licenses.get(0));
+
+                    VariableGlobal.typeCode="A1";
+                    VariableGlobal.license = licenses.get(0);
+                    startActivity(intent);
+                }
+            });
+
+            btnA2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(SelectCategoryActivity.this, A1_TestActivity.class);
+                    intent.putExtra("License", licenses.get(1));
+                    VariableGlobal.typeCode="A2";
+                    VariableGlobal.license = licenses.get(1);
+                    startActivity(intent);
+                }
+            });
+
+            btnB1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(SelectCategoryActivity.this, A1_TestActivity.class);
+                    intent.putExtra("License", licenses.get(2));
+                    VariableGlobal.license = licenses.get(2);
+                    VariableGlobal.typeCode="B1";
+                    startActivity(intent);
+                }
+            });
+
+            btnB2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(SelectCategoryActivity.this, A1_TestActivity.class);
+                    intent.putExtra("License", licenses.get(3));
+                    VariableGlobal.license = licenses.get(3);
+                    VariableGlobal.typeCode="B2";
+                    startActivity(intent);
+                }
+            });
+        }
+    }
+
+    @Override
+    public void onFetchComplete(String message) {
+        Log.d("onFetchComplete", message);
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
+    }
+
+    @Override
+    public boolean moveTaskToBack(boolean nonRoot) {
+        overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
+        return super.moveTaskToBack(nonRoot);
+
+    }  @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+    }
 }

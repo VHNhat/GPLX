@@ -11,5 +11,7 @@ import team2.api.mobile.gplx.models.Question;
 public interface QuestionRepository extends MongoRepository<Question, String> {
 
 	List<Question> findByQuestionSetId(String id);
+	
+	List<Question> findByLicenseId(String licenseid);
 
 }

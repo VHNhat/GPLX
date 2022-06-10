@@ -10,5 +10,9 @@ public interface QuestionService extends GenericService<Question, String> {
 	Question update(Question question, String id);
 
 	List<Question> findByQuestionSetId(String id);
+	
+	List<Question> findQuestionByLicense(String license);
+
+	List<Question> findQuestionByLicenseId(String id);
 
 }

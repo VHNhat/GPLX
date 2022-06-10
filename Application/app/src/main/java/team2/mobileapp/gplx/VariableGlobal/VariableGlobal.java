@@ -66,8 +66,4 @@ public class VariableGlobal  {
 
     }
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> c6e7822422f93877d1fd552e440356ed7476a5a5

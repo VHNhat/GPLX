@@ -83,4 +83,20 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,TutorialActivity.class);
         startActivity(intent);
     }
+    public void DetailsNoticeBoard(View view){
+        Intent intent = new Intent(this, DetailsNoticeBoardActivity.class);
+        startActivity(intent);
+    }
+    public void AllQuestion(View view){
+        Intent intent = new Intent(this,QuestionViewListActivity.class);
+        startActivity(intent);
+    }
+    public void Guide(View view){
+        Intent intent = new Intent(this,GuideActivity.class);
+        startActivity(intent);
+    }
+    public void TrafficByType(View view){
+        Intent intent = new Intent(this, GroupBoardingActivity.class);
+        startActivity(intent);
+    }
 }
