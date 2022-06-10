@@ -22,7 +22,10 @@
 
 
     </ListView>
-    <include layout="@layout/activity_navigation" android:id="@+id/bottom_bar" />
+
+    <include
+        android:id="@+id/bottom_bar"
+        layout="@layout/activity_navigation" />
 
 
 </RelativeLayout>
