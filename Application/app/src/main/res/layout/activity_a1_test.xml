@@ -57,8 +57,7 @@
                 android:id="@+id/btn_radom"
                 style="@style/AroundButton"
                 android:layout_height="140dp"
-                android:background="@drawable/button_radius_10"
-                android:backgroundTint="@color/green_main">
+                android:background="@drawable/Historytest">
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -86,8 +85,7 @@
                 style="@style/AroundButton"
                 android:layout_height="140dp"
                 android:layout_toEndOf="@+id/btn_radom"
-                android:background="@drawable/button_radius_10"
-                android:backgroundTint="@color/green_main">
+                android:background="@drawable/Historytest">
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -115,8 +113,7 @@
                 style="@style/AroundButton"
                 android:layout_height="140dp"
                 android:layout_below="@+id/btn_radom"
-                android:background="@drawable/button_radius_10"
-                android:backgroundTint="@color/green_main">
+                android:background="@drawable/Historytest">
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -146,8 +143,7 @@
                 android:layout_alignTop="@+id/btn_board"
                 android:layout_toEndOf="@id/btn_board"
 
-                android:background="@drawable/button_radius_10"
-                android:backgroundTint="@color/green_main">
+                android:background="@drawable/Historytest">
 
 
                 <ImageView
