@@ -21,7 +21,7 @@ public class QuestionType extends AbstractEntity {
 	@JsonProperty("Name")
 	private String name;
 	
-	@JsonProperty("Description")
+	@JsonProperty("Name")
 	private String description;
 	
 	public QuestionType(String code, String name, String description) {

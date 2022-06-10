@@ -1,7 +1,5 @@
 package team2.api.mobile.gplx.service;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,11 +27,6 @@ public class LicenseServiceImpl extends GenericServiceImpl<License, String> impl
 			System.out.println(ex.getMessage());
 			return null;
 		}
-	}
-
-	@Override
-	public License findByName(String name) {
-		return repo.findByName(name);
 	}
 
 }

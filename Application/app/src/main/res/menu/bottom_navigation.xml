@@ -3,20 +3,24 @@
         android:id="@+id/page_home"
         android:enabled="true"
         android:icon="@drawable/home"
-        android:title="NHÀ"
+        android:title=""
         />
     <item
-        android:id="@+id/page_category"
+        android:id="@+id/page_nofication"
         android:enabled="true"
         android:icon="@drawable/category"
-        android:title="BIỂN CẤM"
+        android:title=""
         />
-
     <item
-        android:id="@+id/page_notice"
+        android:id="@+id/add"
+        android:enabled="false"
+        android:title=""
+        />
+    <item
+        android:id="@+id/page_nofication1"
         android:enabled="true"
         android:icon="@drawable/notice"
-        android:title="LỊCH SỬ"
+        android:title=""
         />
 
 
@@ -24,5 +28,5 @@
         android:id="@+id/page_profile"
         android:enabled="true"
         android:icon="@drawable/profile"
-        android:title="CÁ NHÂN"/>
+        android:title=""/>
 </menu>

@@ -4,24 +4,173 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
-    tools:context="team2.mobileapp.gplx.view.GroupTestActivity">
+    tools:context=".view.GroupTestActivity">
 
 
-    <include
+    <RelativeLayout
         android:id="@+id/header_activity"
-        layout="@layout/header_activity_app" />
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:padding="20dp">
 
-    <ListView
-        android:id="@+id/lv_exam_group"
-        android:divider="@android:color/transparent"
+
+        <ImageView
+            android:id="@+id/logo_top_board"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/logo"
+
+            />
+
+        <TextView
+            android:id="@+id/tv_title_board"
+            style="@style/TextTitle"
+
+            android:layout_below="@+id/logo_top_board"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_radius"
+            android:backgroundTint="@color/green_main"
+            android:paddingLeft="30dp"
+            android:paddingTop="10dp"
+            android:paddingRight="30dp"
+            android:paddingBottom="10dp"
+            android:text="CHỌN BỘ ĐỀ"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+
+            />
+    </RelativeLayout>
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/header_activity"
-        android:layout_marginBottom="65dp"
-        tools:listitem="@layout/listview_group_test_item"/>
+        android:layout_below="@+id/header_activity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="200dp">
+
+            <RelativeLayout
+                android:id="@+id/all_question"
+                style="@style/AroundButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+
+                android:background="@drawable/button_radius_10"
+                android:backgroundTint="@color/green_main"
+                android:padding="30dp">
+
+                <TextView
+                    android:id="@+id/title_all_question"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Đề 1"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="23dp"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/title_all_question"
+                    android:text="Gồm 100 câu"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="15dp">
+
+                </TextView>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/concept"
+
+                style="@style/AroundButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/all_question"
+                android:layout_margin="15dp"
+                android:background="@drawable/button_radius_10"
+                android:backgroundTint="@color/green_main"
+                android:padding="30dp">
+
+                <TextView
+                    android:id="@+id/title_concept"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Đề 2"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="23dp"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/title_concept"
+                    android:text="Gồm 100 câu"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="15dp">
+
+                </TextView>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/culture"
+                style="@style/AroundButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/concept"
+                android:layout_margin="15dp"
+                android:background="@drawable/button_radius_10"
+                android:backgroundTint="@color/green_main"
+                android:padding="30dp">
+
+                <TextView
+                    android:id="@+id/title_culture"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Đề 3"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="23dp"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/title_culture"
+                    android:text="Gồm 100 câu"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="15dp">
+
+                </TextView>
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+    </ScrollView>
 
     <include
-        android:id="@+id/bottom_bar"
+        android:id="@+id/layout"
         layout="@layout/activity_navigation" />
 
 

@@ -4,12 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
-    tools:context="team2.mobileapp.gplx.view.HistoryActivity">
+    tools:context=".view.HistoryActivity">
 
 
-    <include
+    <RelativeLayout
         android:id="@+id/header_activity"
-        layout="@layout/header_activity_app" />
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:padding="20dp">
+
+
+        <ImageView
+            android:id="@+id/logo_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/logo"
+
+            />
+    </RelativeLayout>
 
     <ListView
         android:id="@+id/lvItems"
@@ -18,13 +33,11 @@
         android:layout_below="@+id/header_activity"
         android:divider="@null"
         android:scrollbars="none"
-        tools:listitem="@layout/listview_history_item">
+        tools:listitem="@layout/listview_item">
 
 
-        <include
-            android:id="@+id/bottom_bar"
-            layout="@layout/activity_navigation" />
     </ListView>
+    <include android:id="@+id/layout" layout="@layout/activity_navigation" />
 
 
 </RelativeLayout>

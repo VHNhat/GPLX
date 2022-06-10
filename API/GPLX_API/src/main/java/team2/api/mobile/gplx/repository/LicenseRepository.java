@@ -7,6 +7,7 @@ import team2.api.mobile.gplx.models.License;
 
 @Repository
 public interface LicenseRepository extends MongoRepository<License, String> {
-	License findByName(String name);
-}
 
+	License findByName(String name);
+
+}

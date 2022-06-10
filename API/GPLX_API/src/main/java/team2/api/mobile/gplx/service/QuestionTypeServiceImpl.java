@@ -27,14 +27,4 @@ public class QuestionTypeServiceImpl extends GenericServiceImpl<QuestionType, St
 			return null;
 		}
 	}
-	
-	@Override
-	public QuestionType findByCode(String code) {
-		try {
-			return repo.findByCode(code.toUpperCase());
-		} catch(Exception ex) {
-			System.out.println(ex.getMessage());
-			return null;
-		}
-	}
 }

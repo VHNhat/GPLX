@@ -30,18 +30,13 @@ public class QuestionSet extends AbstractEntity {
 	@JsonProperty("RightAns")
 	private int rightAns;
 	
-	@JsonProperty("LicenseId")
-	private String licenseId;
-	
-	
-	public QuestionSet(String name, boolean status, int quantity, int wrongAns, int rightAns, String licenseId) {
+	public QuestionSet(String name, boolean status, int quantity, int wrongAns, int rightAns) {
 		super();
 		this.name = name;
 		this.status = status;
 		this.quantity = quantity;
 		this.wrongAns = wrongAns;
 		this.rightAns = rightAns;
-		this.licenseId = licenseId;
 	}
 	public QuestionSet() {
 		
@@ -76,12 +71,5 @@ public class QuestionSet extends AbstractEntity {
 	public void setRightAns(int rightAns) {
 		this.rightAns = rightAns;
 	}
-	public String getLicenseId() {
-		return licenseId;
-	}
-	public void setLicenseId(String licenseId) {
-		this.licenseId = licenseId;
-	}
-	
 	
 }

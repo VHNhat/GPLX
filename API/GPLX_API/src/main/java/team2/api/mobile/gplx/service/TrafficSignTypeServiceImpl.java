@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import team2.api.mobile.gplx.commondata.GenericServiceImpl;
-import team2.api.mobile.gplx.models.TrafficSign;
 import team2.api.mobile.gplx.models.TrafficSignType;
 import team2.api.mobile.gplx.repository.TrafficSignTypeRepository;
 import team2.api.mobile.gplx.service.interfaces.TrafficSignTypeService;
@@ -36,18 +35,6 @@ public class TrafficSignTypeServiceImpl extends GenericServiceImpl<TrafficSignTy
 	@Override
 	public TrafficSignType findByCode(String code) {
 		return repo.findByCode(code);
-	}
-	
-	@Override
-	public TrafficSignType findTrafficSignTypeById(String id) {
-		try {
-			TrafficSignType object = repo.findById(id).get();
-			return object;
-		}
-		catch (Exception ex){
-			System.out.println(ex.getMessage());
-			return null;
-		}
 	}
 
 }

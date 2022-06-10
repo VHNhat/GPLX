@@ -7,5 +7,7 @@ import team2.api.mobile.gplx.models.QuestionType;
 
 @Repository
 public interface QuestionTypeRepository extends MongoRepository<QuestionType, String> {
+
 	QuestionType findByCode(String code);
+
 }
