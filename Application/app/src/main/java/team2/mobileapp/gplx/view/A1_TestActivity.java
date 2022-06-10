@@ -28,7 +28,7 @@ public class A1_TestActivity extends AppCompatActivity {
 
         VariableGlobal.SetNavigationBar(A1_TestActivity.this);
         License license = (License) getIntent().getSerializableExtra("License");
-        tvLicense.setText("Hạng " + license.getName());
+        tvLicense.setText("Hạng " +   VariableGlobal.typeCode);
         overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
         btnRandom.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,7 +53,7 @@ public class A1_TestActivity extends AppCompatActivity {
         btnBoard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(A1_TestActivity.this, NoticeBoardActivity.class);
+                Intent intent = new Intent(A1_TestActivity.this, GroupBoardingActivity.class);
                 intent.putExtra("TITLE", "Các loại biển báo");
                 startActivity(intent);
             }

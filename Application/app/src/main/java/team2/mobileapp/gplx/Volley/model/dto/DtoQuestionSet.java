@@ -3,7 +3,6 @@ package team2.mobileapp.gplx.Volley.model.dto;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.Optional;
 
 import team2.mobileapp.gplx.Volley.model.Answer;
 import team2.mobileapp.gplx.Volley.model.Question;

@@ -2,10 +2,11 @@ package team2.mobileapp.gplx.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -42,10 +43,13 @@ public class DetailsNoticeBoardActivity extends AppCompatActivity implements Tra
     public void onFetchProgress(TrafficSign trafficSign) {
         tvTitle.setText(trafficSign.getName());
         tvDescription.setText(trafficSign.getDescription());
-        String uri = trafficSign.getPhoto().substring(0, trafficSign.getPhoto().length() - 4);
-        int imageResource = getResources().getIdentifier(uri, "drawable", getPackageName());
-        Drawable res = getResources().getDrawable(imageResource);
-        ivPhoto.setImageDrawable(res);
+        String uri = VariableGlobal.PHOTO1 + "BB" + VariableGlobal.PHOTO2 + trafficSign.getPhoto() + VariableGlobal.PHOTO3+VariableGlobal.Token;
+        Picasso.get()
+                .load(uri)
+                .placeholder(com.wooplr.spotlight.R.drawable.ic_spotlight_arc)
+                .error(com.wooplr.spotlight.R.drawable.ic_spotlight_arc)
+                .fit()
+                .into(ivPhoto);
 
     }
 

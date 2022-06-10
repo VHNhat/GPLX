@@ -9,8 +9,9 @@
 
     <ImageButton
         android:id="@+id/btn_close"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:scaleType="fitXY"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_marginStart="20dp"
@@ -33,7 +34,7 @@
         android:background="@drawable/background_title"
         android:text="@string/Tutor_title"
         android:textColor="@color/white"
-        android:textSize="23sp"
+        android:textSize="20sp"
         android:textAllCaps="true"
         android:padding="3dp"
         android:gravity="center"
@@ -46,9 +47,11 @@
         android:layout_height="wrap_content"
         android:fillViewport="true"
         android:layout_below="@id/tv_tutorial"
+
         android:scrollbars="none" >
 
         <LinearLayout
+            android:paddingBottom="100dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">

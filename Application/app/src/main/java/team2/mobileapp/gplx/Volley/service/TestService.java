@@ -15,7 +15,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import team2.mobileapp.gplx.Volley.callback.MySingleton;
 import team2.mobileapp.gplx.Volley.model.Answer;

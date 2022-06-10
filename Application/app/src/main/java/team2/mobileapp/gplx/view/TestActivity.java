@@ -28,6 +28,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.squareup.picasso.Picasso;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -72,7 +73,6 @@ public class TestActivity extends AppCompatActivity implements Serializable {
         final TestService testService = new TestService(TestActivity.this);
 
         String questionSetId = getIntent().getStringExtra("QuestionSetId");
-        Log.i("QuestionSetId", questionSetId);
 
         ShowTest(testService, questionSetId);
         myFab = (FloatingActionButton) findViewById(R.id.fab);
@@ -129,7 +129,6 @@ public class TestActivity extends AppCompatActivity implements Serializable {
 
                 }
 
-                // check hết checkList nếu xuất questionId trong checkList nghĩa là câu này đc trả lời rồi
                 boolean flag = false;
                 for (int j = 0; j < checkList.size(); j++) {
                     if (checkList.get(j).getQuestionId().equals(questionId)) {
@@ -196,6 +195,32 @@ public class TestActivity extends AppCompatActivity implements Serializable {
     }
 
     private void ViewResult(DtoQuestionSet dto, int i) {
+        try {
+            List<Answer> ansList = dto.getAnsList();
+            tvResult.setText(ansList.get(i).getAnswerList()[ansList.get(i).getResult()]);
+            // Check đúng sai
+            for (CheckRadioButton item : checkList) {
+                if (item.getQuestionId().equals(questionId) && item.getAnswerIndex() == ansList.get(i).getResult()) {
+                    tvResult.setTextColor(ColorStateList.valueOf(getResources().getColor(R.color.green_main)));
+                    break;
+                } else {
+                    tvResult.setTextColor(ColorStateList.valueOf(getResources().getColor(R.color.red)));
+                }
+            }
+        } catch (Exception e) {
+            Log.d("Error", "TRUE");
+        }
+    }
+
+    private void SetDisableRadioButton() {
+        int count = rgAnswer.getChildCount();
+        for (int i = 0; i < count; i++) {
+            rgAnswer.getChildAt(i).setEnabled(false);
+        }
+        result_layout.setVisibility(View.VISIBLE);
+    }
+
+    private void ViewResult(DtoQuestionSet dto, int i) {
         List<Answer> ansList = dto.getAnsList();
         tvResult.setText(ansList.get(i).getAnswerList()[ansList.get(i).getResult()]);
         // Check đúng sai
@@ -223,7 +248,7 @@ public class TestActivity extends AppCompatActivity implements Serializable {
         testService.GetByQuestionSet(questionSetId, new TestService.GetByQuestionSetCallBack() {
             @Override
             public void onError(String message) {
-                Toast.makeText(TestActivity.this, "Error Babe!!!", Toast.LENGTH_LONG);
+                Toast.makeText(TestActivity.this, "Có lỗi xảy ra!", Toast.LENGTH_LONG);
             }
 
             @RequiresApi(api = Build.VERSION_CODES.N)
@@ -300,8 +325,9 @@ public class TestActivity extends AppCompatActivity implements Serializable {
 
     // Hàm hiển thị câu hỏi và câu trả lời
     private void UpdateQuestion(DtoQuestionSet dto, int totalQuestion, int i) {
-        if(isCompleted){
-            ViewResult(dto,i);
+
+        if (isCompleted) {
+            ViewResult(dto, i);
         }
         UpdateHistory();
         // Trường hợp câu 1
@@ -321,17 +347,27 @@ public class TestActivity extends AppCompatActivity implements Serializable {
         }
         String photo = dto.getQuestList().get(i).getPhoto();
         // Khi nào có hình thì mở ra
-//        if(!photo.isEmpty()){
-//            String uri = photo.substring(0, photo.length() - 4);
-//            int imageResource = getResources().getIdentifier(uri, "drawable", getPackageName());
-//            Drawable res = getResources().getDrawable(imageResource);
-//            iv_question.setImageDrawable(res);
-//        }
+
+        if (photo.length() >= 5) {
+            ivQuestion.setVisibility(View.VISIBLE);
+            String uri = VariableGlobal.PHOTO1 + VariableGlobal.typeCode + VariableGlobal.PHOTO2 + photo + VariableGlobal.PHOTO3 + VariableGlobal.Token;
+            Picasso.get()
+                    .load(uri)
+                    .placeholder(com.wooplr.spotlight.R.drawable.ic_spotlight_arc)
+                    .error(com.wooplr.spotlight.R.drawable.ic_spotlight_arc)
+                    .fit()
+                    .into(ivQuestion);
+
+
+        } else {
+            ivQuestion.setVisibility(View.GONE);
+        }
+
         int index = dto.getQuestList().get(i).getIndex();
         String[] ansList = dto.getAnsList().get(i).getAnswerList();
         int numberOfAns = ansList.length;
         ProgressAnimation(index * 100 / totalQuestion);
-//        determinateBar.setProgress();
+
         tvPositionQuestion.setText("" + dto.getQuestList().get(i).getIndex());
         tvQuestion.setText(dto.getQuestList().get(i).getQuery());
 
@@ -382,6 +418,7 @@ public class TestActivity extends AppCompatActivity implements Serializable {
         }
     }
 
+
     private void ResetRadioButton() {
         rgAnswer.clearCheck();
     }
@@ -417,7 +454,16 @@ public class TestActivity extends AppCompatActivity implements Serializable {
     public boolean moveTaskToBack(boolean nonRoot) {
         overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
         return super.moveTaskToBack(nonRoot);
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (isCompleted) {
+            i[0] = 0;
+            UpdateQuestion(dtoQuestionSet, totalQuestion, i[0]);
+            CheckedRadioButton(dtoQuestionSet, i[0]);
+        }
     }
 
     @Override
