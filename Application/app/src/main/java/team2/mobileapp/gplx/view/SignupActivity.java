@@ -1,13 +1,12 @@
 package team2.mobileapp.gplx.view;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -16,15 +15,17 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import pl.droidsonroids.gif.GifImageView;
-import team2.mobileapp.gplx.Volley.model.Account;
 import team2.mobileapp.gplx.R;
+import team2.mobileapp.gplx.Volley.model.Account;
 import team2.mobileapp.gplx.Volley.model.dto.RegisterResponse;
 import team2.mobileapp.gplx.Volley.service.AuthenService;
 
 public class SignupActivity extends AppCompatActivity {
 
-    EditText firstName, lastName, Email, userName, Password, confirmPassword;
+    EditText firstName, fullName, Email, userName, Password, confirmPassword;
     Button btnSignup;
     TextView textLogin;
     GifImageView gifDone;
@@ -62,17 +63,18 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
     }
+
     public void hideKeyboard() {
         View view = this.getCurrentFocus();
-        if(view  !=null){
-            InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
+        if (view != null) {
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
             inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
 
     }
+
     private void InitialVariable() {
-        firstName = findViewById(R.id.et_first_name_signup);
-        lastName = findViewById(R.id.et_last_name_signup);
+        fullName = findViewById(R.id.et_last_name_signup);
         Email = findViewById(R.id.et_email_signup);
         userName = findViewById(R.id.et_username_signup);
         Password = findViewById(R.id.et_password_signup);
@@ -90,9 +92,7 @@ public class SignupActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 hideKeyboard();
-                if (firstName.getText().toString().isEmpty())
-                    Toast.makeText(SignupActivity.this, "Hãy nhập Họ", Toast.LENGTH_LONG).show();
-                else if (lastName.getText().toString().isEmpty())
+                if (fullName.getText().toString().isEmpty())
                     Toast.makeText(SignupActivity.this, "Hãy nhập Tên", Toast.LENGTH_LONG).show();
                 else if (Email.getText().toString().isEmpty())
                     Toast.makeText(SignupActivity.this, "Hãy nhập Email", Toast.LENGTH_LONG).show();
@@ -106,11 +106,11 @@ public class SignupActivity extends AppCompatActivity {
                     Toast.makeText(SignupActivity.this, "Hãy xác nhận lại mật khẩu", Toast.LENGTH_LONG).show();
                 else {
                     Account account = new Account();
-                    account.setFirstName(firstName.getText().toString());
-                    account.setLastName(lastName.getText().toString());
+                    account.setFullname(fullName.getText().toString());
                     account.setEmail(Email.getText().toString());
                     account.setUsername(userName.getText().toString());
                     account.setPassword(Password.getText().toString());
+                    Log.i("fullname", fullName.getText().toString());
                     authenService.Register(account, new AuthenService.SignupCallBack() {
                         @Override
                         public void onError(String message) {
@@ -146,6 +146,7 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
     }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -158,6 +159,7 @@ public class SignupActivity extends AppCompatActivity {
         return super.moveTaskToBack(nonRoot);
 
     }
+
     @Override
     protected void onResume() {
         super.onResume();

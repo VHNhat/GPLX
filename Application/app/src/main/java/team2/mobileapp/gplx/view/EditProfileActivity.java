@@ -25,12 +25,10 @@ public class EditProfileActivity extends AppCompatActivity implements AccountCal
     private EditText etFullName;
     private EditText etUsername;
     private EditText etEmail;
-    private Button btnSave,Logout;
+    private Button btnSave, Logout;
     private RelativeLayout checkOutFocus;
     private Account accountView;
     private AccountController accountController;
-    private InputMethodManager inputMethodManager;
-    private boolean isUpdated = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +46,7 @@ public class EditProfileActivity extends AppCompatActivity implements AccountCal
                 @Override
                 public void onClick(View v) {
                     try {
-                        accountView.setFirstName(etFullName.getText().toString());
+                        accountView.setFullName(etFullName.getText().toString());
                         accountView.setUsername(etUsername.getText().toString());
                         accountController.updateAccount(accountView.getId(), accountView);
                     } catch (Exception e) {
@@ -113,7 +111,7 @@ public class EditProfileActivity extends AppCompatActivity implements AccountCal
     public void onFetchAccountProgress(Account account) {
         if (account != null) {
             this.accountView = account;
-            etFullName.setText(account.getLastName() + " " + account.getFirstName());
+            etFullName.setText(account.getFullName());
             etUsername.setText(account.getUsername());
             etEmail.setText(account.getEmail());
         }

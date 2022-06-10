@@ -66,18 +66,18 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:layout_marginLeft="10dp"
                     android:id="@+id/et_last_name"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_below="@id/tv_last_name"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginBottom="15dp"
                     android:background="@drawable/input_radius"
+                    android:backgroundTint="#E6F3F3F3"
                     android:inputType="text"
                     android:maxLines="1"
-                    android:backgroundTint="#E6F3F3F3"
                     android:paddingLeft="30dp"
-                    android:paddingRight="30dp"/>
+                    android:paddingRight="30dp" />
             </RelativeLayout>
         </RelativeLayout>
 
@@ -165,6 +165,7 @@
         android:layout_margin="20dp"
         android:textColor="@color/white"
         android:text="Đăng xuất"/>
+
     <include
         android:id="@+id/bottom_bar"
         layout="@layout/activity_navigation" />

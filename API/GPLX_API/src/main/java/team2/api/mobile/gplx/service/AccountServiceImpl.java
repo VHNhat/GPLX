@@ -33,11 +33,8 @@ public class AccountServiceImpl extends GenericServiceImpl<Account, String> impl
 	public Account update(String id, Account account) {
 		try {
 			Account updatedAccount = repo.findById(id).get();
-//			updatedAccount.setUsername(account.getUsername());
 			updatedAccount.setPassword(account.getPassword());
-//			updatedAccount.setEmail(account.getEmail());
-			updatedAccount.setFirstName(account.getFirstName());
-			updatedAccount.setLastName(account.getLastName());
+			updatedAccount.setFullName(account.getFullName());
 			updatedAccount.setAvatar(account.getAvatar());
 			updatedAccount.setStatus(account.getStatus());
 			return repo.save(updatedAccount);
@@ -88,10 +85,9 @@ public class AccountServiceImpl extends GenericServiceImpl<Account, String> impl
 				Role role = roleRepo.findByRoleName("User");
 				Account account = new Account();
 				account.setEmail(dto.getEmail());
+				account.setFullName(dto.getFullName());
 				account.setUsername(dto.getUsername());
 				account.setPassword(dto.getPassword());
-				account.setFirstName(dto.getFirstName());
-				account.setLastName(dto.getLastName());
 				account.setRoleId(role.getId());
 				account.setStatus(AccountStatus.ACTIVE);
 				repo.save(account);
