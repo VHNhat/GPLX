@@ -1,7 +1,10 @@
 package team2.mobileapp.gplx.view;
 
 import android.content.Context;
+<<<<<<< HEAD
 import android.util.Log;
+=======
+>>>>>>> c6e7822422f93877d1fd552e440356ed7476a5a5
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
