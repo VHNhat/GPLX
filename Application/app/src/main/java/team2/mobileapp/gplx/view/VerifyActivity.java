@@ -27,6 +27,7 @@ public class VerifyActivity extends AppCompatActivity implements ForgotPassCallB
     EditText etVerifyCode;
     TextView tvResend;
     Button btnVerifyCode;
+
     RelativeLayout checkOutFocus;
     SMSAPI sms = new SMSAPI();
     @Override
@@ -62,15 +63,16 @@ public class VerifyActivity extends AppCompatActivity implements ForgotPassCallB
             @Override
             public void onClick(View view) {
                 hideKeyboard();
-                if(etVerifyCode.getText().toString().isEmpty())
-                   Toast .makeText(VerifyActivity.this, "Please enter verification code", Toast.LENGTH_LONG).show();
+                if(etVerifyCode.getText().toString().isEmpty()){
+                VariableGlobal.showToast(VerifyActivity.this, "Hãy nhập mã CODE");
+                }
                 else{
                     if(etVerifyCode.getText().toString().equals(VariableGlobal.verificationCode.getCode())){
                         setNewPass.putExtra("Email", email);
                         startActivity(setNewPass);
                     }
                     else {
-                        Toast .makeText(VerifyActivity.this, "Your verification code is invalid!!!", Toast.LENGTH_LONG).show();
+                        VariableGlobal.showToast(VerifyActivity.this, "Mã xác nhận không đúng!!!");
                     }
                 }
             }

@@ -1,5 +1,6 @@
 package team2.mobileapp.gplx.Volley.service;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
@@ -69,7 +70,8 @@ public class AuthenService  {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-
+                    Activity activity = (Activity) context;
+                    VariableGlobal.showToast(activity, "Không xác thực được tài khoản");
                 }
             }) {
                 @Override
@@ -106,7 +108,7 @@ public class AuthenService  {
             String url = BASE_IP + requestMapping;
             JSONObject jsonBody = new JSONObject();
 
-            Log.d("Account", account.toString());
+
             jsonBody.put("FullName", account.getFullName());
             jsonBody.put("Email", account.getEmail());
             jsonBody.put("Username", account.getUsername());
@@ -117,7 +119,6 @@ public class AuthenService  {
             JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url,null, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
-                    Log.i("LOG_VOLLEY", response.toString());
                     RegisterResponse registerResponse = new RegisterResponse();
                     try {
                         registerResponse.setEmail(response.getString("Email"));
@@ -130,8 +131,8 @@ public class AuthenService  {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Log.e("LOG_VOLLEY", error.toString());
-                    Toast.makeText(context, "Account invalid!", Toast.LENGTH_LONG).show();
+                    Activity activity = (Activity) context;
+                    VariableGlobal.showToast(activity, "Không xác thực được tài khoản");
                 }
             }) {
                 @Override
@@ -177,7 +178,7 @@ public class AuthenService  {
             JsonObjectRequest request = new JsonObjectRequest(Request.Method.PUT, url,null, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
-                    Log.i("LOG_VOLLEY", response.toString());
+
                     Account account = new Account();
                     try {
                         account.setId(response.getString("id"));
@@ -196,7 +197,8 @@ public class AuthenService  {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(context, "Your email is invalid", Toast.LENGTH_LONG).show();
+                    Activity activity = (Activity) context;
+                    VariableGlobal.showToast(activity, "Email không đúng");
                 }
             }) {
                 @Override

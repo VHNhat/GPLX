@@ -36,7 +36,7 @@ public class VariableGlobal  {
     public static String Token="";
     public static int IdNavigation=1000010;
     public static ArrayList<String> listMarkGlobal = new ArrayList<>();
-    public static VerificationCode verificationCode;
+    public static VerificationCode verificationCode = new VerificationCode();
     public static void SetNavigationBar(Activity activity){
         View bottom_bar_container = activity.findViewById(R.id.bottom_bar);
         NavigationBarView navigationBarView = bottom_bar_container.findViewById(R.id.bottomBar);
