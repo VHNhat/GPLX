@@ -4,8 +4,7 @@ public class Account {
     private String username;
     private String password;
     private String email;
-    private String firstName;
-    private String lastName;
+    private String fullname;
     private String avatar;
     private String status;
 
@@ -33,21 +32,11 @@ public class Account {
         this.email = email;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFullname() {
+        return fullname;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+    public void setFullname(String fullname) { this.fullname = fullname; }
 
     public String getAvatar() {
         return avatar;
@@ -71,8 +60,7 @@ public class Account {
                 "username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
+                ", fullname='" + fullname + '\'' +
                 ", avatar='" + avatar + '\'' +
                 ", status='" + status + '\'' +
                 '}';

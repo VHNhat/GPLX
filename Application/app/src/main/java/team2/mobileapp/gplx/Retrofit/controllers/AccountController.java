@@ -13,7 +13,6 @@ public class AccountController {
     private AccountCallbackListener accountCallbackListener;
     private RestAPIManager restAPI;
     private String message;
-    private boolean isUpdated = false;
 
     public AccountController(AccountCallbackListener accountCallbackListener) {
         this.accountCallbackListener = accountCallbackListener;
@@ -50,11 +49,9 @@ public class AccountController {
                     Account account = response.body();
                     if (account != null && response.code() == 200) {
                         message = "Cập nhật thông tin cá nhân thành công";
-                        isUpdated = true;
                     }
                 } catch (Exception e) {
                     message = "Có lỗi xảy ra";
-                    isUpdated = false;
                     Log.d("Error:", e.getMessage());
                 }
                 accountCallbackListener.onFetchComplete(message);
@@ -62,7 +59,6 @@ public class AccountController {
 
             @Override
             public void onFailure(Call<Account> call, Throwable t) {
-                isUpdated = false;
                 message = "Có lỗi xảy ra";
                 Log.d("Error", t.getMessage());
             }
