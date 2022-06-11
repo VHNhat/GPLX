@@ -4,6 +4,7 @@
     android:id="@+id/check_out_focus"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusable="true"
     tools:context="team2.mobileapp.gplx.view.EditProfileActivity">
 
     <RelativeLayout
@@ -37,11 +38,14 @@
         android:src="@drawable/avatar" />
 
     <ScrollView
+        android:focusable="true"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/img_avatar">
 
         <RelativeLayout
+            android:id="@+id/profile_scroll"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/header"
@@ -188,14 +192,16 @@
     <Button
         android:id="@+id/logout"
         android:layout_width="100dp"
-        android:layout_height="30dp"
+        android:layout_height="35dp"
         android:layout_alignParentEnd="true"
         android:layout_margin="20dp"
-        android:background="@drawable/button_radius_10"
-        android:backgroundTint="#FF5722"
+        android:background="@drawable/logout"
+        android:paddingTop="3dp"
         android:text="Đăng xuất"
+        android:gravity="center_horizontal"
+        android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textStyle="bold" />
+        android:textFontWeight="@integer/material_motion_duration_medium_2"/>
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/gif_done"
@@ -204,7 +210,7 @@
         android:background="#83F8F8F8"
         android:padding="90dp"
         android:src="@raw/animation_done"
-        android:visibility="invisible" />
+        android:visibility="gone" />
 
     <include
         android:id="@+id/bottom_bar"

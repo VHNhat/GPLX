@@ -11,7 +11,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -30,6 +29,7 @@ public class EditProfileActivity extends AppCompatActivity implements AccountCal
     private EditText etConfirmPassword;
     private Button btnSave, Logout;
     private RelativeLayout checkOutFocus;
+    private RelativeLayout checkOutFocusScroll;
     private Account accountView;
     private AccountController accountController;
 
@@ -48,6 +48,7 @@ public class EditProfileActivity extends AppCompatActivity implements AccountCal
             btnSave.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    hideKeyboard();
                     try {
                         if (etPassword.getText().toString().equals(etConfirmPassword.getText().toString())) {
                             accountView.setFullName(etFullName.getText().toString());
@@ -67,6 +68,12 @@ public class EditProfileActivity extends AppCompatActivity implements AccountCal
         }
 
         checkOutFocus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                hideKeyboard();
+            }
+        });
+        checkOutFocusScroll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 hideKeyboard();
@@ -118,6 +125,7 @@ public class EditProfileActivity extends AppCompatActivity implements AccountCal
         btnSave = (Button) findViewById(R.id.btn_save);
         checkOutFocus = findViewById(R.id.check_out_focus);
         Logout = findViewById(R.id.logout);
+        checkOutFocusScroll = findViewById( R.id.profile_scroll);
     }
 
     @Override

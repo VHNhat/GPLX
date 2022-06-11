@@ -74,7 +74,7 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     private void InitialVariable() {
-        fullName = findViewById(R.id.et_last_name_signup);
+        fullName = findViewById(R.id.et_fullname);
         Email = findViewById(R.id.et_email_signup);
         userName = findViewById(R.id.et_username_signup);
         Password = findViewById(R.id.et_password_signup);
@@ -84,6 +84,7 @@ public class SignupActivity extends AppCompatActivity {
         textLogin = findViewById(R.id.tv_login);
         gifDone = findViewById(R.id.gif_done);
         checkOutFocusSignup = findViewById(R.id.check_out_focus_signup);
+
     }
 
     private void Signup(AuthenService authenService, Intent login) {

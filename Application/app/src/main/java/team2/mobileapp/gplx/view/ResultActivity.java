@@ -3,6 +3,7 @@ package team2.mobileapp.gplx.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -79,32 +80,41 @@ public class ResultActivity extends AppCompatActivity implements LicenseByIdCall
         if(license != null){
             if(license.getName().equals("A1")){
                 int minPx = 24;
-                int rightPx = (int) (minPx * rightAns);
-                int wrongPx = (int) (minPx * wrongAns);
+                int rightPx = (int) (minPx * rightAns)/(4/3);
+                int wrongPx = (int) (minPx * wrongAns)/(4/3);
                 correct.getLayoutParams().height = rightPx;
                 incorrect.getLayoutParams().height = wrongPx;
                 if(rightAns < 21){
                     iv_result.setImageResource(R.drawable.result_failed);
-                    result_layout.setBackgroundColor(Color.RED);
+                    result_layout.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.red)));
                     tv_result_show.setText("Không đạt");
+                }
+                else{
+                    iv_result.setImageResource(R.drawable.result_pass);
+                    result_layout.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.green_main)));
+                    tv_result_show.setText("Đạt");
                 }
             }
             if(license.getName().equals("A2")){
                 int minPx = 24;
-                int rightPx = (int) (minPx * rightAns);
-                int wrongPx = (int) (minPx * wrongAns);
+                int rightPx = (int) (minPx * rightAns)/(4/3);
+                int wrongPx = (int) (minPx * wrongAns)/(4/3);
                 correct.getLayoutParams().height = rightPx;
                 incorrect.getLayoutParams().height = wrongPx;
                 if(rightAns < 23){
                     iv_result.setImageResource(R.drawable.result_failed);
                     result_layout.setBackgroundColor(Color.RED);
                     tv_result_show.setText("Không đạt");
+                }else{
+                    iv_result.setImageResource(R.drawable.result_pass);
+                    result_layout.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.green_main)));
+                    tv_result_show.setText("Đạt");
                 }
             }
             if(license.getName().equals("B1")){
                 int minPx = 20;
-                int rightPx = (int) (minPx * rightAns);
-                int wrongPx = (int) (minPx * wrongAns);
+                int rightPx = (int) (minPx * rightAns)/(4/3);
+                int wrongPx = (int) (minPx * wrongAns)/(4/3);
                 correct.getLayoutParams().height = rightPx;
                 incorrect.getLayoutParams().height = wrongPx;
                 if(rightAns < 27){
@@ -112,17 +122,27 @@ public class ResultActivity extends AppCompatActivity implements LicenseByIdCall
                     result_layout.setBackgroundColor(Color.RED);
                     tv_result_show.setText("Không đạt");
                 }
+                else{
+                    iv_result.setImageResource(R.drawable.result_pass);
+                    result_layout.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.green_main)));
+                    tv_result_show.setText("Đạt");
+                }
             }
             if(license.getName().equals("B2")){
                 int minPx = 17;
-                int rightPx = (int) (minPx * rightAns);
-                int wrongPx = (int) (minPx * wrongAns);
+                int rightPx = (int) (minPx * rightAns)/(4/3);
+                int wrongPx = (int) (minPx * wrongAns)/(4/3);
                 correct.getLayoutParams().height = rightPx;
                 incorrect.getLayoutParams().height = wrongPx;
                 if(rightAns < 32){
                     iv_result.setImageResource(R.drawable.result_failed);
                     result_layout.setBackgroundColor(Color.RED);
                     tv_result_show.setText("Không đạt");
+                }
+                else{
+                    iv_result.setImageResource(R.drawable.result_pass);
+                    result_layout.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.green_main)));
+                    tv_result_show.setText("Đạt");
                 }
             }
         }
@@ -147,7 +167,6 @@ public class ResultActivity extends AppCompatActivity implements LicenseByIdCall
             boolean flag = false;
             for(CheckRadioButton item : checkList){
                 if(item.getQuestionId().equals(questions.get(i).getId()) && item.getAnswerId().equals(answers.get(i).getId())){
-                    Log.i("Result", String.valueOf(answers.get(i).getResult()));
                     if(item.getAnswerIndex() == answers.get(i).getResult()){
                         flag = true;
                         rightAns++;

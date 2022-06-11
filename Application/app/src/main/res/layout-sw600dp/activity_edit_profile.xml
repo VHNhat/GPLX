@@ -43,6 +43,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:id="@+id/profile_scroll"
             android:layout_below="@id/header"
             android:paddingHorizontal="40dp"
             android:paddingBottom="120dp">
@@ -186,21 +187,24 @@
                 android:background="@drawable/br_button2"
                 android:text="Cập nhật"
                 android:textAllCaps="true"
-                android:textSize="32dp" />
+                android:textSize="30dp" />
         </RelativeLayout>
     </ScrollView>
 
     <Button
         android:id="@+id/logout"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
+        android:layout_width="160dp"
+        android:layout_height="55dp"
         android:layout_alignParentEnd="true"
         android:layout_margin="20dp"
-        android:background="@drawable/button_radius_10"
-        android:backgroundTint="#FF5722"
+        android:background="@drawable/logout"
+        android:paddingTop="4dp"
         android:text="Đăng xuất"
+        android:gravity="center_horizontal"
+        android:textAllCaps="false"
+        android:textSize="0.15in"
         android:textColor="@color/white"
-        android:textStyle="bold" />
+        android:textFontWeight="@integer/material_motion_duration_medium_2"/>
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/gif_done"

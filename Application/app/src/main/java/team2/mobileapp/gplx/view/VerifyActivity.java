@@ -47,6 +47,7 @@ public class VerifyActivity extends AppCompatActivity implements ForgotPassCallB
         tvResend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                
                 accountController = new AccountController(VerifyActivity.this);
                 accountController.ForgotPassword(email);
             }

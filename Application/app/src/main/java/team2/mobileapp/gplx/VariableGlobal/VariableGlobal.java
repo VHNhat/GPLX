@@ -24,6 +24,7 @@ import team2.mobileapp.gplx.view.EditProfileActivity;
 import team2.mobileapp.gplx.view.GroupBoardingActivity;
 import team2.mobileapp.gplx.view.HistoryActivity;
 import team2.mobileapp.gplx.view.SelectCategoryActivity;
+import team2.mobileapp.gplx.view.TutorialActivity;
 
 public class VariableGlobal  {
     public static String typeCode ="A1";
@@ -51,7 +52,7 @@ public class VariableGlobal  {
                         return true;
                     }
                     case R.id.page_category:{
-                        Intent intent = new Intent(activity, GroupBoardingActivity.class);
+                        Intent intent = new Intent(activity, TutorialActivity.class);
                         activity.startActivity(intent);
                         return true;
                     }
@@ -84,4 +85,5 @@ public class VariableGlobal  {
         toast.setView(layout);
         toast.show();
     }
+
 }
