@@ -1,7 +1,6 @@
 package team2.mobileapp.gplx.Retrofit.controllers;
 
 import android.util.Log;
-import android.widget.Toast;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -13,7 +12,6 @@ import team2.mobileapp.gplx.Retrofit.callbacks.ForgotPassCallBackListener;
 import team2.mobileapp.gplx.Retrofit.dto.ChangePassword;
 import team2.mobileapp.gplx.Retrofit.dto.VerificationCode;
 import team2.mobileapp.gplx.Retrofit.models.Account;
-import team2.mobileapp.gplx.view.SetNewPasswordActivity;
 
 public class AccountController {
     private AccountCallbackListener accountCallbackListener;

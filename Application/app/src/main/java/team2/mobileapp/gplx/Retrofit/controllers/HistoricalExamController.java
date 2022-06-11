@@ -43,4 +43,24 @@ public class HistoricalExamController {
             }
         });
     }
+
+    public void addHistory(HistoricalExam history) {
+        rest.getHistoricalExamAPI().addNewHistory(history).enqueue(new Callback<HistoricalExam>() {
+            @Override
+            public void onResponse(Call<HistoricalExam> call, Response<HistoricalExam> response) {
+                try {
+                    message = response.code() == 200 ? "Hoàn thành bài thi!!" : "Có lỗi xảy ra...!";
+                } catch (Exception e) {
+
+                }
+                historicalExamCalBackListenter.onFetchComplete(message);
+            }
+
+            @Override
+            public void onFailure(Call<HistoricalExam> call, Throwable t) {
+                message = t.getMessage();
+                historicalExamCalBackListenter.onFetchComplete(message);
+            }
+        });
+    }
 }

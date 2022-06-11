@@ -11,7 +11,6 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,17 +30,23 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.squareup.picasso.Picasso;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import team2.mobileapp.gplx.R;
+import team2.mobileapp.gplx.Retrofit.callbacks.HistoricalExamCalBackListenter;
+import team2.mobileapp.gplx.Retrofit.controllers.HistoricalExamController;
+import team2.mobileapp.gplx.Retrofit.models.HistoricalExam;
 import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
 import team2.mobileapp.gplx.Volley.model.Answer;
 import team2.mobileapp.gplx.Volley.model.CheckRadioButton;
+import team2.mobileapp.gplx.Volley.model.Question;
 import team2.mobileapp.gplx.Volley.model.dto.DtoQuestionSet;
 import team2.mobileapp.gplx.Volley.service.TestService;
 
-public class TestActivity extends AppCompatActivity implements Serializable {
+public class TestActivity extends AppCompatActivity implements Serializable, HistoricalExamCalBackListenter {
 
     private RelativeLayout result_layout;
     private TextView tvPositionQuestion, tvTotalQuestion, tvQuestion, tvResult, tvTitleResult;
@@ -62,6 +67,7 @@ public class TestActivity extends AppCompatActivity implements Serializable {
     private boolean isCompleted = false;
     private String questionId = "";
     private DtoQuestionSet dtoQuestionSet;
+    private HistoricalExamController historicalExamController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -288,6 +294,15 @@ public class TestActivity extends AppCompatActivity implements Serializable {
                                 Intent intent = new Intent(TestActivity.this, ResultActivity.class);
                                 intent.putExtra("Dto", dto);
                                 intent.putExtra("History", checkList);
+                                HistoricalExam history = new HistoricalExam();
+                                history.setUserid(VariableGlobal.idUser);
+                                history.setLicense(VariableGlobal.license.getName());
+                                history.setSetname(dto.getQuestionSet().getName().split(" - ")[0]);
+                                history.setDate(new SimpleDateFormat("dd-MM-yyyy").format(new Date()));
+                                history.setCorrect(UpdateScore(dto, checkList));
+                                history.setTotal(dto.getQuestList().size());
+//                                historicalExamController.addHistory(history);
+                                Log.d("History", history.toString());
                                 isCompleted = true;
                                 SetDisableRadioButton();
                                 startActivity(intent);
@@ -321,6 +336,24 @@ public class TestActivity extends AppCompatActivity implements Serializable {
 
             }
         });
+    }
+
+    private int UpdateScore(DtoQuestionSet dto, ArrayList<CheckRadioButton> checkList) {
+        List<Question> questions = dto.getQuestList();
+        List<Answer> answers = dto.getAnsList();
+        int rightAns = 0;
+        for(int i = 0; i < dto.getQuestList().size(); i++){
+            boolean flag = false;
+            for(CheckRadioButton item : checkList){
+                if(item.getQuestionId().equals(questions.get(i).getId()) && item.getAnswerId().equals(answers.get(i).getId())){
+                    if(item.getAnswerIndex() == answers.get(i).getResult()){
+                        flag = true;
+                        rightAns++;
+                    }
+                }
+            }
+        }
+        return rightAns;
     }
 
     // Hàm hiển thị câu hỏi và câu trả lời
@@ -442,6 +475,8 @@ public class TestActivity extends AppCompatActivity implements Serializable {
         result_layout = findViewById(R.id.result);
         tvResult = findViewById(R.id.tv_result);
         tvTitleResult = findViewById(R.id.tv_title_result);
+
+        historicalExamController = new HistoricalExamController(this);
     }
 
     @Override
@@ -464,5 +499,15 @@ public class TestActivity extends AppCompatActivity implements Serializable {
             UpdateQuestion(dtoQuestionSet, totalQuestion, i[0]);
             CheckedRadioButton(dtoQuestionSet, i[0]);
         }
+    }
+
+    @Override
+    public void onFetchProgress(ArrayList<HistoricalExam> histories) {
+
+    }
+
+    @Override
+    public void onFetchComplete(String message) {
+
     }
 }

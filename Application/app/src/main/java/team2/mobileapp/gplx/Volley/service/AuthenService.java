@@ -3,7 +3,6 @@ package team2.mobileapp.gplx.Volley.service;
 import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -24,8 +23,6 @@ import team2.mobileapp.gplx.Volley.callback.MySingleton;
 import team2.mobileapp.gplx.Volley.model.Account;
 import team2.mobileapp.gplx.Volley.model.dto.LoginResponse;
 import team2.mobileapp.gplx.Volley.model.dto.RegisterResponse;
-import team2.mobileapp.gplx.view.LoginActivity;
-import team2.mobileapp.gplx.view.SetNewPasswordActivity;
 
 public class AuthenService  {
     public static final String BASE_IP = "http://10.0.2.2:8080/api";

@@ -67,4 +67,16 @@ public class HistoricalExam {
     public void setTotal(int total) {
         this.total = total;
     }
+
+    @Override
+    public String toString() {
+        return "HistoricalExam{" +
+                "userid='" + userid + '\'' +
+                ", license='" + license + '\'' +
+                ", setname='" + setname + '\'' +
+                ", date='" + date + '\'' +
+                ", correct=" + correct +
+                ", total=" + total +
+                '}';
+    }
 }
