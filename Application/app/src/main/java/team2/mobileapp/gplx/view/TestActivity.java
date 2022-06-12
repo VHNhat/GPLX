@@ -138,7 +138,6 @@ public class TestActivity extends AppCompatActivity implements Serializable, His
                 boolean flag = false;
                 for (int j = 0; j < checkList.size(); j++) {
                     if (checkList.get(j).getQuestionId().equals(questionId)) {
-                        Log.i("CheckList I", String.valueOf(index));
                         flag = true;
                         break;
                     }
@@ -290,19 +289,10 @@ public class TestActivity extends AppCompatActivity implements Serializable, His
                         // trường hợp câu cuối, bấm chấm điểm
                         if (i[0] == totalQuestion) {
                             if (!isCompleted) {
-                                Log.i("CheckList size", String.valueOf(checkList.size()));
                                 Intent intent = new Intent(TestActivity.this, ResultActivity.class);
                                 intent.putExtra("Dto", dto);
                                 intent.putExtra("History", checkList);
-                                HistoricalExam history = new HistoricalExam();
-                                history.setUserid(VariableGlobal.idUser);
-                                history.setLicense(VariableGlobal.license.getName());
-                                history.setSetname(dto.getQuestionSet().getName().split(" - ")[0]);
-                                history.setDate(new SimpleDateFormat("dd-MM-yyyy").format(new Date()));
-                                history.setCorrect(UpdateScore(dto, checkList));
-                                history.setTotal(dto.getQuestList().size());
-//                                historicalExamController.addHistory(history);
-                                Log.d("History", history.toString());
+                                addNewHistory(dto);
                                 isCompleted = true;
                                 SetDisableRadioButton();
                                 startActivity(intent);
@@ -337,8 +327,20 @@ public class TestActivity extends AppCompatActivity implements Serializable, His
             }
         });
     }
+    private void addNewHistory(DtoQuestionSet dto){
+        HistoricalExam history = new HistoricalExam();
+        String Date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
+        String questionSetName=dto.getQuestionSet().getName().split(" - ")[0];
+        history.setUserid(VariableGlobal.idUser);
+        history.setLicense(VariableGlobal.license.getName());
+        history.setSetname(questionSetName);
+        history.setDate(Date);
+        history.setCorrect(CountScore(dto, checkList));
+        history.setTotal(dto.getQuestList().size());
 
-    private int UpdateScore(DtoQuestionSet dto, ArrayList<CheckRadioButton> checkList) {
+        historicalExamController.addHistory(history);
+    }
+    private int CountScore(DtoQuestionSet dto, ArrayList<CheckRadioButton> checkList) {
         List<Question> questions = dto.getQuestList();
         List<Answer> answers = dto.getAnsList();
         int rightAns = 0;
