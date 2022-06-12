@@ -138,4 +138,12 @@ public class VerifyActivity extends AppCompatActivity implements ForgotPassCallB
     public void onFetchComplete(String message) {
 
     }
+
+    @Override
+    public void onFetchCheckEmailProgress(int code) {
+
+    }
+
+
+
 }

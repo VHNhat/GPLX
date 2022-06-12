@@ -3,6 +3,7 @@ package team2.mobileapp.gplx.view;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -11,6 +12,7 @@ import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import pl.droidsonroids.gif.GifImageView;
 import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Retrofit.callbacks.ForgotPassCallBackListener;
 import team2.mobileapp.gplx.Retrofit.controllers.AccountController;
@@ -22,6 +24,7 @@ public class ForgotPasswordActivity extends AppCompatActivity implements ForgotP
     Button btnSendEmail;
     EditText etEmail;
     RelativeLayout relativeLayout;
+    GifImageView loading;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,11 +47,10 @@ public class ForgotPasswordActivity extends AppCompatActivity implements ForgotP
                     VariableGlobal.showToast(ForgotPasswordActivity.this, "Hãy nhập Email");
                 } else {
                     if (VariableGlobal.validateEmail(Email)) {
+
                         accountController = new AccountController(ForgotPasswordActivity.this);
-                        accountController.ForgotPassword(etEmail.getText().toString());
-                        Intent intent = new Intent(ForgotPasswordActivity.this, VerifyActivity.class);
-                        intent.putExtra("Email", etEmail.getText().toString());
-                        startActivity(intent);
+                        accountController.CheckEmail(etEmail.getText().toString());
+
                     } else {
                         VariableGlobal.showToast(ForgotPasswordActivity.this, "Email sai định dạng");
                     }
@@ -70,6 +72,7 @@ public class ForgotPasswordActivity extends AppCompatActivity implements ForgotP
         etEmail = findViewById(R.id.edit_email_forgot_pass);
         btnSendEmail = findViewById(R.id.btn_forgot_pass);
         relativeLayout = findViewById(R.id.forgot_layouts);
+        loading=findViewById(R.id.loading);
     }
 
     @Override
@@ -112,11 +115,32 @@ public class ForgotPasswordActivity extends AppCompatActivity implements ForgotP
 
     @Override
     public void onFetchForgotPassProgress(VerificationCode code) {
-        VariableGlobal.verificationCode = code;
+        loading.setVisibility(View.GONE);
+        if(code!=null){
+            VariableGlobal.verificationCode = code;
+            Intent intent = new Intent(ForgotPasswordActivity.this, VerifyActivity.class);
+            intent.putExtra("Email", etEmail.getText().toString());
+            startActivity(intent);
+        }
+        else{
+            VariableGlobal.showToast(ForgotPasswordActivity.this, "Gửi mã thất bại!!!");
+        }
+
     }
 
     @Override
     public void onFetchComplete(String message) {
+    }
 
+    @Override
+    public void onFetchCheckEmailProgress(int code) {
+        if(code==200 ){
+            loading.setVisibility(View.VISIBLE);
+            accountController = new AccountController(ForgotPasswordActivity.this);
+            accountController.ForgotPassword(etEmail.getText().toString());
+        }
+        else{
+            VariableGlobal.showToast(ForgotPasswordActivity.this, "Email chưa được đăng ký");
+        }
     }
 }

@@ -195,7 +195,7 @@ public class AuthenService  {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     Activity activity = (Activity) context;
-                    VariableGlobal.showToast(activity, "Email không đúng");
+                    VariableGlobal.showToast(activity, "Lỗi Email");
                 }
             }) {
                 @Override
