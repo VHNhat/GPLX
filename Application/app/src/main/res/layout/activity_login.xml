@@ -60,11 +60,11 @@
             android:layout_height="50dp"
             android:layout_below="@+id/title_login"
             android:background="@drawable/br_input"
-            android:hint="Tên đăng nhập"
+            android:hint="Tên đăng nhập / Email"
             android:inputType="text"
             android:paddingLeft="30dp"
-            android:textFontWeight="@integer/material_motion_duration_medium_1"
-            android:paddingRight="30dp" />
+            android:paddingRight="30dp"
+            android:textFontWeight="@integer/material_motion_duration_medium_1" />
 
         <EditText
             android:id="@+id/et_password_login"
