@@ -5,36 +5,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".view.MainActivity">
+    tools:context="team2.mobileapp.gplx.view.MainActivity">
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/navigation"
-        app:menu="@menu/bottom_navigation"
+        android:background="@drawable/radius"
         app:itemIconTint="@menu/active_navigation"
-        ></com.google.android.material.bottomnavigation.BottomNavigationView>
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_anchor="@id/bottomBar"
-        android:translationZ="100dp"
-        android:layout_centerHorizontal="true"
-        android:layout_above="@+id/bottomBar"
-        android:layout_marginBottom="-20dp"
+        app:itemTextColor="@color/green_main"
+        app:labelVisibilityMode="unlabeled"
+        app:menu="@menu/bottom_navigation"></com.google.android.material.bottomnavigation.BottomNavigationView>
 
-        >
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:backgroundTint="@color/green_main"
-            style="@style/ButtonRouder"
-            app:srcCompat="@drawable/plus"
-            app:elevation="0dp"/>
-    </RelativeLayout>
 
 </RelativeLayout>

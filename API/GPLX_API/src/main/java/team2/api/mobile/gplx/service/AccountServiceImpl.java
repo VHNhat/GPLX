@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 //import com.google.gson.Gson;
 
 import team2.api.mobile.gplx.commondata.GenericServiceImpl;
+import team2.api.mobile.gplx.dto.ChangePassword;
 import team2.api.mobile.gplx.dto.DtoLogin;
 import team2.api.mobile.gplx.dto.LoginResponse;
 import team2.api.mobile.gplx.dto.SignupDto;
@@ -25,23 +26,20 @@ public class AccountServiceImpl extends GenericServiceImpl<Account, String> impl
 
 	@Autowired
 	private AccountRepository repo;
-	
+
 	@Autowired
 	private RoleRepository roleRepo;
-	
+
 	@Override
-	public Account update(Account account, String id) {
+	public Account update(String id, Account account) {
 		try {
 			Account updatedAccount = repo.findById(id).get();
-			updatedAccount.setUsername(account.getUsername());
 			updatedAccount.setPassword(account.getPassword());
-			updatedAccount.setEmail(account.getEmail());
-			updatedAccount.setFirstName(account.getFirstName());
-			updatedAccount.setLastName(account.getLastName());
+			updatedAccount.setFullName(account.getFullName());
 			updatedAccount.setAvatar(account.getAvatar());
 			updatedAccount.setStatus(account.getStatus());
 			return repo.save(updatedAccount);
-		} catch(Exception ex) {
+		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
 			return null;
 		}
@@ -50,13 +48,20 @@ public class AccountServiceImpl extends GenericServiceImpl<Account, String> impl
 	@Override
 	public LoginResponse Login(DtoLogin dto) {
 		try {
-			Optional<Account> account = Optional.ofNullable(repo.findByUsernameAndPassword(dto.getUsername(),dto.getPassword()).orElse(null));
+			String usernameOrEmail = dto.getLoginType();
+			Optional<Account> account = Optional.empty(); 
+			if (usernameOrEmail.contains("@")) 
+				account = Optional.ofNullable(repo.findByEmailAndPassword(dto.getLoginType(), dto.getPassword()).get());
+			else 
+				account = Optional.ofNullable(repo.findByUsernameAndPassword(dto.getLoginType(), dto.getPassword()).orElse(null));
+			
 			LoginResponse acc = new LoginResponse();
 			acc.setId(account.get().getId());
 			acc.setUsername(account.get().getUsername());
+			acc.setEmail(account.get().getEmail());
 			acc.setRoleId(account.get().getRoleId());
 			return acc;
-		} catch(Exception ex){
+		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
 			return null;
 		}
@@ -88,10 +93,9 @@ public class AccountServiceImpl extends GenericServiceImpl<Account, String> impl
 				Role role = roleRepo.findByRoleName("User");
 				Account account = new Account();
 				account.setEmail(dto.getEmail());
+				account.setFullName(dto.getFullName());
 				account.setUsername(dto.getUsername());
 				account.setPassword(dto.getPassword());
-				account.setFirstName(dto.getFirstName());
-				account.setLastName(dto.getLastName());
 				account.setRoleId(role.getId());
 				account.setStatus(AccountStatus.ACTIVE);
 				repo.save(account);
@@ -101,6 +105,23 @@ public class AccountServiceImpl extends GenericServiceImpl<Account, String> impl
 				System.out.println(ex.getMessage());
 				return null;
 			}
+		}
+	}
+
+	@Override
+	public Account findByEmail(String email) {
+		return repo.findByEmail(email);
+	}
+
+	@Override
+	public Account changePass(String email, ChangePassword pass) {
+		try {
+			Account acc = repo.findByEmail(email);
+			acc.setPassword(pass.getNewPassword());
+			return repo.save(acc);
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+			return null;
 		}
 	}
 
