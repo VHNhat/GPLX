@@ -46,20 +46,25 @@ public class HistoryAdapter extends ArrayAdapter<HistoricalExam> {
         tvTotal.setText(String.valueOf(historyItem.getTotal()));
 
         historyLayout = (LinearLayout) convertView.findViewById(R.id.layout_history);
-        switch (historyItem.getLicense()) {
-            case "A1":
-            case "A2":
-                if (historyItem.getCorrect() < 23)
-                    historyLayout.setBackgroundTintList(ColorStateList.valueOf(convertView.getResources().getColor(R.color.failure)));
-                break;
-            case "B1":
-                if (historyItem.getCorrect() < 28)
-                    historyLayout.setBackgroundTintList(ColorStateList.valueOf(convertView.getResources().getColor(R.color.failure)));
-                break;
-            case "B2":
-                if (historyItem.getCorrect() < 32)
-                    historyLayout.setBackgroundTintList(ColorStateList.valueOf(convertView.getResources().getColor(R.color.failure)));
-                break;
+        if(historyItem != null){
+            switch (historyItem.getLicense()) {
+                case "A1":
+                    if (historyItem.getCorrect() < 21)
+                        historyLayout.setBackgroundTintList(ColorStateList.valueOf(convertView.getResources().getColor(R.color.failure)));
+                    break;
+                case "A2":
+                    if (historyItem.getCorrect() < 23)
+                        historyLayout.setBackgroundTintList(ColorStateList.valueOf(convertView.getResources().getColor(R.color.failure)));
+                    break;
+                case "B1":
+                    if (historyItem.getCorrect() < 28)
+                        historyLayout.setBackgroundTintList(ColorStateList.valueOf(convertView.getResources().getColor(R.color.failure)));
+                    break;
+                case "B2":
+                    if (historyItem.getCorrect() < 32)
+                        historyLayout.setBackgroundTintList(ColorStateList.valueOf(convertView.getResources().getColor(R.color.failure)));
+                    break;
+            }
         }
         return convertView;
     }

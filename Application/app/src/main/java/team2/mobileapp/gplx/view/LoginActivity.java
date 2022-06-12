@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -132,6 +133,7 @@ public class LoginActivity extends AppCompatActivity implements AccountCallbackL
 
                         @Override
                         public void onResponse(LoginResponse loginResponse) {
+                            Log.i("LoginResponse", loginResponse.toString());
                             VariableGlobal.idUser = loginResponse.getId();
                             // add session in android
                             SharedPreferences sharedPreferences = getSharedPreferences("User", Context.MODE_PRIVATE);

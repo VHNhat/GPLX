@@ -32,6 +32,7 @@
         android:visibility="gone"
         android:textSize="0.2in"
         android:textColor="@color/black"></TextView>
+
     <include
         android:id="@+id/bottom_bar"
         layout="@layout/activity_navigation" />
