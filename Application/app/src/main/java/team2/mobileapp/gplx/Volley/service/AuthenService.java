@@ -63,8 +63,6 @@ public class AuthenService {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    Activity activity = (Activity) context;
-                    VariableGlobal.showToast(activity, "Đăng nhập thành công!");
                     loginCallBack.onResponse(loginResponse);
                 }
             }, new Response.ErrorListener() {

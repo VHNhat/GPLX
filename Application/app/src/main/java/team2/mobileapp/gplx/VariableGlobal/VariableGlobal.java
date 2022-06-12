@@ -35,7 +35,7 @@ public class VariableGlobal {
     public static String PHOTO2 = "%2F";
     public static String PHOTO3 = "?alt=media&token=";
     public static String Token = "";
-    public static int IdNavigation = 1000010;
+    public static int IdNavigation = R.id.page_home;
     public static ArrayList<String> listMarkGlobal = new ArrayList<>();
     public static VerificationCode verificationCode = new VerificationCode();
 
@@ -53,12 +53,12 @@ public class VariableGlobal {
                         activity.startActivity(intent);
                         return true;
                     }
-                    case R.id.page_category:{
+                    case R.id.page_tutorial:{
                         Intent intent = new Intent(activity, TutorialActivity.class);
                         activity.startActivity(intent);
                         return true;
                     }
-                    case R.id.page_notice:{
+                    case R.id.page_history:{
                         Intent intent = new Intent(activity, HistoryActivity.class);
                         activity.startActivity(intent);
                         return true;

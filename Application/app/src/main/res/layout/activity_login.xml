@@ -9,8 +9,7 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/layout_br"
-        >
+        android:id="@+id/layout_br" >
 
 
         <ImageView
@@ -27,9 +26,7 @@
             android:src="@drawable/logo"
             android:layout_marginTop="10dp"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-
-            />
+            android:layout_centerHorizontal="true" />
 
     </RelativeLayout>
 
@@ -50,9 +47,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:padding="10dp"
-            android:text="ĐĂNG NHẬP"
-
-            />
+            android:text="ĐĂNG NHẬP" />
 
         <EditText
             android:id="@+id/et_username_login"
