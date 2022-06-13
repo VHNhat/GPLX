@@ -42,9 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/iv_board"
-
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp">
+            android:paddingVertical="10dp">
 
             <TextView
                 android:id="@+id/tv_list_answer"

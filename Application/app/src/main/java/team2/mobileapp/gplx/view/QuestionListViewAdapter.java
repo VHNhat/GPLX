@@ -39,19 +39,19 @@ class QuestionListViewAdapter extends ArrayAdapter<QuestionDetails> {
         TextView tvQuestion = (TextView) convertView.findViewById(R.id.tv_question_item_listview);
         TextView tvResult = (TextView) convertView.findViewById(R.id.tv_result_item_listview);
         TextView tvListAnswer = (TextView) convertView.findViewById(R.id.tv_list_answer);
-        String listAnswer="";
-        int index=arrayList.indexOf(arrayList.get(position));
-        int lenList=arrayList.get(position).getAnswer().getAnswerName().length;
+        String listAnswer = "";
+        int index = arrayList.indexOf(arrayList.get(position));
+        int lenList = arrayList.get(position).getAnswer().getAnswerName().length;
         for (int i = 0; i < lenList; i++) {
-           String item=arrayList.get(position).getAnswer().getAnswerByIndex(i);
-            listAnswer+=(i+1)+" - "+item+"\n\n";
+            String item = arrayList.get(position).getAnswer().getAnswerByIndex(i);
+            listAnswer += (i + 1) + " - " + item + (i == lenList - 1 ? "" : "\n");
         }
 
 
         int positionResult = arrayList.get(position).getAnswer().getResult();
         tvListAnswer.setText(listAnswer);
-        tvQuestion.setText("Câu "+(index+1)+". "+arrayList.get(position).getQuestion().getQuery());
-        tvResult.setText(arrayList.get(position).getAnswer().getResult()+1+" - "+arrayList.get(position).getAnswer().getAnswerByIndex(positionResult));
+        tvQuestion.setText("Câu " + (index + 1) + ". " + arrayList.get(position).getQuestion().getQuery());
+        tvResult.setText(arrayList.get(position).getAnswer().getResult() + 1 + " - " + arrayList.get(position).getAnswer().getAnswerByIndex(positionResult));
         if (!arrayList.get(position).getQuestion().getPhoto().isEmpty()) {
             try {
                 String uri = arrayList.get(position).getQuestion().getPhoto().substring(0, arrayList.get(position).getQuestion().getPhoto().length() - 4);
