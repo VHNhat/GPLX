@@ -12,10 +12,13 @@ import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Retrofit.dto.QuestionDetails;
+import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
 
 class QuestionListViewAdapter extends ArrayAdapter<QuestionDetails> {
     private Context context;
@@ -54,15 +57,22 @@ class QuestionListViewAdapter extends ArrayAdapter<QuestionDetails> {
         tvResult.setText(arrayList.get(position).getAnswer().getResult() + 1 + " - " + arrayList.get(position).getAnswer().getAnswerByIndex(positionResult));
         if (!arrayList.get(position).getQuestion().getPhoto().isEmpty()) {
             try {
-                String uri = arrayList.get(position).getQuestion().getPhoto().substring(0, arrayList.get(position).getQuestion().getPhoto().length() - 4);
-                int imageResource = context.getResources().getIdentifier(uri, "drawable", context.getPackageName());
-                Drawable res = context.getResources().getDrawable(imageResource);
                 ImageView ivBoardPhoto = (ImageView) convertView.findViewById(R.id.iv_board);
-                ivBoardPhoto.getLayoutParams().height = 600;
-                ivBoardPhoto.getLayoutParams().width = 600;
-                ivBoardPhoto.setBackgroundDrawable(ContextCompat.getDrawable(context, R.drawable.button_radius_10));
-                ivBoardPhoto.requestLayout();
-                ivBoardPhoto.setImageDrawable(res);
+                String photo = arrayList.get(position).getQuestion().getPhoto();
+
+                if(photo.trim().length()>5) {
+                    ivBoardPhoto.setVisibility(View.VISIBLE);
+                    String uri = VariableGlobal.PHOTO1 + VariableGlobal.typeCode + VariableGlobal.PHOTO2 + photo + VariableGlobal.PHOTO3 + VariableGlobal.Token;
+                    Picasso.get()
+                            .load(uri)
+                            .placeholder(com.wooplr.spotlight.R.drawable.ic_spotlight_arc)
+                            .error(com.wooplr.spotlight.R.drawable.ic_spotlight_arc)
+                            .fit()
+                            .into(ivBoardPhoto);
+                }else{
+                    ivBoardPhoto.setVisibility(View.GONE);
+                }
+
             } catch (Exception ex) {
                 Log.i("Error", "Image not exits ");
             }
