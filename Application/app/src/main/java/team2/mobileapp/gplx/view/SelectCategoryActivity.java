@@ -8,8 +8,6 @@ import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.navigation.NavigationBarView;
-
 import java.util.ArrayList;
 
 import team2.mobileapp.gplx.R;

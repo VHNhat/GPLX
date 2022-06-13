@@ -14,8 +14,6 @@ import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.navigation.NavigationBarView;
-
 import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Retrofit.callbacks.AccountCallbackListener;
 import team2.mobileapp.gplx.Retrofit.controllers.AccountController;

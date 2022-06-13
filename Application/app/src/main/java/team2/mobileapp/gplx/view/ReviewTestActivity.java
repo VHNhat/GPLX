@@ -32,7 +32,7 @@ public class ReviewTestActivity extends AppCompatActivity implements QuestionSet
         super.onCreate(savedInstanceState);
         overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
         setContentView(R.layout.activity_review_test);
-        String license=VariableGlobal.typeCode;
+        String license= VariableGlobal.typeCode;
         String title= getIntent().getStringExtra("TITLE");
         titleActivity = findViewById(R.id.tv_title_activity_app);
         groupTest = findViewById(R.id.lv_group_test);
